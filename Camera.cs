@@ -13,6 +13,8 @@ public partial class Camera : Camera2D {
   }
 
   public override void _Process(double delta) {
+    return;
+    
     var mousePosition = GetViewport().GetMousePosition();
     var newPosition = Position;
 

@@ -27,6 +27,11 @@ public partial class Root : Node2D {
       get => _Interior ??= parent.GetNode<Sprite2D>("Interior");
     }
 
+    private Sprite2D? _Rolodex;
+    public Sprite2D Rolodex {
+      get => _Rolodex ??= parent.GetNode<Sprite2D>("Rolodex");
+    }
+
     private CanvasLayer? _CanvasLayer;
     public CanvasLayer CanvasLayer {
       get => _CanvasLayer ??= parent.GetNode<CanvasLayer>("CanvasLayer");
@@ -55,6 +60,11 @@ public partial class Root : Node2D {
     private Button? _CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRestaurant;
     public Button CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRestaurant {
       get => _CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRestaurant ??= parent.GetNode<Button>("CanvasLayer/Container/MarginContainer/HBoxContainer/GoToRestaurant");
+    }
+
+    private Button? _CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRolodex;
+    public Button CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRolodex {
+      get => _CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRolodex ??= parent.GetNode<Button>("CanvasLayer/Container/MarginContainer/HBoxContainer/GoToRolodex");
     }
 
     private Camera? _Camera;
