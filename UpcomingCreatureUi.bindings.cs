@@ -22,9 +22,24 @@ public partial class UpcomingCreatureUi : ColorRect {
       get => _Popover ??= parent.GetNode<PanelContainer>("Popover");
     }
 
-    private Label? _Popover_Label;
-    public Label Popover_Label {
-      get => _Popover_Label ??= parent.GetNode<Label>("Popover/Label");
+    private MarginContainer? _Popover_MarginContainer;
+    public MarginContainer Popover_MarginContainer {
+      get => _Popover_MarginContainer ??= parent.GetNode<MarginContainer>("Popover/MarginContainer");
+    }
+
+    private VBoxContainer? _Popover_MarginContainer_VBoxContainer;
+    public VBoxContainer Popover_MarginContainer_VBoxContainer {
+      get => _Popover_MarginContainer_VBoxContainer ??= parent.GetNode<VBoxContainer>("Popover/MarginContainer/VBoxContainer");
+    }
+
+    private Label? _Popover_MarginContainer_VBoxContainer_Title;
+    public Label Popover_MarginContainer_VBoxContainer_Title {
+      get => _Popover_MarginContainer_VBoxContainer_Title ??= parent.GetNode<Label>("Popover/MarginContainer/VBoxContainer/Title");
+    }
+
+    private Label? _Popover_MarginContainer_VBoxContainer_Description;
+    public Label Popover_MarginContainer_VBoxContainer_Description {
+      get => _Popover_MarginContainer_VBoxContainer_Description ??= parent.GetNode<Label>("Popover/MarginContainer/VBoxContainer/Description");
     }
 
   }

@@ -4,8 +4,13 @@ using Godot;
 namespace ld56;
 using static Utils;
 
+public class CreatureAndUiElement {
+  public SpawnedCreature Creature;
+  public UpcomingCreatureUi UiElement;
+}
+
 public partial class ListOfCreatures : HBoxContainer {
-  List<UpcomingCreatureUi> CreatureUiElements = [];
+  List<CreatureAndUiElement> CreatureUiElements = [];
 
   public override void _Ready() {
   }
@@ -18,13 +23,18 @@ public partial class ListOfCreatures : HBoxContainer {
       var ui = UpcomingCreatureUi.New();
       ui.Initialize(creature);
 
-      CreatureUiElements.Add(ui);
+      CreatureUiElements.Add(new CreatureAndUiElement {
+        Creature = creature,
+        UiElement = ui
+      });
       AddChild(ui);
-
-      print(ui);
     }
   }
 
   public void Update(List<SpawnedCreature> creatures) {
+    foreach (var creature in creatures) {
+      var creatureAndUi = CreatureUiElements.Find(c => c.Creature == creature);
+      creatureAndUi.UiElement.Update(creature);
+    }
   }
 }

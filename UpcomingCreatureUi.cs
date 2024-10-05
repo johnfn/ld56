@@ -24,4 +24,9 @@ public partial class UpcomingCreatureUi : ColorRect {
 
   public override void _Process(double delta) {
   }
+
+  public void Update(SpawnedCreature creature) {
+    Nodes.Popover_MarginContainer_VBoxContainer_Title.Text = creature.Creature.Name;
+    Nodes.Popover_MarginContainer_VBoxContainer_Description.Text = creature.Creature.Description;
+  }
 }
