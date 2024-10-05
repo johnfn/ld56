@@ -27,6 +27,26 @@ public partial class Root : Node2D {
       get => _Rolodex ??= parent.GetNode<Sprite2D>("Rolodex");
     }
 
+    private PanelContainer? _Rolodex_PanelContainer;
+    public PanelContainer Rolodex_PanelContainer {
+      get => _Rolodex_PanelContainer ??= parent.GetNode<PanelContainer>("Rolodex/PanelContainer");
+    }
+
+    private TabContainer? _Rolodex_PanelContainer_TabContainer;
+    public TabContainer Rolodex_PanelContainer_TabContainer {
+      get => _Rolodex_PanelContainer_TabContainer ??= parent.GetNode<TabContainer>("Rolodex/PanelContainer/TabContainer");
+    }
+
+    private Panel? _Rolodex_PanelContainer_TabContainer_People;
+    public Panel Rolodex_PanelContainer_TabContainer_People {
+      get => _Rolodex_PanelContainer_TabContainer_People ??= parent.GetNode<Panel>("Rolodex/PanelContainer/TabContainer/People");
+    }
+
+    private Panel? _Rolodex_PanelContainer_TabContainer_Recipes;
+    public Panel Rolodex_PanelContainer_TabContainer_Recipes {
+      get => _Rolodex_PanelContainer_TabContainer_Recipes ??= parent.GetNode<Panel>("Rolodex/PanelContainer/TabContainer/Recipes");
+    }
+
     private CanvasLayer? _CanvasLayer;
     public CanvasLayer CanvasLayer {
       get => _CanvasLayer ??= parent.GetNode<CanvasLayer>("CanvasLayer");
