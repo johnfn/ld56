@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://6tml4ytuolux"]
+[gd_scene load_steps=20 format=3 uid="uid://baqlqmbasgslw"]
 
 [ext_resource type="PackedScene" uid="uid://cxid1wlon1lvg" path="res://list_of_people.tscn" id="1_1te6p"]
 [ext_resource type="Script" path="res://Hud.cs" id="1_eqs7q"]
-[ext_resource type="PackedScene" uid="uid://cl4p3lwxo5lsa" path="res://Rolodex.tscn" id="3_cpfkf"]
+[ext_resource type="PackedScene" path="res://Rolodex.tscn" id="3_cpfkf"]
 [ext_resource type="Texture2D" uid="uid://b6x8mab8cbrqo" path="res://Assets/UI_Interior_Arrow_Left.png" id="3_i8kw0"]
-[ext_resource type="PackedScene" uid="uid://6lka55lm0755" path="res://CoolButton.tscn" id="3_tp0ts"]
+[ext_resource type="PackedScene" path="res://CoolButton.tscn" id="3_tp0ts"]
 [ext_resource type="Texture2D" uid="uid://bkaqtippwahvp" path="res://Assets/newspaper.png" id="4_eaora"]
 [ext_resource type="PackedScene" uid="uid://07sx5xgd03q2" path="res://dialog_box.tscn" id="4_xc7oc"]
 [ext_resource type="Script" path="res://CoolButton.cs" id="5_w24eq"]

@@ -36,7 +36,7 @@ public class SpawnedCreature {
   public required Node2D? Instance;
   public required CurrentScreen CurrentScreen;
   public required HighlightCircle? SelectedChair;
-  public required Dialog Dialog;
+  public required List<IDialogItem> Dialog;
 }
 
 public class Chair {
@@ -294,11 +294,13 @@ public partial class AnimalManager : Node2D {
     Mode = GameMode.Normal;
   }
 
-  public void StartDialog(SpawnedCreature spawnedCreature) {
+  public async void StartDialog(SpawnedCreature spawnedCreature) {
     if (Mode == GameMode.Normal) {
       Mode = GameMode.Dialog;
 
-      Root.Instance.Nodes.HUD.Nodes.DialogBox.ShowDialog(spawnedCreature.Dialog);
+      await Root.Instance.Nodes.HUD.Nodes.DialogBox.ShowDialog(spawnedCreature.Dialog);
+
+      Mode = GameMode.Normal;
     }
   }
 }

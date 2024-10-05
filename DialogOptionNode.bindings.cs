@@ -1,5 +1,5 @@
 using Godot;
-
+namespace ld56;
 
 public partial class DialogOptionNode : Label {
   public static DialogOptionNode New() {

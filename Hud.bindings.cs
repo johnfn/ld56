@@ -32,11 +32,6 @@ public partial class Hud : CanvasLayer {
       get => _Container_MarginContainer_HBoxContainer ??= parent.GetNode<HBoxContainer>("Container/MarginContainer/HBoxContainer");
     }
 
-    private Button? _ExteriorButton;
-    public Button ExteriorButton {
-      get => _ExteriorButton ??= parent.GetNode<Button>("ExteriorButton");
-    }
-
     private Button? _RolodexButton;
     public Button RolodexButton {
       get => _RolodexButton ??= parent.GetNode<Button>("RolodexButton");
@@ -80,6 +75,11 @@ public partial class Hud : CanvasLayer {
     private ListOfCreatures? _Container_MarginContainer_HBoxContainer_ListOfCreatures;
     public ListOfCreatures Container_MarginContainer_HBoxContainer_ListOfCreatures {
       get => _Container_MarginContainer_HBoxContainer_ListOfCreatures ??= parent.GetNode<ListOfCreatures>("Container/MarginContainer/HBoxContainer/ListOfCreatures");
+    }
+
+    private CoolButton? _ExteriorButton;
+    public CoolButton ExteriorButton {
+      get => _ExteriorButton ??= parent.GetNode<CoolButton>("ExteriorButton");
     }
 
     private Rolodex? _Rolodex;

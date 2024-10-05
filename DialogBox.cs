@@ -1,10 +1,10 @@
 using Godot;
-
+using System.Collections.Generic;
 using System.Threading.Tasks;
 namespace ld56;
+using static Utils;
 
 public partial class DialogBox : PanelContainer {
-  public Dialog Dialog { get; set; }
   private bool _isMouseDown = false;
 
   public override void _Ready() {
@@ -19,8 +19,7 @@ public partial class DialogBox : PanelContainer {
     }
   }
 
-  public async Task ShowDialog(Dialog dialog) {
-    Dialog = dialog;
+  public async Task ShowDialog(List<IDialogItem> dialog) {
     Visible = true;
     Nodes.HBoxContainer_VBoxContainer_Label.Text = "";
     Nodes.HBoxContainer_DialogTextVBoxContainer_DialogText.Text = "";
@@ -30,7 +29,7 @@ public partial class DialogBox : PanelContainer {
       await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
     }
 
-    foreach (var item in dialog.Items) {
+    foreach (var item in dialog) {
       switch (item) {
         case DialogItem dialogItem:
           Nodes.HBoxContainer_DialogTextVBoxContainer.Visible = true;
@@ -59,11 +58,34 @@ public partial class DialogBox : PanelContainer {
             child.QueueFree();
           }
 
-          foreach (var option in dialogOptions.Options) {
+          int? selectedOption = null;
+
+          for (int i = 0; i < dialogOptions.Options.Count; i++) {
+            var option = dialogOptions.Options[i];
             var newOption = DialogOptionNode.New();
             newOption.Text = option.OptionText;
 
             Nodes.HBoxContainer_OptionsVBoxContainer.AddChild(newOption);
+
+            var index = i;
+
+            newOption.OptionClicked += () => {
+              selectedOption = index;
+            };
+          }
+
+          while (selectedOption == null) {
+            await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+          }
+
+          print($"Selected option: {selectedOption}");
+
+          var onSelect = dialogOptions.Options[selectedOption.Value].OnSelect;
+
+          if (onSelect != null) {
+            await ShowDialog(onSelect());
+
+            return;
           }
 
           break;
@@ -95,5 +117,7 @@ public partial class DialogBox : PanelContainer {
       Nodes.HBoxContainer_DialogTextVBoxContainer_DialogText.Text = "";
       Nodes.HBoxContainer_DialogTextVBoxContainer_ClickToContinue.Visible = false;
     }
+
+    Visible = false;
   }
 }
