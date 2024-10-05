@@ -32,6 +32,11 @@ public class SpawnedCreature {
   public required HighlightCircle? DestinationChair;
 }
 
+public class Chair {
+  public required HighlightCircle Circle;
+  public required SpawnedCreature? Creature;
+}
+
 public partial class AnimalManager : Node2D {
   public SpawnedCreature? CreatureCurrentlyBeingSit;
   public List<SpawnedCreature> UpcomingCreatures = [
@@ -42,6 +47,33 @@ public partial class AnimalManager : Node2D {
     //   Instance = null,
     //   CurrentScreen = CurrentScreen.Nowhere,
     // },
+
+    new SpawnedCreature {
+      Creature = AllCreatures.MrsCow,
+      SpawnDelay = 0,
+      State = CreatureState.WaitForTable,
+      Instance = null,
+      CurrentScreen = CurrentScreen.Interior,
+      DestinationChair = null,
+    },
+
+    new SpawnedCreature {
+      Creature = AllCreatures.MrChicken,
+      SpawnDelay = 0,
+      State = CreatureState.WaitForTable,
+      Instance = null,
+      CurrentScreen = CurrentScreen.Interior,
+      DestinationChair = null,
+    },
+
+    new SpawnedCreature {
+      Creature = AllCreatures.MrsCow,
+      SpawnDelay = 0,
+      State = CreatureState.WaitForTable,
+      Instance = null,
+      CurrentScreen = CurrentScreen.Interior,
+      DestinationChair = null,
+    },
 
     new SpawnedCreature {
       Creature = AllCreatures.MrChicken,
@@ -62,11 +94,25 @@ public partial class AnimalManager : Node2D {
     },
   ];
 
+  public List<Chair> Chairs = [];
+
   public override void _Ready() {
   }
 
   public void Initialize() {
     Root.Instance.ListOfCreatures.Initialize(UpcomingCreatures);
+
+    // Initialize chairs
+    foreach (var chair in Root.Instance.Nodes.Interior.Nodes.Chairs.GetChildren()) {
+      if (chair is HighlightCircle highlightCircle) {
+        Chairs.Add(new Chair {
+          Circle = highlightCircle,
+          Creature = null,
+        });
+
+        highlightCircle.Visible = false;
+      }
+    }
   }
 
   public override void _Process(double delta) {
@@ -184,7 +230,12 @@ public partial class AnimalManager : Node2D {
   }
 
   public void Sit(SpawnedCreature spawnedCreature) {
-    Root.Instance.Nodes.Interior.Nodes.Chairs.Visible = true;
+    foreach (var chair in Chairs) {
+      if (chair.Creature == null) {
+        chair.Circle.Visible = true;
+      }
+    }
+
     CreatureCurrentlyBeingSit = spawnedCreature;
   }
 
@@ -197,9 +248,19 @@ public partial class AnimalManager : Node2D {
       return;
     }
 
-    Root.Instance.Nodes.Interior.Nodes.Chairs.Visible = false;
     CreatureCurrentlyBeingSit.DestinationChair = circle;
     CreatureCurrentlyBeingSit.State = CreatureState.WalkToTable;
+
+    var chairToUpdate = Chairs.Find(c => c.Circle == circle);
+    if (chairToUpdate == null) {
+      return;
+    }
+
+    chairToUpdate.Creature = CreatureCurrentlyBeingSit;
+
+    foreach (var chair in Chairs) {
+      chair.Circle.Visible = false;
+    }
 
     CreatureCurrentlyBeingSit = null;
   }
