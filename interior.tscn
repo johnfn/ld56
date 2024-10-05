@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dydo884ty4kdb"]
 
-[ext_resource type="Texture2D" uid="uid://bwkuinfjoxi43" path="res://Assets/Temp_Interior.png" id="1_xtgvl"]
+[ext_resource type="Texture2D" uid="uid://dao638tuiqy3r" path="res://Assets/Interior_BG.png" id="1_rau6r"]
 [ext_resource type="Script" path="res://Interior.cs" id="2_nxgdb"]
 [ext_resource type="PackedScene" uid="uid://0pvu3gdqahdj" path="res://highlight_circle.tscn" id="3_17ai5"]
 
@@ -8,7 +8,7 @@
 size = Vector2(148.732, 146.16)
 
 [node name="Interior" type="Sprite2D"]
-texture = ExtResource("1_xtgvl")
+texture = ExtResource("1_rau6r")
 centered = false
 script = ExtResource("2_nxgdb")
 
