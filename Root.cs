@@ -23,6 +23,10 @@ public partial class Root : Node2D {
       UpdateCurrentScreen(GameScreen.Restaurant);
     };
 
+    Nodes.CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRolodex.Pressed += () => {
+      UpdateCurrentScreen(GameScreen.Rolodex);
+    };
+
     UpdateCurrentScreen(CurrentScreen);
   }
 
@@ -36,10 +40,12 @@ public partial class Root : Node2D {
 
     Nodes.CanvasLayer_Container_MarginContainer_HBoxContainer_GoToExterior.Disabled = CurrentScreen == GameScreen.Exterior;
     Nodes.CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRestaurant.Disabled = CurrentScreen == GameScreen.Restaurant;
+    Nodes.CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRolodex.Disabled = CurrentScreen == GameScreen.Rolodex;
 
     var node = CurrentScreen switch {
       GameScreen.Exterior => Nodes.Exterior,
       GameScreen.Restaurant => Nodes.Interior,
+      GameScreen.Rolodex => Nodes.Rolodex,
       _ => throw new NotImplementedException(),
     };
 
