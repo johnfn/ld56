@@ -17,11 +17,6 @@ public partial class Root : Node2D {
     public RootNodes(Root parent) {
       this.parent = parent;
     }
-    private Sprite2D? _Exterior;
-    public Sprite2D Exterior {
-      get => _Exterior ??= parent.GetNode<Sprite2D>("Exterior");
-    }
-
     private Sprite2D? _Interior;
     public Sprite2D Interior {
       get => _Interior ??= parent.GetNode<Sprite2D>("Interior");
@@ -65,6 +60,12 @@ public partial class Root : Node2D {
     private Button? _CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRolodex;
     public Button CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRolodex {
       get => _CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRolodex ??= parent.GetNode<Button>("CanvasLayer/Container/MarginContainer/HBoxContainer/GoToRolodex");
+    }
+
+    // Can't find a script for Sprite2D, so we use a more basic type here. 
+    private Sprite2D? _Exterior;
+    public Sprite2D Exterior {
+      get => _Exterior ??= parent.GetNode<Sprite2D>("Exterior");
     }
 
     private Camera? _Camera;

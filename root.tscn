@@ -1,23 +1,19 @@
 [gd_scene load_steps=7 format=3 uid="uid://cfniuyne644nj"]
 
-[ext_resource type="Texture2D" uid="uid://ct7hadam6wpe5" path="res://Assets/Exterior.png" id="1_i8d18"]
 [ext_resource type="Script" path="res://Root.cs" id="1_pn6rf"]
 [ext_resource type="Texture2D" uid="uid://c1lsub0q61nis" path="res://New Project (17).png" id="2_nmq7d"]
+[ext_resource type="PackedScene" uid="uid://bumbohrg72245" path="res://exterior.tscn" id="2_xbt5w"]
 [ext_resource type="Texture2D" uid="uid://df3vilv8ttvso" path="res://Assets/rolodex.jpg" id="4_73ram"]
-[ext_resource type="PackedScene" path="res://camera.tscn" id="4_wuin5"]
-[ext_resource type="PackedScene" uid="uid://djadnevbldc8g" path="res://list_of_people.tscn" id="5_53v04"]
+[ext_resource type="PackedScene" uid="uid://wgl3cuvhud0t" path="res://camera.tscn" id="4_wuin5"]
+[ext_resource type="PackedScene" uid="uid://drdgs1oscnynx" path="res://list_of_people.tscn" id="5_53v04"]
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_pn6rf")
 
-[node name="Exterior" type="Sprite2D" parent="."]
-position = Vector2(-2403, -0.999998)
-scale = Vector2(1.86806, 1.79583)
-texture = ExtResource("1_i8d18")
-centered = false
+[node name="Exterior" parent="." instance=ExtResource("2_xbt5w")]
 
 [node name="Interior" type="Sprite2D" parent="."]
-position = Vector2(9.55557, 7.00002)
+position = Vector2(-2273, 7)
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("2_nmq7d")
 centered = false
