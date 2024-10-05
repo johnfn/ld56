@@ -32,24 +32,29 @@ public partial class Hud : CanvasLayer {
       get => _Container_MarginContainer_HBoxContainer ??= parent.GetNode<HBoxContainer>("Container/MarginContainer/HBoxContainer");
     }
 
-    private Button? _Container_MarginContainer_HBoxContainer_GoToExterior;
-    public Button Container_MarginContainer_HBoxContainer_GoToExterior {
-      get => _Container_MarginContainer_HBoxContainer_GoToExterior ??= parent.GetNode<Button>("Container/MarginContainer/HBoxContainer/GoToExterior");
+    private Button? _ExteriorButton;
+    public Button ExteriorButton {
+      get => _ExteriorButton ??= parent.GetNode<Button>("ExteriorButton");
     }
 
-    private Button? _Container_MarginContainer_HBoxContainer_GoToRestaurant;
-    public Button Container_MarginContainer_HBoxContainer_GoToRestaurant {
-      get => _Container_MarginContainer_HBoxContainer_GoToRestaurant ??= parent.GetNode<Button>("Container/MarginContainer/HBoxContainer/GoToRestaurant");
+    private Button? _RolodexButton;
+    public Button RolodexButton {
+      get => _RolodexButton ??= parent.GetNode<Button>("RolodexButton");
     }
 
-    private Button? _Container_MarginContainer_HBoxContainer_GoToRolodex;
-    public Button Container_MarginContainer_HBoxContainer_GoToRolodex {
-      get => _Container_MarginContainer_HBoxContainer_GoToRolodex ??= parent.GetNode<Button>("Container/MarginContainer/HBoxContainer/GoToRolodex");
+    private Button? _InteriorButton;
+    public Button InteriorButton {
+      get => _InteriorButton ??= parent.GetNode<Button>("InteriorButton");
     }
 
     private ListOfCreatures? _Container_MarginContainer_HBoxContainer_ListOfCreatures;
     public ListOfCreatures Container_MarginContainer_HBoxContainer_ListOfCreatures {
       get => _Container_MarginContainer_HBoxContainer_ListOfCreatures ??= parent.GetNode<ListOfCreatures>("Container/MarginContainer/HBoxContainer/ListOfCreatures");
+    }
+
+    private Rolodex? _Rolodex;
+    public Rolodex Rolodex {
+      get => _Rolodex ??= parent.GetNode<Rolodex>("Rolodex");
     }
 
   }
