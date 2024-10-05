@@ -37,19 +37,44 @@ public partial class DialogBox : PanelContainer {
       get => _HBoxContainer_VBoxContainer_Label ??= parent.GetNode<Label>("HBoxContainer/VBoxContainer/Label");
     }
 
-    private VBoxContainer? _HBoxContainer_VBoxContainer2;
-    public VBoxContainer HBoxContainer_VBoxContainer2 {
-      get => _HBoxContainer_VBoxContainer2 ??= parent.GetNode<VBoxContainer>("HBoxContainer/VBoxContainer2");
+    private VBoxContainer? _HBoxContainer_DialogTextVBoxContainer;
+    public VBoxContainer HBoxContainer_DialogTextVBoxContainer {
+      get => _HBoxContainer_DialogTextVBoxContainer ??= parent.GetNode<VBoxContainer>("HBoxContainer/DialogTextVBoxContainer");
     }
 
-    private Label? _HBoxContainer_VBoxContainer2_DialogText;
-    public Label HBoxContainer_VBoxContainer2_DialogText {
-      get => _HBoxContainer_VBoxContainer2_DialogText ??= parent.GetNode<Label>("HBoxContainer/VBoxContainer2/DialogText");
+    private Label? _HBoxContainer_DialogTextVBoxContainer_DialogText;
+    public Label HBoxContainer_DialogTextVBoxContainer_DialogText {
+      get => _HBoxContainer_DialogTextVBoxContainer_DialogText ??= parent.GetNode<Label>("HBoxContainer/DialogTextVBoxContainer/DialogText");
     }
 
-    private Label? _HBoxContainer_VBoxContainer2_ClickToContinue;
-    public Label HBoxContainer_VBoxContainer2_ClickToContinue {
-      get => _HBoxContainer_VBoxContainer2_ClickToContinue ??= parent.GetNode<Label>("HBoxContainer/VBoxContainer2/ClickToContinue");
+    private Label? _HBoxContainer_DialogTextVBoxContainer_ClickToContinue;
+    public Label HBoxContainer_DialogTextVBoxContainer_ClickToContinue {
+      get => _HBoxContainer_DialogTextVBoxContainer_ClickToContinue ??= parent.GetNode<Label>("HBoxContainer/DialogTextVBoxContainer/ClickToContinue");
+    }
+
+    private VBoxContainer? _HBoxContainer_OptionsVBoxContainer;
+    public VBoxContainer HBoxContainer_OptionsVBoxContainer {
+      get => _HBoxContainer_OptionsVBoxContainer ??= parent.GetNode<VBoxContainer>("HBoxContainer/OptionsVBoxContainer");
+    }
+
+    private Label? _HBoxContainer_OptionsVBoxContainer_ClickToContinue;
+    public Label HBoxContainer_OptionsVBoxContainer_ClickToContinue {
+      get => _HBoxContainer_OptionsVBoxContainer_ClickToContinue ??= parent.GetNode<Label>("HBoxContainer/OptionsVBoxContainer/ClickToContinue");
+    }
+
+    private DialogOptionNode? _HBoxContainer_OptionsVBoxContainer_DialogOption;
+    public DialogOptionNode HBoxContainer_OptionsVBoxContainer_DialogOption {
+      get => _HBoxContainer_OptionsVBoxContainer_DialogOption ??= parent.GetNode<DialogOptionNode>("HBoxContainer/OptionsVBoxContainer/DialogOption");
+    }
+
+    private DialogOptionNode? _HBoxContainer_OptionsVBoxContainer_DialogOption2;
+    public DialogOptionNode HBoxContainer_OptionsVBoxContainer_DialogOption2 {
+      get => _HBoxContainer_OptionsVBoxContainer_DialogOption2 ??= parent.GetNode<DialogOptionNode>("HBoxContainer/OptionsVBoxContainer/DialogOption2");
+    }
+
+    private DialogOptionNode? _HBoxContainer_OptionsVBoxContainer_DialogOption3;
+    public DialogOptionNode HBoxContainer_OptionsVBoxContainer_DialogOption3 {
+      get => _HBoxContainer_OptionsVBoxContainer_DialogOption3 ??= parent.GetNode<DialogOptionNode>("HBoxContainer/OptionsVBoxContainer/DialogOption3");
     }
 
   }

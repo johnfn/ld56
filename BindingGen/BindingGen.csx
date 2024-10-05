@@ -418,7 +418,14 @@ class MyCodegen {
     }
 
     var scriptPath = rootScript.FilePath;
-    var fileContents = File.ReadAllText(scriptPath);
+    string fileContents;
+    try {
+      fileContents = File.ReadAllText(scriptPath);
+    }
+    catch {
+      Console.WriteLine("Couldn't read file {0}", scriptPath);
+      return;
+    }
     var className = rootScript.ClassName;
     var regex = new Regex(@"public partial class (?<" + className + @">.+) : (?<superClassName>.+) {");
     var match = regex.Match(fileContents);

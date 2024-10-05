@@ -23,8 +23,8 @@ public partial class DialogBox : PanelContainer {
     Dialog = dialog;
     Visible = true;
     Nodes.HBoxContainer_VBoxContainer_Label.Text = "";
-    Nodes.HBoxContainer_VBoxContainer2_DialogText.Text = "";
-    Nodes.HBoxContainer_VBoxContainer2_ClickToContinue.Visible = false;
+    Nodes.HBoxContainer_DialogTextVBoxContainer_DialogText.Text = "";
+    Nodes.HBoxContainer_DialogTextVBoxContainer_ClickToContinue.Visible = false;
 
     while (_isMouseDown) {
       await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
@@ -33,10 +33,12 @@ public partial class DialogBox : PanelContainer {
     foreach (var item in dialog.Items) {
       switch (item) {
         case DialogItem dialogItem:
+          Nodes.HBoxContainer_DialogTextVBoxContainer.Visible = true;
+          Nodes.HBoxContainer_OptionsVBoxContainer.Visible = false;
           Nodes.HBoxContainer_VBoxContainer_Label.Text = dialogItem.Speaker;
 
           for (int i = 0; i < dialogItem.Text.Length; i++) {
-            Nodes.HBoxContainer_VBoxContainer2_DialogText.Text += dialogItem.Text[i];
+            Nodes.HBoxContainer_DialogTextVBoxContainer_DialogText.Text += dialogItem.Text[i];
 
             for (int j = 0; j < 20; j++) {
               if (_isMouseDown) {
@@ -50,13 +52,19 @@ public partial class DialogBox : PanelContainer {
           break;
 
         case DialogOptions dialogOptions:
-          Nodes.HBoxContainer_VBoxContainer_Label.Text = "";
+          Nodes.HBoxContainer_DialogTextVBoxContainer.Visible = false;
+          Nodes.HBoxContainer_OptionsVBoxContainer.Visible = true;
 
-          // foreach (var option in dialogOptions.Options) {
-          //   if (option.IsAvailable == null || option.IsAvailable()) {
-          //     GD.Print($"Option: {option.OptionText}");
-          //   }
-          // }
+          foreach (var child in Nodes.HBoxContainer_OptionsVBoxContainer.GetChildren()) {
+            child.QueueFree();
+          }
+
+          foreach (var option in dialogOptions.Options) {
+            var newOption = DialogOptionNode.New();
+            newOption.Text = option.OptionText;
+
+            Nodes.HBoxContainer_OptionsVBoxContainer.AddChild(newOption);
+          }
 
           break;
 
@@ -72,7 +80,7 @@ public partial class DialogBox : PanelContainer {
         }
       }
 
-      Nodes.HBoxContainer_VBoxContainer2_ClickToContinue.Visible = true;
+      Nodes.HBoxContainer_DialogTextVBoxContainer_ClickToContinue.Visible = true;
 
       while (!_isMouseDown) {
         await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
@@ -84,8 +92,8 @@ public partial class DialogBox : PanelContainer {
 
       await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
 
-      Nodes.HBoxContainer_VBoxContainer2_DialogText.Text = "";
-      Nodes.HBoxContainer_VBoxContainer2_ClickToContinue.Visible = false;
+      Nodes.HBoxContainer_DialogTextVBoxContainer_DialogText.Text = "";
+      Nodes.HBoxContainer_DialogTextVBoxContainer_ClickToContinue.Visible = false;
     }
   }
 }

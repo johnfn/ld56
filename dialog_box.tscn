@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://07sx5xgd03q2"]
+[gd_scene load_steps=4 format=3 uid="uid://07sx5xgd03q2"]
 
 [ext_resource type="Script" path="res://DialogBox.cs" id="1_7kf6x"]
 [ext_resource type="Texture2D" uid="uid://cw6wbj1j30eoy" path="res://Assets/Temp_Guest-A.png" id="1_sloc4"]
+[ext_resource type="PackedScene" uid="uid://btiw58tqy4v2" path="res://dialog_option_node.tscn" id="3_lxqt1"]
 
 [node name="DialogBox" type="PanelContainer"]
 offset_top = 2.0
@@ -25,20 +26,40 @@ theme_override_font_sizes/font_size = 48
 text = "Mrs. Chicken
 "
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+[node name="DialogTextVBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 
-[node name="DialogText" type="Label" parent="HBoxContainer/VBoxContainer2"]
+[node name="DialogText" type="Label" parent="HBoxContainer/DialogTextVBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "I am a big chicken. "
 autowrap_mode = 2
 
-[node name="ClickToContinue" type="Label" parent="HBoxContainer/VBoxContainer2"]
+[node name="ClickToContinue" type="Label" parent="HBoxContainer/DialogTextVBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.783203, 0.783203, 0.783203, 1)
 theme_override_font_sizes/font_size = 32
 text = "Click to continue"
+autowrap_mode = 2
+
+[node name="OptionsVBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="DialogOption" parent="HBoxContainer/OptionsVBoxContainer" instance=ExtResource("3_lxqt1")]
+layout_mode = 2
+
+[node name="DialogOption2" parent="HBoxContainer/OptionsVBoxContainer" instance=ExtResource("3_lxqt1")]
+layout_mode = 2
+
+[node name="DialogOption3" parent="HBoxContainer/OptionsVBoxContainer" instance=ExtResource("3_lxqt1")]
+layout_mode = 2
+
+[node name="ClickToContinue" type="Label" parent="HBoxContainer/OptionsVBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.783203, 0.783203, 0.783203, 1)
+theme_override_font_sizes/font_size = 32
+text = "Choose an option"
 autowrap_mode = 2
