@@ -28,7 +28,7 @@ public struct Dialog {
   public List<IDialogComponent> Items { get; set; }
 }
 
-public static class Dialogs {
+public static class AllDialog {
   public static Dialog MrChicken = new Dialog {
     Items = [
       new DialogItem { Text = "Hello, I am Mr. Chicken", Speaker = "Mr. Chicken" },

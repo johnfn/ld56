@@ -14,7 +14,7 @@ public enum CreatureState {
   WalkInside,
   WaitForTable,
   WalkToTable,
-  SittingAtTable,
+  WaitForTalk,
 }
 
 public enum CurrentScreen {
@@ -59,21 +59,21 @@ public partial class AnimalManager : Node2D {
     new SpawnedCreature {
       Creature = AllCreatures.MrsCow,
       SpawnDelay = 0,
-      State = CreatureState.SittingAtTable,
+      State = CreatureState.WaitForTalk,
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       SelectedChair = null,
-      Dialog = Dialogs.MrsCow,
+      Dialog = AllDialog.MrsCow,
     },
 
     new SpawnedCreature {
       Creature = AllCreatures.MrChicken,
       SpawnDelay = 0,
-      State = CreatureState.SittingAtTable,
+      State = CreatureState.WaitForTalk,
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       SelectedChair = null,
-      Dialog = Dialogs.MrChicken,
+      Dialog = AllDialog.MrChicken,
     },
 
     new SpawnedCreature {
@@ -83,7 +83,7 @@ public partial class AnimalManager : Node2D {
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       SelectedChair = null,
-      Dialog = Dialogs.MrsCow,
+      Dialog = AllDialog.MrsCow,
     },
 
     new SpawnedCreature {
@@ -93,7 +93,7 @@ public partial class AnimalManager : Node2D {
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       SelectedChair = null,
-      Dialog = Dialogs.MrChicken,
+      Dialog = AllDialog.MrChicken,
     },
 
     new SpawnedCreature {
@@ -103,7 +103,7 @@ public partial class AnimalManager : Node2D {
       Instance = null,
       CurrentScreen = CurrentScreen.Nowhere,
       SelectedChair = null,
-      Dialog = Dialogs.MrsCow,
+      Dialog = AllDialog.MrsCow,
     },
   ];
 
@@ -142,7 +142,7 @@ public partial class AnimalManager : Node2D {
           animal.Instance.GlobalPosition = Root.Instance.Nodes.Interior.Nodes.InteriorAnimalSpawnArea.GlobalPosition;
         }
 
-        if (animal.State == CreatureState.SittingAtTable) {
+        if (animal.State == CreatureState.WaitForTalk) {
           animal.Instance = Spawn(animal);
 
           // find an available chair
@@ -229,7 +229,7 @@ public partial class AnimalManager : Node2D {
             instance.Position += direction * 100 * (float)delta * (Root.Instance.HYPER ? 20 : 1);
 
             if (instance.GlobalPosition.DistanceTo(animal.SelectedChair.GlobalPosition) < 10) {
-              animal.State = CreatureState.SittingAtTable;
+              animal.State = CreatureState.WaitForTalk;
             }
 
             break;
@@ -292,5 +292,13 @@ public partial class AnimalManager : Node2D {
     CreatureCurrentlyBeingSit = null;
 
     Mode = GameMode.Normal;
+  }
+
+  public void StartDialog(SpawnedCreature spawnedCreature) {
+    if (Mode == GameMode.Normal) {
+      Mode = GameMode.Dialog;
+
+      Root.Instance.Nodes.HUD.Nodes.DialogBox.ShowDialog(spawnedCreature.Dialog);
+    }
   }
 }

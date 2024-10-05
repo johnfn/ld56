@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cw6wbj1j30eoy" path="res://Assets/Temp_Guest-A.png" id="1_sloc4"]
 
 [node name="DialogBox" type="PanelContainer"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_top = 2.0
+offset_right = 802.0
+offset_bottom = 295.0
 script = ExtResource("1_7kf6x")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -24,9 +25,20 @@ theme_override_font_sizes/font_size = 48
 text = "Mrs. Chicken
 "
 
-[node name="Label" type="Label" parent="HBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="DialogText" type="Label" parent="HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "I am a big chicken. "
+autowrap_mode = 2
+
+[node name="ClickToContinue" type="Label" parent="HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.783203, 0.783203, 0.783203, 1)
+theme_override_font_sizes/font_size = 32
+text = "Click to continue"
 autowrap_mode = 2

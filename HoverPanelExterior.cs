@@ -46,7 +46,7 @@ public partial class HoverPanelExterior : PanelContainer {
       CreatureState.WaitForTable => "Sit",
       CreatureState.WalkInside => "",
       CreatureState.WalkToTable => "",
-      CreatureState.SittingAtTable => "",
+      CreatureState.WaitForTalk => "Talk",
     };
 
     Nodes.MarginContainer_HBoxContainer_Left_LeftLabel.Text = "";
@@ -65,6 +65,8 @@ public partial class HoverPanelExterior : PanelContainer {
       Root.Instance.Nodes.AnimalManager.Admit(SpawnedCreature);
     } else if (SpawnedCreature.State == CreatureState.WaitForTable) {
       Root.Instance.Nodes.AnimalManager.Sit(SpawnedCreature);
+    } else if (SpawnedCreature.State == CreatureState.WaitForTalk) {
+      Root.Instance.Nodes.AnimalManager.StartDialog(SpawnedCreature);
     }
   }
 }

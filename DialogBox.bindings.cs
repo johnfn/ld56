@@ -1,5 +1,5 @@
 using Godot;
-
+namespace ld56;
 
 public partial class DialogBox : PanelContainer {
   public static DialogBox New() {
@@ -37,9 +37,19 @@ public partial class DialogBox : PanelContainer {
       get => _HBoxContainer_VBoxContainer_Label ??= parent.GetNode<Label>("HBoxContainer/VBoxContainer/Label");
     }
 
-    private Label? _HBoxContainer_Label;
-    public Label HBoxContainer_Label {
-      get => _HBoxContainer_Label ??= parent.GetNode<Label>("HBoxContainer/Label");
+    private VBoxContainer? _HBoxContainer_VBoxContainer2;
+    public VBoxContainer HBoxContainer_VBoxContainer2 {
+      get => _HBoxContainer_VBoxContainer2 ??= parent.GetNode<VBoxContainer>("HBoxContainer/VBoxContainer2");
+    }
+
+    private Label? _HBoxContainer_VBoxContainer2_DialogText;
+    public Label HBoxContainer_VBoxContainer2_DialogText {
+      get => _HBoxContainer_VBoxContainer2_DialogText ??= parent.GetNode<Label>("HBoxContainer/VBoxContainer2/DialogText");
+    }
+
+    private Label? _HBoxContainer_VBoxContainer2_ClickToContinue;
+    public Label HBoxContainer_VBoxContainer2_ClickToContinue {
+      get => _HBoxContainer_VBoxContainer2_ClickToContinue ??= parent.GetNode<Label>("HBoxContainer/VBoxContainer2/ClickToContinue");
     }
 
   }

@@ -61,3 +61,7 @@ text = "R"
 visible = false
 
 [node name="DialogBox" parent="." instance=ExtResource("4_xc7oc")]
+offset_left = 379.0
+offset_top = 220.0
+offset_right = 1181.0
+offset_bottom = 513.0
