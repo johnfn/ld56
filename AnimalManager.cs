@@ -8,7 +8,8 @@ public enum CreatureState {
   NotSpawnedYet,
   WalkToEntrance,
   WaitToBeAdmitted,
-  WalkToTable,
+  WalkInside,
+  WaitForTable,
 }
 
 public enum CurrentScreen {
@@ -92,7 +93,7 @@ public partial class AnimalManager : Node2D {
 
           break;
 
-        case CreatureState.WalkToTable: {
+        case CreatureState.WalkInside: {
             if (instance == null) {
               continue;
             }
@@ -104,11 +105,19 @@ public partial class AnimalManager : Node2D {
               if (instance.GlobalPosition.DistanceTo(admit.GlobalPosition) < 10) {
                 animal.CurrentScreen = CurrentScreen.Interior;
                 instance.GlobalPosition = Root.Instance.Nodes.Interior.Nodes.InteriorAnimalSpawnArea.GlobalPosition;
+                animal.State = CreatureState.WaitForTable;
               }
             }
 
             break;
           }
+
+        case CreatureState.WaitForTable:
+          if (instance == null) {
+            continue;
+          }
+
+          break;
       }
     }
 
@@ -127,6 +136,11 @@ public partial class AnimalManager : Node2D {
   }
 
   public void Admit(SpawnedCreature spawnedCreature) {
-    spawnedCreature.State = CreatureState.WalkToTable;
+    spawnedCreature.State = CreatureState.WalkInside;
+  }
+
+  public void Sit(SpawnedCreature spawnedCreature) {
+    // TODO
+    print("SIT TIME");
   }
 }

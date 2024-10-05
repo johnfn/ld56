@@ -20,7 +20,7 @@ texture = ExtResource("3_nxlpo")
 [node name="Interior" parent="." instance=ExtResource("4_2s4mv")]
 
 [node name="Rolodex" parent="." instance=ExtResource("4_lmvi6")]
-position = Vector2(1959, 20)
+position = Vector2(1959, 10)
 PageTurnSFX = null
 
 [node name="Camera" parent="." instance=ExtResource("4_wuin5")]

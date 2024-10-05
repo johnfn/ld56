@@ -60,15 +60,16 @@ public partial class UpcomingCreatureUi : ColorRect {
       CreatureState.NotSpawnedYet => "Coming to Dinernb",
       CreatureState.WalkToEntrance => "Exterior of Dinernb",
       CreatureState.WaitToBeAdmitted => "Waiting to be admitted",
-      CreatureState.WalkToTable => "Walking to their table",
+      CreatureState.WalkInside => "Walking inside",
+      CreatureState.WaitForTable => "Waiting for table",
     };
 
-    // TODO: Probably better stuff here
     Color = creature.State switch {
       CreatureState.NotSpawnedYet => Colors.Red,
       CreatureState.WalkToEntrance => Colors.Orange,
       CreatureState.WaitToBeAdmitted => Colors.Yellow,
-      CreatureState.WalkToTable => Colors.Green,
+      CreatureState.WalkInside => Colors.Green,
+      CreatureState.WaitForTable => Colors.Green,
     };
 
     location.Text = creature.CurrentScreen switch {
