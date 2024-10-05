@@ -31,18 +31,11 @@ public partial class Rolodex : Sprite2D {
 
   // Called when the node enters the scene tree for the first time.
   public override void _Ready() {
-    var creatureEntry = GD.Load<PackedScene>("res://RolodexCreatureEntry.tscn");
+    PopulatePages();
 
-    // There can only be max 5 creatures per page.
-    for (int i = 0; i < MaxEntriesPerPage; i++) {
-      Nodes.Page1Viewport_MarginContainer_Page1.AddChild(CreateCreatureEntry(KnownGuests[i]));
-    }
-
-    for (int i = MaxEntriesPerPage; i < KnownGuests.Length; i++) {
-      Nodes.Page2Viewport_MarginContainer_Page2.AddChild(CreateCreatureEntry(KnownGuests[i]));
-    }
+    Nodes.NextPageButton.Pressed += () => FlipPage(true);
+    Nodes.PrevPageButton.Pressed += () => FlipPage(false);
   }
-
 
   private RolodexCreatureEntry CreateCreatureEntry(Creature creature) {
     var creatureEntry = GD.Load<PackedScene>("res://RolodexCreatureEntry.tscn").Instantiate<RolodexCreatureEntry>();
@@ -55,20 +48,42 @@ public partial class Rolodex : Sprite2D {
 
   private void FlipPage(bool forward) {
     if (forward) {
-      Page++;
+      Page += 2;
     } else {
-      Page--;
+      Page -= 2;
     }
 
-    // Repopulate the pages.
+    if (Page == 0) {
+      Nodes.PrevPageButton.Disabled = true;
+    } else {
+      Nodes.PrevPageButton.Disabled = false;
+    }
+
+    if (Page == KnownGuests.Length / MaxEntriesPerPage) {
+      Nodes.NextPageButton.Disabled = true;
+    } else {
+      Nodes.NextPageButton.Disabled = false;
+    }
+
+    PopulatePages();
+  }
+
+  private void PopulatePages() {
+    // Clear existing entries.
     Nodes.Page1Viewport_MarginContainer_Page1.GetChildren().ToList().ForEach(n => n.QueueFree());
     Nodes.Page2Viewport_MarginContainer_Page2.GetChildren().ToList().ForEach(n => n.QueueFree());
 
-    for (int i = 0; i < Page * MaxEntriesPerPage; i++) {
+
+    // Populate the pages.
+    var page1StartIndex = Page * MaxEntriesPerPage;
+    var page2StartIndex = (Page * MaxEntriesPerPage) + MaxEntriesPerPage;
+    var page2EndIndex = (Page * MaxEntriesPerPage) + MaxEntriesPerPage + MaxEntriesPerPage;
+
+    for (int i = page1StartIndex; i < page2StartIndex; i++) {
       Nodes.Page1Viewport_MarginContainer_Page1.AddChild(CreateCreatureEntry(KnownGuests[i]));
     }
 
-    for (int i = Page * MaxEntriesPerPage; i < (Page * MaxEntriesPerPage) + MaxEntriesPerPage; i++) {
+    for (int i = page2StartIndex; i < page2EndIndex; i++) {
       Nodes.Page2Viewport_MarginContainer_Page2.AddChild(CreateCreatureEntry(KnownGuests[i]));
     }
   }

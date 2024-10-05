@@ -72,3 +72,15 @@ offset_right = 1732.0
 offset_bottom = 881.0
 texture = SubResource("ViewportTexture_n53t8")
 expand_mode = 1
+
+[node name="NextPageButton" type="Button" parent="."]
+offset_left = 1705.0
+offset_top = 763.0
+offset_right = 1855.0
+offset_bottom = 898.0
+
+[node name="PrevPageButton" type="Button" parent="."]
+offset_left = 43.0
+offset_top = 798.0
+offset_right = 193.0
+offset_bottom = 933.0

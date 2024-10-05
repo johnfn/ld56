@@ -6,8 +6,10 @@
 [sub_resource type="Theme" id="Theme_5ug5t"]
 
 [node name="RolodexCreatureEntry" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 133)
 offset_right = 900.0
 offset_bottom = 293.0
+size_flags_horizontal = 3
 theme = SubResource("Theme_5ug5t")
 script = ExtResource("1_a8koh")
 

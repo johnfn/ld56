@@ -57,6 +57,16 @@ public partial class Rolodex : Sprite2D {
       get => _TextureRect2 ??= parent.GetNode<TextureRect>("TextureRect2");
     }
 
+    private Button? _NextPageButton;
+    public Button NextPageButton {
+      get => _NextPageButton ??= parent.GetNode<Button>("NextPageButton");
+    }
+
+    private Button? _PrevPageButton;
+    public Button PrevPageButton {
+      get => _PrevPageButton ??= parent.GetNode<Button>("PrevPageButton");
+    }
+
   }
 
   public RolodexNodes? _Nodes;
