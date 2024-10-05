@@ -25,6 +25,10 @@ public partial class Rolodex : Sprite2D {
     AllCreatures.MrPig,
   ];
 
+  // Page turn SFX
+  [Export]
+  public AudioStream[] PageTurnSFX;
+
   private int Page = 0;
   private int MaxEntriesPerPage = 5;
 
@@ -47,6 +51,13 @@ public partial class Rolodex : Sprite2D {
   }
 
   private void FlipPage(bool forward) {
+    // Play page turn SFX
+    GD.Randomize();
+    var randomIndex = GD.Randi() % PageTurnSFX.Length;
+    var randomPageTurnSFX = PageTurnSFX[randomIndex];
+    Nodes.AudioStreamPlayer2D.Stream = randomPageTurnSFX;
+    Nodes.AudioStreamPlayer2D.Play();
+
     if (forward) {
       Page += 2;
     } else {
