@@ -30,6 +30,7 @@ public class SpawnedCreature {
   public required Node2D? Instance;
   public required CurrentScreen CurrentScreen;
   public required HighlightCircle? DestinationChair;
+  public required Dialog Dialog;
 }
 
 public class Chair {
@@ -55,6 +56,7 @@ public partial class AnimalManager : Node2D {
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       DestinationChair = null,
+      Dialog = Dialogs.MrsCow,
     },
 
     new SpawnedCreature {
@@ -64,6 +66,7 @@ public partial class AnimalManager : Node2D {
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       DestinationChair = null,
+      Dialog = Dialogs.MrChicken,
     },
 
     new SpawnedCreature {
@@ -73,6 +76,7 @@ public partial class AnimalManager : Node2D {
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       DestinationChair = null,
+      Dialog = Dialogs.MrsCow,
     },
 
     new SpawnedCreature {
@@ -82,6 +86,7 @@ public partial class AnimalManager : Node2D {
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       DestinationChair = null,
+      Dialog = Dialogs.MrChicken,
     },
 
     new SpawnedCreature {
@@ -91,6 +96,7 @@ public partial class AnimalManager : Node2D {
       Instance = null,
       CurrentScreen = CurrentScreen.Nowhere,
       DestinationChair = null,
+      Dialog = Dialogs.MrsCow,
     },
   ];
 
