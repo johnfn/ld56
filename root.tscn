@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://Root.cs" id="1_pn6rf"]
 [ext_resource type="PackedScene" uid="uid://bumbohrg72245" path="res://exterior.tscn" id="2_xbt5w"]
 [ext_resource type="Texture2D" uid="uid://dyk7fo7x7aume" path="res://Assets/Temp_Exterior.png" id="3_nxlpo"]
-[ext_resource type="PackedScene" uid="uid://dydo884ty4kdb" path="res://interior.tscn" id="4_2s4mv"]
-[ext_resource type="PackedScene" path="res://Rolodex.tscn" id="4_lmvi6"]
-[ext_resource type="PackedScene" uid="uid://wgl3cuvhud0t" path="res://camera.tscn" id="4_wuin5"]
-[ext_resource type="PackedScene" uid="uid://cxid1wlon1lvg" path="res://list_of_people.tscn" id="5_53v04"]
-[ext_resource type="PackedScene" uid="uid://do7usl2ad7mfr" path="res://animal_manager.tscn" id="7_jilfn"]
+[ext_resource type="PackedScene" path="res://interior.tscn" id="4_2s4mv"]
+[ext_resource type="PackedScene" uid="uid://cl4p3lwxo5lsa" path="res://Rolodex.tscn" id="4_lmvi6"]
+[ext_resource type="PackedScene" path="res://camera.tscn" id="4_wuin5"]
+[ext_resource type="PackedScene" path="res://animal_manager.tscn" id="7_jilfn"]
+[ext_resource type="PackedScene" uid="uid://6tml4ytuolux" path="res://HUD.tscn" id="7_upxnj"]
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_pn6rf")
@@ -25,49 +25,6 @@ PageTurnSFX = null
 
 [node name="Camera" parent="." instance=ExtResource("4_wuin5")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Container" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchor_top = 0.892
-anchor_bottom = 0.892
-offset_top = 116.64
-offset_bottom = 116.64
-grow_vertical = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Container"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -47.0
-offset_right = 112.0
-grow_vertical = 0
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Container/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="GoToExterior" type="Button" parent="CanvasLayer/Container/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Exterior"
-
-[node name="GoToRestaurant" type="Button" parent="CanvasLayer/Container/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Restaurant"
-
-[node name="GoToRolodex" type="Button" parent="CanvasLayer/Container/MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Rolodex"
-
-[node name="ListOfCreatures" parent="CanvasLayer/Container/MarginContainer/HBoxContainer" instance=ExtResource("5_53v04")]
-layout_mode = 2
+[node name="HUD" parent="." instance=ExtResource("7_upxnj")]
 
 [node name="AnimalManager" parent="." instance=ExtResource("7_jilfn")]

@@ -1,15 +1,16 @@
 using Godot;
 using ld56;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 public partial class Rolodex : Sprite2D {
-  public Recipe[] UnlockedRecipes = [
+  public List<Recipe> UnlockedRecipes = [
     AllRecipes.TomatoSoupInACherryTomato,
     AllRecipes.ScrambledEggs,
   ];
 
-  public Creature[] KnownGuests = [
+  public List<Creature> KnownGuests = [
     AllCreatures.MrChicken,
     AllCreatures.MrPig,
     AllCreatures.MrPig,
@@ -40,8 +41,8 @@ public partial class Rolodex : Sprite2D {
   private RolodexTab Tab = RolodexTab.Creatures;
 
 
-  // Called when the node enters the scene tree for the first time.
   public override void _Ready() {
+    GD.Print(PageTurnSFX.Length);
     PopulatePages();
 
     Nodes.NextPageButton.Pressed += () => FlipPage(true);
@@ -49,6 +50,16 @@ public partial class Rolodex : Sprite2D {
 
     Nodes.RecipesTab.Pressed += () => ChangeTab(RolodexTab.Recipes);
     Nodes.CreaturesTab.Pressed += () => ChangeTab(RolodexTab.Creatures);
+  }
+
+  public void AddGuestEntry(Creature creature) {
+    KnownGuests.Add(creature);
+    PopulatePages();
+  }
+
+  public void AddRecipeEntry(Recipe recipe) {
+    UnlockedRecipes.Add(recipe);
+    PopulatePages();
   }
 
 
@@ -85,7 +96,7 @@ public partial class Rolodex : Sprite2D {
       Nodes.PrevPageButton.Disabled = false;
     }
 
-    if (Page == KnownGuests.Length / MaxEntriesPerPage) {
+    if (Page == KnownGuests.Count / MaxEntriesPerPage) {
       Nodes.NextPageButton.Disabled = true;
     } else {
       Nodes.NextPageButton.Disabled = false;
@@ -101,6 +112,10 @@ public partial class Rolodex : Sprite2D {
   }
   private void PlayPageTurnSFX() {
     GD.Randomize();
+    if (PageTurnSFX.Length == 0) {
+      GD.PushWarning("No page turn SFX set for Rolodex.");
+      return;
+    }
     var randomIndex = GD.Randi() % PageTurnSFX.Length;
     var randomPageTurnSFX = PageTurnSFX[randomIndex];
     Nodes.AudioStreamPlayer2D.Stream = randomPageTurnSFX;
@@ -121,19 +136,31 @@ public partial class Rolodex : Sprite2D {
     if (Tab == RolodexTab.Creatures) {
       // Populate the pages.
       for (int i = page1StartIndex; i < page2StartIndex; i++) {
+        if (i >= KnownGuests.Count) {
+          break;
+        }
         Nodes.Page1Viewport_MarginContainer_Page1.AddChild(CreateCreatureEntry(KnownGuests[i]));
       }
 
       for (int i = page2StartIndex; i < page2EndIndex; i++) {
+        if (i >= KnownGuests.Count) {
+          break;
+        }
         Nodes.Page2Viewport_MarginContainer_Page2.AddChild(CreateCreatureEntry(KnownGuests[i]));
       }
     } else if (Tab == RolodexTab.Recipes) {
       // TODO: Populate the recipes page.
       for (int i = page1StartIndex; i < page2StartIndex; i++) {
+        if (i >= UnlockedRecipes.Count) {
+          break;
+        }
         Nodes.Page1Viewport_MarginContainer_Page1.AddChild(CreateRecipeEntry(UnlockedRecipes[i]));
       }
 
       for (int i = page2StartIndex; i < page2EndIndex; i++) {
+        if (i >= UnlockedRecipes.Count) {
+          break;
+        }
         Nodes.Page2Viewport_MarginContainer_Page2.AddChild(CreateRecipeEntry(UnlockedRecipes[i]));
       }
     }

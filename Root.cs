@@ -18,21 +18,21 @@ public partial class Root : Node2D {
   public bool HYPER { get; private set; } = false;
 
   public ListOfCreatures ListOfCreatures {
-    get => Nodes.CanvasLayer_Container_MarginContainer_HBoxContainer_ListOfCreatures;
+    get => Nodes.HUD.Nodes.Container_MarginContainer_HBoxContainer_ListOfCreatures;
   }
 
   public override void _Ready() {
     Instance = this;
 
-    Nodes.CanvasLayer_Container_MarginContainer_HBoxContainer_GoToExterior.Pressed += () => {
+    Nodes.HUD.Nodes.Container_MarginContainer_HBoxContainer_GoToExterior.Pressed += () => {
       UpdateCurrentScreen(GameScreen.Exterior);
     };
 
-    Nodes.CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRestaurant.Pressed += () => {
+    Nodes.HUD.Nodes.Container_MarginContainer_HBoxContainer_GoToRestaurant.Pressed += () => {
       UpdateCurrentScreen(GameScreen.Restaurant);
     };
 
-    Nodes.CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRolodex.Pressed += () => {
+    Nodes.HUD.Nodes.Container_MarginContainer_HBoxContainer_GoToRolodex.Pressed += () => {
       UpdateCurrentScreen(GameScreen.Rolodex);
     };
 
@@ -50,9 +50,9 @@ public partial class Root : Node2D {
   ) {
     CurrentScreen = newScreen;
 
-    Nodes.CanvasLayer_Container_MarginContainer_HBoxContainer_GoToExterior.Disabled = CurrentScreen == GameScreen.Exterior;
-    Nodes.CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRestaurant.Disabled = CurrentScreen == GameScreen.Restaurant;
-    Nodes.CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRolodex.Disabled = CurrentScreen == GameScreen.Rolodex;
+    Nodes.HUD.Nodes.Container_MarginContainer_HBoxContainer_GoToExterior.Disabled = CurrentScreen == GameScreen.Exterior;
+    Nodes.HUD.Nodes.Container_MarginContainer_HBoxContainer_GoToRestaurant.Disabled = CurrentScreen == GameScreen.Restaurant;
+    Nodes.HUD.Nodes.Container_MarginContainer_HBoxContainer_GoToRolodex.Disabled = CurrentScreen == GameScreen.Rolodex;
 
     Sprite2D node = CurrentScreen switch {
       GameScreen.Exterior => Nodes.Exterior,

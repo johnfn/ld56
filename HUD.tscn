@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://6tml4ytuolux"]
+
+[ext_resource type="PackedScene" uid="uid://drdgs1oscnynx" path="res://list_of_people.tscn" id="1_1te6p"]
+[ext_resource type="Script" path="res://Hud.cs" id="1_eqs7q"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_eqs7q")
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchor_top = 0.892
+anchor_bottom = 0.892
+offset_top = 116.64
+offset_bottom = 116.64
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Container"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -47.0
+offset_right = 112.0
+grow_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="GoToExterior" type="Button" parent="Container/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Exterior"
+
+[node name="GoToRestaurant" type="Button" parent="Container/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Restaurant"
+
+[node name="GoToRolodex" type="Button" parent="Container/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Rolodex"
+
+[node name="ListOfCreatures" parent="Container/MarginContainer/HBoxContainer" instance=ExtResource("1_1te6p")]
+layout_mode = 2
