@@ -39,5 +39,14 @@ public partial class UpcomingCreatureUi : ColorRect {
       CreatureState.WaitToBeAdmitted => "Waiting to be admitted",
       CreatureState.WalkToTable => "Walking to their table",
     };
+
+    // TODO: Probably better stuff here
+    Color = creature.State switch {
+      CreatureState.NotSpawnedYet => Colors.Red,
+      CreatureState.WalkToEntrance => Colors.Orange,
+      CreatureState.WaitToBeAdmitted => Colors.Yellow,
+      CreatureState.WalkToTable => Colors.Green,
+      _ => Colors.Transparent,
+    };
   }
 }
