@@ -93,4 +93,18 @@ offset_top = 798.0
 offset_right = 193.0
 offset_bottom = 933.0
 
+[node name="CreaturesTab" type="Button" parent="."]
+offset_left = 270.0
+offset_top = 83.0
+offset_right = 460.0
+offset_bottom = 142.0
+text = "Creatures"
+
+[node name="RecipesTab" type="Button" parent="."]
+offset_left = 485.0
+offset_top = 38.0
+offset_right = 675.0
+offset_bottom = 97.0
+text = "Recipes"
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

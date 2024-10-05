@@ -67,6 +67,16 @@ public partial class Rolodex : Sprite2D {
       get => _PrevPageButton ??= parent.GetNode<Button>("PrevPageButton");
     }
 
+    private Button? _CreaturesTab;
+    public Button CreaturesTab {
+      get => _CreaturesTab ??= parent.GetNode<Button>("CreaturesTab");
+    }
+
+    private Button? _RecipesTab;
+    public Button RecipesTab {
+      get => _RecipesTab ??= parent.GetNode<Button>("RecipesTab");
+    }
+
     private AudioStreamPlayer2D? _AudioStreamPlayer2D;
     public AudioStreamPlayer2D AudioStreamPlayer2D {
       get => _AudioStreamPlayer2D ??= parent.GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
