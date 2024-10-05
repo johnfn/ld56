@@ -1,8 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd4ly7up2t7ti"]
+[gd_scene load_steps=4 format=3 uid="uid://dd4ly7up2t7ti"]
 
 [ext_resource type="Texture2D" uid="uid://2xyc6m0v6fs2" path="res://icon.svg" id="1_obqeo"]
 [ext_resource type="Script" path="res://CreatureScenes/Cow.cs" id="2_5gegj"]
+[ext_resource type="PackedScene" uid="uid://lvv1ltx4h1yj" path="res://hover_panel_exterior.tscn" id="3_ppro1"]
 
 [node name="Cow" type="Sprite2D"]
 texture = ExtResource("1_obqeo")
 script = ExtResource("2_5gegj")
+
+[node name="HoverPanelExterior" parent="." instance=ExtResource("3_ppro1")]

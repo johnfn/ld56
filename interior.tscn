@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dydo884ty4kdb"]
+
+[ext_resource type="Texture2D" uid="uid://bwkuinfjoxi43" path="res://Assets/Temp_Interior.png" id="1_xtgvl"]
+[ext_resource type="Script" path="res://Interior.cs" id="2_nxgdb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnt6k"]
+size = Vector2(148.732, 146.16)
+
+[node name="Interior" type="Sprite2D"]
+texture = ExtResource("1_xtgvl")
+centered = false
+script = ExtResource("2_nxgdb")
+
+[node name="InteriorAnimalSpawnArea" type="Area2D" parent="."]
+position = Vector2(231, 580)
+
+[node name="Shape" type="CollisionShape2D" parent="InteriorAnimalSpawnArea"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_gnt6k")

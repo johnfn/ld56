@@ -54,11 +54,11 @@ public partial class Root : Node2D {
     Nodes.CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRestaurant.Disabled = CurrentScreen == GameScreen.Restaurant;
     Nodes.CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRolodex.Disabled = CurrentScreen == GameScreen.Rolodex;
 
-    var node = CurrentScreen switch {
+    Sprite2D node = CurrentScreen switch {
       GameScreen.Exterior => Nodes.Exterior,
       GameScreen.Restaurant => Nodes.Interior,
       GameScreen.Rolodex => Nodes.Rolodex,
-      _ => throw new NotImplementedException(),
+      GameScreen.RecipeBook => Nodes.Rolodex, // TODO Fix me.
     };
 
     Nodes.Camera.Position = node.Position;

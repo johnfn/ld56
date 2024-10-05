@@ -1,5 +1,5 @@
 using Godot;
-
+namespace ld56;
 
 public partial class Cow : Sprite2D {
   public static Cow New() {
@@ -17,6 +17,11 @@ public partial class Cow : Sprite2D {
     public CowNodes(Cow parent) {
       this.parent = parent;
     }
+    private HoverPanelExterior? _HoverPanelExterior;
+    public HoverPanelExterior HoverPanelExterior {
+      get => _HoverPanelExterior ??= parent.GetNode<HoverPanelExterior>("HoverPanelExterior");
+    }
+
   }
 
   public CowNodes? _Nodes;

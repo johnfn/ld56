@@ -27,14 +27,24 @@ public partial class Exterior : Sprite2D {
       get => _AnimalSpawnArea_Shape ??= parent.GetNode<CollisionShape2D>("AnimalSpawnArea/Shape");
     }
 
-    private Area2D? _AnimalDestinationArea;
-    public Area2D AnimalDestinationArea {
-      get => _AnimalDestinationArea ??= parent.GetNode<Area2D>("AnimalDestinationArea");
+    private Area2D? _AnimalWaitArea;
+    public Area2D AnimalWaitArea {
+      get => _AnimalWaitArea ??= parent.GetNode<Area2D>("AnimalWaitArea");
     }
 
-    private CollisionShape2D? _AnimalDestinationArea_Shape;
-    public CollisionShape2D AnimalDestinationArea_Shape {
-      get => _AnimalDestinationArea_Shape ??= parent.GetNode<CollisionShape2D>("AnimalDestinationArea/Shape");
+    private CollisionShape2D? _AnimalWaitArea_Shape;
+    public CollisionShape2D AnimalWaitArea_Shape {
+      get => _AnimalWaitArea_Shape ??= parent.GetNode<CollisionShape2D>("AnimalWaitArea/Shape");
+    }
+
+    private Area2D? _AnimalAdmitArea;
+    public Area2D AnimalAdmitArea {
+      get => _AnimalAdmitArea ??= parent.GetNode<Area2D>("AnimalAdmitArea");
+    }
+
+    private CollisionShape2D? _AnimalAdmitArea_Shape;
+    public CollisionShape2D AnimalAdmitArea_Shape {
+      get => _AnimalAdmitArea_Shape ??= parent.GetNode<CollisionShape2D>("AnimalAdmitArea/Shape");
     }
 
   }

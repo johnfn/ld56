@@ -20,9 +20,16 @@ position = Vector2(146.676, 353.04)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1e6hy")
 
-[node name="AnimalDestinationArea" type="Area2D" parent="."]
+[node name="AnimalWaitArea" type="Area2D" parent="."]
 position = Vector2(1005.86, 349.699)
 
-[node name="Shape" type="CollisionShape2D" parent="AnimalDestinationArea"]
+[node name="Shape" type="CollisionShape2D" parent="AnimalWaitArea"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_1e6hy")
+
+[node name="AnimalAdmitArea" type="Area2D" parent="."]
+position = Vector2(1393.96, 327.982)
+
+[node name="Shape" type="CollisionShape2D" parent="AnimalAdmitArea"]
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1e6hy")

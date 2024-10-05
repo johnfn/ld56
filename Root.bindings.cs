@@ -17,11 +17,6 @@ public partial class Root : Node2D {
     public RootNodes(Root parent) {
       this.parent = parent;
     }
-    private Sprite2D? _Interior;
-    public Sprite2D Interior {
-      get => _Interior ??= parent.GetNode<Sprite2D>("Interior");
-    }
-
     private CanvasLayer? _CanvasLayer;
     public CanvasLayer CanvasLayer {
       get => _CanvasLayer ??= parent.GetNode<CanvasLayer>("CanvasLayer");
@@ -60,6 +55,11 @@ public partial class Root : Node2D {
     private Exterior? _Exterior;
     public Exterior Exterior {
       get => _Exterior ??= parent.GetNode<Exterior>("Exterior");
+    }
+
+    private Interior? _Interior;
+    public Interior Interior {
+      get => _Interior ??= parent.GetNode<Interior>("Interior");
     }
 
     private Rolodex? _Rolodex;

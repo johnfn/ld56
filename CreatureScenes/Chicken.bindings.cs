@@ -1,5 +1,5 @@
 using Godot;
-
+namespace ld56;
 
 public partial class Chicken : Sprite2D {
   public static Chicken New() {
@@ -17,6 +17,11 @@ public partial class Chicken : Sprite2D {
     public ChickenNodes(Chicken parent) {
       this.parent = parent;
     }
+    private HoverPanelExterior? _HoverPanelExterior;
+    public HoverPanelExterior HoverPanelExterior {
+      get => _HoverPanelExterior ??= parent.GetNode<HoverPanelExterior>("HoverPanelExterior");
+    }
+
   }
 
   public ChickenNodes? _Nodes;
