@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfniuyne644nj"]
+[gd_scene load_steps=4 format=3 uid="uid://cfniuyne644nj"]
 
 [ext_resource type="Texture2D" uid="uid://ct7hadam6wpe5" path="res://Assets/Exterior.png" id="1_i8d18"]
+[ext_resource type="Script" path="res://Root.cs" id="1_pn6rf"]
 [ext_resource type="Texture2D" uid="uid://c1lsub0q61nis" path="res://New Project (17).png" id="2_nmq7d"]
 
 [node name="Root" type="Node2D"]
+script = ExtResource("1_pn6rf")
 
 [node name="Exterior" type="Sprite2D" parent="."]
 position = Vector2(-485.556, 267)
@@ -16,4 +18,40 @@ scale = Vector2(0.6875, 0.6875)
 texture = ExtResource("2_nmq7d")
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(615, 405)
+position = Vector2(600, 400)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Container" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Container"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -47.0
+offset_right = 112.0
+grow_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Container/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Button" type="Button" parent="CanvasLayer/Container/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Prev"
+
+[node name="Button2" type="Button" parent="CanvasLayer/Container/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Next"
