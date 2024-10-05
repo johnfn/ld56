@@ -1,10 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://baqlqmbasgslw"]
+[gd_scene load_steps=20 format=3 uid="uid://6tml4ytuolux"]
 
 [ext_resource type="PackedScene" uid="uid://cxid1wlon1lvg" path="res://list_of_people.tscn" id="1_1te6p"]
 [ext_resource type="Script" path="res://Hud.cs" id="1_eqs7q"]
-[ext_resource type="PackedScene" path="res://Rolodex.tscn" id="3_cpfkf"]
+[ext_resource type="PackedScene" uid="uid://cl4p3lwxo5lsa" path="res://Rolodex.tscn" id="3_cpfkf"]
+[ext_resource type="Texture2D" uid="uid://b6x8mab8cbrqo" path="res://Assets/UI_Interior_Arrow_Left.png" id="3_i8kw0"]
+[ext_resource type="PackedScene" uid="uid://6lka55lm0755" path="res://CoolButton.tscn" id="3_tp0ts"]
 [ext_resource type="Texture2D" uid="uid://bkaqtippwahvp" path="res://Assets/newspaper.png" id="4_eaora"]
 [ext_resource type="PackedScene" uid="uid://07sx5xgd03q2" path="res://dialog_box.tscn" id="4_xc7oc"]
+[ext_resource type="Script" path="res://CoolButton.cs" id="5_w24eq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nm077"]
 
@@ -59,26 +62,31 @@ theme_override_constants/separation = 8
 [node name="ListOfCreatures" parent="Container/MarginContainer/HBoxContainer" instance=ExtResource("1_1te6p")]
 layout_mode = 2
 
-[node name="ExteriorButton" type="Button" parent="."]
-offset_left = -6.0
-offset_top = 465.0
-offset_right = 64.0
-offset_bottom = 569.0
-text = "L"
-
 [node name="RolodexButton" type="Button" parent="."]
 offset_left = 1714.0
 offset_top = 31.0
 offset_right = 1888.0
 offset_bottom = 135.0
 text = "Rolodex"
+script = ExtResource("5_w24eq")
+
+[node name="ExteriorButton" parent="." instance=ExtResource("3_tp0ts")]
+offset_left = 19.0
+offset_top = 473.0
+offset_right = -1772.0
+offset_bottom = -510.0
+icon = ExtResource("3_i8kw0")
+flat = true
 
 [node name="InteriorButton" type="Button" parent="."]
-offset_left = 1844.0
-offset_top = 471.0
-offset_right = 1926.0
-offset_bottom = 576.0
-text = "R"
+offset_left = 1885.0
+offset_top = 477.0
+offset_right = 2014.0
+offset_bottom = 582.0
+scale = Vector2(-1, 1)
+icon = ExtResource("3_i8kw0")
+flat = true
+script = ExtResource("5_w24eq")
 
 [node name="Rolodex" parent="." instance=ExtResource("3_cpfkf")]
 visible = false

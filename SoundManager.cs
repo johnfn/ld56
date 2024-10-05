@@ -19,6 +19,16 @@ public partial class SoundManager : Node {
     Nodes.AudioStreamPlayer2D.Play();
   }
 
+  public void PlayButtonPressSFX() {
+    Nodes.AudioStreamPlayer2D.Stream = GD.Load<AudioStream>("res://Assets/UI/ui_select.wav");
+    Nodes.AudioStreamPlayer2D.Play();
+  }
+
+  public void PlayHoverSFX() {
+    Nodes.AudioStreamPlayer2D.Stream = GD.Load<AudioStream>("res://Assets/UI/ui_hover.wav");
+    Nodes.AudioStreamPlayer2D.Play();
+  }
+
 
   // Called when the node enters the scene tree for the first time.
   public override void _Ready() {
