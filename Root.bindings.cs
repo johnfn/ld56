@@ -52,14 +52,14 @@ public partial class Root : Node2D {
       get => _CanvasLayer_Container_MarginContainer_HBoxContainer ??= parent.GetNode<HBoxContainer>("CanvasLayer/Container/MarginContainer/HBoxContainer");
     }
 
-    private Button? _CanvasLayer_Container_MarginContainer_HBoxContainer_Button;
-    public Button CanvasLayer_Container_MarginContainer_HBoxContainer_Button {
-      get => _CanvasLayer_Container_MarginContainer_HBoxContainer_Button ??= parent.GetNode<Button>("CanvasLayer/Container/MarginContainer/HBoxContainer/Button");
+    private Button? _CanvasLayer_Container_MarginContainer_HBoxContainer_GoToExterior;
+    public Button CanvasLayer_Container_MarginContainer_HBoxContainer_GoToExterior {
+      get => _CanvasLayer_Container_MarginContainer_HBoxContainer_GoToExterior ??= parent.GetNode<Button>("CanvasLayer/Container/MarginContainer/HBoxContainer/GoToExterior");
     }
 
-    private Button? _CanvasLayer_Container_MarginContainer_HBoxContainer_Button2;
-    public Button CanvasLayer_Container_MarginContainer_HBoxContainer_Button2 {
-      get => _CanvasLayer_Container_MarginContainer_HBoxContainer_Button2 ??= parent.GetNode<Button>("CanvasLayer/Container/MarginContainer/HBoxContainer/Button2");
+    private Button? _CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRestaurant;
+    public Button CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRestaurant {
+      get => _CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRestaurant ??= parent.GetNode<Button>("CanvasLayer/Container/MarginContainer/HBoxContainer/GoToRestaurant");
     }
 
   }

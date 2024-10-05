@@ -8,17 +8,19 @@
 script = ExtResource("1_pn6rf")
 
 [node name="Exterior" type="Sprite2D" parent="."]
-position = Vector2(-485.556, 267)
+position = Vector2(-947, -0.999998)
 scale = Vector2(0.730556, 0.730556)
 texture = ExtResource("1_i8d18")
+centered = false
 
 [node name="Interior" type="Sprite2D" parent="."]
-position = Vector2(444, 250)
+position = Vector2(9.55557, 7.00002)
 scale = Vector2(0.6875, 0.6875)
 texture = ExtResource("2_nmq7d")
+centered = false
 
 [node name="Camera" type="Camera2D" parent="."]
-position = Vector2(600, 400)
+anchor_mode = 0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -46,12 +48,12 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Button" type="Button" parent="CanvasLayer/Container/MarginContainer/HBoxContainer"]
+[node name="GoToExterior" type="Button" parent="CanvasLayer/Container/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Prev"
+text = "Exterior"
 
-[node name="Button2" type="Button" parent="CanvasLayer/Container/MarginContainer/HBoxContainer"]
+[node name="GoToRestaurant" type="Button" parent="CanvasLayer/Container/MarginContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Next"
+text = "Restaurant"
