@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bwkuinfjoxi43" path="res://Assets/Temp_Interior.png" id="1_xtgvl"]
 [ext_resource type="Script" path="res://Interior.cs" id="2_nxgdb"]
-[ext_resource type="Texture2D" uid="uid://b111yh6p78io5" path="res://Assets/HighlightCircle.png" id="3_lyf6k"]
+[ext_resource type="PackedScene" uid="uid://0pvu3gdqahdj" path="res://highlight_circle.tscn" id="3_17ai5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gnt6k"]
 size = Vector2(148.732, 146.16)
@@ -21,74 +21,13 @@ shape = SubResource("RectangleShape2D_gnt6k")
 
 [node name="Chairs" type="Node2D" parent="."]
 
-[node name="HighlightCircle" type="Sprite2D" parent="Chairs"]
-modulate = Color(1, 0.46483, 0.797421, 1)
-position = Vector2(473, 961)
-scale = Vector2(0.541068, 0.541068)
-texture = ExtResource("3_lyf6k")
+[node name="HighlightCircle" parent="Chairs" instance=ExtResource("3_17ai5")]
 
-[node name="HighlightCircle2" type="Sprite2D" parent="Chairs"]
-modulate = Color(1, 0.46483, 0.797421, 1)
-position = Vector2(719, 837)
-scale = Vector2(0.541068, 0.541068)
-texture = ExtResource("3_lyf6k")
+[node name="HighlightCircle2" parent="Chairs" instance=ExtResource("3_17ai5")]
+position = Vector2(734, 827)
 
-[node name="HighlightCircle3" type="Sprite2D" parent="Chairs"]
-modulate = Color(1, 0.46483, 0.797421, 1)
-position = Vector2(465, 697)
-scale = Vector2(0.541068, 0.541068)
-texture = ExtResource("3_lyf6k")
+[node name="HighlightCircle3" parent="Chairs" instance=ExtResource("3_17ai5")]
+position = Vector2(469, 710)
 
-[node name="HighlightCircle4" type="Sprite2D" parent="Chairs"]
-modulate = Color(1, 0.46483, 0.797421, 1)
-position = Vector2(208, 835)
-scale = Vector2(0.541068, 0.541068)
-texture = ExtResource("3_lyf6k")
-
-[node name="HighlightCircle5" type="Sprite2D" parent="Chairs"]
-modulate = Color(1, 0.46483, 0.797421, 1)
-position = Vector2(507, 452)
-scale = Vector2(0.541068, 0.541068)
-texture = ExtResource("3_lyf6k")
-
-[node name="HighlightCircle6" type="Sprite2D" parent="Chairs"]
-modulate = Color(1, 0.46483, 0.797421, 1)
-position = Vector2(769, 328)
-scale = Vector2(0.541068, 0.541068)
-texture = ExtResource("3_lyf6k")
-
-[node name="HighlightCircle7" type="Sprite2D" parent="Chairs"]
-modulate = Color(1, 0.46483, 0.797421, 1)
-position = Vector2(1014, 452)
-scale = Vector2(0.541068, 0.541068)
-texture = ExtResource("3_lyf6k")
-
-[node name="HighlightCircle8" type="Sprite2D" parent="Chairs"]
-modulate = Color(1, 0.46483, 0.797421, 1)
-position = Vector2(762, 592)
-scale = Vector2(0.541068, 0.541068)
-texture = ExtResource("3_lyf6k")
-
-[node name="HighlightCircle9" type="Sprite2D" parent="Chairs"]
-modulate = Color(1, 0.46483, 0.797421, 1)
-position = Vector2(1163, 697)
-scale = Vector2(0.541068, 0.541068)
-texture = ExtResource("3_lyf6k")
-
-[node name="HighlightCircle10" type="Sprite2D" parent="Chairs"]
-modulate = Color(1, 0.46483, 0.797421, 1)
-position = Vector2(893, 841)
-scale = Vector2(0.541068, 0.541068)
-texture = ExtResource("3_lyf6k")
-
-[node name="HighlightCircle11" type="Sprite2D" parent="Chairs"]
-modulate = Color(1, 0.46483, 0.797421, 1)
-position = Vector2(1149, 965)
-scale = Vector2(0.541068, 0.541068)
-texture = ExtResource("3_lyf6k")
-
-[node name="HighlightCircle12" type="Sprite2D" parent="Chairs"]
-modulate = Color(1, 0.46483, 0.797421, 1)
-position = Vector2(1409, 833)
-scale = Vector2(0.541068, 0.541068)
-texture = ExtResource("3_lyf6k")
+[node name="HighlightCircle4" parent="Chairs" instance=ExtResource("3_17ai5")]
+position = Vector2(203, 834)

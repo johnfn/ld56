@@ -141,6 +141,6 @@ public partial class AnimalManager : Node2D {
 
   public void Sit(SpawnedCreature spawnedCreature) {
     // TODO
-    print("SIT TIME");
+    Root.Instance.Nodes.Interior.Nodes.Chairs.Visible = true;
   }
 }
