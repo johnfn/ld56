@@ -37,6 +37,11 @@ public partial class UpcomingCreatureUi : ColorRect {
       get => _Popover_MarginContainer_VBoxContainer_Title ??= parent.GetNode<Label>("Popover/MarginContainer/VBoxContainer/Title");
     }
 
+    private Label? _Popover_MarginContainer_VBoxContainer_Status;
+    public Label Popover_MarginContainer_VBoxContainer_Status {
+      get => _Popover_MarginContainer_VBoxContainer_Status ??= parent.GetNode<Label>("Popover/MarginContainer/VBoxContainer/Status");
+    }
+
     private Label? _Popover_MarginContainer_VBoxContainer_Description;
     public Label Popover_MarginContainer_VBoxContainer_Description {
       get => _Popover_MarginContainer_VBoxContainer_Description ??= parent.GetNode<Label>("Popover/MarginContainer/VBoxContainer/Description");

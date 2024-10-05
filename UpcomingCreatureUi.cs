@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 
 namespace ld56;
 
@@ -26,7 +27,17 @@ public partial class UpcomingCreatureUi : ColorRect {
   }
 
   public void Update(SpawnedCreature creature) {
-    Nodes.Popover_MarginContainer_VBoxContainer_Title.Text = creature.Creature.Name;
-    Nodes.Popover_MarginContainer_VBoxContainer_Description.Text = creature.Creature.Description;
+    var title = Nodes.Popover_MarginContainer_VBoxContainer_Title;
+    var status = Nodes.Popover_MarginContainer_VBoxContainer_Status;
+    var description = Nodes.Popover_MarginContainer_VBoxContainer_Description;
+
+    title.Text = creature.Creature.Name;
+    description.Text = creature.Creature.Description;
+    status.Text = creature.State switch {
+      CreatureState.NotSpawnedYet => "Coming to Dinernb",
+      CreatureState.WalkToEntrance => "Exterior of Dinernb",
+      CreatureState.WaitToBeAdmitted => "Waiting to be admitted",
+      CreatureState.WalkToTable => "Walking to their table",
+    };
   }
 }
