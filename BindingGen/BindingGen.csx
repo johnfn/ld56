@@ -306,7 +306,7 @@ class MyCodegen {
       packedScenes.Add(new PackedSceneResource {
         Id = parsedDirective["id"],
         ResPath = parsedDirective["path"],
-        Uid = parsedDirective["uid"]
+        Uid = parsedDirective.ContainsKey("uid") ? parsedDirective["uid"] : null
       });
     }
 
