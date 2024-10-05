@@ -1,44 +1,74 @@
-[gd_scene load_steps=4 format=3 uid="uid://cl4p3lwxo5lsa"]
+[gd_scene load_steps=7 format=3 uid="uid://cl4p3lwxo5lsa"]
 
 [ext_resource type="Texture2D" uid="uid://bxa6f8625brkb" path="res://Assets/Temp_Rolodex.png" id="1_s2cnw"]
 [ext_resource type="Script" path="res://Rolodex.cs" id="2_s2ex6"]
-[ext_resource type="PackedScene" uid="uid://b54uj42n8bunp" path="res://RolodexCreatureEntry.tscn" id="3_4q7ij"]
+[ext_resource type="Shader" path="res://Rolodex.gdshader" id="4_g2p00"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u3u5d"]
+shader = ExtResource("4_g2p00")
+shader_parameter/curvature = 0.05
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vqwj0"]
+viewport_path = NodePath("Page1Viewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_n53t8"]
+viewport_path = NodePath("Page2Viewport")
 
 [node name="Rolodex" type="Sprite2D"]
-position = Vector2(1923, 9)
 texture = ExtResource("1_s2cnw")
 centered = false
 script = ExtResource("2_s2ex6")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-offset_left = 229.0
-offset_top = 74.0
-offset_right = 1718.0
-offset_bottom = 963.0
+[node name="Page1Viewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(711, 791)
 
-[node name="TabContainer" type="TabContainer" parent="PanelContainer"]
-layout_mode = 2
-current_tab = 0
+[node name="MarginContainer" type="MarginContainer" parent="Page1Viewport"]
+offset_top = 76.71
+offset_right = 711.0
+offset_bottom = 805.71
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
 
-[node name="People" type="PanelContainer" parent="PanelContainer/TabContainer"]
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/TabContainer/People"]
-layout_mode = 2
-
-[node name="Page1" type="VBoxContainer" parent="PanelContainer/TabContainer/People/HBoxContainer"]
+[node name="Page1" type="VBoxContainer" parent="Page1Viewport/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="CreatureEntry" parent="PanelContainer/TabContainer/People/HBoxContainer/Page1" instance=ExtResource("3_4q7ij")]
-layout_mode = 2
+[node name="Page2Viewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(711, 791)
 
-[node name="Page2" type="VBoxContainer" parent="PanelContainer/TabContainer/People/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Page2Viewport"]
+offset_top = 76.71
+offset_right = 711.0
+offset_bottom = 805.71
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Page2" type="VBoxContainer" parent="Page2Viewport/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Recipes" type="Panel" parent="PanelContainer/TabContainer"]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 1
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_u3u5d")
+offset_left = 210.0
+offset_top = 86.0
+offset_right = 921.0
+offset_bottom = 877.0
+texture = SubResource("ViewportTexture_vqwj0")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_u3u5d")
+offset_left = 965.0
+offset_top = 90.0
+offset_right = 1732.0
+offset_bottom = 881.0
+texture = SubResource("ViewportTexture_n53t8")
+expand_mode = 1
