@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://cfniuyne644nj"]
+[gd_scene load_steps=3 format=3 uid="uid://cfniuyne644nj"]
+
+[ext_resource type="Texture2D" uid="uid://ct7hadam6wpe5" path="res://Assets/Exterior.png" id="1_i8d18"]
+[ext_resource type="Texture2D" uid="uid://c1lsub0q61nis" path="res://New Project (17).png" id="2_nmq7d"]
 
 [node name="Root" type="Node2D"]
+
+[node name="Exterior" type="Sprite2D" parent="."]
+position = Vector2(-485.556, 267)
+scale = Vector2(0.730556, 0.730556)
+texture = ExtResource("1_i8d18")
+
+[node name="Interior" type="Sprite2D" parent="."]
+position = Vector2(444, 250)
+scale = Vector2(0.6875, 0.6875)
+texture = ExtResource("2_nmq7d")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(615, 405)
