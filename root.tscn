@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bumbohrg72245" path="res://exterior.tscn" id="2_xbt5w"]
 [ext_resource type="Texture2D" uid="uid://df3vilv8ttvso" path="res://Assets/rolodex.jpg" id="4_73ram"]
 [ext_resource type="PackedScene" uid="uid://wgl3cuvhud0t" path="res://camera.tscn" id="4_wuin5"]
-[ext_resource type="PackedScene" uid="uid://drdgs1oscnynx" path="res://list_of_people.tscn" id="5_53v04"]
+[ext_resource type="PackedScene" uid="uid://cxid1wlon1lvg" path="res://list_of_people.tscn" id="5_53v04"]
 [ext_resource type="PackedScene" uid="uid://do7usl2ad7mfr" path="res://animal_manager.tscn" id="7_jilfn"]
 [ext_resource type="PackedScene" uid="uid://d4adm80ecwtrd" path="res://CreatureScenes/chicken.tscn" id="8_fb1y2"]
 

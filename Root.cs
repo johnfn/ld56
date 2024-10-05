@@ -35,6 +35,8 @@ public partial class Root : Node2D {
     };
 
     UpdateCurrentScreen(CurrentScreen);
+
+    Nodes.AnimalManager.Initialize();
   }
 
   public override void _Process(double delta) {

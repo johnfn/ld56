@@ -1,15 +1,30 @@
+using System.Collections.Generic;
 using Godot;
-using System;
 
-public partial class ListOfCreatures : HBoxContainer
-{
-  // Called when the node enters the scene tree for the first time.
-  public override void _Ready()
-  {
+namespace ld56;
+using static Utils;
+
+public partial class ListOfCreatures : HBoxContainer {
+  List<UpcomingCreatureUi> CreatureUiElements = [];
+
+  public override void _Ready() {
   }
 
-  // Called every frame. 'delta' is the elapsed time since the previous frame.
-  public override void _Process(double delta)
-  {
+  public override void _Process(double delta) {
+  }
+
+  public void Initialize(List<SpawnedCreature> creatures) {
+    foreach (var creature in creatures) {
+      var ui = UpcomingCreatureUi.New();
+      ui.Initialize(creature);
+
+      CreatureUiElements.Add(ui);
+      AddChild(ui);
+
+      print(ui);
+    }
+  }
+
+  public void Update(List<SpawnedCreature> creatures) {
   }
 }

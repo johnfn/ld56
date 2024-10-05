@@ -1,5 +1,6 @@
 using Godot;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 namespace ld56;
 
 using static Utils;
@@ -19,7 +20,7 @@ public class SpawnedCreature {
 }
 
 public partial class AnimalManager : Node2D {
-  public List<SpawnedCreature> UpcomingAnimals = [
+  public List<SpawnedCreature> UpcomingCreatures = [
     new SpawnedCreature {
       Creature = AllCreatures.MrChicken,
       SpawnDelay = 0,
@@ -36,13 +37,16 @@ public partial class AnimalManager : Node2D {
   ];
 
   public override void _Ready() {
+  }
 
+  public void Initialize() {
+    Root.Instance.ListOfCreatures.Initialize(UpcomingCreatures);
   }
 
   public override void _Process(double delta) {
     var entrance = Root.Instance.Nodes.Exterior.Nodes.AnimalDestinationArea;
 
-    foreach (var animal in UpcomingAnimals) {
+    foreach (var animal in UpcomingCreatures) {
       switch (animal.State) {
         case CreatureState.NotSpawnedYet:
           animal.SpawnDelay -= delta;
@@ -53,6 +57,7 @@ public partial class AnimalManager : Node2D {
           }
 
           break;
+
         case CreatureState.WalkToEntrance:
           var instance = animal.Instance;
 
@@ -64,12 +69,18 @@ public partial class AnimalManager : Node2D {
           instance.Position += direction * 100 * (float)delta;
 
           break;
+
         case CreatureState.WaitToBeAdmitted:
           break;
+
         case CreatureState.WalkToTable:
           break;
       }
     }
+
+    var listOfCreatures = Root.Instance.ListOfCreatures;
+
+    listOfCreatures.Update(UpcomingCreatures);
   }
 
   public Node2D Spawn(SpawnedCreature animal) {
