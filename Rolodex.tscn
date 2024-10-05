@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cl4p3lwxo5lsa"]
 
-[ext_resource type="Texture2D" uid="uid://bxa6f8625brkb" path="res://Assets/Temp_Rolodex.png" id="1_s2cnw"]
+[ext_resource type="Texture2D" uid="uid://ddv5akm2vf2n5" path="res://Assets/Temp_Rolodex_v2.png" id="1_dg6dl"]
 [ext_resource type="Script" path="res://Rolodex.cs" id="2_s2ex6"]
 [ext_resource type="Shader" path="res://Rolodex.gdshader" id="4_g2p00"]
 
@@ -15,7 +15,7 @@ viewport_path = NodePath("Page1Viewport")
 viewport_path = NodePath("Page2Viewport")
 
 [node name="Rolodex" type="Sprite2D"]
-texture = ExtResource("1_s2cnw")
+texture = ExtResource("1_dg6dl")
 centered = false
 script = ExtResource("2_s2ex6")
 

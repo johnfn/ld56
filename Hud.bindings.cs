@@ -72,6 +72,21 @@ public partial class Hud : CanvasLayer {
       get => _Newspaper_CloseButton ??= parent.GetNode<Button>("Newspaper/CloseButton");
     }
 
+    private TextureRect? _Clock;
+    public TextureRect Clock {
+      get => _Clock ??= parent.GetNode<TextureRect>("Clock");
+    }
+
+    private TextureRect? _Clock_ClockHand;
+    public TextureRect Clock_ClockHand {
+      get => _Clock_ClockHand ??= parent.GetNode<TextureRect>("Clock/ClockHand");
+    }
+
+    private ColorRect? _ClosingTimeOverlay;
+    public ColorRect ClosingTimeOverlay {
+      get => _ClosingTimeOverlay ??= parent.GetNode<ColorRect>("ClosingTimeOverlay");
+    }
+
     private ListOfCreatures? _Container_MarginContainer_HBoxContainer_ListOfCreatures;
     public ListOfCreatures Container_MarginContainer_HBoxContainer_ListOfCreatures {
       get => _Container_MarginContainer_HBoxContainer_ListOfCreatures ??= parent.GetNode<ListOfCreatures>("Container/MarginContainer/HBoxContainer/ListOfCreatures");

@@ -174,7 +174,7 @@ public partial class AnimalManager : Node2D {
             }
 
             var direction = (entrance.GlobalPosition - instance.GlobalPosition).Normalized();
-            instance.Position += direction * 100 * (float)delta * (Root.Instance.HYPER ? 20 : 1);
+            instance.Position += direction * 100 * (float)delta;
 
             if (instance.GlobalPosition.DistanceTo(entrance.GlobalPosition) < 10) {
               animal.State = CreatureState.WaitToBeAdmitted;
@@ -197,7 +197,7 @@ public partial class AnimalManager : Node2D {
 
             if (animal.CurrentScreen == CurrentScreen.Exterior) {
               var direction = (admit.GlobalPosition - instance.GlobalPosition).Normalized();
-              instance.Position += direction * 100 * (float)delta * (Root.Instance.HYPER ? 20 : 1);
+              instance.Position += direction * 100 * (float)delta;
 
               if (instance.GlobalPosition.DistanceTo(admit.GlobalPosition) < 10) {
                 animal.CurrentScreen = CurrentScreen.Interior;
@@ -226,7 +226,7 @@ public partial class AnimalManager : Node2D {
             }
 
             var direction = (animal.SelectedChair.GlobalPosition - instance.GlobalPosition).Normalized();
-            instance.Position += direction * 100 * (float)delta * (Root.Instance.HYPER ? 20 : 1);
+            instance.Position += direction * 100 * (float)delta;
 
             if (instance.GlobalPosition.DistanceTo(animal.SelectedChair.GlobalPosition) < 10) {
               animal.State = CreatureState.WaitForTalk;
