@@ -1,9 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://baqlqmbasgslw"]
+[gd_scene load_steps=17 format=3 uid="uid://baqlqmbasgslw"]
 
 [ext_resource type="PackedScene" uid="uid://cxid1wlon1lvg" path="res://list_of_people.tscn" id="1_1te6p"]
 [ext_resource type="Script" path="res://Hud.cs" id="1_eqs7q"]
 [ext_resource type="PackedScene" path="res://Rolodex.tscn" id="3_cpfkf"]
+[ext_resource type="Texture2D" uid="uid://bkaqtippwahvp" path="res://Assets/newspaper.png" id="4_eaora"]
 [ext_resource type="PackedScene" uid="uid://07sx5xgd03q2" path="res://dialog_box.tscn" id="4_xc7oc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nm077"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ivqrp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_piy0o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6k7d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1owxj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ucltw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y67yk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8viex"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_anw0a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bre28"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lqqcc"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_eqs7q")
@@ -65,3 +88,54 @@ offset_left = 379.0
 offset_top = 220.0
 offset_right = 1181.0
 offset_bottom = 513.0
+
+[node name="Newspaper" type="ColorRect" parent="."]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.607843)
+
+[node name="Newspaper" type="TextureRect" parent="Newspaper"]
+layout_mode = 0
+offset_left = 385.0
+offset_top = 6.0
+offset_right = 1504.0
+offset_bottom = 1055.0
+texture = ExtResource("4_eaora")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Newspaper"]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 305.0
+offset_right = 1412.0
+offset_bottom = 728.0
+
+[node name="DaysLeft" type="Label" parent="Newspaper/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "Days until the Dinernb Extravaganza: 8!"
+horizontal_alignment = 1
+
+[node name="DaysLeft2" type="Label" parent="Newspaper/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Nothing to report of late, and you can't make us talk about the weather."
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="Newspaper"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1073.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nm077")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ivqrp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_piy0o")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_g6k7d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1owxj")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ucltw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_y67yk")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_8viex")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_anw0a")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_bre28")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lqqcc")

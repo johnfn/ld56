@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfniuyne644nj"]
+[gd_scene load_steps=10 format=3 uid="uid://cfniuyne644nj"]
 
 [ext_resource type="Script" path="res://Root.cs" id="1_pn6rf"]
 [ext_resource type="PackedScene" uid="uid://bumbohrg72245" path="res://exterior.tscn" id="2_xbt5w"]
@@ -8,9 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://wgl3cuvhud0t" path="res://camera.tscn" id="4_wuin5"]
 [ext_resource type="PackedScene" uid="uid://do7usl2ad7mfr" path="res://animal_manager.tscn" id="7_jilfn"]
 [ext_resource type="PackedScene" uid="uid://baqlqmbasgslw" path="res://HUD.tscn" id="7_upxnj"]
+[ext_resource type="PackedScene" path="res://SoundManager.tscn" id="9_nxehi"]
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_pn6rf")
+
+[node name="SoundManager" parent="." instance=ExtResource("9_nxehi")]
 
 [node name="Exterior" parent="." instance=ExtResource("2_xbt5w")]
 position = Vector2(-1920, 0)
@@ -21,7 +24,6 @@ texture = ExtResource("3_nxlpo")
 
 [node name="Rolodex" parent="." instance=ExtResource("4_lmvi6")]
 position = Vector2(1959, 20)
-PageTurnSFX = null
 
 [node name="Camera" parent="." instance=ExtResource("4_wuin5")]
 

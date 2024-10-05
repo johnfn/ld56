@@ -38,6 +38,10 @@ public partial class Root : Node2D {
     Nodes.HUD.Nodes.RolodexButton.Pressed += () => {
       ToggleRolodex();
     };
+
+    Nodes.HUD.Nodes.Newspaper_CloseButton.Pressed += () => {
+      ToggleNewspaper();
+    };
   }
 
   public override void _Process(double delta) {
@@ -71,5 +75,10 @@ public partial class Root : Node2D {
 
   public void ToggleRolodex() {
     Nodes.HUD.Nodes.Rolodex.Visible = !Nodes.HUD.Nodes.Rolodex.Visible;
+  }
+
+  public void ToggleNewspaper() {
+    Nodes.HUD.Nodes.Newspaper.Visible = !Nodes.HUD.Nodes.Newspaper.Visible;
+    Nodes.SoundManager.PlayPageTurnSFX();
   }
 }

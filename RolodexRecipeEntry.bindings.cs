@@ -42,24 +42,14 @@ public partial class RolodexRecipeEntry : PanelContainer {
       get => _HBoxContainer_VBoxContainer_Characteristic ??= parent.GetNode<Label>("HBoxContainer/VBoxContainer/Characteristic");
     }
 
-    private HBoxContainer? _HBoxContainer_VBoxContainer_FavoriteDishes;
-    public HBoxContainer HBoxContainer_VBoxContainer_FavoriteDishes {
-      get => _HBoxContainer_VBoxContainer_FavoriteDishes ??= parent.GetNode<HBoxContainer>("HBoxContainer/VBoxContainer/FavoriteDishes");
+    private HBoxContainer? _HBoxContainer_VBoxContainer_Ingredients;
+    public HBoxContainer HBoxContainer_VBoxContainer_Ingredients {
+      get => _HBoxContainer_VBoxContainer_Ingredients ??= parent.GetNode<HBoxContainer>("HBoxContainer/VBoxContainer/Ingredients");
     }
 
-    private TextureRect? _HBoxContainer_VBoxContainer_FavoriteDishes_Dish1;
-    public TextureRect HBoxContainer_VBoxContainer_FavoriteDishes_Dish1 {
-      get => _HBoxContainer_VBoxContainer_FavoriteDishes_Dish1 ??= parent.GetNode<TextureRect>("HBoxContainer/VBoxContainer/FavoriteDishes/Dish1");
-    }
-
-    private TextureRect? _HBoxContainer_VBoxContainer_FavoriteDishes_Dish2;
-    public TextureRect HBoxContainer_VBoxContainer_FavoriteDishes_Dish2 {
-      get => _HBoxContainer_VBoxContainer_FavoriteDishes_Dish2 ??= parent.GetNode<TextureRect>("HBoxContainer/VBoxContainer/FavoriteDishes/Dish2");
-    }
-
-    private TextureRect? _HBoxContainer_VBoxContainer_FavoriteDishes_Dish3;
-    public TextureRect HBoxContainer_VBoxContainer_FavoriteDishes_Dish3 {
-      get => _HBoxContainer_VBoxContainer_FavoriteDishes_Dish3 ??= parent.GetNode<TextureRect>("HBoxContainer/VBoxContainer/FavoriteDishes/Dish3");
+    private TextureRect? _HBoxContainer_VBoxContainer_Ingredients_TextureRect;
+    public TextureRect HBoxContainer_VBoxContainer_Ingredients_TextureRect {
+      get => _HBoxContainer_VBoxContainer_Ingredients_TextureRect ??= parent.GetNode<TextureRect>("HBoxContainer/VBoxContainer/Ingredients/TextureRect");
     }
 
   }

@@ -1,11 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmx8m8efavlh0"]
+[gd_scene load_steps=5 format=3 uid="uid://cmx8m8efavlh0"]
 
 [ext_resource type="Script" path="res://RolodexRecipeEntry.cs" id="1_bqypa"]
 [ext_resource type="Texture2D" uid="uid://2xyc6m0v6fs2" path="res://icon.svg" id="2_p26yo"]
+[ext_resource type="Texture2D" uid="uid://bb03hc30ic4ma" path="res://Assets/cherry_tomato.png" id="3_33epp"]
 
 [sub_resource type="Theme" id="Theme_5ug5t"]
 
-[node name="RolodexCreatureEntry" type="PanelContainer"]
+[node name="RolodexRecipeEntry" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 133)
 offset_right = 900.0
 offset_bottom = 293.0
@@ -37,30 +38,12 @@ layout_mode = 2
 size_flags_vertical = 7
 text = "Description"
 
-[node name="FavoriteDishes" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+[node name="Ingredients" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 7
 
-[node name="Dish1" type="TextureRect" parent="HBoxContainer/VBoxContainer/FavoriteDishes"]
-custom_minimum_size = Vector2(25, 25)
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/Ingredients"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("2_p26yo")
+texture = ExtResource("3_33epp")
 expand_mode = 1
-stretch_mode = 4
-
-[node name="Dish2" type="TextureRect" parent="HBoxContainer/VBoxContainer/FavoriteDishes"]
-custom_minimum_size = Vector2(25, 25)
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("2_p26yo")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="Dish3" type="TextureRect" parent="HBoxContainer/VBoxContainer/FavoriteDishes"]
-custom_minimum_size = Vector2(25, 25)
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("2_p26yo")
-expand_mode = 1
-stretch_mode = 4

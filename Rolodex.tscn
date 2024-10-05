@@ -1,15 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cl4p3lwxo5lsa"]
+[gd_scene load_steps=7 format=3 uid="uid://cl4p3lwxo5lsa"]
 
 [ext_resource type="Texture2D" uid="uid://bxa6f8625brkb" path="res://Assets/Temp_Rolodex.png" id="1_s2cnw"]
 [ext_resource type="Script" path="res://Rolodex.cs" id="2_s2ex6"]
-[ext_resource type="AudioStream" uid="uid://duq8jq0nyecux" path="res://Assets/pageturn_01.wav" id="3_cj3ib"]
 [ext_resource type="Shader" path="res://Rolodex.gdshader" id="4_g2p00"]
-[ext_resource type="AudioStream" uid="uid://cfs3yndsvnpqx" path="res://Assets/pageturn_02.wav" id="4_jbl5q"]
-[ext_resource type="AudioStream" uid="uid://b4pbkftxlp5i8" path="res://Assets/pageturn_03.wav" id="5_ruaba"]
-[ext_resource type="AudioStream" uid="uid://ccc4v3slcgkvs" path="res://Assets/pageturn_04.wav" id="6_prl3n"]
-[ext_resource type="AudioStream" uid="uid://cqgx7kfpdqegu" path="res://Assets/pageturn_05.wav" id="7_t430a"]
-[ext_resource type="AudioStream" uid="uid://cvh7j5wqx8tq3" path="res://Assets/pageturn_06.wav" id="8_awlmq"]
-[ext_resource type="AudioStream" uid="uid://pdv5wej58nsn" path="res://Assets/pageturn_07.wav" id="9_6owrl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_u3u5d"]
 shader = ExtResource("4_g2p00")
@@ -25,7 +18,6 @@ viewport_path = NodePath("Page2Viewport")
 texture = ExtResource("1_s2cnw")
 centered = false
 script = ExtResource("2_s2ex6")
-PageTurnSFX = Array[AudioStream]([ExtResource("3_cj3ib"), ExtResource("4_jbl5q"), ExtResource("5_ruaba"), ExtResource("6_prl3n"), ExtResource("7_t430a"), ExtResource("8_awlmq"), ExtResource("9_6owrl")])
 
 [node name="Page1Viewport" type="SubViewport" parent="."]
 transparent_bg = true
@@ -106,5 +98,12 @@ offset_top = 38.0
 offset_right = 675.0
 offset_bottom = 97.0
 text = "Recipes"
+
+[node name="IngredientsTab" type="Button" parent="."]
+offset_left = 670.0
+offset_top = 50.0
+offset_right = 860.0
+offset_bottom = 109.0
+text = "Ingredients"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

@@ -17,6 +17,11 @@ public partial class Root : Node2D {
     public RootNodes(Root parent) {
       this.parent = parent;
     }
+    private SoundManager? _SoundManager;
+    public SoundManager SoundManager {
+      get => _SoundManager ??= parent.GetNode<SoundManager>("SoundManager");
+    }
+
     private Exterior? _Exterior;
     public Exterior Exterior {
       get => _Exterior ??= parent.GetNode<Exterior>("Exterior");
