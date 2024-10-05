@@ -57,6 +57,11 @@ public partial class Hud : CanvasLayer {
       get => _Rolodex ??= parent.GetNode<Rolodex>("Rolodex");
     }
 
+    private DialogBox? _DialogBox;
+    public DialogBox DialogBox {
+      get => _DialogBox ??= parent.GetNode<DialogBox>("DialogBox");
+    }
+
   }
 
   public HudNodes? _Nodes;

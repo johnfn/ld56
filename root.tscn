@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" path="res://Rolodex.tscn" id="4_lmvi6"]
 [ext_resource type="PackedScene" uid="uid://wgl3cuvhud0t" path="res://camera.tscn" id="4_wuin5"]
 [ext_resource type="PackedScene" uid="uid://do7usl2ad7mfr" path="res://animal_manager.tscn" id="7_jilfn"]
-[ext_resource type="PackedScene" path="res://HUD.tscn" id="7_upxnj"]
+[ext_resource type="PackedScene" uid="uid://baqlqmbasgslw" path="res://HUD.tscn" id="7_upxnj"]
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_pn6rf")

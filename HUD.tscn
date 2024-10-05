@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://6tml4ytuolux"]
+[gd_scene load_steps=5 format=3 uid="uid://baqlqmbasgslw"]
 
-[ext_resource type="PackedScene" uid="uid://drdgs1oscnynx" path="res://list_of_people.tscn" id="1_1te6p"]
+[ext_resource type="PackedScene" uid="uid://cxid1wlon1lvg" path="res://list_of_people.tscn" id="1_1te6p"]
 [ext_resource type="Script" path="res://Hud.cs" id="1_eqs7q"]
-[ext_resource type="PackedScene" uid="uid://cl4p3lwxo5lsa" path="res://Rolodex.tscn" id="3_cpfkf"]
+[ext_resource type="PackedScene" path="res://Rolodex.tscn" id="3_cpfkf"]
+[ext_resource type="PackedScene" uid="uid://07sx5xgd03q2" path="res://dialog_box.tscn" id="4_xc7oc"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_eqs7q")
@@ -58,3 +59,5 @@ text = "R"
 
 [node name="Rolodex" parent="." instance=ExtResource("3_cpfkf")]
 visible = false
+
+[node name="DialogBox" parent="." instance=ExtResource("4_xc7oc")]
