@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://drdgs1oscnynx"]
+[gd_scene load_steps=2 format=3 uid="uid://djadnevbldc8g"]
 
-[ext_resource type="PackedScene" uid="uid://epptr1vhg57" path="res://upcoming_creature_ui.tscn" id="1_hkaqs"]
+[ext_resource type="PackedScene" path="res://upcoming_creature_ui.tscn" id="1_hkaqs"]
 
 [node name="ListOfPeople" type="HBoxContainer"]
 theme_override_constants/separation = 16
