@@ -82,11 +82,6 @@ public partial class Root : Node2D {
       get => _AnimalManager ??= parent.GetNode<AnimalManager>("AnimalManager");
     }
 
-    private Chicken? _Chicken;
-    public Chicken Chicken {
-      get => _Chicken ??= parent.GetNode<Chicken>("Chicken");
-    }
-
   }
 
   public RootNodes? _Nodes;

@@ -4,6 +4,5 @@
 [ext_resource type="Script" path="res://CreatureScenes/Chicken.cs" id="2_xrcnl"]
 
 [node name="Chicken" type="Sprite2D"]
-position = Vector2(-1549, 1926)
 texture = ExtResource("1_sw8sy")
 script = ExtResource("2_xrcnl")
