@@ -15,6 +15,10 @@ public partial class Root : Node2D {
   public GameScreen CurrentScreen { get; private set; } = GameScreen.Restaurant;
   public static Root Instance { get; private set; }
 
+  public ListOfCreatures ListOfCreatures {
+    get => Nodes.CanvasLayer_Container_MarginContainer_HBoxContainer_ListOfCreatures;
+  }
+
   public override void _Ready() {
     Instance = this;
 

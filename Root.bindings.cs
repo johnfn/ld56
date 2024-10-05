@@ -72,10 +72,9 @@ public partial class Root : Node2D {
       get => _Camera ??= parent.GetNode<Camera>("Camera");
     }
 
-    // Can't find a script for HBoxContainer, so we use a more basic type here. 
-    private HBoxContainer? _CanvasLayer_Container_MarginContainer_HBoxContainer_ListOfPeople;
-    public HBoxContainer CanvasLayer_Container_MarginContainer_HBoxContainer_ListOfPeople {
-      get => _CanvasLayer_Container_MarginContainer_HBoxContainer_ListOfPeople ??= parent.GetNode<HBoxContainer>("CanvasLayer/Container/MarginContainer/HBoxContainer/ListOfPeople");
+    private ListOfCreatures? _CanvasLayer_Container_MarginContainer_HBoxContainer_ListOfCreatures;
+    public ListOfCreatures CanvasLayer_Container_MarginContainer_HBoxContainer_ListOfCreatures {
+      get => _CanvasLayer_Container_MarginContainer_HBoxContainer_ListOfCreatures ??= parent.GetNode<ListOfCreatures>("CanvasLayer/Container/MarginContainer/HBoxContainer/ListOfCreatures");
     }
 
     private AnimalManager? _AnimalManager;

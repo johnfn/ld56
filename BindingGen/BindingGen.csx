@@ -333,7 +333,12 @@ class MyCodegen {
         var id = instanceNodeMatch.Groups[3].Value;
 
         var associatedPackedSceneResPath = scene.PackedSceneResources.First(p => p.Id == id).ResPath;
-        var associatedScene = allScenes.First(s => s.ResPath == associatedPackedSceneResPath);
+        var associatedScene = allScenes.FirstOrDefault(s => s.ResPath == associatedPackedSceneResPath);
+
+        if (associatedScene == null) {
+          WriteLine("No scene found with the resource path: " + associatedPackedSceneResPath + ". This is probably transient, just save a file to try again.");
+          continue;
+        }
 
         if (associatedScene.RootNode == null) {
           WriteLine("No associated scene at all found for " + name + ". This is probably a bug.");

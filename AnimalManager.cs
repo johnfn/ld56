@@ -1,5 +1,4 @@
 using Godot;
-using System;
 using System.Collections.Generic;
 namespace ld56;
 
@@ -13,10 +12,10 @@ public enum CreatureState {
 }
 
 public class SpawnedCreature {
-  public Creature Creature;
-  public double SpawnDelay;
-  public CreatureState State;
-  public Node2D? Instance;
+  public required Creature Creature;
+  public required double SpawnDelay;
+  public required CreatureState State;
+  public required Node2D? Instance;
 }
 
 public partial class AnimalManager : Node2D {
@@ -27,6 +26,7 @@ public partial class AnimalManager : Node2D {
       State = CreatureState.NotSpawnedYet,
       Instance = null,
     },
+
     new SpawnedCreature {
       Creature = AllCreatures.MrsCow,
       SpawnDelay = 10,
@@ -55,6 +55,7 @@ public partial class AnimalManager : Node2D {
           break;
         case CreatureState.WalkToEntrance:
           var instance = animal.Instance;
+
           if (instance == null) {
             continue;
           }

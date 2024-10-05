@@ -69,7 +69,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Rolodex"
 
-[node name="ListOfPeople" parent="CanvasLayer/Container/MarginContainer/HBoxContainer" instance=ExtResource("5_53v04")]
+[node name="ListOfCreatures" parent="CanvasLayer/Container/MarginContainer/HBoxContainer" instance=ExtResource("5_53v04")]
 layout_mode = 2
 
 [node name="AnimalManager" parent="." instance=ExtResource("7_jilfn")]
