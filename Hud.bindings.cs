@@ -47,6 +47,36 @@ public partial class Hud : CanvasLayer {
       get => _InteriorButton ??= parent.GetNode<Button>("InteriorButton");
     }
 
+    private ColorRect? _Newspaper;
+    public ColorRect Newspaper {
+      get => _Newspaper ??= parent.GetNode<ColorRect>("Newspaper");
+    }
+
+    private TextureRect? _Newspaper_Newspaper;
+    public TextureRect Newspaper_Newspaper {
+      get => _Newspaper_Newspaper ??= parent.GetNode<TextureRect>("Newspaper/Newspaper");
+    }
+
+    private VBoxContainer? _Newspaper_HBoxContainer;
+    public VBoxContainer Newspaper_HBoxContainer {
+      get => _Newspaper_HBoxContainer ??= parent.GetNode<VBoxContainer>("Newspaper/HBoxContainer");
+    }
+
+    private Label? _Newspaper_HBoxContainer_DaysLeft;
+    public Label Newspaper_HBoxContainer_DaysLeft {
+      get => _Newspaper_HBoxContainer_DaysLeft ??= parent.GetNode<Label>("Newspaper/HBoxContainer/DaysLeft");
+    }
+
+    private Label? _Newspaper_HBoxContainer_DaysLeft2;
+    public Label Newspaper_HBoxContainer_DaysLeft2 {
+      get => _Newspaper_HBoxContainer_DaysLeft2 ??= parent.GetNode<Label>("Newspaper/HBoxContainer/DaysLeft2");
+    }
+
+    private Button? _Newspaper_CloseButton;
+    public Button Newspaper_CloseButton {
+      get => _Newspaper_CloseButton ??= parent.GetNode<Button>("Newspaper/CloseButton");
+    }
+
     private ListOfCreatures? _Container_MarginContainer_HBoxContainer_ListOfCreatures;
     public ListOfCreatures Container_MarginContainer_HBoxContainer_ListOfCreatures {
       get => _Container_MarginContainer_HBoxContainer_ListOfCreatures ??= parent.GetNode<ListOfCreatures>("Container/MarginContainer/HBoxContainer/ListOfCreatures");

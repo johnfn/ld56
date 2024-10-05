@@ -77,6 +77,11 @@ public partial class Rolodex : Sprite2D {
       get => _RecipesTab ??= parent.GetNode<Button>("RecipesTab");
     }
 
+    private Button? _IngredientsTab;
+    public Button IngredientsTab {
+      get => _IngredientsTab ??= parent.GetNode<Button>("IngredientsTab");
+    }
+
     private AudioStreamPlayer2D? _AudioStreamPlayer2D;
     public AudioStreamPlayer2D AudioStreamPlayer2D {
       get => _AudioStreamPlayer2D ??= parent.GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");

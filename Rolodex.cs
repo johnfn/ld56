@@ -26,9 +26,14 @@ public partial class Rolodex : Sprite2D {
     AllCreatures.MrPig,
   ];
 
-  // Page turn SFX
-  [Export]
-  public AudioStream[] PageTurnSFX;
+  public List<Ingredient> KnownIngredients = [
+    AllIngredients.CherryTomato,
+    AllIngredients.Basil,
+    AllIngredients.Garlic,
+    AllIngredients.Onion,
+    AllIngredients.Carrot,
+    AllIngredients.Egg,
+  ];
 
   private int Page = 0;
   private int MaxEntriesPerPage = 5;
@@ -36,13 +41,13 @@ public partial class Rolodex : Sprite2D {
   private enum RolodexTab {
     Creatures,
     Recipes,
+    Ingredients,
   }
 
   private RolodexTab Tab = RolodexTab.Creatures;
 
 
   public override void _Ready() {
-    GD.Print(PageTurnSFX.Length);
     PopulatePages();
 
     Nodes.NextPageButton.Pressed += () => FlipPage(true);
@@ -50,6 +55,7 @@ public partial class Rolodex : Sprite2D {
 
     Nodes.RecipesTab.Pressed += () => ChangeTab(RolodexTab.Recipes);
     Nodes.CreaturesTab.Pressed += () => ChangeTab(RolodexTab.Creatures);
+    Nodes.IngredientsTab.Pressed += () => ChangeTab(RolodexTab.Ingredients);
   }
 
   public void AddGuestEntry(Creature creature) {
@@ -65,7 +71,9 @@ public partial class Rolodex : Sprite2D {
 
   private RolodexCreatureEntry CreateCreatureEntry(Creature creature) {
     var creatureEntry = GD.Load<PackedScene>("res://RolodexCreatureEntry.tscn").Instantiate<RolodexCreatureEntry>();
-    // creatureEntry.Nodes.HBoxContainer_TextureRect.Texture = null; // TODO: Set this
+    if (creature.Icon != null) {
+      creatureEntry.Nodes.HBoxContainer_TextureRect.Texture = creature.Icon;
+    }
     creatureEntry.Nodes.HBoxContainer_VBoxContainer_Name.Text = creature.Name;
     creatureEntry.Nodes.HBoxContainer_VBoxContainer_Characteristic.Text = creature.Description;
 
@@ -74,15 +82,39 @@ public partial class Rolodex : Sprite2D {
 
   private RolodexRecipeEntry CreateRecipeEntry(Recipe recipe) {
     var recipeEntry = GD.Load<PackedScene>("res://RolodexRecipeEntry.tscn").Instantiate<RolodexRecipeEntry>();
-    // recipeEntry.Nodes.HBoxContainer_TextureRect.Texture = recipe.Icon; // TODO: Set this
+    if (recipe.Icon != null) {
+      recipeEntry.Nodes.HBoxContainer_TextureRect.Texture = recipe.Icon;
+    }
     recipeEntry.Nodes.HBoxContainer_VBoxContainer_Name.Text = recipe.Name;
     recipeEntry.Nodes.HBoxContainer_VBoxContainer_Characteristic.Text = recipe.Description;
+
+    recipeEntry.Nodes.HBoxContainer_VBoxContainer_Ingredients.GetChildren().ToList().ForEach(n => n.QueueFree());
+    recipe.Ingredients.ForEach(ingredient => {
+      var textureRect = new TextureRect() {
+        Texture = ingredient.Icon,
+      };
+      textureRect.ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize;
+      textureRect.StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered;
+      textureRect.CustomMinimumSize = new Vector2I(100, 100);
+      recipeEntry.Nodes.HBoxContainer_VBoxContainer_Ingredients.AddChild(textureRect);
+    });
 
     return recipeEntry;
   }
 
+  private RolodexIngredientEntry CreateIngredientEntry(Ingredient ingredient) {
+    var ingredientEntry = GD.Load<PackedScene>("res://RolodexIngredientEntry.tscn").Instantiate<RolodexIngredientEntry>();
+    if (ingredient.Icon != null) {
+      ingredientEntry.Nodes.HBoxContainer_TextureRect.Texture = ingredient.Icon;
+    }
+    ingredientEntry.Nodes.HBoxContainer_VBoxContainer_Name.Text = ingredient.Name;
+    ingredientEntry.Nodes.HBoxContainer_VBoxContainer_Characteristic.Text = ingredient.Description;
+
+    return ingredientEntry;
+  }
+
   private void FlipPage(bool forward) {
-    PlayPageTurnSFX();
+    Root.Instance.Nodes.SoundManager.PlayPageTurnSFX();
 
     if (forward) {
       Page += 2;
@@ -106,20 +138,9 @@ public partial class Rolodex : Sprite2D {
   }
 
   private void ChangeTab(RolodexTab tab) {
-    PlayPageTurnSFX();
+    Root.Instance.Nodes.SoundManager.PlayPageTurnSFX();
     Tab = tab;
     PopulatePages();
-  }
-  private void PlayPageTurnSFX() {
-    GD.Randomize();
-    if (PageTurnSFX.Length == 0) {
-      GD.PushWarning("No page turn SFX set for Rolodex.");
-      return;
-    }
-    var randomIndex = GD.Randi() % PageTurnSFX.Length;
-    var randomPageTurnSFX = PageTurnSFX[randomIndex];
-    Nodes.AudioStreamPlayer2D.Stream = randomPageTurnSFX;
-    Nodes.AudioStreamPlayer2D.Play();
   }
 
   private void PopulatePages() {
@@ -162,6 +183,21 @@ public partial class Rolodex : Sprite2D {
           break;
         }
         Nodes.Page2Viewport_MarginContainer_Page2.AddChild(CreateRecipeEntry(UnlockedRecipes[i]));
+      }
+    } else if (Tab == RolodexTab.Ingredients) {
+
+      for (int i = page1StartIndex; i < page2StartIndex; i++) {
+        if (i >= KnownIngredients.Count) {
+          break;
+        }
+        Nodes.Page1Viewport_MarginContainer_Page1.AddChild(CreateIngredientEntry(KnownIngredients[i]));
+      }
+
+      for (int i = page2StartIndex; i < page2EndIndex; i++) {
+        if (i >= KnownIngredients.Count) {
+          break;
+        }
+        Nodes.Page2Viewport_MarginContainer_Page2.AddChild(CreateIngredientEntry(KnownIngredients[i]));
       }
     }
   }
