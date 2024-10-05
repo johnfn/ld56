@@ -35,14 +35,15 @@ public partial class UpcomingCreatureUi : ColorRect {
         return;
       }
 
-      Root.Instance.UpdateCurrentScreen(
-        _spawnedCreature.CurrentScreen switch {
-          CurrentScreen.Exterior => GameScreen.Exterior,
-          CurrentScreen.Interior => GameScreen.Restaurant,
-          CurrentScreen.Nowhere => GameScreen.Rolodex,
-        }
-      );
+      if (_spawnedCreature.CurrentScreen == CurrentScreen.Interior) {
+        Root.Instance.UpdateCurrentScreen(GameScreen.Restaurant);
+      } else if (_spawnedCreature.CurrentScreen == CurrentScreen.Exterior) {
+        Root.Instance.UpdateCurrentScreen(GameScreen.Exterior);
+      } else {
+        Root.Instance.ToggleRolodex();
+      }
     }
+
   }
 
   public override void _Process(double delta) {
