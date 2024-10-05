@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://epptr1vhg57"]
+
+[ext_resource type="Script" path="res://UpcomingCreatureUi.cs" id="1_ufo37"]
+
+[node name="UpcomingCreatureUi" type="ColorRect"]
+custom_minimum_size = Vector2(64, 32)
+color = Color(1, 0.062614, 0.308144, 1)
+script = ExtResource("1_ufo37")
+
+[node name="Popover" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_top = -68.0
+offset_right = 166.0
+offset_bottom = -3.0
+
+[node name="Label" type="Label" parent="Popover"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "This is a tiny creature"
