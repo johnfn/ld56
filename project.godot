@@ -12,13 +12,13 @@ config_version=5
 
 config/name="ld56"
 run/main_scene="res://root.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1200
-window/size/viewport_height=800
+window/size/viewport_width=1800
+window/size/viewport_height=1200
 
 [dotnet]
 

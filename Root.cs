@@ -2,6 +2,8 @@ using Godot;
 using System;
 using static Utils;
 
+namespace ld56;
+
 public enum GameScreen {
   Exterior,
   Restaurant,
@@ -35,14 +37,23 @@ public partial class Root : Node2D {
     Nodes.CanvasLayer_Container_MarginContainer_HBoxContainer_GoToExterior.Disabled = CurrentScreen == GameScreen.Exterior;
     Nodes.CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRestaurant.Disabled = CurrentScreen == GameScreen.Restaurant;
 
-    switch (CurrentScreen) {
-      case GameScreen.Exterior:
-        Nodes.Camera.Position = Nodes.Exterior.Position;
-        break;
-      case GameScreen.Restaurant:
-        Nodes.Camera.Position = Nodes.Interior.Position;
-        break;
-    }
+    var node = CurrentScreen switch {
+      GameScreen.Exterior => Nodes.Exterior,
+      GameScreen.Restaurant => Nodes.Interior,
+      _ => throw new NotImplementedException(),
+    };
 
+    Nodes.Camera.Position = node.Position;
+
+    print(node.Position);
+
+    Nodes.Camera.SetBounds(
+      new Rect2(
+        node.Position.X,
+        node.Position.Y,
+        node.GetRect().Size.X,
+        node.GetRect().Size.Y
+      )
+    );
   }
 }

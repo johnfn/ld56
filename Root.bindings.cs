@@ -1,5 +1,5 @@
 using Godot;
-
+namespace ld56;
 
 public partial class Root : Node2D {
   public static Root New() {
@@ -25,11 +25,6 @@ public partial class Root : Node2D {
     private Sprite2D? _Interior;
     public Sprite2D Interior {
       get => _Interior ??= parent.GetNode<Sprite2D>("Interior");
-    }
-
-    private Camera2D? _Camera;
-    public Camera2D Camera {
-      get => _Camera ??= parent.GetNode<Camera2D>("Camera");
     }
 
     private CanvasLayer? _CanvasLayer;
@@ -60,6 +55,11 @@ public partial class Root : Node2D {
     private Button? _CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRestaurant;
     public Button CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRestaurant {
       get => _CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRestaurant ??= parent.GetNode<Button>("CanvasLayer/Container/MarginContainer/HBoxContainer/GoToRestaurant");
+    }
+
+    private Camera? _Camera;
+    public Camera Camera {
+      get => _Camera ??= parent.GetNode<Camera>("Camera");
     }
 
   }
