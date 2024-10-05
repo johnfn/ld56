@@ -3,20 +3,35 @@ using System;
 using System.Collections.Generic;
 namespace ld56;
 
+using static Utils;
+
+public enum CreatureState {
+  NotSpawnedYet,
+  WalkToEntrance,
+  WaitToBeAdmitted,
+  WalkToTable,
+}
+
 public class SpawnedCreature {
   public Creature Creature;
-  public double Delay;
+  public double SpawnDelay;
+  public CreatureState State;
+  public Node2D? Instance;
 }
 
 public partial class AnimalManager : Node2D {
   public List<SpawnedCreature> UpcomingAnimals = [
     new SpawnedCreature {
       Creature = AllCreatures.MrChicken,
-      Delay = 0,
+      SpawnDelay = 0,
+      State = CreatureState.NotSpawnedYet,
+      Instance = null,
     },
     new SpawnedCreature {
       Creature = AllCreatures.MrsCow,
-      Delay = 10,
+      SpawnDelay = 10,
+      State = CreatureState.NotSpawnedYet,
+      Instance = null,
     },
   ];
 
@@ -25,19 +40,43 @@ public partial class AnimalManager : Node2D {
   }
 
   public override void _Process(double delta) {
-    foreach (var animal in UpcomingAnimals) {
-      animal.Delay -= delta;
+    var entrance = Root.Instance.Nodes.Exterior.Nodes.AnimalDestinationArea;
 
-      if (animal.Delay <= 0) {
-        SpawnNextAnimal();
+    foreach (var animal in UpcomingAnimals) {
+      switch (animal.State) {
+        case CreatureState.NotSpawnedYet:
+          animal.SpawnDelay -= delta;
+
+          if (animal.SpawnDelay <= 0) {
+            animal.Instance = Spawn(animal);
+            animal.State = CreatureState.WalkToEntrance;
+          }
+
+          break;
+        case CreatureState.WalkToEntrance:
+          var instance = animal.Instance;
+          if (instance == null) {
+            continue;
+          }
+
+          var direction = (entrance.GlobalPosition - instance.GlobalPosition).Normalized();
+          instance.Position += direction * 100 * (float)delta;
+
+          break;
+        case CreatureState.WaitToBeAdmitted:
+          break;
+        case CreatureState.WalkToTable:
+          break;
       }
     }
   }
 
-  public void SpawnNextAnimal() {
-    var chicken = Chicken.New();
+  public Node2D Spawn(SpawnedCreature animal) {
+    var newAnimal = animal.Creature.Instantiate();
 
-    AddChild(chicken);
-    chicken.GlobalPosition = Root.Instance.Nodes.Exterior.Nodes.AnimalSpawnArea.GlobalPosition;
+    AddChild(newAnimal);
+    newAnimal.GlobalPosition = Root.Instance.Nodes.Exterior.Nodes.AnimalSpawnArea.GlobalPosition;
+
+    return newAnimal;
   }
 }

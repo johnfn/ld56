@@ -7,21 +7,22 @@
 size = Vector2(148.732, 146.16)
 
 [node name="Exterior" type="Sprite2D"]
+position = Vector2(0, 2)
 scale = Vector2(1.86806, 1.79583)
 texture = ExtResource("1_6dj1r")
 centered = false
 script = ExtResource("2_ty7v4")
 
 [node name="AnimalSpawnArea" type="Area2D" parent="."]
+position = Vector2(146.676, 353.04)
 
 [node name="Shape" type="CollisionShape2D" parent="AnimalSpawnArea"]
-position = Vector2(147.747, 354.711)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1e6hy")
 
 [node name="AnimalDestinationArea" type="Area2D" parent="."]
+position = Vector2(1005.86, 349.699)
 
 [node name="Shape" type="CollisionShape2D" parent="AnimalDestinationArea"]
-position = Vector2(147.747, 354.711)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1e6hy")

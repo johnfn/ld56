@@ -54,8 +54,6 @@ public partial class Root : Node2D {
 
     Nodes.Camera.Position = node.Position;
 
-    print(node.Position);
-
     Nodes.Camera.SetBounds(
       new Rect2(
         node.Position.X,

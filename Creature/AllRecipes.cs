@@ -18,7 +18,7 @@ public static class AllRecipes {
     Name = "Scrambled Eggs",
     Description = "Eggs are scrambled and served with a side of toast.",
     Ingredients = [
-      AllIngredients.Egg,
+      AllIngredients.Onion,
     ],
   };
 }
