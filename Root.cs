@@ -13,8 +13,11 @@ public enum GameScreen {
 
 public partial class Root : Node2D {
   public GameScreen CurrentScreen { get; private set; } = GameScreen.Restaurant;
+  public static Root Instance { get; private set; }
 
   public override void _Ready() {
+    Instance = this;
+
     Nodes.CanvasLayer_Container_MarginContainer_HBoxContainer_GoToExterior.Pressed += () => {
       UpdateCurrentScreen(GameScreen.Exterior);
     };

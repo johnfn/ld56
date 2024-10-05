@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfniuyne644nj"]
+[gd_scene load_steps=9 format=3 uid="uid://cfniuyne644nj"]
 
 [ext_resource type="Script" path="res://Root.cs" id="1_pn6rf"]
 [ext_resource type="Texture2D" uid="uid://c1lsub0q61nis" path="res://New Project (17).png" id="2_nmq7d"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://df3vilv8ttvso" path="res://Assets/rolodex.jpg" id="4_73ram"]
 [ext_resource type="PackedScene" uid="uid://wgl3cuvhud0t" path="res://camera.tscn" id="4_wuin5"]
 [ext_resource type="PackedScene" uid="uid://drdgs1oscnynx" path="res://list_of_people.tscn" id="5_53v04"]
+[ext_resource type="PackedScene" uid="uid://do7usl2ad7mfr" path="res://animal_manager.tscn" id="7_jilfn"]
+[ext_resource type="PackedScene" uid="uid://d4adm80ecwtrd" path="res://CreatureScenes/chicken.tscn" id="8_fb1y2"]
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_pn6rf")
@@ -69,3 +71,7 @@ text = "Rolodex"
 
 [node name="ListOfPeople" parent="CanvasLayer/Container/MarginContainer/HBoxContainer" instance=ExtResource("5_53v04")]
 layout_mode = 2
+
+[node name="AnimalManager" parent="." instance=ExtResource("7_jilfn")]
+
+[node name="Chicken" parent="." instance=ExtResource("8_fb1y2")]

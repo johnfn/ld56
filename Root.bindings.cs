@@ -62,10 +62,9 @@ public partial class Root : Node2D {
       get => _CanvasLayer_Container_MarginContainer_HBoxContainer_GoToRolodex ??= parent.GetNode<Button>("CanvasLayer/Container/MarginContainer/HBoxContainer/GoToRolodex");
     }
 
-    // Can't find a script for Sprite2D, so we use a more basic type here. 
-    private Sprite2D? _Exterior;
-    public Sprite2D Exterior {
-      get => _Exterior ??= parent.GetNode<Sprite2D>("Exterior");
+    private Exterior? _Exterior;
+    public Exterior Exterior {
+      get => _Exterior ??= parent.GetNode<Exterior>("Exterior");
     }
 
     private Camera? _Camera;
@@ -77,6 +76,16 @@ public partial class Root : Node2D {
     private HBoxContainer? _CanvasLayer_Container_MarginContainer_HBoxContainer_ListOfPeople;
     public HBoxContainer CanvasLayer_Container_MarginContainer_HBoxContainer_ListOfPeople {
       get => _CanvasLayer_Container_MarginContainer_HBoxContainer_ListOfPeople ??= parent.GetNode<HBoxContainer>("CanvasLayer/Container/MarginContainer/HBoxContainer/ListOfPeople");
+    }
+
+    private AnimalManager? _AnimalManager;
+    public AnimalManager AnimalManager {
+      get => _AnimalManager ??= parent.GetNode<AnimalManager>("AnimalManager");
+    }
+
+    private Chicken? _Chicken;
+    public Chicken Chicken {
+      get => _Chicken ??= parent.GetNode<Chicken>("Chicken");
     }
 
   }

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd4ly7up2t7ti"]
+
+[ext_resource type="Texture2D" uid="uid://2xyc6m0v6fs2" path="res://icon.svg" id="1_obqeo"]
+[ext_resource type="Script" path="res://CreatureScenes/Cow.cs" id="2_5gegj"]
+
+[node name="Cow" type="Sprite2D"]
+position = Vector2(-1549, 1926)
+texture = ExtResource("1_obqeo")
+script = ExtResource("2_5gegj")
