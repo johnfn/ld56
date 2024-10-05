@@ -1,8 +1,6 @@
 using Godot;
-using System;
 
 namespace ld56;
-using static Utils;
 
 public partial class Interior : Sprite2D {
   public override void _Ready() {

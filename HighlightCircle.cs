@@ -9,7 +9,7 @@ public partial class HighlightCircle : Sprite2D {
   }
 
   public override void _Input(InputEvent @event) {
-    if (@event is InputEventMouseMotion mouseEvent) {
+    if (@event is InputEventMouseMotion) {
       var pos = GetGlobalMousePosition();
       var localPos = ToLocal(pos);
 
@@ -17,6 +17,12 @@ public partial class HighlightCircle : Sprite2D {
         OnMouseEntered();
       } else {
         OnMouseExited();
+      }
+    }
+
+    if (@event is InputEventMouseButton) {
+      if (GetRect().HasPoint(ToLocal(GetGlobalMousePosition()))) {
+        Root.Instance.Nodes.AnimalManager.SelectChair(this);
       }
     }
   }

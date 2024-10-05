@@ -4,12 +4,17 @@ namespace ld56;
 
 using static Utils;
 
+/**
+ * creature state machine
+ */
 public enum CreatureState {
   NotSpawnedYet,
   WalkToEntrance,
   WaitToBeAdmitted,
   WalkInside,
   WaitForTable,
+  WalkToTable,
+  SittingAtTable,
 }
 
 public enum CurrentScreen {
@@ -24,16 +29,27 @@ public class SpawnedCreature {
   public required CreatureState State;
   public required Node2D? Instance;
   public required CurrentScreen CurrentScreen;
+  public required HighlightCircle? DestinationChair;
 }
 
 public partial class AnimalManager : Node2D {
+  public SpawnedCreature? CreatureCurrentlyBeingSit;
   public List<SpawnedCreature> UpcomingCreatures = [
+    // new SpawnedCreature {
+    //   Creature = AllCreatures.MrChicken,
+    //   SpawnDelay = 0,
+    //   State = CreatureState.NotSpawnedYet,
+    //   Instance = null,
+    //   CurrentScreen = CurrentScreen.Nowhere,
+    // },
+
     new SpawnedCreature {
       Creature = AllCreatures.MrChicken,
       SpawnDelay = 0,
-      State = CreatureState.NotSpawnedYet,
+      State = CreatureState.WaitForTable,
       Instance = null,
-      CurrentScreen = CurrentScreen.Nowhere,
+      CurrentScreen = CurrentScreen.Interior,
+      DestinationChair = null,
     },
 
     new SpawnedCreature {
@@ -42,6 +58,7 @@ public partial class AnimalManager : Node2D {
       State = CreatureState.NotSpawnedYet,
       Instance = null,
       CurrentScreen = CurrentScreen.Nowhere,
+      DestinationChair = null,
     },
   ];
 
@@ -58,6 +75,14 @@ public partial class AnimalManager : Node2D {
 
     foreach (var animal in UpcomingCreatures) {
       var instance = animal.Instance;
+
+      // hack for testing
+      if (animal.Instance == null) {
+        if (animal.State == CreatureState.WaitForTable) {
+          animal.Instance = Spawn(animal);
+          animal.Instance.GlobalPosition = Root.Instance.Nodes.Interior.Nodes.InteriorAnimalSpawnArea.GlobalPosition;
+        }
+      }
 
       switch (animal.State) {
         case CreatureState.NotSpawnedYet:
@@ -118,6 +143,25 @@ public partial class AnimalManager : Node2D {
           }
 
           break;
+
+        case CreatureState.WalkToTable: {
+            if (instance == null) {
+              continue;
+            }
+
+            if (animal.DestinationChair == null) {
+              continue;
+            }
+
+            var direction = (animal.DestinationChair.GlobalPosition - instance.GlobalPosition).Normalized();
+            instance.Position += direction * 100 * (float)delta * (Root.Instance.HYPER ? 20 : 1);
+
+            if (instance.GlobalPosition.DistanceTo(animal.DestinationChair.GlobalPosition) < 10) {
+              animal.State = CreatureState.SittingAtTable;
+            }
+
+            break;
+          }
       }
     }
 
@@ -140,7 +184,23 @@ public partial class AnimalManager : Node2D {
   }
 
   public void Sit(SpawnedCreature spawnedCreature) {
-    // TODO
     Root.Instance.Nodes.Interior.Nodes.Chairs.Visible = true;
+    CreatureCurrentlyBeingSit = spawnedCreature;
+  }
+
+  public void SelectChair(HighlightCircle circle) {
+    if (CreatureCurrentlyBeingSit == null) {
+      return;
+    }
+
+    if (CreatureCurrentlyBeingSit.Instance == null) {
+      return;
+    }
+
+    Root.Instance.Nodes.Interior.Nodes.Chairs.Visible = false;
+    CreatureCurrentlyBeingSit.DestinationChair = circle;
+    CreatureCurrentlyBeingSit.State = CreatureState.WalkToTable;
+
+    CreatureCurrentlyBeingSit = null;
   }
 }
