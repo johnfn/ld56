@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c1lsub0q61nis" path="res://New Project (17).png" id="2_nmq7d"]
 [ext_resource type="PackedScene" uid="uid://bumbohrg72245" path="res://exterior.tscn" id="2_xbt5w"]
 [ext_resource type="Texture2D" uid="uid://df3vilv8ttvso" path="res://Assets/rolodex.jpg" id="4_73ram"]
+[ext_resource type="PackedScene" uid="uid://cl4p3lwxo5lsa" path="res://Rolodex.tscn" id="4_lmvi6"]
 [ext_resource type="PackedScene" uid="uid://wgl3cuvhud0t" path="res://camera.tscn" id="4_wuin5"]
 [ext_resource type="PackedScene" uid="uid://cxid1wlon1lvg" path="res://list_of_people.tscn" id="5_53v04"]
 [ext_resource type="PackedScene" uid="uid://do7usl2ad7mfr" path="res://animal_manager.tscn" id="7_jilfn"]
@@ -13,18 +14,15 @@
 script = ExtResource("1_pn6rf")
 
 [node name="Exterior" parent="." instance=ExtResource("2_xbt5w")]
+scale = Vector2(1.5, 1.49028)
 
 [node name="Interior" type="Sprite2D" parent="."]
-position = Vector2(-2273, 7)
-scale = Vector2(1.76484, 1.78333)
+position = Vector2(-1912, 7)
+scale = Vector2(1.48281, 1.47917)
 texture = ExtResource("2_nmq7d")
 centered = false
 
-[node name="Rolodex" type="Sprite2D" parent="."]
-position = Vector2(2248, 0)
-scale = Vector2(4.98932, 3.51111)
-texture = ExtResource("4_73ram")
-centered = false
+[node name="Rolodex" parent="." instance=ExtResource("4_lmvi6")]
 
 [node name="Camera" parent="." instance=ExtResource("4_wuin5")]
 
@@ -32,9 +30,10 @@ centered = false
 
 [node name="Container" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
+anchor_top = 0.892
+anchor_bottom = 0.892
+offset_top = 116.64
+offset_bottom = 116.64
 grow_vertical = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Container"]
