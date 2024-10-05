@@ -76,7 +76,11 @@ public partial class AnimalManager : Node2D {
           }
 
           var direction = (entrance.GlobalPosition - instance.GlobalPosition).Normalized();
-          instance.Position += direction * 100 * (float)delta;
+          instance.Position += direction * 100 * (float)delta * (Root.Instance.HYPER ? 20 : 1);
+
+          if (instance.GlobalPosition.DistanceTo(entrance.GlobalPosition) < 10) {
+            animal.State = CreatureState.WaitToBeAdmitted;
+          }
 
           break;
 

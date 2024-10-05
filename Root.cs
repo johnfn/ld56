@@ -15,6 +15,8 @@ public partial class Root : Node2D {
   public GameScreen CurrentScreen { get; private set; } = GameScreen.Restaurant;
   public static Root Instance { get; private set; }
 
+  public bool HYPER { get; private set; } = false;
+
   public ListOfCreatures ListOfCreatures {
     get => Nodes.CanvasLayer_Container_MarginContainer_HBoxContainer_ListOfCreatures;
   }
@@ -40,6 +42,7 @@ public partial class Root : Node2D {
   }
 
   public override void _Process(double delta) {
+    HYPER = Input.IsKeyPressed(Key.Shift);
   }
 
   public void UpdateCurrentScreen(
