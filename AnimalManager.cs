@@ -12,11 +12,18 @@ public enum CreatureState {
   WalkToTable,
 }
 
+public enum CurrentScreen {
+  Nowhere,
+  Exterior,
+  Interior,
+}
+
 public class SpawnedCreature {
   public required Creature Creature;
   public required double SpawnDelay;
   public required CreatureState State;
   public required Node2D? Instance;
+  public required CurrentScreen CurrentScreen;
 }
 
 public partial class AnimalManager : Node2D {
@@ -26,6 +33,7 @@ public partial class AnimalManager : Node2D {
       SpawnDelay = 0,
       State = CreatureState.NotSpawnedYet,
       Instance = null,
+      CurrentScreen = CurrentScreen.Nowhere,
     },
 
     new SpawnedCreature {
@@ -33,6 +41,7 @@ public partial class AnimalManager : Node2D {
       SpawnDelay = 10,
       State = CreatureState.NotSpawnedYet,
       Instance = null,
+      CurrentScreen = CurrentScreen.Nowhere,
     },
   ];
 
@@ -54,6 +63,7 @@ public partial class AnimalManager : Node2D {
           if (animal.SpawnDelay <= 0) {
             animal.Instance = Spawn(animal);
             animal.State = CreatureState.WalkToEntrance;
+            animal.CurrentScreen = CurrentScreen.Exterior;
           }
 
           break;

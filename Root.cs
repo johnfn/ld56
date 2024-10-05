@@ -42,7 +42,7 @@ public partial class Root : Node2D {
   public override void _Process(double delta) {
   }
 
-  private void UpdateCurrentScreen(
+  public void UpdateCurrentScreen(
     GameScreen newScreen
   ) {
     CurrentScreen = newScreen;
