@@ -1,7 +1,7 @@
 using Godot;
 namespace ld56;
 
-public partial class UpcomingCreatureUi : ColorRect {
+public partial class UpcomingCreatureUi : TextureRect {
   public static UpcomingCreatureUi New() {
     return GD.Load<PackedScene>("res://Scenes/upcoming_creature_ui.tscn").Instantiate<UpcomingCreatureUi>();
   }
@@ -17,6 +17,11 @@ public partial class UpcomingCreatureUi : ColorRect {
     public UpcomingCreatureUiNodes(UpcomingCreatureUi parent) {
       this.parent = parent;
     }
+    private Button? _Button;
+    public Button Button {
+      get => _Button ??= parent.GetNode<Button>("Button");
+    }
+
     private PanelContainer? _Popover;
     public PanelContainer Popover {
       get => _Popover ??= parent.GetNode<PanelContainer>("Popover");

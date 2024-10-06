@@ -22,8 +22,8 @@ public partial class CreatureScene : Node2D {
 
   public void Initialize(SpawnedCreature data) {
     Data = data;
-    if (data.Creature.Icon != null) {
-      Nodes.TextureRect.Texture = data.Creature.Icon;
+    if (data.Creature.FullBodyTexture != null) {
+      Nodes.TextureRect.Texture = data.Creature.FullBodyTexture;
     }
     Nodes.NameLabel.Text = data.Creature.Name;
     // Move the name's X coordinate over so it's centered

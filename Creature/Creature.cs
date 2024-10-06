@@ -10,6 +10,8 @@ public partial class Creature : Resource {
 
   public Texture2D Icon { get; set; }
 
+  public Texture2D FullBodyTexture { get; set; }
+
   public Creature() {
     Name = "New Creature";
     Description = "A new creature.";
