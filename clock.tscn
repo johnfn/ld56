@@ -1,46 +1,69 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpkhxlnapa4wa"]
+[gd_scene load_steps=6 format=3 uid="uid://b2ews7ockqsv5"]
 
-[ext_resource type="Texture2D" uid="uid://btod87fmr78hi" path="res://Assets/UI/clock.png" id="1_2unke"]
-[ext_resource type="Texture2D" uid="uid://bdelja1565khk" path="res://Assets/UI/clock-hand.png" id="2_qmbmd"]
+[ext_resource type="Texture2D" uid="uid://dwoqcdf8poemn" path="res://Assets/UI/UI_Timer_Body.png" id="1_tci28"]
+[ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="1_wmmkb"]
 [ext_resource type="Script" path="res://Clock.cs" id="2_soxew"]
+[ext_resource type="Texture2D" uid="uid://crdt4xxxov4u1" path="res://Assets/UI/UI_Timer_Hand.png" id="3_g1mf1"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fok62"]
-bg_color = Color(0.195312, 0.195312, 0.195312, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tg3vd"]
+content_margin_left = 24.0
+content_margin_top = 12.0
+content_margin_right = 24.0
+content_margin_bottom = 12.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 1000
+corner_radius_top_right = 1000
+corner_radius_bottom_right = 1000
+corner_radius_bottom_left = 1000
 
 [node name="Clock" type="TextureRect"]
-offset_left = 1770.0
-offset_top = -113.0
-offset_right = 1998.0
-offset_bottom = 149.0
-texture = ExtResource("1_2unke")
+offset_left = -87.0
+offset_top = -101.0
+offset_right = 183.0
+offset_bottom = 168.0
+theme = ExtResource("1_wmmkb")
+texture = ExtResource("1_tci28")
 script = ExtResource("2_soxew")
 
 [node name="ClockHand" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 57.0
-offset_top = 73.0
-offset_right = 185.0
-offset_bottom = 207.0
-rotation = 2.056
-pivot_offset = Vector2(64.03, 68.11)
-texture = ExtResource("2_qmbmd")
+offset_left = 109.0
+offset_top = 102.0
+offset_right = 162.0
+offset_bottom = 219.0
+rotation = 0.905826
+pivot_offset = Vector2(26.7, 27.04)
+texture = ExtResource("3_g1mf1")
 
 [node name="TimeLabelContainer" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_left = -221.0
-offset_top = 180.0
-offset_right = -36.0
-offset_bottom = 238.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_fok62")
+custom_minimum_size = Vector2(165, 55)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -126.0
+offset_right = 183.0
+offset_bottom = -71.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_tg3vd")
 
-[node name="MarginContainer" type="MarginContainer" parent="TimeLabelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TimeLabelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
 
-[node name="Label" type="Label" parent="TimeLabelContainer/MarginContainer"]
+[node name="TimeLabel" type="Label" parent="TimeLabelContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 42
-text = "12:12 AM"
+theme_override_font_sizes/font_size = 24
+text = "55:55"
+
+[node name="Spacer" type="Control" parent="TimeLabelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AMPMLabel" type="Label" parent="TimeLabelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "AM"

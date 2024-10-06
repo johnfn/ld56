@@ -42,6 +42,11 @@ public partial class Hud : CanvasLayer {
       get => _InteriorButton ??= parent.GetNode<Button>("InteriorButton");
     }
 
+    private ColorRect? _ClosingTimeOverlay;
+    public ColorRect ClosingTimeOverlay {
+      get => _ClosingTimeOverlay ??= parent.GetNode<ColorRect>("ClosingTimeOverlay");
+    }
+
     private ColorRect? _Newspaper;
     public ColorRect Newspaper {
       get => _Newspaper ??= parent.GetNode<ColorRect>("Newspaper");
@@ -65,11 +70,6 @@ public partial class Hud : CanvasLayer {
     private Button? _Newspaper_CloseButton;
     public Button Newspaper_CloseButton {
       get => _Newspaper_CloseButton ??= parent.GetNode<Button>("Newspaper/CloseButton");
-    }
-
-    private ColorRect? _ClosingTimeOverlay;
-    public ColorRect ClosingTimeOverlay {
-      get => _ClosingTimeOverlay ??= parent.GetNode<ColorRect>("ClosingTimeOverlay");
     }
 
     private Label? _CustomersServed;
