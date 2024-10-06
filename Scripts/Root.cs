@@ -16,11 +16,13 @@ public partial class Root : Node2D {
     get => Nodes.HUD.Nodes.Container_MarginContainer_HBoxContainer_ListOfCreatures;
   }
 
+  public float EndOfDayTime = 10f;
+  public float CurrentDayTime { get; private set; } = 0f;
+
   public int DaysLeft = 8;
 
   public override void _Ready() {
     Instance = this;
-
 
     UpdateCurrentScreen(CurrentScreen);
 
@@ -46,8 +48,10 @@ public partial class Root : Node2D {
   }
 
   public void StartNewDay() {
-    Nodes.HUD.Nodes.Clock_ClockHand.Rotation = Mathf.DegToRad(118f);
+    // Nodes.HUD.Nodes.Clock_ClockHand.Rotation = Mathf.DegToRad(118f);
     Nodes.HUD.Nodes.ClosingTimeOverlay.Visible = false;
+
+    CurrentDayTime = 0f;
 
     DaysLeft--;
     Nodes.HUD.Nodes.Newspaper_HBoxContainer_DaysLeft.Text = $"Days until the Dinernb Extravaganza: {DaysLeft}!";
@@ -61,9 +65,10 @@ public partial class Root : Node2D {
     }
 
     // Update clock
-    Nodes.HUD.Nodes.Clock_ClockHand.Rotation -= (float)delta * 0.02f;
+    CurrentDayTime += (float)delta / 10.0f;
+    Nodes.HUD.Nodes.Clock_ClockHand.Rotation = Mathf.DegToRad(118f - (CurrentDayTime / EndOfDayTime) * (118f + 30f));
 
-    if (Mathf.RadToDeg(Nodes.HUD.Nodes.Clock_ClockHand.Rotation) < -30f) {
+    if (CurrentDayTime >= EndOfDayTime) {
       ToggleNewspaper();
       StartNewDay(); // Reset the clock for the new day
     } else if (Mathf.RadToDeg(Nodes.HUD.Nodes.Clock_ClockHand.Rotation) < -0f) {
@@ -72,12 +77,10 @@ public partial class Root : Node2D {
       Nodes.HUD.Nodes.ClosingTimeOverlay.Visible = true;
       CreateTween().TweenProperty(
         Nodes.HUD.Nodes.ClosingTimeOverlay,
-
         "modulate",
         new Color(1, 1, 1, 1),
         1f
       );
-
     }
   }
 

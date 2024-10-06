@@ -44,9 +44,9 @@ public partial class DialogBox : PanelContainer {
                 j += 3;
               }
 
-              if (Root.Instance.HYPER) {
-                break;
-              }
+              // if (Root.Instance.HYPER) {
+              //   break;
+              // }
 
               await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
             }
