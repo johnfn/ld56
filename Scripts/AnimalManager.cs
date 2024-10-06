@@ -69,7 +69,7 @@ public partial class AnimalManager : Node2D {
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       SelectedChair = null,
-      GetDialog = () => NextDialog.For[AllCreatures.MrBlegg],
+      GetDialog = () => NextDialog.For[AllCreatures.MrChicken],
     },
 
     new SpawnedCreature {
@@ -79,7 +79,7 @@ public partial class AnimalManager : Node2D {
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       SelectedChair = null,
-      GetDialog = () => NextDialog.For[AllCreatures.MrBlegg],
+      GetDialog = () => NextDialog.For[AllCreatures.MrChicken],
     },
 
     new SpawnedCreature {

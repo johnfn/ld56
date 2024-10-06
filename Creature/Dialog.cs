@@ -10,6 +10,7 @@ public interface IDialogItem { }
 public struct DialogItem : IDialogItem {
   public required string Text { get; set; }
   public required Creature Speaker { get; set; }
+  public string? OverrideSpeakerName { get; set; }
   public Action OnComplete { get; set; }
 }
 

@@ -12,8 +12,9 @@ public partial class CookingResultModal : Control {
     for (int i = 0; i < 5; i++) {
       var randomIndex = GD.Randi() % Root.Instance.Nodes.SoundManager.CookingSFX.Length;
       var randomCookingSFX = Root.Instance.Nodes.SoundManager.CookingSFX[randomIndex];
-      var audioStreamPlayer2D = new AudioStreamPlayer2D();
-      audioStreamPlayer2D.Stream = randomCookingSFX;
+      var audioStreamPlayer2D = new AudioStreamPlayer2D {
+        Stream = randomCookingSFX
+      };
       audioStreamPlayer2D.Play();
     }
   }

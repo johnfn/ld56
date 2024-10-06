@@ -74,6 +74,7 @@ public partial class DialogBox : PanelContainer {
     foreach (var item in dialog) {
       switch (item) {
         case DialogItem dialogItem:
+          Nodes.HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogItem.OverrideSpeakerName ?? dialogItem.Speaker.DisplayName;
           Nodes.HBoxContainer_DialogTextVBoxContainer.Visible = true;
           Nodes.HBoxContainer_OptionsVBoxContainer.Visible = false;
           Nodes.HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.Text = dialogItem.Text;

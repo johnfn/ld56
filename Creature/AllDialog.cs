@@ -17,7 +17,11 @@ public static class AllDialog {
 
             await DialogBox.ShowDialog([
               new DialogItem { Text = $"I made you some {result.DisplayName}", Speaker = AllCreatures.You },
-              new DialogItem { Text = "Bad news, my friend.", Speaker = AllCreatures.MrChicken },
+              new DialogItem {
+                Text = "Bad news, my friend.",
+                Speaker = AllCreatures.MrChicken,
+                OverrideSpeakerName = "I HATE YOU",
+              },
               new DialogItem {
                 Text = "You see, I HATE YOUR STUPID MEAL.",
                 Speaker = AllCreatures.MrChicken,
