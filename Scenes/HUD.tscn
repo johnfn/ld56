@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://drdgs1oscnynx" path="res://Scenes/list_of_creatures.tscn" id="1_1te6p"]
 [ext_resource type="Script" path="res://Scripts/Hud.cs" id="1_eqs7q"]
-[ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="2_bldc1"]
+[ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="2_bldc1"]
 [ext_resource type="PackedScene" uid="uid://cl4p3lwxo5lsa" path="res://Scenes/Rolodex.tscn" id="3_cpfkf"]
 [ext_resource type="Texture2D" uid="uid://b6x8mab8cbrqo" path="res://Assets/UI/UI_Interior_Arrow_Left.png" id="3_i8kw0"]
 [ext_resource type="PackedScene" uid="uid://6lka55lm0755" path="res://Scenes/CoolButton.tscn" id="3_tp0ts"]
@@ -10,10 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://b40rl5mcurg50" path="res://Assets/UI/UI_Interior_Book.png" id="4_jb5i5"]
 [ext_resource type="PackedScene" uid="uid://07sx5xgd03q2" path="res://Scenes/dialog_box.tscn" id="4_xc7oc"]
 [ext_resource type="Script" path="res://Scripts/CoolButton.cs" id="5_w24eq"]
-[ext_resource type="PackedScene" uid="uid://cpkhxlnapa4wa" path="res://clock.tscn" id="11_cepoc"]
-[ext_resource type="PackedScene" uid="uid://bgamugh02ehmj" path="res://Scenes/Newspaper.tscn" id="12_3vn73"]
+[ext_resource type="PackedScene" uid="uid://b2ews7ockqsv5" path="res://clock.tscn" id="11_cepoc"]
+[ext_resource type="PackedScene" uid="uid://ws6vei54nero" path="res://Scenes/Newspaper.tscn" id="12_3vn73"]
 [ext_resource type="PackedScene" uid="uid://gdfr1cdecogv" path="res://Scenes/shop.tscn" id="12_d7kfh"]
-[ext_resource type="PackedScene" uid="uid://bvrs6e5qiytf8" path="res://Scenes/PauseMenu.tscn" id="13_kljas"]
+[ext_resource type="PackedScene" uid="uid://dy852coaojujg" path="res://Scenes/PauseMenu.tscn" id="13_kljas"]
 [ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="15_07pbw"]
 
 [node name="HUD" type="CanvasLayer"]
@@ -112,54 +112,40 @@ theme_override_font_sizes/font_size = 28
 text = "Gold: 1"
 horizontal_alignment = 2
 
-[node name="Debug" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Debug" type="VBoxContainer" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -372.0
+offset_top = -160.5
+offset_bottom = 160.5
+grow_horizontal = 0
+grow_vertical = 2
 theme = ExtResource("2_bldc1")
 
 [node name="DebugEndDay" type="Button" parent="Debug"]
-layout_mode = 0
-offset_left = 1542.0
-offset_top = 244.0
-offset_right = 1914.0
-offset_bottom = 302.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "[debug] End day"
 
 [node name="DebugServeCustomer" type="Button" parent="Debug"]
-layout_mode = 0
-offset_left = 1542.0
-offset_top = 310.0
-offset_right = 1962.0
-offset_bottom = 368.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "[debug] Serve customer"
 
 [node name="DebugShowShop" type="Button" parent="Debug"]
-layout_mode = 0
-offset_left = 1542.0
-offset_top = 387.0
-offset_right = 1962.0
-offset_bottom = 445.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "[debug] Shop"
 
 [node name="DebugShowCook" type="Button" parent="Debug"]
-layout_mode = 0
-offset_left = 1546.0
-offset_top = 476.0
-offset_right = 1966.0
-offset_bottom = 534.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "[debug] Cook"
 
 [node name="DebugAddGold" type="Button" parent="Debug"]
-layout_mode = 0
-offset_left = 1546.0
-offset_top = 476.0
-offset_right = 1966.0
-offset_bottom = 534.0
+layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "[debug] Add gold"

@@ -17,39 +17,64 @@ public partial class CookingScreen : Sprite2D {
     public CookingScreenNodes(CookingScreen parent) {
       this.parent = parent;
     }
-    private Label? _Label;
-    public Label Label {
-      get => _Label ??= parent.GetNode<Label>("Label");
+    private Sprite2D? _Pot;
+    public Sprite2D Pot {
+      get => _Pot ??= parent.GetNode<Sprite2D>("Pot");
     }
 
-    private Label? _Label2;
-    public Label Label2 {
-      get => _Label2 ??= parent.GetNode<Label>("Label2");
+    private Control? _UI;
+    public Control UI {
+      get => _UI ??= parent.GetNode<Control>("UI");
     }
 
-    private VBoxContainer? _CookingList;
-    public VBoxContainer CookingList {
-      get => _CookingList ??= parent.GetNode<VBoxContainer>("CookingList");
+    private Button? _UI_CookButton;
+    public Button UI_CookButton {
+      get => _UI_CookButton ??= parent.GetNode<Button>("UI/CookButton");
     }
 
-    private Button? _Button;
-    public Button Button {
-      get => _Button ??= parent.GetNode<Button>("Button");
+    private Button? _UI_IngredientsButton;
+    public Button UI_IngredientsButton {
+      get => _UI_IngredientsButton ??= parent.GetNode<Button>("UI/IngredientsButton");
     }
 
-    private InventoryList? _InventoryList;
-    public InventoryList InventoryList {
-      get => _InventoryList ??= parent.GetNode<InventoryList>("InventoryList");
+    private Button? _UI_RecipesButton;
+    public Button UI_RecipesButton {
+      get => _UI_RecipesButton ??= parent.GetNode<Button>("UI/RecipesButton");
     }
 
-    private CookingIngredient? _CookingList_CookingIngredient;
-    public CookingIngredient CookingList_CookingIngredient {
-      get => _CookingList_CookingIngredient ??= parent.GetNode<CookingIngredient>("CookingList/CookingIngredient");
+    private TextureRect? _UI_IngredientSlotsTexture;
+    public TextureRect UI_IngredientSlotsTexture {
+      get => _UI_IngredientSlotsTexture ??= parent.GetNode<TextureRect>("UI/IngredientSlotsTexture");
     }
 
-    private CookingResultModal? _CookingResultModal;
-    public CookingResultModal CookingResultModal {
-      get => _CookingResultModal ??= parent.GetNode<CookingResultModal>("CookingResultModal");
+    private HBoxContainer? _UI_IngredientSlotsTexture_Container;
+    public HBoxContainer UI_IngredientSlotsTexture_Container {
+      get => _UI_IngredientSlotsTexture_Container ??= parent.GetNode<HBoxContainer>("UI/IngredientSlotsTexture/Container");
+    }
+
+    private CookingResultModal? _UI_CookingResultModal;
+    public CookingResultModal UI_CookingResultModal {
+      get => _UI_CookingResultModal ??= parent.GetNode<CookingResultModal>("UI/CookingResultModal");
+    }
+
+    private CookingIngredient? _UI_IngredientSlotsTexture_Container_CookingIngredient;
+    public CookingIngredient UI_IngredientSlotsTexture_Container_CookingIngredient {
+      get => _UI_IngredientSlotsTexture_Container_CookingIngredient ??= parent.GetNode<CookingIngredient>("UI/IngredientSlotsTexture/Container/CookingIngredient");
+    }
+
+    private CookingIngredient? _UI_IngredientSlotsTexture_Container_CookingIngredient2;
+    public CookingIngredient UI_IngredientSlotsTexture_Container_CookingIngredient2 {
+      get => _UI_IngredientSlotsTexture_Container_CookingIngredient2 ??= parent.GetNode<CookingIngredient>("UI/IngredientSlotsTexture/Container/CookingIngredient2");
+    }
+
+    private CookingIngredient? _UI_IngredientSlotsTexture_Container_CookingIngredient3;
+    public CookingIngredient UI_IngredientSlotsTexture_Container_CookingIngredient3 {
+      get => _UI_IngredientSlotsTexture_Container_CookingIngredient3 ??= parent.GetNode<CookingIngredient>("UI/IngredientSlotsTexture/Container/CookingIngredient3");
+    }
+
+    private CookingIngredient? _UI_IngredientSlotsTexture_Container_CookingIngredient5;
+    public CookingIngredient UI_IngredientSlotsTexture_Container_CookingIngredient5 {
+      get => _UI_IngredientSlotsTexture_Container_CookingIngredient5 ??= parent.GetNode<CookingIngredient>("UI/IngredientSlotsTexture/Container/CookingIngredient5");
     }
 
   }

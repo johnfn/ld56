@@ -37,19 +37,19 @@ public partial class InventoryList : GridContainer {
 
       AddChild(ingredientListItem);
 
-      ingredientListItem.Nodes.Container_NameLabel.Text = ingredient.DisplayName;
-      ingredientListItem.Nodes.Container_QuantityLabel.Text = "x" + count.ToString();
+      ingredientListItem.Nodes.NameLabel.Text = ingredient.DisplayName;
+      ingredientListItem.Nodes.QuantityLabel.Text = "x" + count.ToString();
 
-      ingredientListItem.OnClick += (ingredient) => {
-        OnClickIngredient?.Invoke(ingredientId);
-      };
+      // ingredientListItem.Pressed += (ingredient) => {
+      //   OnClickIngredient?.Invoke(ingredientId);
+      // };
 
-      ingredientListItem.OnMouseEnter += (ingredient) => {
-        OnMouseEnterIngredient?.Invoke(ingredientId);
-      };
-      ingredientListItem.OnMouseExit += (ingredient) => {
-        OnMouseExitIngredient?.Invoke(ingredientId);
-      };
+      // ingredientListItem.OnMouseEnter += (ingredient) => {
+      //   OnMouseEnterIngredient?.Invoke(ingredientId);
+      // };
+      // ingredientListItem.OnMouseExit += (ingredient) => {
+      //   OnMouseExitIngredient?.Invoke(ingredientId);
+      // };
 
       idToIngredientListItem[ingredientId] = ingredientListItem;
     }
@@ -67,7 +67,7 @@ public partial class InventoryList : GridContainer {
     if (quantity > 0) {
       quantity--;
       ingredientCounts[ingredientId] = quantity;
-      idToIngredientListItem[ingredientId].Nodes.Container_QuantityLabel.Text = "x" + quantity.ToString();
+      //idToIngredientListItem[ingredientId].Nodes.Container_QuantityLabel.Text = "x" + quantity.ToString();
 
       return true;
     } else {
@@ -76,13 +76,13 @@ public partial class InventoryList : GridContainer {
   }
 
   public void ShowTooltip(IngredientId ingredientId, Ingredient ingredient) {
-    idToIngredientListItem[ingredientId].Nodes.BuyTooltip.Visible = true;
-    idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Name.Text = ingredient.DisplayName;
-    idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Description.Text = ingredient.Description;
-    idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Price.Text = "[color=gold]" + ingredient.Cost.ToString() + " gold[/color]";
+    // idToIngredientListItem[ingredientId].Nodes.BuyTooltip.Visible = true;
+    // idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Name.Text = ingredient.DisplayName;
+    // idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Description.Text = ingredient.Description;
+    // idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Price.Text = "[color=gold]" + ingredient.Cost.ToString() + " gold[/color]";
   }
 
   public void HideTooltip(IngredientId ingredientId) {
-    idToIngredientListItem[ingredientId].Nodes.BuyTooltip.Visible = false;
+    //idToIngredientListItem[ingredientId].Nodes.BuyTooltip.Visible = false;
   }
 }

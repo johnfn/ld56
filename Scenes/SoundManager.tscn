@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgp66o3gq8kie"]
+[gd_scene load_steps=21 format=3 uid="uid://cgp66o3gq8kie"]
 
 [ext_resource type="Script" path="res://Scripts/SoundManager.cs" id="1_qnofs"]
 [ext_resource type="AudioStream" uid="uid://duq8jq0nyecux" path="res://Assets/SFX/pageturn_01.wav" id="2_2sutf"]
@@ -10,11 +10,22 @@
 [ext_resource type="AudioStream" uid="uid://pdv5wej58nsn" path="res://Assets/SFX/pageturn_07.wav" id="8_oyxmm"]
 [ext_resource type="AudioStream" uid="uid://dgdy4dqk107l3" path="res://Assets/SFX/ui_select2.wav" id="9_iqyd6"]
 [ext_resource type="AudioStream" uid="uid://cu4i826a1tblv" path="res://Assets/SFX/ui_hover.wav" id="10_n45er"]
+[ext_resource type="AudioStream" uid="uid://d1kb3pohtqtwe" path="res://Assets/chop1.wav" id="11_4h4hs"]
+[ext_resource type="AudioStream" uid="uid://dci4vxw045nye" path="res://Assets/chop2.wav" id="12_sta8p"]
+[ext_resource type="AudioStream" uid="uid://cbvlhtmkwpaur" path="res://Assets/potthump1.wav" id="13_nnyqv"]
+[ext_resource type="AudioStream" uid="uid://dhms2urk7lmwh" path="res://Assets/potthump2.wav" id="14_261mu"]
+[ext_resource type="AudioStream" uid="uid://d1pw4yhyyu5fj" path="res://Assets/potthump3.wav" id="15_eoofq"]
+[ext_resource type="AudioStream" uid="uid://d3lxi6py771ec" path="res://Assets/potthump4.wav" id="16_nx7td"]
+[ext_resource type="AudioStream" uid="uid://c5hsnnjiv36vg" path="res://Assets/throw1.wav" id="17_2qayo"]
+[ext_resource type="AudioStream" uid="uid://jn11cbd07qs0" path="res://Assets/throw2.wav" id="18_qnda2"]
+[ext_resource type="AudioStream" uid="uid://c37ggt8fftf58" path="res://Assets/throw3.wav" id="19_r0wrj"]
+[ext_resource type="AudioStream" uid="uid://dekcyhd0csmmx" path="res://Assets/throw4.wav" id="20_ukwj4"]
 
 [node name="SoundManager" type="Node2D"]
 script = ExtResource("1_qnofs")
 PageTurnSFX = [ExtResource("2_2sutf"), ExtResource("3_xo3fo"), ExtResource("4_pxotq"), ExtResource("5_8y7kx"), ExtResource("6_ulrdh"), ExtResource("7_oh07f"), ExtResource("8_oyxmm")]
 ButtonPressSFX = ExtResource("9_iqyd6")
 HoverSFX = ExtResource("10_n45er")
+CookingSFX = [ExtResource("11_4h4hs"), ExtResource("12_sta8p"), ExtResource("13_nnyqv"), ExtResource("14_261mu"), ExtResource("15_eoofq"), ExtResource("16_nx7td"), ExtResource("17_2qayo"), ExtResource("18_qnda2"), ExtResource("19_r0wrj"), ExtResource("20_ukwj4")]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
