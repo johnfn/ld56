@@ -17,11 +17,6 @@ public partial class Root : Node2D {
     public RootNodes(Root parent) {
       this.parent = parent;
     }
-    private Sprite2D? _CookingScreen;
-    public Sprite2D CookingScreen {
-      get => _CookingScreen ??= parent.GetNode<Sprite2D>("CookingScreen");
-    }
-
     private SoundManager? _SoundManager;
     public SoundManager SoundManager {
       get => _SoundManager ??= parent.GetNode<SoundManager>("SoundManager");
@@ -55,6 +50,11 @@ public partial class Root : Node2D {
     private AnimalManager? _AnimalManager;
     public AnimalManager AnimalManager {
       get => _AnimalManager ??= parent.GetNode<AnimalManager>("AnimalManager");
+    }
+
+    private CookingScreen? _CookingScreen;
+    public CookingScreen CookingScreen {
+      get => _CookingScreen ??= parent.GetNode<CookingScreen>("CookingScreen");
     }
 
   }

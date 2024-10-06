@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://betnjocdht33q"]
+
+[ext_resource type="Texture2D" uid="uid://rbqlocxsxank" path="res://Assets/New Project (19).png" id="1_bfag0"]
+[ext_resource type="Script" path="res://Scripts/CookingScreen.cs" id="2_eb8ax"]
+[ext_resource type="PackedScene" uid="uid://iiqinsgr2l1n" path="res://Scenes/cooking_ingredient.tscn" id="3_hau8t"]
+
+[node name="CookingScreen" type="Sprite2D"]
+scale = Vector2(1.62578, 1.62578)
+texture = ExtResource("1_bfag0")
+centered = false
+script = ExtResource("2_eb8ax")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 35.6752
+offset_top = 31.3696
+offset_right = 355.675
+offset_bottom = 81.3696
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Inventory"
+
+[node name="InventoryList" type="VBoxContainer" parent="."]
+offset_left = 35.6752
+offset_top = 82.422
+offset_right = 355.675
+offset_bottom = 182.422
+
+[node name="CookingIngredient" parent="InventoryList" instance=ExtResource("3_hau8t")]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 929.4
+offset_top = 34.445
+offset_right = 1249.4
+offset_bottom = 84.445
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Things to cook"
+
+[node name="CookingList" type="VBoxContainer" parent="."]
+offset_left = 930.015
+offset_top = 85.4974
+offset_right = 1250.02
+offset_bottom = 185.497
+
+[node name="CookingIngredient" parent="CookingList" instance=ExtResource("3_hau8t")]
+layout_mode = 2

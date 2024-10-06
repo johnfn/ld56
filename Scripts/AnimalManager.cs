@@ -46,7 +46,7 @@ public class Chair {
 }
 
 public partial class AnimalManager : Node2D {
-  public GameMode Mode = GameMode.Normal;
+  public GameMode Mode = GameMode.Cooking;
   public SpawnedCreature? CreatureCurrentlyBeingSit;
   public List<SpawnedCreature> UpcomingCreatures = [
     // new SpawnedCreature {
@@ -126,6 +126,10 @@ public partial class AnimalManager : Node2D {
 
         highlightCircle.Visible = false;
       }
+    }
+
+    if (Mode == GameMode.Cooking) {
+      Root.Instance.UpdateCurrentScreen(GameScreen.Cooking);
     }
   }
 

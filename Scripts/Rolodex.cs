@@ -1,6 +1,5 @@
 using Godot;
 using ld56;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -33,6 +32,17 @@ public partial class Rolodex : Sprite2D {
     AllIngredients.Onion,
     AllIngredients.Carrot,
     AllIngredients.Egg,
+  ];
+
+  public List<Ingredient> OwnedIngredients = [
+    AllIngredients.CherryTomato,
+    AllIngredients.CherryTomato,
+    AllIngredients.CherryTomato,
+    AllIngredients.CherryTomato,
+    AllIngredients.CherryTomato,
+    AllIngredients.Basil,
+    AllIngredients.Basil,
+    AllIngredients.Basil,
   ];
 
   private int Page = 0;
@@ -106,7 +116,7 @@ public partial class Rolodex : Sprite2D {
     if (ingredient.Icon != null) {
       ingredientEntry.Nodes.HBoxContainer_TextureRect.Texture = ingredient.Icon;
     }
-    ingredientEntry.Nodes.HBoxContainer_VBoxContainer_Name.Text = ingredient.Name;
+    ingredientEntry.Nodes.HBoxContainer_VBoxContainer_Name.Text = ingredient.DisplayName;
     ingredientEntry.Nodes.HBoxContainer_VBoxContainer_Characteristic.Text = ingredient.Description;
 
     return ingredientEntry;

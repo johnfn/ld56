@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cl4p3lwxo5lsa" path="res://Scenes/Rolodex.tscn" id="3_cpfkf"]
 [ext_resource type="Texture2D" uid="uid://b6x8mab8cbrqo" path="res://Assets/UI/UI_Interior_Arrow_Left.png" id="3_i8kw0"]
 [ext_resource type="PackedScene" uid="uid://6lka55lm0755" path="res://Scenes/CoolButton.tscn" id="3_tp0ts"]
-[ext_resource type="Theme" uid="uid://gfg6ihapyov3" path="res://Theme.tres" id="3_wbuec"]
+[ext_resource type="Theme" uid="uid://b26enpoebvd3m" path="res://Theme.tres" id="3_wbuec"]
 [ext_resource type="Texture2D" uid="uid://bkaqtippwahvp" path="res://Assets/UI/newspaper.png" id="4_eaora"]
 [ext_resource type="Texture2D" uid="uid://b40rl5mcurg50" path="res://Assets/UI/UI_Interior_Book.png" id="4_jb5i5"]
 [ext_resource type="PackedScene" uid="uid://07sx5xgd03q2" path="res://Scenes/dialog_box.tscn" id="4_xc7oc"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://iiqinsgr2l1n"]
+
+[ext_resource type="Script" path="res://Scripts/CookingIngredient.cs" id="1_4htc4"]
+[ext_resource type="Texture2D" uid="uid://dvystam1uwxhs" path="res://Assets/Ingredients/basil_leaf.png" id="1_hdg4o"]
+
+[node name="CookingIngredient" type="PanelContainer"]
+script = ExtResource("1_4htc4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="IngredientImage" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("1_hdg4o")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="NameLabel" type="RichTextLabel" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "Basil leaf"
+fit_content = true
+
+[node name="QuantityLabel" type="RichTextLabel" parent="HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "x5"
+fit_content = true
