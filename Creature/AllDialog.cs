@@ -6,8 +6,9 @@ public static class AllDialog {
   public static List<IDialogItem> MrChicken = [
     new DialogItem { Text = "Hello, I am [color=green]Mr. Chicken[/color].", Speaker = "Mr. Chicken" },
     new DialogItem { Text = "I'm aware.", Speaker = "You" },
-    new DialogItem { Text = "Please, [color=gray]I beg you[/color]. I want a drink that reminds me of the sea.", Speaker = "Mr. Chicken" },
     new DialogOptions {
+      Text = "Please, [color=gray]I beg you[/color]. I want a drink that reminds me of the sea.",
+      Speaker = "Mr. Chicken",
       Options = [
         new DialogOption {
           OptionText = "[color=green]Start cooking[/color]",
@@ -83,8 +84,9 @@ public static class AllDialog {
   public static List<IDialogItem> MrsCow = [
       new DialogItem { Text = "Hello, I am Mrs. Cow", Speaker = "Mrs. Cow" },
       new DialogItem { Text = "I'm exceedingly aware.", Speaker = "You" },
-      new DialogItem { Text = "Please, I beg you. I WANT MILK.", Speaker = "Mrs. Cow" },
       new DialogOptions {
+        Text = "Please, I beg you. I WANT MILK.",
+        Speaker = "Mrs. Cow",
         Options = [
           new DialogOption {
             OptionText = "WTF. That seems... problematic.",

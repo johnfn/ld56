@@ -8,18 +8,20 @@ namespace ld56;
 public interface IDialogItem { }
 
 public struct DialogItem : IDialogItem {
-  public string Text { get; set; }
-  public string Speaker { get; set; }
+  public required string Text { get; set; }
+  public required string Speaker { get; set; }
   public Action GetReward { get; set; }
 }
 
 public struct DialogOption {
-  public string OptionText { get; set; }
+  public required string OptionText { get; set; }
   public Func<bool>? IsAvailable { get; set; }
   public Func<Creature, Task>? OnSelect { get; set; }
 }
 
 public struct DialogOptions : IDialogItem {
-  public List<DialogOption> Options { get; set; }
+  public required string Text { get; set; }
+  public required string Speaker { get; set; }
+  public required List<DialogOption> Options { get; set; }
 }
 

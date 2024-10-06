@@ -36,6 +36,26 @@ public partial class DialogBox : PanelContainer {
     return await Instance.ShowDialogHelper(dialog, creature, isFirstCall);
   }
 
+  private async Task ShowDialogText(string text) {
+    Nodes.HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.Text = text;
+
+    for (int i = 0; i < text.Length; i += 3) {
+      Nodes.HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.VisibleCharacters = i;
+
+      for (int j = 0; j < 20; j++) {
+        if (_isMouseDown) {
+          j += 3;
+        }
+
+        if (GameState.HYPERSPEED) {
+          break;
+        }
+
+        await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+      }
+    }
+  }
+
   private async Task<DialogReturn> ShowDialogHelper(List<IDialogItem> dialog, Creature creature, bool isFirstCall = true) {
     DialogReturn result = new();
 
@@ -56,21 +76,7 @@ public partial class DialogBox : PanelContainer {
           Nodes.HBoxContainer_OptionsVBoxContainer.Visible = false;
           Nodes.HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.Text = dialogItem.Text;
 
-          for (int i = 0; i < dialogItem.Text.Length; i += 3) {
-            Nodes.HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.VisibleCharacters = i;
-
-            for (int j = 0; j < 20; j++) {
-              if (_isMouseDown) {
-                j += 3;
-              }
-
-              if (GameState.HYPERSPEED) {
-                break;
-              }
-
-              await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
-            }
-          }
+          await ShowDialogText(dialogItem.Text);
 
           dialogItem.GetReward?.Invoke();
 
@@ -80,9 +86,14 @@ public partial class DialogBox : PanelContainer {
           Nodes.HBoxContainer_DialogTextVBoxContainer.Visible = false;
           Nodes.HBoxContainer_OptionsVBoxContainer.Visible = true;
 
+          // populate all options
+
           foreach (var child in Nodes.HBoxContainer_OptionsVBoxContainer.GetChildren()) {
             child.QueueFree();
           }
+
+          // show text
+          await ShowDialogText(dialogOptions.Text);
 
           int? selectedOption = null;
 
@@ -105,6 +116,8 @@ public partial class DialogBox : PanelContainer {
               };
             }
           }
+
+          // wait for selection
 
           while (selectedOption == null) {
             await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
