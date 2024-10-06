@@ -60,3 +60,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_twqjv")
 text = "COOK IT UP!!!!!"
 
 [node name="CookingResultModal" parent="." instance=ExtResource("4_u87xr")]
+offset_left = 221.432
+offset_top = 146.391
+offset_right = 1040.44
+offset_bottom = 611.391
