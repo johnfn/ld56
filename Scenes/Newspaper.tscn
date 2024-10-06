@@ -1,7 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://ws6vei54nero"]
+[gd_scene load_steps=17 format=3 uid="uid://ws6vei54nero"]
 
-[ext_resource type="Texture2D" uid="uid://bkaqtippwahvp" path="res://Assets/UI/newspaper.png" id="1_4r324"]
-[ext_resource type="PackedScene" path="res://Scenes/newspaper_entry.tscn" id="2_1qv3o"]
+[ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="1_3j82h"]
+[ext_resource type="Texture2D" uid="uid://cwlu3v8477red" path="res://Assets/UI/UI_Newspaper.png" id="1_g6tcm"]
+[ext_resource type="PackedScene" uid="uid://cvge0vhgq2esl" path="res://Scenes/newspaper_entry.tscn" id="2_1qv3o"]
+[ext_resource type="Script" path="res://Scripts/Newspaper.cs" id="2_s0dly"]
+[ext_resource type="Script" path="res://Scripts/CoolButton.cs" id="4_judh5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nm077"]
 
@@ -26,43 +29,61 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lqqcc"]
 
 [node name="Newspaper" type="ColorRect"]
-visible = false
 offset_right = 1920.0
 offset_bottom = 1080.0
+theme = ExtResource("1_3j82h")
 color = Color(0, 0, 0, 0.607843)
+script = ExtResource("2_s0dly")
 
 [node name="Newspaper" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 385.0
-offset_top = 6.0
-offset_right = 1504.0
-offset_bottom = 1055.0
-texture = ExtResource("1_4r324")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -472.5
+offset_top = -417.5
+offset_right = 472.5
+offset_bottom = 417.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_g6tcm")
 
-[node name="DaysLeft" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="Newspaper"]
 layout_mode = 0
-offset_left = 529.0
-offset_top = 314.0
-offset_right = 569.0
-offset_bottom = 337.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
-text = "5 days left"
+offset_left = 68.0
+offset_top = 319.0
+offset_right = 746.0
+offset_bottom = 752.0
+rotation = 0.0174533
+theme_override_constants/separation = 24
 
-[node name="NewspaperContentContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 534.0
-offset_top = 362.0
-offset_right = 1412.0
-offset_bottom = 723.0
+[node name="DaysLeft" type="Label" parent="Newspaper/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Days until the Great Dinernb Extravaganza: X"
 
-[node name="NewspaperEntry" parent="NewspaperContentContainer" instance=ExtResource("2_1qv3o")]
+[node name="NewspaperContentContainer" type="VBoxContainer" parent="Newspaper/VBoxContainer"]
 layout_mode = 2
 
-[node name="CloseButton" type="Button" parent="."]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1073.0
+[node name="NewspaperEntry" parent="Newspaper/VBoxContainer/NewspaperContentContainer" instance=ExtResource("2_1qv3o")]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="Newspaper"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 287.0
+offset_top = 171.0
+offset_right = 402.0
+offset_bottom = 241.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.837758
 theme_override_styles/focus = SubResource("StyleBoxEmpty_nm077")
 theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ivqrp")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_piy0o")
@@ -74,3 +95,6 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_8viex")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_anw0a")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_bre28")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lqqcc")
+text = "Close"
+alignment = 2
+script = ExtResource("4_judh5")

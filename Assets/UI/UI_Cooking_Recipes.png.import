@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://q5wfo5y07hv5"
+=======
+uid="uid://bau22ougyd3wi"
+>>>>>>> 1fc572cf55a3ebd730ebf2d9b2e29de0da91f29f
 path="res://.godot/imported/UI_Cooking_Recipes.png-057e0dbfc7b255b3e0c0cfc4e4f03bc7.ctex"
 metadata={
 "vram_texture": false

@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://vgieowfq8xw4"
+=======
+uid="uid://bjj8o33omx5kh"
+>>>>>>> 1fc572cf55a3ebd730ebf2d9b2e29de0da91f29f
 path="res://.godot/imported/Interior_Cooking_BG.png-9e9d3082cbc5b5f21ecbb4f3e72639ba.ctex"
 metadata={
 "vram_texture": false

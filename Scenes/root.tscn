@@ -1,23 +1,19 @@
-[gd_scene load_steps=12 format=3 uid="uid://cfniuyne644nj"]
+[gd_scene load_steps=10 format=3 uid="uid://cfniuyne644nj"]
 
 [ext_resource type="Script" path="res://Scripts/Root.cs" id="1_pn6rf"]
 [ext_resource type="PackedScene" uid="uid://bumbohrg72245" path="res://Scenes/exterior.tscn" id="2_xbt5w"]
-[ext_resource type="AudioStream" uid="uid://c4w0yopph0h7f" path="res://Assets/SFX/ui_select.wav" id="3_ihc0l"]
 [ext_resource type="PackedScene" uid="uid://dydo884ty4kdb" path="res://Scenes/interior.tscn" id="4_2s4mv"]
-[ext_resource type="AudioStream" uid="uid://cu4i826a1tblv" path="res://Assets/SFX/ui_hover.wav" id="4_agrde"]
 [ext_resource type="PackedScene" uid="uid://cl4p3lwxo5lsa" path="res://Scenes/Rolodex.tscn" id="4_lmvi6"]
 [ext_resource type="PackedScene" uid="uid://wgl3cuvhud0t" path="res://Scenes/camera.tscn" id="4_wuin5"]
 [ext_resource type="PackedScene" uid="uid://do7usl2ad7mfr" path="res://Scenes/animal_manager.tscn" id="7_jilfn"]
 [ext_resource type="PackedScene" uid="uid://6tml4ytuolux" path="res://Scenes/HUD.tscn" id="7_upxnj"]
 [ext_resource type="PackedScene" uid="uid://cgp66o3gq8kie" path="res://Scenes/SoundManager.tscn" id="9_nxehi"]
-[ext_resource type="PackedScene" uid="uid://betnjocdht33q" path="res://Scenes/cooking_screen.tscn" id="11_wdodc"]
+[ext_resource type="PackedScene" path="res://Scenes/cooking_screen.tscn" id="11_wdodc"]
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_pn6rf")
 
 [node name="SoundManager" parent="." instance=ExtResource("9_nxehi")]
-ButtonPressSFX = ExtResource("3_ihc0l")
-HoverSFX = ExtResource("4_agrde")
 
 [node name="Exterior" parent="." instance=ExtResource("2_xbt5w")]
 position = Vector2(-1920, 0)

@@ -42,31 +42,6 @@ public partial class Hud : CanvasLayer {
       get => _InteriorButton ??= parent.GetNode<Button>("InteriorButton");
     }
 
-    private ColorRect? _Newspaper;
-    public ColorRect Newspaper {
-      get => _Newspaper ??= parent.GetNode<ColorRect>("Newspaper");
-    }
-
-    private TextureRect? _Newspaper_Newspaper;
-    public TextureRect Newspaper_Newspaper {
-      get => _Newspaper_Newspaper ??= parent.GetNode<TextureRect>("Newspaper/Newspaper");
-    }
-
-    private Label? _Newspaper_DaysLeft;
-    public Label Newspaper_DaysLeft {
-      get => _Newspaper_DaysLeft ??= parent.GetNode<Label>("Newspaper/DaysLeft");
-    }
-
-    private VBoxContainer? _Newspaper_NewspaperContentContainer;
-    public VBoxContainer Newspaper_NewspaperContentContainer {
-      get => _Newspaper_NewspaperContentContainer ??= parent.GetNode<VBoxContainer>("Newspaper/NewspaperContentContainer");
-    }
-
-    private Button? _Newspaper_CloseButton;
-    public Button Newspaper_CloseButton {
-      get => _Newspaper_CloseButton ??= parent.GetNode<Button>("Newspaper/CloseButton");
-    }
-
     private ColorRect? _ClosingTimeOverlay;
     public ColorRect ClosingTimeOverlay {
       get => _ClosingTimeOverlay ??= parent.GetNode<ColorRect>("ClosingTimeOverlay");
@@ -122,11 +97,6 @@ public partial class Hud : CanvasLayer {
       get => _DialogBox ??= parent.GetNode<DialogBox>("DialogBox");
     }
 
-    private NewspaperEntry? _Newspaper_NewspaperContentContainer_NewspaperEntry;
-    public NewspaperEntry Newspaper_NewspaperContentContainer_NewspaperEntry {
-      get => _Newspaper_NewspaperContentContainer_NewspaperEntry ??= parent.GetNode<NewspaperEntry>("Newspaper/NewspaperContentContainer/NewspaperEntry");
-    }
-
     private Shop? _Shop;
     public Shop Shop {
       get => _Shop ??= parent.GetNode<Shop>("Shop");
@@ -135,6 +105,11 @@ public partial class Hud : CanvasLayer {
     private Clock? _Clock;
     public Clock Clock {
       get => _Clock ??= parent.GetNode<Clock>("Clock");
+    }
+
+    private Newspaper? _Newspaper;
+    public Newspaper Newspaper {
+      get => _Newspaper ??= parent.GetNode<Newspaper>("Newspaper");
     }
 
     private PauseMenu? _Menus;
