@@ -17,24 +17,19 @@ public partial class CreatureScene : Node2D {
     public CreatureSceneNodes(CreatureScene parent) {
       this.parent = parent;
     }
-    private Button? _HoverArea;
-    public Button HoverArea {
-      get => _HoverArea ??= parent.GetNode<Button>("HoverArea");
+    private Label? _NameLabel;
+    public Label NameLabel {
+      get => _NameLabel ??= parent.GetNode<Label>("NameLabel");
     }
 
-    private PanelContainer? _NameContainer;
-    public PanelContainer NameContainer {
-      get => _NameContainer ??= parent.GetNode<PanelContainer>("NameContainer");
+    private TextureRect? _TextureRect;
+    public TextureRect TextureRect {
+      get => _TextureRect ??= parent.GetNode<TextureRect>("TextureRect");
     }
 
-    private MarginContainer? _NameContainer_MarginContainer;
-    public MarginContainer NameContainer_MarginContainer {
-      get => _NameContainer_MarginContainer ??= parent.GetNode<MarginContainer>("NameContainer/MarginContainer");
-    }
-
-    private Label? _NameContainer_MarginContainer_NameLabel;
-    public Label NameContainer_MarginContainer_NameLabel {
-      get => _NameContainer_MarginContainer_NameLabel ??= parent.GetNode<Label>("NameContainer/MarginContainer/NameLabel");
+    private Button? _TextureRect_HoverArea;
+    public Button TextureRect_HoverArea {
+      get => _TextureRect_HoverArea ??= parent.GetNode<Button>("TextureRect/HoverArea");
     }
 
     private HoverPanelExterior? _HoverPanelExterior;
