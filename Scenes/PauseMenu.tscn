@@ -1,53 +1,185 @@
-[gd_scene load_steps=2 format=3 uid="uid://dy852coaojujg"]
+[gd_scene load_steps=6 format=3 uid="uid://dy852coaojujg"]
 
 [ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="1_ldn4s"]
+[ext_resource type="Script" path="res://Scripts/PauseMenu.cs" id="2_ap0md"]
+[ext_resource type="Texture2D" uid="uid://c2j6de1w8fd8w" path="res://Assets/UI/UI_Menu-Pause.png" id="2_dyyhm"]
+[ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="3_c5y6c"]
+[ext_resource type="Script" path="res://Scripts/CoolButton.cs" id="4_nlda1"]
 
-[node name="Pause Menu" type="ColorRect"]
+[node name="Menus" type="ColorRect"]
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 2
 theme = ExtResource("1_ldn4s")
 color = Color(1, 1, 1, 0.337255)
+script = ExtResource("2_ap0md")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 562.0
-offset_top = 136.0
-offset_right = 1215.0
-offset_bottom = 850.0
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -427.5
+offset_top = -492.0
+offset_right = 427.5
+offset_bottom = 492.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dyyhm")
 
-[node name="HBoxContainer" type="VBoxContainer" parent="TextureRect"]
+[node name="CreditsContent" type="VBoxContainer" parent="Background"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 202.0
+offset_top = 36.0
+offset_right = -102.0
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Credits" type="Label" parent="TextureRect/HBoxContainer"]
+[node name="MarginContainer3" type="MarginContainer" parent="Background/CreditsContent"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 40
+
+[node name="Credits" type="Label" parent="Background/CreditsContent/MarginContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.27, 0.0216, 0.0216, 1)
+theme_override_fonts/font = ExtResource("3_c5y6c")
+theme_override_font_sizes/font_size = 80
+text = "credits"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Background/CreditsContent"]
+custom_minimum_size = Vector2(0, 99.15)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/CreditsContent"]
+layout_mode = 2
+theme_override_constants/margin_left = 110
+
+[node name="Name" type="Label" parent="Background/CreditsContent/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.27, 0.0216, 0.0216, 1)
+theme_override_constants/line_spacing = 28
+theme_override_font_sizes/font_size = 36
+text = "johnfn
+Lenlipui
+Miyolophone
+LunacyEcho
+fawnblue
+anothernode"
+
+[node name="Spacer2" type="Control" parent="Background/CreditsContent"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Background/CreditsContent"]
+layout_mode = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_bottom = 20
+
+[node name="BackButton" type="Button" parent="Background/CreditsContent/MarginContainer2"]
+layout_mode = 2
+text = "back"
+flat = true
+alignment = 0
+
+[node name="MainMenuContent" type="VBoxContainer" parent="Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 202.0
+offset_top = 36.0
+offset_right = -102.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Credits" type="Label" parent="Background/MainMenuContent"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.27, 0.0216, 0.0216, 1)
+theme_override_fonts/font = ExtResource("3_c5y6c")
+theme_override_font_sizes/font_size = 80
+text = "Game Title"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Background/MainMenuContent"]
+custom_minimum_size = Vector2(0, 44.31)
+layout_mode = 2
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="Background/MainMenuContent"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="Background/MainMenuContent/ButtonsContainer"]
+layout_mode = 2
+text = "Play!"
+flat = true
+script = ExtResource("4_nlda1")
+
+[node name="Credits" type="Button" parent="Background/MainMenuContent/ButtonsContainer"]
 layout_mode = 2
 text = "Credits"
+flat = true
+script = ExtResource("4_nlda1")
 
-[node name="Name" type="Label" parent="TextureRect/HBoxContainer"]
+[node name="Exit" type="Button" parent="Background/MainMenuContent/ButtonsContainer"]
 layout_mode = 2
-text = "johnfn"
+text = "Exit"
+flat = true
+script = ExtResource("4_nlda1")
 
-[node name="Name2" type="Label" parent="TextureRect/HBoxContainer"]
-layout_mode = 2
-text = "Lenlipui"
+[node name="PauseMenuContent" type="VBoxContainer" parent="Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 202.0
+offset_top = 36.0
+offset_right = -102.0
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 
-[node name="Name3" type="Label" parent="TextureRect/HBoxContainer"]
+[node name="Credits" type="Label" parent="Background/PauseMenuContent"]
 layout_mode = 2
-text = "LunacyEcho"
+theme_override_colors/font_color = Color(0.27, 0.0216, 0.0216, 1)
+theme_override_fonts/font = ExtResource("3_c5y6c")
+theme_override_font_sizes/font_size = 80
+text = "PAUSED!"
+horizontal_alignment = 1
 
-[node name="Name4" type="Label" parent="TextureRect/HBoxContainer"]
+[node name="Spacer" type="Control" parent="Background/PauseMenuContent"]
+custom_minimum_size = Vector2(0, 44.31)
 layout_mode = 2
-text = "Miyolophone"
 
-[node name="Name5" type="Label" parent="TextureRect/HBoxContainer"]
+[node name="ButtonsContainer" type="VBoxContainer" parent="Background/PauseMenuContent"]
 layout_mode = 2
-text = "anothernode"
 
-[node name="BackButton" type="Button" parent="TextureRect/HBoxContainer"]
+[node name="Resume" type="Button" parent="Background/PauseMenuContent/ButtonsContainer"]
 layout_mode = 2
-text = "Back"
+text = "Resume"
+flat = true
+script = ExtResource("4_nlda1")
+
+[node name="Credits" type="Button" parent="Background/PauseMenuContent/ButtonsContainer"]
+layout_mode = 2
+text = "Credits"
+flat = true
+script = ExtResource("4_nlda1")
+
+[node name="MainMenu" type="Button" parent="Background/PauseMenuContent/ButtonsContainer"]
+layout_mode = 2
+text = "Main Menu"
+flat = true
+script = ExtResource("4_nlda1")

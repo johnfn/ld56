@@ -163,8 +163,7 @@ offset_bottom = 1080.0
 mouse_filter = 2
 color = Color(0.0745098, 0.0823529, 0.215686, 0.337255)
 
-[node name="Pause Menu" parent="." instance=ExtResource("13_kljas")]
-visible = false
+[node name="Menus" parent="." instance=ExtResource("13_kljas")]
 
 [node name="CustomersServed" type="Label" parent="."]
 offset_left = 1550.0

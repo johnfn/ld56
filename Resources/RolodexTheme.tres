@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://78lu3emfpwvq"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://78lu3emfpwvq"]
 
 [ext_resource type="FontFile" uid="uid://cgxb4jmix2cb1" path="res://Resources/ShortStack-Regular.ttf" id="1_5wk5g"]
+[ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="1_63mwy"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_8dtly"]
 color = Color(0.62, 0.1178, 0.12617, 1)
@@ -24,6 +25,10 @@ corner_radius_bottom_left = 4
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [resource]
+default_font = ExtResource("1_63mwy")
+default_font_size = 48
+Button/colors/font_color = Color(0.29, 0.0319, 0.0319, 1)
+Button/fonts/font = ExtResource("1_63mwy")
 HSeparator/styles/separator = SubResource("StyleBoxLine_8dtly")
 Label/colors/font_color = Color(0.54, 0.1296, 0.13644, 1)
 Label/fonts/font = ExtResource("1_5wk5g")
