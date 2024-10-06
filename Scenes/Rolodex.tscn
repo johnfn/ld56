@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://cl4p3lwxo5lsa"]
 
-[ext_resource type="Texture2D" uid="uid://da61f843ekha4" path="res://Assets/UI/Rolodex_BG_v2.png" id="1_q3m4y"]
+[ext_resource type="Texture2D" uid="uid://dlghlthc65fle" path="res://Assets/UI/Rolodex_BG_v2_NOBG.png" id="1_ceq2y"]
 [ext_resource type="Script" path="res://Scripts/Rolodex.cs" id="2_s2ex6"]
 [ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="3_5uipw"]
 [ext_resource type="PackedScene" uid="uid://cmx8m8efavlh0" path="res://Scenes/RolodexRecipeEntry.tscn" id="3_w152g"]
@@ -19,21 +19,44 @@ shader = ExtResource("4_g2p00")
 shader_parameter/curvature = 0.05
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_vqwj0"]
-viewport_path = NodePath("Page1Viewport")
+viewport_path = NodePath("BookTexture/Page1Viewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_n53t8"]
-viewport_path = NodePath("Page2Viewport")
+viewport_path = NodePath("BookTexture/Page2Viewport")
 
-[node name="Rolodex" type="Sprite2D"]
-texture = ExtResource("1_q3m4y")
-centered = false
+[node name="Rolodex" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.564706)
 script = ExtResource("2_s2ex6")
 
-[node name="Page1Viewport" type="SubViewport" parent="."]
+[node name="ClickOutside" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="BookTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 122.0
+offset_top = 104.0
+offset_right = 1790.0
+offset_bottom = 1042.0
+texture = ExtResource("1_ceq2y")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Page1Viewport" type="SubViewport" parent="BookTexture"]
 transparent_bg = true
 size = Vector2i(711, 791)
 
-[node name="MarginContainer" type="MarginContainer" parent="Page1Viewport"]
+[node name="MarginContainer" type="MarginContainer" parent="BookTexture/Page1Viewport"]
 offset_right = 711.0
 offset_bottom = 729.0
 size_flags_horizontal = 3
@@ -43,31 +66,31 @@ theme_override_constants/margin_top = 48
 theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 24
 
-[node name="Page1" type="VBoxContainer" parent="Page1Viewport/MarginContainer"]
+[node name="Page1" type="VBoxContainer" parent="BookTexture/Page1Viewport/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 28
 
-[node name="RolodexRecipeEntry" parent="Page1Viewport/MarginContainer/Page1" instance=ExtResource("3_w152g")]
+[node name="RolodexRecipeEntry" parent="BookTexture/Page1Viewport/MarginContainer/Page1" instance=ExtResource("3_w152g")]
 layout_mode = 2
 
-[node name="HSeparator" type="HSeparator" parent="Page1Viewport/MarginContainer/Page1"]
+[node name="HSeparator" type="HSeparator" parent="BookTexture/Page1Viewport/MarginContainer/Page1"]
 layout_mode = 2
 
-[node name="RolodexRecipeEntry2" parent="Page1Viewport/MarginContainer/Page1" instance=ExtResource("3_w152g")]
+[node name="RolodexRecipeEntry2" parent="BookTexture/Page1Viewport/MarginContainer/Page1" instance=ExtResource("3_w152g")]
 layout_mode = 2
 
-[node name="HSeparator2" type="HSeparator" parent="Page1Viewport/MarginContainer/Page1"]
+[node name="HSeparator2" type="HSeparator" parent="BookTexture/Page1Viewport/MarginContainer/Page1"]
 layout_mode = 2
 
-[node name="RolodexRecipeEntry3" parent="Page1Viewport/MarginContainer/Page1" instance=ExtResource("3_w152g")]
+[node name="RolodexRecipeEntry3" parent="BookTexture/Page1Viewport/MarginContainer/Page1" instance=ExtResource("3_w152g")]
 layout_mode = 2
 
-[node name="Page2Viewport" type="SubViewport" parent="."]
+[node name="Page2Viewport" type="SubViewport" parent="BookTexture"]
 transparent_bg = true
 size = Vector2i(711, 791)
 
-[node name="MarginContainer" type="MarginContainer" parent="Page2Viewport"]
+[node name="MarginContainer" type="MarginContainer" parent="BookTexture/Page2Viewport"]
 offset_right = 711.0
 offset_bottom = 729.0
 size_flags_horizontal = 3
@@ -77,71 +100,97 @@ theme_override_constants/margin_top = 48
 theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 24
 
-[node name="Page2" type="VBoxContainer" parent="Page2Viewport/MarginContainer"]
+[node name="Page2" type="VBoxContainer" parent="BookTexture/Page2Viewport/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 28
 
-[node name="NextPageButton" type="Button" parent="."]
-offset_left = 1658.0
-offset_top = 790.0
-offset_right = 1830.0
-offset_bottom = 945.0
+[node name="NextPageButton" type="Button" parent="BookTexture"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.863542
+anchor_top = 0.731481
+anchor_right = 0.953125
+anchor_bottom = 0.875
 theme = ExtResource("4_d1xda")
 icon = ExtResource("5_4e3ou")
 flat = true
 script = ExtResource("6_2afhd")
+metadata/_edit_use_anchors_ = true
 
-[node name="PrevPageButton" type="Button" parent="."]
-offset_left = 67.0
-offset_top = 789.0
-offset_right = 239.0
-offset_bottom = 944.0
+[node name="PrevPageButton" type="Button" parent="BookTexture"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0348958
+anchor_top = 0.730556
+anchor_right = 0.124479
+anchor_bottom = 0.874074
 theme = ExtResource("4_d1xda")
 icon = ExtResource("6_fr14v")
 flat = true
 script = ExtResource("6_2afhd")
+metadata/_edit_use_anchors_ = true
 
-[node name="CreaturesTab" type="Button" parent="."]
-offset_left = 295.0
-offset_top = 43.0
-offset_right = 485.0
-offset_bottom = 186.0
+[node name="CreaturesTab" type="Button" parent="BookTexture"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.153646
+anchor_top = 0.0398148
+anchor_right = 0.252604
+anchor_bottom = 0.172222
+offset_right = 3.05176e-05
 theme = ExtResource("4_d1xda")
 icon = ExtResource("7_mjcfv")
 flat = true
 script = ExtResource("6_2afhd")
+metadata/_edit_use_anchors_ = true
 
-[node name="RecipesTab" type="Button" parent="."]
-offset_left = 485.0
-offset_top = 28.0
-offset_right = 675.0
-offset_bottom = 166.0
+[node name="RecipesTab" type="Button" parent="BookTexture"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.252604
+anchor_top = 0.0259259
+anchor_right = 0.351562
+anchor_bottom = 0.153704
+offset_left = 3.05176e-05
 theme = ExtResource("4_d1xda")
 icon = ExtResource("8_04okw")
 flat = true
 script = ExtResource("6_2afhd")
+metadata/_edit_use_anchors_ = true
 
-[node name="IngredientsTab" type="Button" parent="."]
-offset_left = 681.0
-offset_top = 41.0
-offset_right = 871.0
-offset_bottom = 188.0
+[node name="IngredientsTab" type="Button" parent="BookTexture"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.354688
+anchor_top = 0.037963
+anchor_right = 0.453646
+anchor_bottom = 0.174074
 theme = ExtResource("4_d1xda")
 icon = ExtResource("8_sspxm")
 flat = true
 script = ExtResource("6_2afhd")
+metadata/_edit_use_anchors_ = true
 
-[node name="TopPages" type="TextureRect" parent="."]
-offset_left = 173.0
-offset_top = 101.0
-offset_right = 1733.0
-offset_bottom = 962.0
+[node name="TopPages" type="TextureRect" parent="BookTexture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 140.0
+offset_top = 97.0
+offset_right = -189.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("10_v3f4w")
+expand_mode = 1
+stretch_mode = 4
 
-[node name="LeftPageContents" type="TextureRect" parent="."]
+[node name="LeftPageContents" type="TextureRect" parent="BookTexture"]
 material = SubResource("ShaderMaterial_u3u5d")
+layout_mode = 0
 offset_left = 192.0
 offset_top = 140.0
 offset_right = 910.0
@@ -150,9 +199,11 @@ rotation = -0.0174533
 mouse_filter = 2
 texture = SubResource("ViewportTexture_vqwj0")
 expand_mode = 1
+stretch_mode = 4
 
-[node name="RightPageContents" type="TextureRect" parent="."]
+[node name="RightPageContents" type="TextureRect" parent="BookTexture"]
 material = SubResource("ShaderMaterial_u3u5d")
+layout_mode = 0
 offset_left = 1012.0
 offset_top = 135.0
 offset_right = 1707.0
@@ -161,5 +212,6 @@ rotation = 0.0174533
 mouse_filter = 2
 texture = SubResource("ViewportTexture_n53t8")
 expand_mode = 1
+stretch_mode = 4
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

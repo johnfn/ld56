@@ -1,82 +1,64 @@
-[gd_scene load_steps=4 format=3 uid="uid://iiqinsgr2l1n"]
+[gd_scene load_steps=5 format=3 uid="uid://dksv0nvtjkh60"]
 
 [ext_resource type="Script" path="res://Scripts/CookingIngredient.cs" id="1_4htc4"]
 [ext_resource type="Texture2D" uid="uid://dvystam1uwxhs" path="res://Assets/Ingredients/basil_leaf.png" id="1_hdg4o"]
+[ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="1_hs7iv"]
+[ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="4_w2l4s"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ys3t"]
-bg_color = Color(0.111328, 0.111328, 0.111328, 1)
-
-[node name="CookingIngredient" type="Control"]
+[node name="CookingIngredient" type="Button"]
 custom_minimum_size = Vector2(100, 100)
-layout_mode = 3
-anchors_preset = 0
 offset_right = 100.0
 offset_bottom = 100.0
+size_flags_vertical = 3
+theme = ExtResource("1_hs7iv")
+flat = true
 script = ExtResource("1_4htc4")
 
-[node name="BuyTooltip" type="PanelContainer" parent="."]
-layout_mode = 2
-offset_left = 6.0
-offset_top = -270.0
-offset_right = 421.0
-offset_bottom = -81.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_2ys3t")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="BuyTooltip"]
-layout_mode = 2
-
-[node name="Name" type="RichTextLabel" parent="BuyTooltip/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 32
-text = "Basil leaf"
-fit_content = true
-
-[node name="Description" type="RichTextLabel" parent="BuyTooltip/VBoxContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(0.462891, 0.462891, 0.462891, 1)
-theme_override_font_sizes/normal_font_size = 24
-bbcode_enabled = true
-text = "Yummy yummy basil its so tasty yum yum yum yum yum yum yum yum yumyumyumyu"
-fit_content = true
-
-[node name="Control" type="Control" parent="BuyTooltip/VBoxContainer"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-
-[node name="Price" type="RichTextLabel" parent="BuyTooltip/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 24
-bbcode_enabled = true
-text = "[color=gold]5 gold[/color]"
-fit_content = true
-
-[node name="Container" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="IngredientImage" type="TextureRect" parent="Container"]
+[node name="IngredientImage" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("1_hdg4o")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Container"]
-layout_mode = 2
-
-[node name="NameLabel" type="RichTextLabel" parent="Container"]
+[node name="NameLabel" type="RichTextLabel" parent="."]
+visible = false
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 2
 bbcode_enabled = true
 text = "Basil leaf"
 fit_content = true
 
-[node name="QuantityLabel" type="RichTextLabel" parent="Container"]
-layout_mode = 2
+[node name="QuantityLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -42.0
+offset_right = -6.0
+offset_bottom = -7.0
+grow_horizontal = 0
+grow_vertical = 0
 size_flags_vertical = 8
-bbcode_enabled = true
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_w2l4s")
+theme_override_font_sizes/font_size = 36
 text = "x5"
-fit_content = true
+horizontal_alignment = 2

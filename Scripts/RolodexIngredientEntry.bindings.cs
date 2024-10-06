@@ -47,6 +47,11 @@ public partial class RolodexIngredientEntry : PanelContainer {
       get => _HBoxContainer_TextContainer_Description ??= parent.GetNode<Label>("HBoxContainer/TextContainer/Description");
     }
 
+    private Button? _Button;
+    public Button Button {
+      get => _Button ??= parent.GetNode<Button>("Button");
+    }
+
   }
 
   public RolodexIngredientEntryNodes? _Nodes;

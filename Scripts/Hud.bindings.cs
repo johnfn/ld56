@@ -42,9 +42,9 @@ public partial class Hud : CanvasLayer {
       get => _Gold ??= parent.GetNode<Label>("Gold");
     }
 
-    private Control? _Debug;
-    public Control Debug {
-      get => _Debug ??= parent.GetNode<Control>("Debug");
+    private VBoxContainer? _Debug;
+    public VBoxContainer Debug {
+      get => _Debug ??= parent.GetNode<VBoxContainer>("Debug");
     }
 
     private Button? _Debug_DebugEndDay;

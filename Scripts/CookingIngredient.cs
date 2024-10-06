@@ -1,33 +1,24 @@
 using Godot;
 using System;
+using ld56;
 
-public partial class CookingIngredient : Control {
-  public event Action<CookingIngredient> OnClick;
-  public event Action<CookingIngredient> OnMouseEnter;
-  public event Action<CookingIngredient> OnMouseExit;
-
+public partial class CookingIngredient : Button {
+  // Called when the node enters the scene tree for the first time.
   public override void _Ready() {
-    Nodes.Container.MouseEntered += OnMouseEntered;
-    Nodes.Container.MouseExited += OnMouseExited;
-    Nodes.Container.GuiInput += OnGuiInput;
-    Modulate = new Color(0.7f, 0.7f, 0.7f);
+    this.PivotOffset = new Vector2(this.Size.X / 2, this.Size.Y / 2);
+    this.Pressed += () => {
+      Root.Instance.Nodes.SoundManager.PlayButtonPressSFX();
+    };
 
-    Nodes.BuyTooltip.Visible = false;
-  }
+    this.MouseEntered += () => {
+      // Scale up
+      this.Scale = this.Scale * 1.1f;
+      Root.Instance.Nodes.SoundManager.PlayHoverSFX();
+    };
 
-  private void OnMouseEntered() {
-    OnMouseEnter?.Invoke(this);
-    Modulate = new Color(1, 1, 1);
-  }
-
-  private void OnMouseExited() {
-    OnMouseExit?.Invoke(this);
-    Modulate = new Color(0.7f, 0.7f, 0.7f);
-  }
-
-  private void OnGuiInput(InputEvent @event) {
-    if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed) {
-      OnClick?.Invoke(this);
-    }
+    this.MouseExited += () => {
+      // Scale down
+      this.Scale = this.Scale / 1.1f;
+    };
   }
 }

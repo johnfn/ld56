@@ -15,6 +15,8 @@ public partial class SoundManager : Node {
 
 
 
+  [Export]
+  public AudioStream[] CookingSFX = [];
 
 
   public void PlayPageTurnSFX() {

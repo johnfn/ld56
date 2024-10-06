@@ -8,13 +8,27 @@ namespace ld56;
 
 public partial class CookingScreen : Sprite2D {
   private Dictionary<IngredientId, CookingIngredient> idToIngredient = [];
-  private List<IngredientId> cookingList = [];
+  private static List<IngredientId> cookingList = [];
   public static CookingScreen Instance { get; private set; }
 
   public override void _Ready() {
     Instance = this;
 
-    Nodes.CookingResultModal.Visible = false;
+    Nodes.UI_CookingResultModal.Visible = false;
+
+    Nodes.UI_IngredientsButton.Pressed += () => {
+      Rolodex.Instance.Show();
+      Rolodex.Instance.ChangeTab(Rolodex.RolodexTab.Ingredients);
+    };
+
+    Nodes.UI_RecipesButton.Pressed += () => {
+      Rolodex.Instance.Show();
+      Rolodex.Instance.ChangeTab(Rolodex.RolodexTab.Recipes);
+    };
+
+    Nodes.UI_CookButton.Pressed += () => {
+      CookingScreen.Cook();
+    };
 
     Initialize();
   }
@@ -29,7 +43,7 @@ public partial class CookingScreen : Sprite2D {
     await Instance.Initialize();
 
     var hasPressedCook = false;
-    Instance.Nodes.Button.Pressed += () => hasPressedCook = true;
+    Instance.Nodes.UI_CookButton.Pressed += () => hasPressedCook = true;
 
     while (!hasPressedCook) {
       await Instance.ToSignal(Instance.GetTree(), SceneTree.SignalName.ProcessFrame);
@@ -38,11 +52,14 @@ public partial class CookingScreen : Sprite2D {
     // TODO: Some sort of logic to figure out what we made.
     var result = AllRecipes.ScrambledEggs;
 
+    // TODO: Remove them from the inventory.
+    cookingList.ForEach(id => GameState.OwnedIngredients.Remove(AllIngredients.Get(id)));
+
     Instance.ShowCookingCompleteModal(result);
 
     // wait for user to close the modal
     var hasClosed = false;
-    Instance.Nodes.CookingResultModal.OnClose += () => hasClosed = true;
+    Instance.Nodes.UI_CookingResultModal.OnClose += () => hasClosed = true;
 
     while (!hasClosed) {
       await Instance.ToSignal(Instance.GetTree(), SceneTree.SignalName.ProcessFrame);
@@ -59,34 +76,27 @@ public partial class CookingScreen : Sprite2D {
 
     await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
 
-    foreach (var child in Nodes.CookingList.GetChildren()) {
-      child.QueueFree();
-    }
+    Rolodex.Instance.OnClickIngredient += (ingredientId) => {
+      cookingList.Add(ingredientId);
+      var ingredient = AllIngredients.Get(ingredientId);
+      var ingredientListItem = CookingIngredient.New();
 
-    Nodes.InventoryList.Initialize(GameState.OwnedIngredients);
+      Nodes.UI_IngredientSlotsTexture_Container.AddChild(ingredientListItem);
+      ingredientListItem.Pressed += () => {
+        cookingList.Remove(ingredientId);
+        Nodes.UI_IngredientSlotsTexture_Container.RemoveChild(ingredientListItem);
+      };
 
-    Nodes.InventoryList.OnClickIngredient += (ingredientId) => {
-      var success = Nodes.InventoryList.RemoveItemFromList(ingredientId);
-
-      if (success) {
-        cookingList.Add(ingredientId);
-
-        var ingredient = AllIngredients.Get(ingredientId);
-        var ingredientListItem = CookingIngredient.New();
-
-        Nodes.CookingList.AddChild(ingredientListItem);
-
-        ingredientListItem.Nodes.Container_NameLabel.Text = ingredient.DisplayName;
-      } else {
-        // TODO: Show error somehow
-      }
+      ingredientListItem.Nodes.NameLabel.Text = ingredient.DisplayName;
     };
   }
 
+
   private void ShowCookingCompleteModal(Recipe result) {
-    Nodes.CookingResultModal.Visible = true;
-    Nodes.CookingResultModal.Nodes.HBoxContainer_Title.Text = result.DisplayName;
-    Nodes.CookingResultModal.Nodes.HBoxContainer_Description.Text = result.Description;
+    Nodes.UI_CookingResultModal.Visible = true;
+    if (result.Icon != null) {
+      Nodes.UI_CookingResultModal.Nodes.TextureRect.Texture = result.Icon;
+    }
 
     foreach (var ingredient in cookingList) {
       var ownedIngredients = GameState.OwnedIngredients;
