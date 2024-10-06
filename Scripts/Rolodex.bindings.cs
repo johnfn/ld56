@@ -32,6 +32,16 @@ public partial class Rolodex : Sprite2D {
       get => _Page1Viewport_MarginContainer_Page1 ??= parent.GetNode<VBoxContainer>("Page1Viewport/MarginContainer/Page1");
     }
 
+    private HSeparator? _Page1Viewport_MarginContainer_Page1_HSeparator;
+    public HSeparator Page1Viewport_MarginContainer_Page1_HSeparator {
+      get => _Page1Viewport_MarginContainer_Page1_HSeparator ??= parent.GetNode<HSeparator>("Page1Viewport/MarginContainer/Page1/HSeparator");
+    }
+
+    private HSeparator? _Page1Viewport_MarginContainer_Page1_HSeparator2;
+    public HSeparator Page1Viewport_MarginContainer_Page1_HSeparator2 {
+      get => _Page1Viewport_MarginContainer_Page1_HSeparator2 ??= parent.GetNode<HSeparator>("Page1Viewport/MarginContainer/Page1/HSeparator2");
+    }
+
     private SubViewport? _Page2Viewport;
     public SubViewport Page2Viewport {
       get => _Page2Viewport ??= parent.GetNode<SubViewport>("Page2Viewport");
@@ -90,6 +100,21 @@ public partial class Rolodex : Sprite2D {
     private AudioStreamPlayer2D? _AudioStreamPlayer2D;
     public AudioStreamPlayer2D AudioStreamPlayer2D {
       get => _AudioStreamPlayer2D ??= parent.GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
+    }
+
+    private RolodexRecipeEntry? _Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry;
+    public RolodexRecipeEntry Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry {
+      get => _Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry ??= parent.GetNode<RolodexRecipeEntry>("Page1Viewport/MarginContainer/Page1/RolodexRecipeEntry");
+    }
+
+    private RolodexRecipeEntry? _Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry2;
+    public RolodexRecipeEntry Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry2 {
+      get => _Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry2 ??= parent.GetNode<RolodexRecipeEntry>("Page1Viewport/MarginContainer/Page1/RolodexRecipeEntry2");
+    }
+
+    private RolodexRecipeEntry? _Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry3;
+    public RolodexRecipeEntry Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry3 {
+      get => _Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry3 ??= parent.GetNode<RolodexRecipeEntry>("Page1Viewport/MarginContainer/Page1/RolodexRecipeEntry3");
     }
 
   }

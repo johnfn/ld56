@@ -42,6 +42,12 @@ public static class GameState {
   public static List<Recipe> UnlockedRecipes = [
     AllRecipes.TomatoSoupInACherryTomato,
     AllRecipes.ScrambledEggs,
+    AllRecipes.TomatoSoupInACherryTomato,
+    AllRecipes.ScrambledEggs,
+    AllRecipes.TomatoSoupInACherryTomato,
+    AllRecipes.ScrambledEggs,
+    AllRecipes.TomatoSoupInACherryTomato,
+    AllRecipes.ScrambledEggs,
   ];
 
   public static List<Creature> KnownGuests = [

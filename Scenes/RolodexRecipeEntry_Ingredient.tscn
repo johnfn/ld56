@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cguvibqj1jiwv"]
+
+[ext_resource type="Texture2D" uid="uid://bb03hc30ic4ma" path="res://Assets/Ingredients/cherry_tomato.png" id="1_ekofu"]
+[ext_resource type="Script" path="res://Scenes/RolodexRecipeEntryIngredient.cs" id="2_dg60r"]
+
+[node name="Ingredient1" type="TextureRect"]
+custom_minimum_size = Vector2(36, 36)
+texture = ExtResource("1_ekofu")
+expand_mode = 1
+stretch_mode = 4
+script = ExtResource("2_dg60r")
+
+[node name="QuestionMark" type="Label" parent="."]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"LabelWithOutline"
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
