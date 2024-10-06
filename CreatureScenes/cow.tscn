@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://2xyc6m0v6fs2" path="res://icon.svg" id="1_obqeo"]
 [ext_resource type="Script" path="res://CreatureScenes/Cow.cs" id="2_5gegj"]
-[ext_resource type="PackedScene" path="res://hover_panel_exterior.tscn" id="3_ppro1"]
+[ext_resource type="PackedScene" uid="uid://lvv1ltx4h1yj" path="res://Scenes/hover_panel_exterior.tscn" id="3_ppro1"]
 
 [node name="Cow" type="Sprite2D"]
 texture = ExtResource("1_obqeo")

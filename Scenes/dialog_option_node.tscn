@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://btiw58tqy4v2"]
+
+[ext_resource type="Script" path="res://Scripts/DialogOptionNode.cs" id="1_hcdxd"]
+
+[node name="DialogOptionNode" type="Label"]
+theme_override_font_sizes/font_size = 36
+text = "blah blah blah blah "
+script = ExtResource("1_hcdxd")

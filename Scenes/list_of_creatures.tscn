@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://drdgs1oscnynx"]
+
+[ext_resource type="PackedScene" uid="uid://epptr1vhg57" path="res://Scenes/upcoming_creature_ui.tscn" id="1_hkaqs"]
+[ext_resource type="Script" path="res://Scripts/ListOfCreatures.cs" id="1_vfwpq"]
+
+[node name="ListOfCreatures" type="HBoxContainer"]
+theme_override_constants/separation = 16
+script = ExtResource("1_vfwpq")
+
+[node name="Person" parent="." instance=ExtResource("1_hkaqs")]
+layout_mode = 2
+
+[node name="Person2" parent="." instance=ExtResource("1_hkaqs")]
+layout_mode = 2
+
+[node name="Person3" parent="." instance=ExtResource("1_hkaqs")]
+layout_mode = 2
+
+[node name="Person4" parent="." instance=ExtResource("1_hkaqs")]
+layout_mode = 2
+
+[node name="Person5" parent="." instance=ExtResource("1_hkaqs")]
+layout_mode = 2

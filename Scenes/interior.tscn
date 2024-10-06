@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dydo884ty4kdb"]
+
+[ext_resource type="Texture2D" uid="uid://dao638tuiqy3r" path="res://Assets/Backgrounds/Interior_BG.png" id="1_rau6r"]
+[ext_resource type="Script" path="res://Scripts/Interior.cs" id="2_nxgdb"]
+[ext_resource type="PackedScene" uid="uid://0pvu3gdqahdj" path="res://Scenes/highlight_circle.tscn" id="3_17ai5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnt6k"]
+size = Vector2(148.732, 146.16)
+
+[node name="Interior" type="Sprite2D"]
+texture = ExtResource("1_rau6r")
+centered = false
+script = ExtResource("2_nxgdb")
+
+[node name="InteriorAnimalSpawnArea" type="Area2D" parent="."]
+position = Vector2(231, 580)
+
+[node name="Shape" type="CollisionShape2D" parent="InteriorAnimalSpawnArea"]
+shape = SubResource("RectangleShape2D_gnt6k")
+
+[node name="Chairs" type="Node2D" parent="."]
+
+[node name="HighlightCircle" parent="Chairs" instance=ExtResource("3_17ai5")]
+
+[node name="HighlightCircle2" parent="Chairs" instance=ExtResource("3_17ai5")]
+position = Vector2(734, 827)
+
+[node name="HighlightCircle3" parent="Chairs" instance=ExtResource("3_17ai5")]
+position = Vector2(469, 710)
+
+[node name="HighlightCircle4" parent="Chairs" instance=ExtResource("3_17ai5")]
+position = Vector2(203, 834)

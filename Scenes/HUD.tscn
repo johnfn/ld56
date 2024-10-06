@@ -1,0 +1,173 @@
+[gd_scene load_steps=22 format=3 uid="uid://6tml4ytuolux"]
+
+[ext_resource type="PackedScene" uid="uid://drdgs1oscnynx" path="res://Scenes/list_of_creatures.tscn" id="1_1te6p"]
+[ext_resource type="Script" path="res://Scripts/Hud.cs" id="1_eqs7q"]
+[ext_resource type="PackedScene" uid="uid://cl4p3lwxo5lsa" path="res://Scenes/Rolodex.tscn" id="3_cpfkf"]
+[ext_resource type="Texture2D" uid="uid://b6x8mab8cbrqo" path="res://Assets/UI/UI_Interior_Arrow_Left.png" id="3_i8kw0"]
+[ext_resource type="PackedScene" uid="uid://6lka55lm0755" path="res://Scenes/CoolButton.tscn" id="3_tp0ts"]
+[ext_resource type="Texture2D" uid="uid://bkaqtippwahvp" path="res://Assets/UI/newspaper.png" id="4_eaora"]
+[ext_resource type="PackedScene" uid="uid://07sx5xgd03q2" path="res://Scenes/dialog_box.tscn" id="4_xc7oc"]
+[ext_resource type="Script" path="res://Scripts/CoolButton.cs" id="5_w24eq"]
+[ext_resource type="Texture2D" uid="uid://btod87fmr78hi" path="res://Assets/UI/clock.png" id="9_fj4xa"]
+[ext_resource type="Texture2D" uid="uid://bdelja1565khk" path="res://Assets/UI/clock-hand.png" id="10_3e6ts"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nm077"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ivqrp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_piy0o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6k7d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1owxj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ucltw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y67yk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8viex"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_anw0a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bre28"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lqqcc"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_eqs7q")
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchor_top = 0.892
+anchor_bottom = 0.892
+offset_top = 116.64
+offset_bottom = 116.64
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Container"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -47.0
+offset_right = 112.0
+grow_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ListOfCreatures" parent="Container/MarginContainer/HBoxContainer" instance=ExtResource("1_1te6p")]
+layout_mode = 2
+
+[node name="RolodexButton" type="Button" parent="."]
+offset_left = 1695.0
+offset_top = 929.0
+offset_right = 1869.0
+offset_bottom = 1033.0
+text = "Rolodex"
+script = ExtResource("5_w24eq")
+
+[node name="ExteriorButton" parent="." instance=ExtResource("3_tp0ts")]
+offset_left = 19.0
+offset_top = 473.0
+offset_right = -1772.0
+offset_bottom = -510.0
+icon = ExtResource("3_i8kw0")
+flat = true
+
+[node name="InteriorButton" type="Button" parent="."]
+offset_left = 1739.0
+offset_top = 463.0
+offset_right = 1868.0
+offset_bottom = 568.0
+scale = Vector2(-1, 1)
+icon = ExtResource("3_i8kw0")
+flat = true
+script = ExtResource("5_w24eq")
+
+[node name="Rolodex" parent="." instance=ExtResource("3_cpfkf")]
+visible = false
+
+[node name="DialogBox" parent="." instance=ExtResource("4_xc7oc")]
+offset_left = 379.0
+offset_top = 220.0
+offset_right = 1181.0
+offset_bottom = 513.0
+
+[node name="Newspaper" type="ColorRect" parent="."]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.607843)
+
+[node name="Newspaper" type="TextureRect" parent="Newspaper"]
+layout_mode = 0
+offset_left = 385.0
+offset_top = 6.0
+offset_right = 1504.0
+offset_bottom = 1055.0
+texture = ExtResource("4_eaora")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Newspaper"]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 305.0
+offset_right = 1412.0
+offset_bottom = 728.0
+
+[node name="DaysLeft" type="Label" parent="Newspaper/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+
+[node name="DaysLeft2" type="Label" parent="Newspaper/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Nothing to report of late, and you can't make us talk about the weather."
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="Newspaper"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1073.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nm077")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ivqrp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_piy0o")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_g6k7d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1owxj")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ucltw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_y67yk")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_8viex")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_anw0a")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_bre28")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lqqcc")
+
+[node name="Clock" type="TextureRect" parent="."]
+offset_left = 1770.0
+offset_top = -113.0
+offset_right = 1998.0
+offset_bottom = 149.0
+texture = ExtResource("9_fj4xa")
+
+[node name="ClockHand" type="TextureRect" parent="Clock"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 73.0
+offset_right = 185.0
+offset_bottom = 207.0
+rotation = 2.056
+pivot_offset = Vector2(64.03, 68.11)
+texture = ExtResource("10_3e6ts")
+
+[node name="ClosingTimeOverlay" type="ColorRect" parent="."]
+visible = false
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.0745098, 0.0823529, 0.215686, 0.337255)
