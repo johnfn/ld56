@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://iiqinsgr2l1n"]
+[gd_scene load_steps=4 format=3 uid="uid://iiqinsgr2l1n"]
 
 [ext_resource type="Script" path="res://Scripts/CookingIngredient.cs" id="1_4htc4"]
 [ext_resource type="Texture2D" uid="uid://dvystam1uwxhs" path="res://Assets/Ingredients/basil_leaf.png" id="1_hdg4o"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ys3t"]
+bg_color = Color(0.111328, 0.111328, 0.111328, 1)
 
 [node name="CookingIngredient" type="Control"]
 custom_minimum_size = Vector2(100, 100)
@@ -11,37 +14,38 @@ offset_right = 100.0
 offset_bottom = 100.0
 script = ExtResource("1_4htc4")
 
-[node name="Tooltip" type="PanelContainer" parent="."]
+[node name="BuyTooltip" type="PanelContainer" parent="."]
 layout_mode = 2
-offset_top = -128.0
-offset_right = 415.0
-offset_bottom = -12.0
+offset_left = 6.0
+offset_top = -270.0
+offset_right = 421.0
+offset_bottom = -81.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2ys3t")
 
-[node name="HSeparator" type="HSeparator" parent="Tooltip"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BuyTooltip"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Tooltip/HSeparator"]
+[node name="Name" type="RichTextLabel" parent="BuyTooltip/VBoxContainer"]
 layout_mode = 2
-offset_right = 415.0
-offset_bottom = 116.0
-
-[node name="Name" type="RichTextLabel" parent="Tooltip/HSeparator/VBoxContainer"]
-layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
 text = "Basil leaf"
 fit_content = true
 
-[node name="Description" type="RichTextLabel" parent="Tooltip/HSeparator/VBoxContainer"]
+[node name="Description" type="RichTextLabel" parent="BuyTooltip/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/default_color = Color(0.462891, 0.462891, 0.462891, 1)
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "Yummy yummy basil its so tasty yum yum yum yum yum yum yum yum yumyumyumyu"
 fit_content = true
 
-[node name="Price" type="RichTextLabel" parent="Tooltip/HSeparator"]
+[node name="Control" type="Control" parent="BuyTooltip/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-offset_top = 77.0
-offset_right = 415.0
-offset_bottom = 100.0
+
+[node name="Price" type="RichTextLabel" parent="BuyTooltip/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "[color=gold]5 gold[/color]"
 fit_content = true

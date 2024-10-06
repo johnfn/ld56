@@ -13,9 +13,9 @@ script = ExtResource("1_vkjvu")
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_left = 267.0
-offset_top = 97.0
+offset_top = 222.0
 offset_right = 1499.0
-offset_bottom = 974.0
+offset_bottom = 1099.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
 layout_mode = 2

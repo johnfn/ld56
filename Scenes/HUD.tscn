@@ -67,7 +67,6 @@ offset_bottom = 513.0
 [node name="Newspaper" parent="." instance=ExtResource("12_3vn73")]
 
 [node name="Shop" parent="." instance=ExtResource("12_d7kfh")]
-visible = false
 
 [node name="Clock" parent="." instance=ExtResource("11_cepoc")]
 

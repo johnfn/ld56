@@ -4,8 +4,12 @@ using System.Collections.Generic;
 
 namespace ld56;
 
+public record TooltipInfo(string Name, string Description);
+
 public partial class InventoryList : GridContainer {
   public event Action<IngredientId> OnClickIngredient;
+  public event Action<IngredientId> OnMouseEnterIngredient;
+  public event Action<IngredientId> OnMouseExitIngredient;
 
   private Dictionary<IngredientId, int> ingredientCounts = [];
   private Dictionary<IngredientId, CookingIngredient> idToIngredientListItem = [];
@@ -36,6 +40,13 @@ public partial class InventoryList : GridContainer {
         OnClickIngredient?.Invoke(ingredientId);
       };
 
+      ingredientListItem.OnMouseEnter += (ingredient) => {
+        OnMouseEnterIngredient?.Invoke(ingredientId);
+      };
+      ingredientListItem.OnMouseExit += (ingredient) => {
+        OnMouseExitIngredient?.Invoke(ingredientId);
+      };
+
       idToIngredientListItem[ingredientId] = ingredientListItem;
     }
   }
@@ -56,5 +67,15 @@ public partial class InventoryList : GridContainer {
     } else {
       return false;
     }
+  }
+
+  public void ShowTooltip(IngredientId ingredientId, TooltipInfo tooltipInfo) {
+    idToIngredientListItem[ingredientId].Nodes.BuyTooltip.Visible = true;
+    idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Name.Text = tooltipInfo.Name;
+    idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Description.Text = tooltipInfo.Description;
+  }
+
+  public void HideTooltip(IngredientId ingredientId) {
+    idToIngredientListItem[ingredientId].Nodes.BuyTooltip.Visible = false;
   }
 }

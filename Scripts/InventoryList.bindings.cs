@@ -27,31 +27,6 @@ public partial class InventoryList : GridContainer {
       get => _CookingIngredient2 ??= parent.GetNode<CookingIngredient>("CookingIngredient2");
     }
 
-    private CookingIngredient? _CookingIngredient3;
-    public CookingIngredient CookingIngredient3 {
-      get => _CookingIngredient3 ??= parent.GetNode<CookingIngredient>("CookingIngredient3");
-    }
-
-    private CookingIngredient? _CookingIngredient4;
-    public CookingIngredient CookingIngredient4 {
-      get => _CookingIngredient4 ??= parent.GetNode<CookingIngredient>("CookingIngredient4");
-    }
-
-    private CookingIngredient? _CookingIngredient5;
-    public CookingIngredient CookingIngredient5 {
-      get => _CookingIngredient5 ??= parent.GetNode<CookingIngredient>("CookingIngredient5");
-    }
-
-    private CookingIngredient? _CookingIngredient6;
-    public CookingIngredient CookingIngredient6 {
-      get => _CookingIngredient6 ??= parent.GetNode<CookingIngredient>("CookingIngredient6");
-    }
-
-    private CookingIngredient? _CookingIngredient7;
-    public CookingIngredient CookingIngredient7 {
-      get => _CookingIngredient7 ??= parent.GetNode<CookingIngredient>("CookingIngredient7");
-    }
-
   }
 
   public InventoryListNodes? _Nodes;

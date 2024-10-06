@@ -14,18 +14,3 @@ layout_mode = 2
 
 [node name="CookingIngredient2" parent="." instance=ExtResource("1_ad2yj")]
 layout_mode = 2
-
-[node name="CookingIngredient3" parent="." instance=ExtResource("1_ad2yj")]
-layout_mode = 2
-
-[node name="CookingIngredient4" parent="." instance=ExtResource("1_ad2yj")]
-layout_mode = 2
-
-[node name="CookingIngredient5" parent="." instance=ExtResource("1_ad2yj")]
-layout_mode = 2
-
-[node name="CookingIngredient6" parent="." instance=ExtResource("1_ad2yj")]
-layout_mode = 2
-
-[node name="CookingIngredient7" parent="." instance=ExtResource("1_ad2yj")]
-layout_mode = 2

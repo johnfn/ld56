@@ -17,34 +17,34 @@ public partial class CookingIngredient : Control {
     public CookingIngredientNodes(CookingIngredient parent) {
       this.parent = parent;
     }
-    private PanelContainer? _Tooltip;
-    public PanelContainer Tooltip {
-      get => _Tooltip ??= parent.GetNode<PanelContainer>("Tooltip");
+    private PanelContainer? _BuyTooltip;
+    public PanelContainer BuyTooltip {
+      get => _BuyTooltip ??= parent.GetNode<PanelContainer>("BuyTooltip");
     }
 
-    private HSeparator? _Tooltip_HSeparator;
-    public HSeparator Tooltip_HSeparator {
-      get => _Tooltip_HSeparator ??= parent.GetNode<HSeparator>("Tooltip/HSeparator");
+    private VBoxContainer? _BuyTooltip_VBoxContainer;
+    public VBoxContainer BuyTooltip_VBoxContainer {
+      get => _BuyTooltip_VBoxContainer ??= parent.GetNode<VBoxContainer>("BuyTooltip/VBoxContainer");
     }
 
-    private VBoxContainer? _Tooltip_HSeparator_VBoxContainer;
-    public VBoxContainer Tooltip_HSeparator_VBoxContainer {
-      get => _Tooltip_HSeparator_VBoxContainer ??= parent.GetNode<VBoxContainer>("Tooltip/HSeparator/VBoxContainer");
+    private RichTextLabel? _BuyTooltip_VBoxContainer_Name;
+    public RichTextLabel BuyTooltip_VBoxContainer_Name {
+      get => _BuyTooltip_VBoxContainer_Name ??= parent.GetNode<RichTextLabel>("BuyTooltip/VBoxContainer/Name");
     }
 
-    private RichTextLabel? _Tooltip_HSeparator_VBoxContainer_Name;
-    public RichTextLabel Tooltip_HSeparator_VBoxContainer_Name {
-      get => _Tooltip_HSeparator_VBoxContainer_Name ??= parent.GetNode<RichTextLabel>("Tooltip/HSeparator/VBoxContainer/Name");
+    private RichTextLabel? _BuyTooltip_VBoxContainer_Description;
+    public RichTextLabel BuyTooltip_VBoxContainer_Description {
+      get => _BuyTooltip_VBoxContainer_Description ??= parent.GetNode<RichTextLabel>("BuyTooltip/VBoxContainer/Description");
     }
 
-    private RichTextLabel? _Tooltip_HSeparator_VBoxContainer_Description;
-    public RichTextLabel Tooltip_HSeparator_VBoxContainer_Description {
-      get => _Tooltip_HSeparator_VBoxContainer_Description ??= parent.GetNode<RichTextLabel>("Tooltip/HSeparator/VBoxContainer/Description");
+    private Control? _BuyTooltip_VBoxContainer_Control;
+    public Control BuyTooltip_VBoxContainer_Control {
+      get => _BuyTooltip_VBoxContainer_Control ??= parent.GetNode<Control>("BuyTooltip/VBoxContainer/Control");
     }
 
-    private RichTextLabel? _Tooltip_HSeparator_Price;
-    public RichTextLabel Tooltip_HSeparator_Price {
-      get => _Tooltip_HSeparator_Price ??= parent.GetNode<RichTextLabel>("Tooltip/HSeparator/Price");
+    private RichTextLabel? _BuyTooltip_VBoxContainer_Price;
+    public RichTextLabel BuyTooltip_VBoxContainer_Price {
+      get => _BuyTooltip_VBoxContainer_Price ??= parent.GetNode<RichTextLabel>("BuyTooltip/VBoxContainer/Price");
     }
 
     private PanelContainer? _Container;
