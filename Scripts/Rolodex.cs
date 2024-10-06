@@ -121,18 +121,6 @@ public partial class Rolodex : Sprite2D {
       Page -= 2;
     }
 
-    if (Page == 0) {
-      Nodes.PrevPageButton.Disabled = true;
-    } else {
-      Nodes.PrevPageButton.Disabled = false;
-    }
-
-    if (Page == KnownGuests.Count / MaxEntriesPerPage) {
-      Nodes.NextPageButton.Disabled = true;
-    } else {
-      Nodes.NextPageButton.Disabled = false;
-    }
-
     PopulatePages();
   }
 
@@ -143,6 +131,18 @@ public partial class Rolodex : Sprite2D {
   }
 
   private void PopulatePages() {
+    if (Page == 0) {
+      Nodes.PrevPageButton.Visible = false;
+    } else {
+      Nodes.PrevPageButton.Visible = true;
+    }
+
+    if (Page == KnownGuests.Count / MaxEntriesPerPage) {
+      Nodes.NextPageButton.Visible = false;
+    } else {
+      Nodes.NextPageButton.Visible = true;
+    }
+
     // Clear existing entries.
     Nodes.Page1Viewport_MarginContainer_Page1.GetChildren().ToList().ForEach(n => n.QueueFree());
     Nodes.Page2Viewport_MarginContainer_Page2.GetChildren().ToList().ForEach(n => n.QueueFree());
