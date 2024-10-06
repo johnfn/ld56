@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxid1wlon1lvg"]
-
-[ext_resource type="Script" path="res://ListOfCreatures.cs" id="1_lkl3s"]
-
-[node name="ListOfCreatures" type="HBoxContainer"]
-theme_override_constants/separation = 16
-script = ExtResource("1_lkl3s")

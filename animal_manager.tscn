@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://do7usl2ad7mfr"]
-
-[ext_resource type="Script" path="res://AnimalManager.cs" id="1_h32t2"]
-
-[node name="AnimalManager" type="Node2D"]
-script = ExtResource("1_h32t2")
