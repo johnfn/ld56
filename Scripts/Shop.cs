@@ -28,23 +28,27 @@ public partial class Shop : ColorRect {
     };
 
     shopList.OnClickIngredient += (ingredientId) => {
-      GD.Print($"About to buy {ingredientId}");
-
       var ingredient = AllIngredients.Get(ingredientId);
       if (GameState.Gold >= ingredient.Cost) {
-        GD.Print($"Bought {ingredientId} for {ingredient.Cost} gold");
-
         GameState.Gold -= ingredient.Cost;
         GameState.OwnedIngredients.Add(ingredient);
 
         var newDisplayedIngredients = new List<Ingredient>(displayedIngredients);
         newDisplayedIngredients.Remove(ingredient);
 
-        print(newDisplayedIngredients);
         Initialize(newDisplayedIngredients);
       } else {
         // TODO: Too expensive
       }
     };
+
+    ownedList.OnMouseEnterIngredient += (ingredientId) => {
+      ownedList.ShowTooltip(ingredientId, AllIngredients.Get(ingredientId));
+    };
+
+    ownedList.OnMouseExitIngredient += (ingredientId) => {
+      ownedList.HideTooltip(ingredientId);
+    };
+
   }
 }

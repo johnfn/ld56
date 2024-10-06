@@ -79,7 +79,7 @@ public partial class InventoryList : GridContainer {
     idToIngredientListItem[ingredientId].Nodes.BuyTooltip.Visible = true;
     idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Name.Text = ingredient.DisplayName;
     idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Description.Text = ingredient.Description;
-    idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Price.Text = ingredient.Cost.ToString();
+    idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Price.Text = "[color=gold]" + ingredient.Cost.ToString() + " gold[/color]";
   }
 
   public void HideTooltip(IngredientId ingredientId) {
