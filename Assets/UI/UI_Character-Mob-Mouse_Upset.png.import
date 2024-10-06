@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://bekbvj7bhbt40"
+=======
+uid="uid://blyug62p3vqmn"
+>>>>>>> d558fbd9abdfb1407570201eea4d6656d9bcddf1
 path="res://.godot/imported/UI_Character-Mob-Mouse_Upset.png-dedb29b0441b9cb823dad176956dedd2.ctex"
 metadata={
 "vram_texture": false

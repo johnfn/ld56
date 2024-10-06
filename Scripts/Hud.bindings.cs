@@ -137,6 +137,17 @@ public partial class Hud : CanvasLayer {
       get => _Clock ??= parent.GetNode<Clock>("Clock");
     }
 
+    // Can't find a script for ColorRect, so we use a more basic type here. 
+    private ColorRect? _Newspaper;
+    public ColorRect Newspaper {
+      get => _Newspaper ??= parent.GetNode<ColorRect>("Newspaper");
+    }
+
+    private Clock? _Clock;
+    public Clock Clock {
+      get => _Clock ??= parent.GetNode<Clock>("Clock");
+    }
+
     private PauseMenu? _Menus;
     public PauseMenu Menus {
       get => _Menus ??= parent.GetNode<PauseMenu>("Menus");

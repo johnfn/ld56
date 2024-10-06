@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://vmriftesffqk"
+=======
+uid="uid://b4iu7pftiats5"
+>>>>>>> d558fbd9abdfb1407570201eea4d6656d9bcddf1
 path="res://.godot/imported/UI_Portrait_Detective-Cat.png-5ba49d58e545106772e680cbd3a1a068.ctex"
 metadata={
 "vram_texture": false

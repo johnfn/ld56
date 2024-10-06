@@ -102,26 +102,23 @@ public partial class Root : Node2D {
 
     // Update clock
     CurrentDayTime += (float)delta / 10.0f;
-    Nodes.HUD.Nodes.Clock.Nodes.ClockHand.Rotation = Mathf.DegToRad(118f - (CurrentDayTime / EndOfDayTime) * (118f + 30f));
-
     if (CurrentDayTime >= EndOfDayTime) {
       EndDay();
-    } else if (Mathf.RadToDeg(Nodes.HUD.Nodes.Clock.Nodes.ClockHand.Rotation) < -0f) {
-      // Closing time - tween in closing time overlay node.
-      Nodes.HUD.Nodes.ClosingTimeOverlay.Modulate = new Color(1, 1, 1, 0);
-      Nodes.HUD.Nodes.ClosingTimeOverlay.Visible = true;
-      CreateTween().TweenProperty(
+    }
+  }
+
+  public void EndDay() {
+    Nodes.HUD.Nodes.ClosingTimeOverlay.Modulate = new Color(1, 1, 1, 0);
+    Nodes.HUD.Nodes.ClosingTimeOverlay.Visible = true;
+    CreateTween().TweenProperty(
         Nodes.HUD.Nodes.ClosingTimeOverlay,
         "modulate",
         new Color(1, 1, 1, 1),
         1f
       );
-    }
-  }
 
-  public void EndDay() {
     Nodes.HUD.Nodes.ClosingTimeOverlay.Visible = false;
-
+    Nodes.HUD.Nodes.Clock.Reset();
     ShowNewspaper();
   }
 

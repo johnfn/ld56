@@ -27,14 +27,24 @@ public partial class Clock : TextureRect {
       get => _TimeLabelContainer ??= parent.GetNode<PanelContainer>("TimeLabelContainer");
     }
 
-    private MarginContainer? _TimeLabelContainer_MarginContainer;
-    public MarginContainer TimeLabelContainer_MarginContainer {
-      get => _TimeLabelContainer_MarginContainer ??= parent.GetNode<MarginContainer>("TimeLabelContainer/MarginContainer");
+    private HBoxContainer? _TimeLabelContainer_HBoxContainer;
+    public HBoxContainer TimeLabelContainer_HBoxContainer {
+      get => _TimeLabelContainer_HBoxContainer ??= parent.GetNode<HBoxContainer>("TimeLabelContainer/HBoxContainer");
     }
 
-    private Label? _TimeLabelContainer_MarginContainer_Label;
-    public Label TimeLabelContainer_MarginContainer_Label {
-      get => _TimeLabelContainer_MarginContainer_Label ??= parent.GetNode<Label>("TimeLabelContainer/MarginContainer/Label");
+    private Label? _TimeLabelContainer_HBoxContainer_TimeLabel;
+    public Label TimeLabelContainer_HBoxContainer_TimeLabel {
+      get => _TimeLabelContainer_HBoxContainer_TimeLabel ??= parent.GetNode<Label>("TimeLabelContainer/HBoxContainer/TimeLabel");
+    }
+
+    private Control? _TimeLabelContainer_HBoxContainer_Spacer;
+    public Control TimeLabelContainer_HBoxContainer_Spacer {
+      get => _TimeLabelContainer_HBoxContainer_Spacer ??= parent.GetNode<Control>("TimeLabelContainer/HBoxContainer/Spacer");
+    }
+
+    private Label? _TimeLabelContainer_HBoxContainer_AMPMLabel;
+    public Label TimeLabelContainer_HBoxContainer_AMPMLabel {
+      get => _TimeLabelContainer_HBoxContainer_AMPMLabel ??= parent.GetNode<Label>("TimeLabelContainer/HBoxContainer/AMPMLabel");
     }
 
   }
