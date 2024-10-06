@@ -46,7 +46,6 @@ public partial class Rolodex : Sprite2D {
 
   private RolodexTab Tab = RolodexTab.Creatures;
 
-
   public override void _Ready() {
     PopulatePages();
 

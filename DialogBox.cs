@@ -44,6 +44,10 @@ public partial class DialogBox : PanelContainer {
                 j += 3;
               }
 
+              if (Root.Instance.HYPER) {
+                break;
+              }
+
               await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
             }
           }
@@ -77,8 +81,6 @@ public partial class DialogBox : PanelContainer {
           while (selectedOption == null) {
             await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
           }
-
-          print($"Selected option: {selectedOption}");
 
           var onSelect = dialogOptions.Options[selectedOption.Value].OnSelect;
 
