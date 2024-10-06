@@ -3,11 +3,11 @@ using Godot;
 namespace ld56;
 using static Utils;
 
-public partial class DialogOptionNode : RichTextLabel {
+public partial class DialogOptionNode : PanelContainer {
   public event Action OptionClicked;
 
   public override void _Ready() {
-    Modulate = new Color(0.5f, 0.5f, 0.5f);
+    Modulate = new Color(0.8f, 0.8f, 0.8f);
   }
 
   public override void _Process(double delta) {
@@ -17,7 +17,7 @@ public partial class DialogOptionNode : RichTextLabel {
         OptionClicked?.Invoke();
       }
     } else {
-      Modulate = new Color(0.5f, 0.5f, 0.5f);
+      Modulate = new Color(0.8f, 0.8f, 0.8f);
     }
   }
 }

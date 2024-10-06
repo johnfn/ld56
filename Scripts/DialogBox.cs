@@ -89,7 +89,7 @@ public partial class DialogBox : PanelContainer {
           for (int i = 0; i < dialogOptions.Options.Count; i++) {
             var option = dialogOptions.Options[i];
             var newOption = DialogOptionNode.New();
-            newOption.Text = option.OptionText;
+            newOption.Nodes.RichTextLabel.Text = option.OptionText;
 
             Nodes.HBoxContainer_OptionsVBoxContainer.AddChild(newOption);
 
