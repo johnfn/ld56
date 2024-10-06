@@ -1,11 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://3phm7o0vm6l7"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d2cawldofdxn1"]
 
-[ext_resource type="Script" path="res://Scripts/CreatureScene.cs" id="1_06evm"]
-[ext_resource type="Texture2D" uid="uid://cw6wbj1j30eoy" path="res://Assets/Characters/Temp_Guest-A.png" id="2_dc8r4"]
-[ext_resource type="Theme" uid="uid://b26enpoebvd3m" path="res://Theme.tres" id="3_jahpv"]
-[ext_resource type="PackedScene" uid="uid://lvv1ltx4h1yj" path="res://Scenes/hover_panel_exterior.tscn" id="3_x500w"]
-
-[sub_resource type="Shader" id="Shader_83x55"]
+[sub_resource type="Shader" id="Shader_hm1wx"]
 code = "shader_type canvas_item;
 
 uniform vec4 color : source_color = vec4(1.0);
@@ -69,50 +64,10 @@ void fragment() {
 	}
 }"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3is5w"]
-resource_local_to_scene = true
-shader = SubResource("Shader_83x55")
+[resource]
+shader = SubResource("Shader_hm1wx")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/width = 0.0
 shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
-
-[node name="CreatureScene" type="Node2D"]
-script = ExtResource("1_06evm")
-
-[node name="HoverPanelExterior" parent="." instance=ExtResource("3_x500w")]
-visible = false
-offset_left = -100.0
-offset_top = -245.0
-offset_right = 88.0
-offset_bottom = -169.0
-
-[node name="HoverArea" type="Button" parent="."]
-material = SubResource("ShaderMaterial_3is5w")
-offset_left = -44.0
-offset_top = -86.0
-offset_right = 56.0
-offset_bottom = 40.0
-theme = ExtResource("3_jahpv")
-icon = ExtResource("2_dc8r4")
-flat = true
-expand_icon = true
-
-[node name="NameContainer" type="PanelContainer" parent="."]
-offset_left = -78.0
-offset_top = -169.0
-offset_right = 6.0
-offset_bottom = -84.0
-
-[node name="MarginContainer" type="MarginContainer" parent="NameContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="NameLabel" type="Label" parent="NameContainer/MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "???"

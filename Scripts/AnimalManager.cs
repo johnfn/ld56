@@ -305,6 +305,8 @@ public partial class AnimalManager : Node2D {
 
       var dialogResult = await DialogBox.ShowDialog(spawnedCreature.Dialog);
       Mode = GameMode.Normal;
+
+      print("Done");
     }
   }
 }

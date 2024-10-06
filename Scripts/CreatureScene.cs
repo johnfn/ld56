@@ -29,12 +29,25 @@ public partial class CreatureScene : Node2D {
     }
   }
 
+  public void Initialize(SpawnedCreature data) {
+    Data = data;
+    Nodes.NameContainer_MarginContainer_NameLabel.Text = data.Creature.Name;
+  }
+
   public override void _Ready() {
     Nodes.HoverPanelExterior.SpawnedCreature = Data;
 
     // Show the hover panel on click
     Nodes.HoverArea.Pressed += () => {
       Nodes.HoverPanelExterior.Visible = !Nodes.HoverPanelExterior.Visible;
+    };
+
+    Nodes.HoverArea.MouseEntered += () => {
+      (Nodes.HoverArea.Material as ShaderMaterial).Set("shader_parameter/width", 10.0);
+    };
+
+    Nodes.HoverArea.MouseExited += () => {
+      (Nodes.HoverArea.Material as ShaderMaterial).Set("shader_parameter/width", 0.0);
     };
   }
 

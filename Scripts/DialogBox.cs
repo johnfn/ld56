@@ -1,4 +1,5 @@
 using Godot;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
@@ -6,7 +7,7 @@ namespace ld56;
 using static Utils;
 
 public class DialogReturn {
-  public Task? Next { get; set; }
+  public Func<Task>? Next { get; set; }
 }
 
 public partial class DialogBox : PanelContainer {
@@ -102,7 +103,7 @@ public partial class DialogBox : PanelContainer {
           var onSelect = dialogOptions.Options[selectedOption.Value].OnSelect;
 
           if (onSelect != null) {
-            result = new DialogReturn { Next = onSelect() };
+            result = new DialogReturn { Next = onSelect };
 
             goto done;
           }
@@ -142,6 +143,10 @@ public partial class DialogBox : PanelContainer {
 
     if (isFirstCall) {
       Visible = false;
+
+      if (result.Next != null) {
+        await result.Next();
+      }
     }
 
     return result;

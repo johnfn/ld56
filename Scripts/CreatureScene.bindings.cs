@@ -22,9 +22,19 @@ public partial class CreatureScene : Node2D {
       get => _HoverArea ??= parent.GetNode<Button>("HoverArea");
     }
 
-    private Label? _Name;
-    public Label Name {
-      get => _Name ??= parent.GetNode<Label>("Name");
+    private PanelContainer? _NameContainer;
+    public PanelContainer NameContainer {
+      get => _NameContainer ??= parent.GetNode<PanelContainer>("NameContainer");
+    }
+
+    private MarginContainer? _NameContainer_MarginContainer;
+    public MarginContainer NameContainer_MarginContainer {
+      get => _NameContainer_MarginContainer ??= parent.GetNode<MarginContainer>("NameContainer/MarginContainer");
+    }
+
+    private Label? _NameContainer_MarginContainer_NameLabel;
+    public Label NameContainer_MarginContainer_NameLabel {
+      get => _NameContainer_MarginContainer_NameLabel ??= parent.GetNode<Label>("NameContainer/MarginContainer/NameLabel");
     }
 
     private HoverPanelExterior? _HoverPanelExterior;

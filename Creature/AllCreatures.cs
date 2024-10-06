@@ -6,7 +6,7 @@ public static class AllCreatures {
     Description = "It's the neighborhood's richest chicken. It's always wearing a fancy hat and carrying a cane.",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
-      creature.Data = spawnedCreature;
+      creature.Initialize(spawnedCreature);
       return creature;
     },
   };
@@ -16,7 +16,7 @@ public static class AllCreatures {
     Description = "A big, friendly cow. She's always smiling and waving at people.",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
-      creature.Data = spawnedCreature;
+      creature.Initialize(spawnedCreature);
       return creature;
     },
   };
@@ -26,7 +26,7 @@ public static class AllCreatures {
     Description = "A big pig. It hates chickens.",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
-      creature.Data = spawnedCreature;
+      creature.Initialize(spawnedCreature);
       return creature;
     },
   };
