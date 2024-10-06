@@ -93,11 +93,17 @@ public partial class DialogBox : PanelContainer {
 
             Nodes.HBoxContainer_OptionsVBoxContainer.AddChild(newOption);
 
-            var index = i;
 
-            newOption.OptionClicked += () => {
-              selectedOption = index;
-            };
+            if (option.IsAvailable != null && !option.IsAvailable()) {
+              newOption.SelfModulate = new Color(0.7f, 0.7f, 0.7f);
+              newOption.IsDisabled = true;
+            } else {
+              var index = i;
+
+              newOption.OptionClicked += () => {
+                selectedOption = index;
+              };
+            }
           }
 
           while (selectedOption == null) {

@@ -5,12 +5,17 @@ using static Utils;
 
 public partial class DialogOptionNode : PanelContainer {
   public event Action OptionClicked;
+  public bool IsDisabled { get; set; } = false;
 
   public override void _Ready() {
     Modulate = new Color(0.8f, 0.8f, 0.8f);
   }
 
   public override void _Process(double delta) {
+    if (IsDisabled) {
+      return;
+    }
+
     if (GetRect().HasPoint(GetLocalMousePosition())) {
       Modulate = new Color(1, 1, 1);
       if (Input.IsActionJustPressed("click")) {

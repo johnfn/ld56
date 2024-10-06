@@ -38,6 +38,22 @@ public static class AllDialog {
         },
 
         new DialogOption {
+          OptionText = "[color=yellow]Pay her 200g to get out of your hair.[/color]",
+          IsAvailable = () => {
+            return GameState.Gold > 200;
+          },
+          OnSelect = async (Creature creature) => {
+            GameState.Gold -= 200;
+
+            await DialogBox.ShowDialog([
+              new DialogItem { Text = "Thanks for the gold, ya loser.", Speaker = "Mr. Chicken" },
+              new DialogItem { Text = "...", Speaker = "You" },
+              new DialogItem { Text = "Hehehehehe...............", Speaker = "Mr. Chicken" },
+            ], creature);
+          },
+        },
+
+        new DialogOption {
           OptionText = "[color=red]I'm sorry, I can't do that[/color]",
           OnSelect = async (Creature creature) => {
             await DialogBox.ShowDialog([
