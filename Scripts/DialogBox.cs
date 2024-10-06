@@ -56,7 +56,7 @@ public partial class DialogBox : PanelContainer {
           Nodes.HBoxContainer_OptionsVBoxContainer.Visible = false;
           Nodes.HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.Text = dialogItem.Text;
 
-          for (int i = 0; i < dialogItem.Text.Length; i++) {
+          for (int i = 0; i < dialogItem.Text.Length; i += 3) {
             Nodes.HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.VisibleCharacters = i;
 
             for (int j = 0; j < 20; j++) {
