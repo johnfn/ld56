@@ -17,7 +17,6 @@ public static class AllDialog {
             await DialogBox.ShowDialog([
               new DialogItem { Text = $"I made you some {result.DisplayName}", Speaker = "You" },
               new DialogItem { Text = "Bad news, my friend.", Speaker = "Mr. Chicken" },
-              new DialogItem { Text = "You see, I HATE YOUR STUPID MEAL.", Speaker = "Mr. Chicken" },
               new DialogItem {
                 Text = "You see, I HATE YOUR STUPID MEAL.",
                 Speaker = "Mr. Chicken",
