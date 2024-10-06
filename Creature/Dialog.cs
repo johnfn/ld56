@@ -9,8 +9,8 @@ public interface IDialogItem { }
 
 public struct DialogItem : IDialogItem {
   public required string Text { get; set; }
-  public required string Speaker { get; set; }
-  public Action GetReward { get; set; }
+  public required Creature Speaker { get; set; }
+  public Action OnComplete { get; set; }
 }
 
 public struct DialogOption {
@@ -21,7 +21,7 @@ public struct DialogOption {
 
 public struct DialogOptions : IDialogItem {
   public required string Text { get; set; }
-  public required string Speaker { get; set; }
+  public required Creature Speaker { get; set; }
   public required List<DialogOption> Options { get; set; }
 }
 

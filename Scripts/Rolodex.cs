@@ -42,7 +42,7 @@ public partial class Rolodex : Sprite2D {
     if (creature.Icon != null) {
       creatureEntry.Nodes.HBoxContainer_TextureRect.Texture = creature.Icon;
     }
-    creatureEntry.Nodes.HBoxContainer_TextContainer_Name.Text = creature.Name;
+    creatureEntry.Nodes.HBoxContainer_TextContainer_Name.Text = creature.DisplayName;
     // TODO: Populate any known characteristics.
 
     return creatureEntry;

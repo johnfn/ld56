@@ -4,7 +4,7 @@ namespace ld56;
 
 public static class AllCreatures {
   public static readonly Creature MrChicken = new() {
-    Name = "chipmunk",
+    DisplayName = "chipmunk",
     Description = "It's the neighborhood's richest chicke- uh, I mean chipmunk. It's always wearing a fancy hat and carrying a cane.",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
@@ -16,8 +16,23 @@ public static class AllCreatures {
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Chipmunk.png"),
   };
 
+  public static readonly Creature You = new() {
+    DisplayName = "You",
+    Description = "It's you! You shouldn't be reading this...",
+    Instantiate = (spawnedCreature) => {
+      GD.Print("You should not be reading this...");
+      var creature = CreatureScene.New();
+      creature.Initialize(spawnedCreature);
+      return creature;
+    },
+    // TODO...
+    Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Chipmunk_Neutral.png"),
+    FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Chipmunk.png"),
+    DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Chipmunk.png"),
+  };
+
   public static readonly Creature MrsCow = new() {
-    Name = "cat",
+    DisplayName = "cat",
     Description = "A big, friendly cat. She's always smiling and waving at people.",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
@@ -30,7 +45,7 @@ public static class AllCreatures {
   };
 
   public static readonly Creature MrPig = new() {
-    Name = "frog",
+    DisplayName = "frog",
     Description = "A big frog. It hates pigs.",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
@@ -43,7 +58,7 @@ public static class AllCreatures {
   };
 
   public static readonly Creature MrHamster = new() {
-    Name = "hamster",
+    DisplayName = "hamster",
     Description = "weee oooo yeee yaahhfh ehhehe!",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
@@ -56,7 +71,7 @@ public static class AllCreatures {
   };
 
   public static readonly Creature MrMouse = new() {
-    Name = "mouse",
+    DisplayName = "mouse",
     Description = "Flavor text here :)",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
@@ -69,8 +84,21 @@ public static class AllCreatures {
   };
 
   public static readonly Creature MrSquirrel = new() {
-    Name = "squirrel",
+    DisplayName = "squirrel",
     Description = "tee hee:3",
+    Instantiate = (spawnedCreature) => {
+      var creature = CreatureScene.New();
+      creature.Initialize(spawnedCreature);
+      return creature;
+    },
+    Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Squirrel_Neutral.png"),
+    FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Squirrel.png"),
+    DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Squirrel.png"),
+  };
+
+  public static readonly Creature MrBlegg = new() {
+    DisplayName = "blegg",
+    Description = "blegg is the bleggest bleg that ever blegged a blegg.",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
       creature.Initialize(spawnedCreature);

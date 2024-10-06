@@ -1,14 +1,15 @@
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 
 namespace ld56;
 
 public static class AllDialog {
   public static List<IDialogItem> MrChicken = [
-    new DialogItem { Text = "Hello, I am [color=green]Mr. Chicken[/color].", Speaker = "Mr. Chicken" },
-    new DialogItem { Text = "I'm aware.", Speaker = "You" },
+    new DialogItem { Text = "Hello, I am [color=green]Mr. Chicken[/color].", Speaker = AllCreatures.MrChicken },
+    new DialogItem { Text = "I'm aware.", Speaker = AllCreatures.You },
     new DialogOptions {
       Text = "Please, [color=gray]I beg you[/color]. I want a drink that reminds me of the sea.",
-      Speaker = "Mr. Chicken",
+      Speaker = AllCreatures.MrChicken,
       Options = [
         new DialogOption {
           OptionText = "[color=green]Start cooking[/color]",
@@ -16,12 +17,12 @@ public static class AllDialog {
             var result = await CookingScreen.Cook();
 
             await DialogBox.ShowDialog([
-              new DialogItem { Text = $"I made you some {result.DisplayName}", Speaker = "You" },
-              new DialogItem { Text = "Bad news, my friend.", Speaker = "Mr. Chicken" },
+              new DialogItem { Text = $"I made you some {result.DisplayName}", Speaker = AllCreatures.You },
+              new DialogItem { Text = "Bad news, my friend.", Speaker = AllCreatures.MrChicken },
               new DialogItem {
                 Text = "You see, I HATE YOUR STUPID MEAL.",
-                Speaker = "Mr. Chicken",
-                GetReward = () => {
+                Speaker = AllCreatures.MrChicken,
+                OnComplete = () => {
                   GameState.Gold -= 10;
 
                   GameState.CustomerResults.Add(new(
@@ -47,9 +48,9 @@ public static class AllDialog {
             GameState.Gold -= 200;
 
             await DialogBox.ShowDialog([
-              new DialogItem { Text = "Thanks for the gold, ya loser.", Speaker = "Mr. Chicken" },
-              new DialogItem { Text = "...", Speaker = "You" },
-              new DialogItem { Text = "Hehehehehe...............", Speaker = "Mr. Chicken" },
+              new DialogItem { Text = "Thanks for the gold, ya loser.", Speaker = AllCreatures.MrChicken },
+              new DialogItem { Text = "...", Speaker = AllCreatures.You },
+              new DialogItem { Text = "Hehehehehe...............", Speaker = AllCreatures.MrChicken },
             ], creature);
           },
         },
@@ -60,8 +61,8 @@ public static class AllDialog {
             await DialogBox.ShowDialog([
               new DialogItem {
                 Text = "I'm going to tell your mom on you",
-                Speaker = "Mr. Chicken",
-                GetReward = () => {
+                Speaker = AllCreatures.MrChicken,
+                OnComplete = () => {
                   GameState.Gold += 10;
                 }
               },
@@ -82,11 +83,11 @@ public static class AllDialog {
   ];
 
   public static List<IDialogItem> MrsCow = [
-      new DialogItem { Text = "Hello, I am Mrs. Cow", Speaker = "Mrs. Cow" },
-      new DialogItem { Text = "I'm exceedingly aware.", Speaker = "You" },
+      new DialogItem { Text = "Hello, I am Mrs. Cow", Speaker = AllCreatures.MrsCow },
+      new DialogItem { Text = "I'm exceedingly aware.", Speaker = AllCreatures.You },
       new DialogOptions {
         Text = "Please, I beg you. I WANT MILK.",
-        Speaker = "Mrs. Cow",
+        Speaker = AllCreatures.MrsCow,
         Options = [
           new DialogOption {
             OptionText = "WTF. That seems... problematic.",
@@ -99,5 +100,38 @@ public static class AllDialog {
         ]
       },
   ];
+
+  public static List<IDialogItem> MrBleggFirst = [
+    new DialogItem { Text = "Hello, I am [color=green]Mr. Blegg[/color].", Speaker = AllCreatures.MrBlegg },
+    new DialogItem {
+      Text = "Oh no. No. NO. NOT THE BLEGG.",
+      Speaker = AllCreatures.You,
+      OnComplete = () => {
+        NextDialog.For[AllCreatures.MrBlegg] = MrBleggSecond;
+      }
+    },
+  ];
+
+  public static List<IDialogItem> MrBleggSecond = [
+    new DialogItem { Text = "Hello, I am [color=green]Mr. Blegg[/color].", Speaker = AllCreatures.MrBlegg },
+    new DialogItem { Text = "Not again. Please, no.", Speaker = AllCreatures.You },
+  ];
+
+  public static List<IDialogItem> NoDialogYet = [
+    new DialogItem { Text = "I don't have dialog yet.", Speaker = AllCreatures.MrBlegg },
+  ];
 }
 
+
+public static class NextDialog {
+  public static Dictionary<Creature, List<IDialogItem>> For = new() {
+    [AllCreatures.MrChicken] = AllDialog.MrChicken,
+    [AllCreatures.MrsCow] = AllDialog.MrsCow,
+    [AllCreatures.MrBlegg] = AllDialog.MrBleggFirst,
+
+    [AllCreatures.MrPig] = AllDialog.NoDialogYet,
+    [AllCreatures.MrHamster] = AllDialog.NoDialogYet,
+    [AllCreatures.MrMouse] = AllDialog.NoDialogYet,
+    [AllCreatures.MrSquirrel] = AllDialog.NoDialogYet,
+  };
+}

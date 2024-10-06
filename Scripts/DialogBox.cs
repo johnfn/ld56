@@ -54,13 +54,15 @@ public partial class DialogBox : PanelContainer {
         await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
       }
     }
+
+    Nodes.HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.VisibleCharacters = text.Length;
   }
 
   private async Task<DialogReturn> ShowDialogHelper(List<IDialogItem> dialog, Creature creature, bool isFirstCall = true) {
     DialogReturn result = new();
 
     Visible = true;
-    Nodes.HBoxContainer_CharacterDialogSprite_CharacterName.Text = creature.Name;
+    Nodes.HBoxContainer_CharacterDialogSprite_CharacterName.Text = creature.DisplayName;
     Nodes.HBoxContainer_CharacterDialogSprite.Texture = creature.DialogPortraitTexture;
     Nodes.HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.Text = "";
     Nodes.HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText_ClickToContinue.Visible = false;
@@ -78,7 +80,7 @@ public partial class DialogBox : PanelContainer {
 
           await ShowDialogText(dialogItem.Text);
 
-          dialogItem.GetReward?.Invoke();
+          dialogItem.OnComplete?.Invoke();
 
           break;
 

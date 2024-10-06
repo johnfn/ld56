@@ -56,7 +56,7 @@ public partial class UpcomingCreatureUi : TextureRect {
     var description = Nodes.Popover_MarginContainer_VBoxContainer_Description;
     var location = Nodes.Popover_MarginContainer_VBoxContainer_Location;
 
-    title.Text = creature.Creature.Name;
+    title.Text = creature.Creature.DisplayName;
     description.Text = creature.Creature.Description;
     status.Text = creature.State switch {
       CreatureState.NotSpawnedYet => "Coming to Dinernb",

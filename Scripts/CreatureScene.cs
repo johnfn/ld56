@@ -25,7 +25,7 @@ public partial class CreatureScene : Node2D {
     if (data.Creature.FullBodyTexture != null) {
       Nodes.VBoxContainer_TextureRect.Icon = data.Creature.FullBodyTexture;
     }
-    Nodes.VBoxContainer_NameLabel.Text = data.Creature.Name;
+    Nodes.VBoxContainer_NameLabel.Text = data.Creature.DisplayName;
     // Move the name's X coordinate over so it's centered
     Nodes.VBoxContainer_NameLabel.Position = new Vector2(-Nodes.VBoxContainer_NameLabel.Size.X / 2, Nodes.VBoxContainer_NameLabel.Position.Y);
   }
