@@ -59,12 +59,17 @@ public partial class Root : Node2D {
       await CookingScreen.Cook();
     };
 
+    Nodes.HUD.Nodes.Debug_DebugShowShop.Pressed += () => {
+      Nodes.HUD.Nodes.Shop.Visible = true;
+    };
+
     Nodes.HUD.Nodes.Newspaper_CloseButton.Pressed += () => {
       ResetClock();
       HideNewspaper();
     };
 
     Nodes.HUD.Nodes.Newspaper.Visible = false;
+    Nodes.HUD.Nodes.Shop.Visible = false;
   }
 
   public void ResetClock() {

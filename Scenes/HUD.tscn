@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://6tml4ytuolux"]
+[gd_scene load_steps=25 format=3 uid="uid://6tml4ytuolux"]
 
 [ext_resource type="PackedScene" uid="uid://drdgs1oscnynx" path="res://Scenes/list_of_creatures.tscn" id="1_1te6p"]
 [ext_resource type="Script" path="res://Scripts/Hud.cs" id="1_eqs7q"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/CoolButton.cs" id="5_w24eq"]
 [ext_resource type="PackedScene" uid="uid://bro01n3lxe6db" path="res://Scenes/newspaper_entry.tscn" id="11_4tq2l"]
 [ext_resource type="PackedScene" uid="uid://cpkhxlnapa4wa" path="res://clock.tscn" id="11_cepoc"]
+[ext_resource type="PackedScene" uid="uid://gdfr1cdecogv" path="res://Scenes/shop.tscn" id="12_d7kfh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nm077"]
 
@@ -151,6 +152,8 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_8viex")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_anw0a")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_bre28")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_lqqcc")
+
+[node name="Shop" parent="." instance=ExtResource("12_d7kfh")]
 
 [node name="Clock" parent="." instance=ExtResource("11_cepoc")]
 

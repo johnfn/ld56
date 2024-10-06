@@ -77,7 +77,7 @@ public partial class CookingScreen : Sprite2D {
 
         Nodes.CookingList.AddChild(ingredientListItem);
 
-        ingredientListItem.Nodes.HBoxContainer_MarginContainer_VBoxContainer_NameLabel.Text = ingredient.DisplayName;
+        ingredientListItem.Nodes.HBoxContainer_MarginContainer_HBoxContainer_NameLabel.Text = ingredient.DisplayName;
       } else {
         // TODO: Show error somehow
       }

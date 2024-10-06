@@ -127,6 +127,11 @@ public partial class Hud : CanvasLayer {
       get => _Newspaper_NewspaperContentContainer_NewspaperEntry ??= parent.GetNode<NewspaperEntry>("Newspaper/NewspaperContentContainer/NewspaperEntry");
     }
 
+    private Shop? _Shop;
+    public Shop Shop {
+      get => _Shop ??= parent.GetNode<Shop>("Shop");
+    }
+
     private Clock? _Clock;
     public Clock Clock {
       get => _Clock ??= parent.GetNode<Clock>("Clock");

@@ -17,9 +17,9 @@ public partial class CookingIngredient : PanelContainer {
     public CookingIngredientNodes(CookingIngredient parent) {
       this.parent = parent;
     }
-    private HBoxContainer? _HBoxContainer;
-    public HBoxContainer HBoxContainer {
-      get => _HBoxContainer ??= parent.GetNode<HBoxContainer>("HBoxContainer");
+    private VBoxContainer? _HBoxContainer;
+    public VBoxContainer HBoxContainer {
+      get => _HBoxContainer ??= parent.GetNode<VBoxContainer>("HBoxContainer");
     }
 
     private TextureRect? _HBoxContainer_IngredientImage;
@@ -32,19 +32,19 @@ public partial class CookingIngredient : PanelContainer {
       get => _HBoxContainer_MarginContainer ??= parent.GetNode<MarginContainer>("HBoxContainer/MarginContainer");
     }
 
-    private VBoxContainer? _HBoxContainer_MarginContainer_VBoxContainer;
-    public VBoxContainer HBoxContainer_MarginContainer_VBoxContainer {
-      get => _HBoxContainer_MarginContainer_VBoxContainer ??= parent.GetNode<VBoxContainer>("HBoxContainer/MarginContainer/VBoxContainer");
+    private HBoxContainer? _HBoxContainer_MarginContainer_HBoxContainer;
+    public HBoxContainer HBoxContainer_MarginContainer_HBoxContainer {
+      get => _HBoxContainer_MarginContainer_HBoxContainer ??= parent.GetNode<HBoxContainer>("HBoxContainer/MarginContainer/HBoxContainer");
     }
 
-    private RichTextLabel? _HBoxContainer_MarginContainer_VBoxContainer_NameLabel;
-    public RichTextLabel HBoxContainer_MarginContainer_VBoxContainer_NameLabel {
-      get => _HBoxContainer_MarginContainer_VBoxContainer_NameLabel ??= parent.GetNode<RichTextLabel>("HBoxContainer/MarginContainer/VBoxContainer/NameLabel");
+    private RichTextLabel? _HBoxContainer_MarginContainer_HBoxContainer_NameLabel;
+    public RichTextLabel HBoxContainer_MarginContainer_HBoxContainer_NameLabel {
+      get => _HBoxContainer_MarginContainer_HBoxContainer_NameLabel ??= parent.GetNode<RichTextLabel>("HBoxContainer/MarginContainer/HBoxContainer/NameLabel");
     }
 
-    private RichTextLabel? _HBoxContainer_MarginContainer_VBoxContainer_QuantityLabel;
-    public RichTextLabel HBoxContainer_MarginContainer_VBoxContainer_QuantityLabel {
-      get => _HBoxContainer_MarginContainer_VBoxContainer_QuantityLabel ??= parent.GetNode<RichTextLabel>("HBoxContainer/MarginContainer/VBoxContainer/QuantityLabel");
+    private RichTextLabel? _HBoxContainer_MarginContainer_HBoxContainer_QuantityLabel;
+    public RichTextLabel HBoxContainer_MarginContainer_HBoxContainer_QuantityLabel {
+      get => _HBoxContainer_MarginContainer_HBoxContainer_QuantityLabel ??= parent.GetNode<RichTextLabel>("HBoxContainer/MarginContainer/HBoxContainer/QuantityLabel");
     }
 
   }

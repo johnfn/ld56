@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace ld56;
 
-public partial class InventoryList : VBoxContainer {
+public partial class InventoryList : GridContainer {
   public event Action<IngredientId> OnClickIngredient;
   private Dictionary<IngredientId, int> ingredientCounts = [];
   private Dictionary<IngredientId, CookingIngredient> idToIngredientListItem = [];
@@ -30,8 +30,8 @@ public partial class InventoryList : VBoxContainer {
 
       AddChild(ingredientListItem);
 
-      ingredientListItem.Nodes.HBoxContainer_MarginContainer_VBoxContainer_NameLabel.Text = ingredient.DisplayName;
-      ingredientListItem.Nodes.HBoxContainer_MarginContainer_VBoxContainer_QuantityLabel.Text = "x" + count.ToString();
+      ingredientListItem.Nodes.HBoxContainer_MarginContainer_HBoxContainer_NameLabel.Text = ingredient.DisplayName;
+      ingredientListItem.Nodes.HBoxContainer_MarginContainer_HBoxContainer_QuantityLabel.Text = "x" + count.ToString();
 
       ingredientListItem.OnClick += (ingredient) => {
         OnClickIngredient?.Invoke(ingredientId);
@@ -52,7 +52,7 @@ public partial class InventoryList : VBoxContainer {
       quantity--;
       ingredientCounts[ingredientId] = quantity;
 
-      idToIngredientListItem[ingredientId].Nodes.HBoxContainer_MarginContainer_VBoxContainer_QuantityLabel.Text = "x" + quantity.ToString();
+      idToIngredientListItem[ingredientId].Nodes.HBoxContainer_MarginContainer_HBoxContainer_QuantityLabel.Text = "x" + quantity.ToString();
 
       return true;
     } else {
