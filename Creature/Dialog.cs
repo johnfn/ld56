@@ -36,7 +36,7 @@ public static class AllDialog {
     new DialogOptions {
       Options = [
         new DialogOption {
-          OptionText = "Start cooking",
+          OptionText = "[color=green]Start cooking[/color]",
           OnSelect = () => {
             return [
               new DialogBeginCooking(),
@@ -44,7 +44,7 @@ public static class AllDialog {
           }
         },
         new DialogOption {
-          OptionText = "I'm sorry, I can't do that",
+          OptionText = "[color=red]I'm sorry, I can't do that[/color]",
           OnSelect = () => {
             return [
               new DialogItem { Text = "I'm going to tell your mom on you", Speaker = "Mr. Chicken" },

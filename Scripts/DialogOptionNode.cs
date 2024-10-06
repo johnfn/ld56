@@ -1,8 +1,9 @@
 using System;
 using Godot;
 namespace ld56;
+using static Utils;
 
-public partial class DialogOptionNode : Label {
+public partial class DialogOptionNode : RichTextLabel {
   public event Action OptionClicked;
 
   public override void _Ready() {

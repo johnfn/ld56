@@ -1,7 +1,7 @@
 using Godot;
 namespace ld56;
 
-public partial class DialogOptionNode : Label {
+public partial class DialogOptionNode : RichTextLabel {
   public static DialogOptionNode New() {
     return GD.Load<PackedScene>("res://Scenes/dialog_option_node.tscn").Instantiate<DialogOptionNode>();
   }

@@ -62,21 +62,6 @@ public partial class DialogBox : PanelContainer {
       get => _HBoxContainer_OptionsVBoxContainer_ClickToContinue ??= parent.GetNode<Label>("HBoxContainer/OptionsVBoxContainer/ClickToContinue");
     }
 
-    private DialogOptionNode? _HBoxContainer_OptionsVBoxContainer_DialogOption;
-    public DialogOptionNode HBoxContainer_OptionsVBoxContainer_DialogOption {
-      get => _HBoxContainer_OptionsVBoxContainer_DialogOption ??= parent.GetNode<DialogOptionNode>("HBoxContainer/OptionsVBoxContainer/DialogOption");
-    }
-
-    private DialogOptionNode? _HBoxContainer_OptionsVBoxContainer_DialogOption2;
-    public DialogOptionNode HBoxContainer_OptionsVBoxContainer_DialogOption2 {
-      get => _HBoxContainer_OptionsVBoxContainer_DialogOption2 ??= parent.GetNode<DialogOptionNode>("HBoxContainer/OptionsVBoxContainer/DialogOption2");
-    }
-
-    private DialogOptionNode? _HBoxContainer_OptionsVBoxContainer_DialogOption3;
-    public DialogOptionNode HBoxContainer_OptionsVBoxContainer_DialogOption3 {
-      get => _HBoxContainer_OptionsVBoxContainer_DialogOption3 ??= parent.GetNode<DialogOptionNode>("HBoxContainer/OptionsVBoxContainer/DialogOption3");
-    }
-
   }
 
   public DialogBoxNodes? _Nodes;

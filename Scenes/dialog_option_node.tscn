@@ -2,7 +2,13 @@
 
 [ext_resource type="Script" path="res://Scripts/DialogOptionNode.cs" id="1_hcdxd"]
 
-[node name="DialogOptionNode" type="Label"]
-theme_override_font_sizes/font_size = 36
+[node name="DialogOptionNode" type="RichTextLabel"]
+custom_minimum_size = Vector2(400, 0)
+offset_left = 2.0
+offset_right = 344.0
+offset_bottom = 50.0
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
 text = "blah blah blah blah "
+fit_content = true
 script = ExtResource("1_hcdxd")
