@@ -97,6 +97,11 @@ public partial class Hud : CanvasLayer {
       get => _DialogBox ??= parent.GetNode<DialogBox>("DialogBox");
     }
 
+    private Newspaper? _Newspaper;
+    public Newspaper Newspaper {
+      get => _Newspaper ??= parent.GetNode<Newspaper>("Newspaper");
+    }
+
     private Shop? _Shop;
     public Shop Shop {
       get => _Shop ??= parent.GetNode<Shop>("Shop");
@@ -105,11 +110,6 @@ public partial class Hud : CanvasLayer {
     private Clock? _Clock;
     public Clock Clock {
       get => _Clock ??= parent.GetNode<Clock>("Clock");
-    }
-
-    private Newspaper? _Newspaper;
-    public Newspaper Newspaper {
-      get => _Newspaper ??= parent.GetNode<Newspaper>("Newspaper");
     }
 
     private PauseMenu? _Menus;
