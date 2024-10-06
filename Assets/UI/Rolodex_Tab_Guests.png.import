@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpdekjtakp055"
-path="res://.godot/imported/Rolodex_Tab_Arrow_Left.png-8995df9aada23b8a5ee15479ab1ce47d.ctex"
+uid="uid://cq1iwr1ltshyy"
+path="res://.godot/imported/Rolodex_Tab_Guests.png-69baa581d880101170fea9bb9f7ceb0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Rolodex_Tab_Arrow_Left.png"
-dest_files=["res://.godot/imported/Rolodex_Tab_Arrow_Left.png-8995df9aada23b8a5ee15479ab1ce47d.ctex"]
+source_file="res://Assets/UI/Rolodex_Tab_Guests.png"
+dest_files=["res://.godot/imported/Rolodex_Tab_Guests.png-69baa581d880101170fea9bb9f7ceb0f.ctex"]
 
 [params]
 

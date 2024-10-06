@@ -47,16 +47,6 @@ public partial class Rolodex : Sprite2D {
       get => _Page2Viewport_MarginContainer_Page2 ??= parent.GetNode<VBoxContainer>("Page2Viewport/MarginContainer/Page2");
     }
 
-    private TextureRect? _TextureRect;
-    public TextureRect TextureRect {
-      get => _TextureRect ??= parent.GetNode<TextureRect>("TextureRect");
-    }
-
-    private TextureRect? _TextureRect2;
-    public TextureRect TextureRect2 {
-      get => _TextureRect2 ??= parent.GetNode<TextureRect>("TextureRect2");
-    }
-
     private Button? _NextPageButton;
     public Button NextPageButton {
       get => _NextPageButton ??= parent.GetNode<Button>("NextPageButton");
@@ -80,6 +70,21 @@ public partial class Rolodex : Sprite2D {
     private Button? _IngredientsTab;
     public Button IngredientsTab {
       get => _IngredientsTab ??= parent.GetNode<Button>("IngredientsTab");
+    }
+
+    private TextureRect? _TopPages;
+    public TextureRect TopPages {
+      get => _TopPages ??= parent.GetNode<TextureRect>("TopPages");
+    }
+
+    private TextureRect? _LeftPageContents;
+    public TextureRect LeftPageContents {
+      get => _LeftPageContents ??= parent.GetNode<TextureRect>("LeftPageContents");
+    }
+
+    private TextureRect? _RightPageContents;
+    public TextureRect RightPageContents {
+      get => _RightPageContents ??= parent.GetNode<TextureRect>("RightPageContents");
     }
 
     private AudioStreamPlayer2D? _AudioStreamPlayer2D;

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gehfg0h1sxvy"
-path="res://.godot/imported/Rolodex_Top-Pages.png-e8ade1b4a5469a6ec3b12d24c34bd4a8.ctex"
+path="res://.godot/imported/Rolodex_Top-Pages.png-1e25e4316db40bb3796978f0c274e82b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Rolodex_Top-Pages.png"
-dest_files=["res://.godot/imported/Rolodex_Top-Pages.png-e8ade1b4a5469a6ec3b12d24c34bd4a8.ctex"]
+source_file="res://Assets/UI/Rolodex_Top-Pages.png"
+dest_files=["res://.godot/imported/Rolodex_Top-Pages.png-1e25e4316db40bb3796978f0c274e82b.ctex"]
 
 [params]
 
