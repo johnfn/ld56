@@ -8,7 +8,7 @@ public partial class Newspaper : ColorRect {
   public override void _Ready() {
     Visible = false;
     Nodes.Newspaper_CloseButton.Pressed += () => {
-      Root.Instance.ResetClock();
+      Root.Instance.StartNewDay();
       Visible = false;
     };
 

@@ -6,6 +6,7 @@ public enum GameMode {
   ChooseTable,
   Dialog,
   Cooking,
+  EndOfDay,
 }
 
 public enum CustomerSatisfaction {

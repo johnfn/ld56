@@ -81,9 +81,10 @@ public partial class Root : Node2D {
     };
   }
 
-  public void ResetClock() {
+  public void StartNewDay() {
     CurrentDayTime = 0f;
     GameState.DayIndex++;
+    GameState.Mode = GameMode.Normal;
   }
 
   public void DisplayShopHelper() {
@@ -119,13 +120,18 @@ public partial class Root : Node2D {
     }
 
     // Update clock
-    CurrentDayTime += (float)delta / 10.0f;
+    if (GameState.Mode == GameMode.Normal || GameState.Mode == GameMode.ChooseTable) {
+      CurrentDayTime += (float)delta / 10.0f;
+    }
+
     if (CurrentDayTime >= EndOfDayTime) {
       EndDay();
     }
   }
 
   public void EndDay() {
+    GameState.Mode = GameMode.EndOfDay;
+
     Nodes.HUD.Nodes.ClosingTimeOverlay.Modulate = new Color(1, 1, 1, 0);
     Nodes.HUD.Nodes.ClosingTimeOverlay.Visible = true;
     CreateTween().TweenProperty(
