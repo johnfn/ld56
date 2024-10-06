@@ -5,23 +5,14 @@ namespace ld56;
 
 public partial class CreatureScene : Node2D {
 
-  // Create a setter that will set the texture to the creature's icon
   private SpawnedCreature _data;
-  public SpawnedCreature Data {
-    get => _data;
-    set {
-      _data = value;
-      if (value.Creature.Icon != null) {
-        Nodes.HoverArea.Icon = value.Creature.Icon;
-      }
-    }
-  }
+  public SpawnedCreature Data;
 
   public override void _Input(InputEvent @event) {
     if (@event is InputEventMouseButton mouseEvent && mouseEvent.ButtonIndex == MouseButton.Left && mouseEvent.Pressed) {
       if (
         Nodes.HoverPanelExterior.Visible &&
-        !Nodes.HoverArea.GetGlobalRect().HasPoint(GetGlobalMousePosition())
+        !Nodes.TextureRect.GetGlobalRect().HasPoint(GetGlobalMousePosition())
         && !Nodes.HoverPanelExterior.GetGlobalRect().HasPoint(GetGlobalMousePosition())
       ) {
         Nodes.HoverPanelExterior.Visible = false;
@@ -31,23 +22,28 @@ public partial class CreatureScene : Node2D {
 
   public void Initialize(SpawnedCreature data) {
     Data = data;
-    Nodes.NameContainer_MarginContainer_NameLabel.Text = data.Creature.Name;
+    if (data.Creature.Icon != null) {
+      Nodes.TextureRect.Texture = data.Creature.Icon;
+    }
+    Nodes.NameLabel.Text = data.Creature.Name;
+    // Move the name's X coordinate over so it's centered
+    Nodes.NameLabel.Position = new Vector2(-Nodes.NameLabel.Size.X / 2, Nodes.NameLabel.Position.Y);
   }
 
   public override void _Ready() {
     Nodes.HoverPanelExterior.SpawnedCreature = Data;
 
     // Show the hover panel on click
-    Nodes.HoverArea.Pressed += () => {
+    Nodes.TextureRect_HoverArea.Pressed += () => {
       Nodes.HoverPanelExterior.Visible = !Nodes.HoverPanelExterior.Visible;
     };
 
-    Nodes.HoverArea.MouseEntered += () => {
-      (Nodes.HoverArea.Material as ShaderMaterial).Set("shader_parameter/width", 10.0);
+    Nodes.TextureRect.MouseEntered += () => {
+      (Nodes.TextureRect.Material as ShaderMaterial).Set("shader_parameter/width", 10.0);
     };
 
-    Nodes.HoverArea.MouseExited += () => {
-      (Nodes.HoverArea.Material as ShaderMaterial).Set("shader_parameter/width", 0.0);
+    Nodes.TextureRect.MouseExited += () => {
+      (Nodes.TextureRect.Material as ShaderMaterial).Set("shader_parameter/width", 0.0);
     };
   }
 

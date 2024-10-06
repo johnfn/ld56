@@ -137,6 +137,11 @@ public partial class Hud : CanvasLayer {
       get => _Clock ??= parent.GetNode<Clock>("Clock");
     }
 
+    private PauseMenu? _Menus;
+    public PauseMenu Menus {
+      get => _Menus ??= parent.GetNode<PauseMenu>("Menus");
+    }
+
   }
 
   public HudNodes? _Nodes;

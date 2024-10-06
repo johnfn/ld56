@@ -63,7 +63,7 @@ public partial class CookingScreen : Sprite2D {
       child.QueueFree();
     }
 
-    Nodes.InventoryList.Initialize();
+    Nodes.InventoryList.Initialize(GameState.OwnedIngredients);
 
     Nodes.InventoryList.ClearListeners();
     Nodes.InventoryList.OnClickIngredient += (ingredientId) => {
@@ -77,7 +77,7 @@ public partial class CookingScreen : Sprite2D {
 
         Nodes.CookingList.AddChild(ingredientListItem);
 
-        ingredientListItem.Nodes.HBoxContainer_MarginContainer_HBoxContainer_NameLabel.Text = ingredient.DisplayName;
+        ingredientListItem.Nodes.NameLabel.Text = ingredient.DisplayName;
       } else {
         // TODO: Show error somehow
       }

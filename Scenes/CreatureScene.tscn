@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://3phm7o0vm6l7"]
+[gd_scene load_steps=9 format=3 uid="uid://3phm7o0vm6l7"]
 
 [ext_resource type="Script" path="res://Scripts/CreatureScene.cs" id="1_06evm"]
-[ext_resource type="Texture2D" uid="uid://cw6wbj1j30eoy" path="res://Assets/Characters/Temp_Guest-A.png" id="2_dc8r4"]
 [ext_resource type="Theme" uid="uid://b26enpoebvd3m" path="res://Theme.tres" id="3_jahpv"]
 [ext_resource type="PackedScene" uid="uid://lvv1ltx4h1yj" path="res://Scenes/hover_panel_exterior.tscn" id="3_x500w"]
+[ext_resource type="Texture2D" uid="uid://dvp1hg5rdoyby" path="res://Assets/Characters/Character_Mouse.png" id="4_w374l"]
+[ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="5_gqy4h"]
+[ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="6_rrudo"]
 
 [sub_resource type="Shader" id="Shader_83x55"]
 code = "shader_type canvas_item;
@@ -88,31 +90,41 @@ offset_top = -245.0
 offset_right = 88.0
 offset_bottom = -169.0
 
-[node name="HoverArea" type="Button" parent="."]
+[node name="NameLabel" type="Label" parent="."]
+offset_left = -121.0
+offset_top = -159.0
+offset_right = 122.0
+offset_bottom = -90.0
+theme = ExtResource("5_gqy4h")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_rrudo")
+theme_override_font_sizes/font_size = 36
+text = "MRs Cow"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -104.0
+offset_right = 95.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_w374l")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="HoverArea" type="Button" parent="TextureRect"]
 material = SubResource("ShaderMaterial_3is5w")
-offset_left = -44.0
-offset_top = -86.0
-offset_right = 56.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("3_jahpv")
-icon = ExtResource("2_dc8r4")
 flat = true
-expand_icon = true
-
-[node name="NameContainer" type="PanelContainer" parent="."]
-offset_left = -78.0
-offset_top = -169.0
-offset_right = 6.0
-offset_bottom = -84.0
-
-[node name="MarginContainer" type="MarginContainer" parent="NameContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="NameLabel" type="Label" parent="NameContainer/MarginContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "???"

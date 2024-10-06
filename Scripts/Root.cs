@@ -60,7 +60,7 @@ public partial class Root : Node2D {
     };
 
     Nodes.HUD.Nodes.Debug_DebugShowShop.Pressed += () => {
-      Nodes.HUD.Nodes.Shop.Visible = true;
+      DisplayShop();
     };
 
     Nodes.HUD.Nodes.Newspaper_CloseButton.Pressed += () => {
@@ -70,11 +70,21 @@ public partial class Root : Node2D {
 
     Nodes.HUD.Nodes.Newspaper.Visible = false;
     Nodes.HUD.Nodes.Shop.Visible = false;
+    Nodes.HUD.Nodes.Menus.Visible = false;
   }
 
   public void ResetClock() {
     CurrentDayTime = 0f;
     GameState.DayIndex++;
+  }
+
+  public void DisplayShop() {
+    Nodes.HUD.Nodes.Shop.Initialize([
+      AllIngredients.Egg,
+      AllIngredients.Egg,
+      AllIngredients.Egg,
+    ]);
+    Nodes.HUD.Nodes.Shop.Visible = true;
   }
 
   public override void _Process(double delta) {

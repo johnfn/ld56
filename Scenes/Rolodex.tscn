@@ -1,7 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cl4p3lwxo5lsa"]
+[gd_scene load_steps=17 format=3 uid="uid://cl4p3lwxo5lsa"]
 
 [ext_resource type="Texture2D" uid="uid://da61f843ekha4" path="res://Assets/UI/Rolodex_BG_v2.png" id="1_q3m4y"]
 [ext_resource type="Script" path="res://Scripts/Rolodex.cs" id="2_s2ex6"]
+[ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="3_5uipw"]
+[ext_resource type="PackedScene" uid="uid://cmx8m8efavlh0" path="res://Scenes/RolodexRecipeEntry.tscn" id="3_w152g"]
 [ext_resource type="Theme" uid="uid://b26enpoebvd3m" path="res://Theme.tres" id="4_d1xda"]
 [ext_resource type="Shader" path="res://Resources/Rolodex.gdshader" id="4_g2p00"]
 [ext_resource type="Texture2D" uid="uid://3e2r6m6lwwor" path="res://Assets/UI/Rolodex_Tab_Arrow_Right.png" id="5_4e3ou"]
@@ -32,36 +34,53 @@ transparent_bg = true
 size = Vector2i(711, 791)
 
 [node name="MarginContainer" type="MarginContainer" parent="Page1Viewport"]
-offset_top = 76.71
 offset_right = 711.0
-offset_bottom = 805.71
+offset_bottom = 729.0
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 24
+theme = ExtResource("3_5uipw")
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 24
 
 [node name="Page1" type="VBoxContainer" parent="Page1Viewport/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 28
+
+[node name="RolodexRecipeEntry" parent="Page1Viewport/MarginContainer/Page1" instance=ExtResource("3_w152g")]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="Page1Viewport/MarginContainer/Page1"]
+layout_mode = 2
+
+[node name="RolodexRecipeEntry2" parent="Page1Viewport/MarginContainer/Page1" instance=ExtResource("3_w152g")]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Page1Viewport/MarginContainer/Page1"]
+layout_mode = 2
+
+[node name="RolodexRecipeEntry3" parent="Page1Viewport/MarginContainer/Page1" instance=ExtResource("3_w152g")]
+layout_mode = 2
 
 [node name="Page2Viewport" type="SubViewport" parent="."]
 transparent_bg = true
 size = Vector2i(711, 791)
 
 [node name="MarginContainer" type="MarginContainer" parent="Page2Viewport"]
-offset_top = 76.71
 offset_right = 711.0
-offset_bottom = 805.71
+offset_bottom = 729.0
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 24
+theme = ExtResource("3_5uipw")
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 24
 
 [node name="Page2" type="VBoxContainer" parent="Page2Viewport/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 28
 
 [node name="NextPageButton" type="Button" parent="."]
 offset_left = 1658.0
@@ -123,20 +142,22 @@ texture = ExtResource("10_v3f4w")
 
 [node name="LeftPageContents" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_u3u5d")
-offset_left = 210.0
-offset_top = 86.0
-offset_right = 921.0
-offset_bottom = 877.0
+offset_left = 192.0
+offset_top = 140.0
+offset_right = 910.0
+offset_bottom = 931.0
+rotation = -0.0174533
 mouse_filter = 2
 texture = SubResource("ViewportTexture_vqwj0")
 expand_mode = 1
 
 [node name="RightPageContents" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_u3u5d")
-offset_left = 965.0
-offset_top = 90.0
-offset_right = 1732.0
-offset_bottom = 881.0
+offset_left = 1012.0
+offset_top = 135.0
+offset_right = 1707.0
+offset_bottom = 926.0
+rotation = 0.0174533
 mouse_filter = 2
 texture = SubResource("ViewportTexture_n53t8")
 expand_mode = 1

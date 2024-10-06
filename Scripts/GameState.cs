@@ -36,10 +36,16 @@ public static class GameState {
   public static int DayIndex { get; set; } = 0;
   public static int Gold { get; set; } = 0;
   public static GameMode Mode { get; set; } = GameMode.Normal;
-  public static GameScreen CurrentScreen { get; set; } = GameScreen.Restaurant;
+  public static GameScreen CurrentScreen { get; set; } = GameScreen.Exterior;
   public static List<CustomerResult> CustomerResults { get; set; } = [];
 
   public static List<Recipe> UnlockedRecipes = [
+    AllRecipes.TomatoSoupInACherryTomato,
+    AllRecipes.ScrambledEggs,
+    AllRecipes.TomatoSoupInACherryTomato,
+    AllRecipes.ScrambledEggs,
+    AllRecipes.TomatoSoupInACherryTomato,
+    AllRecipes.ScrambledEggs,
     AllRecipes.TomatoSoupInACherryTomato,
     AllRecipes.ScrambledEggs,
   ];

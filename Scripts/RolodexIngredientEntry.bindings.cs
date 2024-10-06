@@ -27,44 +27,24 @@ public partial class RolodexIngredientEntry : PanelContainer {
       get => _HBoxContainer_TextureRect ??= parent.GetNode<TextureRect>("HBoxContainer/TextureRect");
     }
 
-    private VBoxContainer? _HBoxContainer_VBoxContainer;
-    public VBoxContainer HBoxContainer_VBoxContainer {
-      get => _HBoxContainer_VBoxContainer ??= parent.GetNode<VBoxContainer>("HBoxContainer/VBoxContainer");
+    private Label? _HBoxContainer_TextureRect_Quantity;
+    public Label HBoxContainer_TextureRect_Quantity {
+      get => _HBoxContainer_TextureRect_Quantity ??= parent.GetNode<Label>("HBoxContainer/TextureRect/Quantity");
     }
 
-    private Label? _HBoxContainer_VBoxContainer_Name;
-    public Label HBoxContainer_VBoxContainer_Name {
-      get => _HBoxContainer_VBoxContainer_Name ??= parent.GetNode<Label>("HBoxContainer/VBoxContainer/Name");
+    private VBoxContainer? _HBoxContainer_TextContainer;
+    public VBoxContainer HBoxContainer_TextContainer {
+      get => _HBoxContainer_TextContainer ??= parent.GetNode<VBoxContainer>("HBoxContainer/TextContainer");
     }
 
-    private Label? _HBoxContainer_VBoxContainer_Characteristic;
-    public Label HBoxContainer_VBoxContainer_Characteristic {
-      get => _HBoxContainer_VBoxContainer_Characteristic ??= parent.GetNode<Label>("HBoxContainer/VBoxContainer/Characteristic");
+    private Label? _HBoxContainer_TextContainer_Name;
+    public Label HBoxContainer_TextContainer_Name {
+      get => _HBoxContainer_TextContainer_Name ??= parent.GetNode<Label>("HBoxContainer/TextContainer/Name");
     }
 
-    private Label? _HBoxContainer_VBoxContainer_Quantity;
-    public Label HBoxContainer_VBoxContainer_Quantity {
-      get => _HBoxContainer_VBoxContainer_Quantity ??= parent.GetNode<Label>("HBoxContainer/VBoxContainer/Quantity");
-    }
-
-    private HBoxContainer? _HBoxContainer_VBoxContainer_FavoriteDishes;
-    public HBoxContainer HBoxContainer_VBoxContainer_FavoriteDishes {
-      get => _HBoxContainer_VBoxContainer_FavoriteDishes ??= parent.GetNode<HBoxContainer>("HBoxContainer/VBoxContainer/FavoriteDishes");
-    }
-
-    private TextureRect? _HBoxContainer_VBoxContainer_FavoriteDishes_Dish1;
-    public TextureRect HBoxContainer_VBoxContainer_FavoriteDishes_Dish1 {
-      get => _HBoxContainer_VBoxContainer_FavoriteDishes_Dish1 ??= parent.GetNode<TextureRect>("HBoxContainer/VBoxContainer/FavoriteDishes/Dish1");
-    }
-
-    private TextureRect? _HBoxContainer_VBoxContainer_FavoriteDishes_Dish2;
-    public TextureRect HBoxContainer_VBoxContainer_FavoriteDishes_Dish2 {
-      get => _HBoxContainer_VBoxContainer_FavoriteDishes_Dish2 ??= parent.GetNode<TextureRect>("HBoxContainer/VBoxContainer/FavoriteDishes/Dish2");
-    }
-
-    private TextureRect? _HBoxContainer_VBoxContainer_FavoriteDishes_Dish3;
-    public TextureRect HBoxContainer_VBoxContainer_FavoriteDishes_Dish3 {
-      get => _HBoxContainer_VBoxContainer_FavoriteDishes_Dish3 ??= parent.GetNode<TextureRect>("HBoxContainer/VBoxContainer/FavoriteDishes/Dish3");
+    private Label? _HBoxContainer_TextContainer_Description;
+    public Label HBoxContainer_TextContainer_Description {
+      get => _HBoxContainer_TextContainer_Description ??= parent.GetNode<Label>("HBoxContainer/TextContainer/Description");
     }
 
   }

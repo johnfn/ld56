@@ -9,14 +9,12 @@ public partial class InventoryList : GridContainer {
   private Dictionary<IngredientId, int> ingredientCounts = [];
   private Dictionary<IngredientId, CookingIngredient> idToIngredientListItem = [];
 
-  public void Initialize() {
-    var ownedIngredients = GameState.OwnedIngredients;
-
+  public void Initialize(List<Ingredient> displayedIngredients) {
     foreach (var child in GetChildren()) {
       child.QueueFree();
     }
 
-    foreach (var ingredient in ownedIngredients) {
+    foreach (var ingredient in displayedIngredients) {
       if (ingredientCounts.TryGetValue(ingredient.Id, out int value)) {
         ingredientCounts[ingredient.Id] = ++value;
       } else {
@@ -30,8 +28,8 @@ public partial class InventoryList : GridContainer {
 
       AddChild(ingredientListItem);
 
-      ingredientListItem.Nodes.HBoxContainer_MarginContainer_HBoxContainer_NameLabel.Text = ingredient.DisplayName;
-      ingredientListItem.Nodes.HBoxContainer_MarginContainer_HBoxContainer_QuantityLabel.Text = "x" + count.ToString();
+      ingredientListItem.Nodes.NameLabel.Text = ingredient.DisplayName;
+      ingredientListItem.Nodes.QuantityLabel.Text = "x" + count.ToString();
 
       ingredientListItem.OnClick += (ingredient) => {
         OnClickIngredient?.Invoke(ingredientId);
@@ -51,8 +49,7 @@ public partial class InventoryList : GridContainer {
     if (quantity > 0) {
       quantity--;
       ingredientCounts[ingredientId] = quantity;
-
-      idToIngredientListItem[ingredientId].Nodes.HBoxContainer_MarginContainer_HBoxContainer_QuantityLabel.Text = "x" + quantity.ToString();
+      idToIngredientListItem[ingredientId].Nodes.QuantityLabel.Text = "x" + quantity.ToString();
 
       return true;
     } else {
