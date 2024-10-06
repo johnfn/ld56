@@ -109,11 +109,6 @@ public partial class DialogBox : PanelContainer {
           }
 
           break;
-
-        case DialogReward dialogReward:
-          // Display the dialog reward text
-          GD.Print($"Reward: {dialogReward.Text}");
-          break;
       }
 
       if (_isMouseDown) {
