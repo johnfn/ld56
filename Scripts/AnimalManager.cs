@@ -336,7 +336,7 @@ public partial class AnimalManager : Node2D {
     if (GameState.Mode == GameMode.Normal) {
       GameState.Mode = GameMode.Dialog;
 
-      await DialogBox.ShowDialog(spawnedCreature.Dialog);
+      await DialogBox.ShowDialog(spawnedCreature.Dialog, spawnedCreature.Creature);
       GameState.Mode = GameMode.Normal;
 
       spawnedCreature.State = CreatureState.WalkToExit;

@@ -45,15 +45,12 @@ public partial class Root : Node2D {
     };
 
     Nodes.HUD.Nodes.Newspaper_CloseButton.Pressed += () => {
+      ResetClock();
       HideNewspaper();
     };
-
-    StartNewDay();
   }
 
-  public void StartNewDay() {
-    Nodes.HUD.Nodes.ClosingTimeOverlay.Visible = false;
-
+  public void ResetClock() {
     CurrentDayTime = 0f;
     GameState.DayIndex++;
   }
@@ -91,8 +88,9 @@ public partial class Root : Node2D {
   }
 
   public void EndDay() {
+    Nodes.HUD.Nodes.ClosingTimeOverlay.Visible = false;
+
     ShowNewspaper();
-    StartNewDay(); // Reset the clock for the new day
   }
 
   public void UpdateCurrentScreen(
