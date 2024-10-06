@@ -16,6 +16,7 @@ public enum CreatureState {
   WalkToTable,
   WaitForTalk,
   WalkToExit,
+  Done,
 }
 
 public enum CurrentScreen {
@@ -41,7 +42,7 @@ public class Chair {
 
 public partial class AnimalManager : Node2D {
   public SpawnedCreature? CreatureCurrentlyBeingSit;
-  public List<SpawnedCreature> UpcomingCreatures = [
+  public List<SpawnedCreature> Creatures = [
     // new SpawnedCreature {
     //   Creature = AllCreatures.MrChicken,
     //   SpawnDelay = 0,
@@ -53,7 +54,7 @@ public partial class AnimalManager : Node2D {
     new SpawnedCreature {
       Creature = AllCreatures.MrsCow,
       SpawnDelay = 0,
-      State = CreatureState.WaitForTalk,
+      State = CreatureState.WalkToExit,
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       SelectedChair = null,
@@ -70,25 +71,25 @@ public partial class AnimalManager : Node2D {
       Dialog = AllDialog.MrChicken,
     },
 
-    new SpawnedCreature {
-      Creature = AllCreatures.MrsCow,
-      SpawnDelay = 0,
-      State = CreatureState.WaitForTable,
-      Instance = null,
-      CurrentScreen = CurrentScreen.Interior,
-      SelectedChair = null,
-      Dialog = AllDialog.MrsCow,
-    },
+    // new SpawnedCreature {
+    //   Creature = AllCreatures.MrsCow,
+    //   SpawnDelay = 0,
+    //   State = CreatureState.WaitForTable,
+    //   Instance = null,
+    //   CurrentScreen = CurrentScreen.Interior,
+    //   SelectedChair = null,
+    //   Dialog = AllDialog.MrsCow,
+    // },
 
-    new SpawnedCreature {
-      Creature = AllCreatures.MrChicken,
-      SpawnDelay = 0,
-      State = CreatureState.WaitForTable,
-      Instance = null,
-      CurrentScreen = CurrentScreen.Interior,
-      SelectedChair = null,
-      Dialog = AllDialog.MrChicken,
-    },
+    // new SpawnedCreature {
+    //   Creature = AllCreatures.MrChicken,
+    //   SpawnDelay = 0,
+    //   State = CreatureState.WaitForTable,
+    //   Instance = null,
+    //   CurrentScreen = CurrentScreen.Interior,
+    //   SelectedChair = null,
+    //   Dialog = AllDialog.MrChicken,
+    // },
 
     new SpawnedCreature {
       Creature = AllCreatures.MrsCow,
@@ -107,7 +108,7 @@ public partial class AnimalManager : Node2D {
   }
 
   public void Initialize() {
-    Root.Instance.ListOfCreatures.Initialize(UpcomingCreatures);
+    Root.Instance.ListOfCreatures.Initialize(Creatures);
 
     // Initialize chairs
     foreach (var chair in Root.Instance.Nodes.Interior.Nodes.Chairs.GetChildren()) {
@@ -129,18 +130,19 @@ public partial class AnimalManager : Node2D {
   public override void _Process(double delta) {
     var entrance = Root.Instance.Nodes.Exterior.Nodes.AnimalWaitArea;
     var admit = Root.Instance.Nodes.Exterior.Nodes.AnimalAdmitArea;
+    var interiorSpawn = Root.Instance.Nodes.Interior.Nodes.InteriorAnimalSpawnArea;
 
-    foreach (var animal in UpcomingCreatures) {
+    foreach (var animal in Creatures) {
       var instance = animal.Instance;
 
       // hack for testing
       if (animal.Instance == null) {
         if (animal.State == CreatureState.WaitForTable) {
           animal.Instance = Spawn(animal);
-          animal.Instance.GlobalPosition = Root.Instance.Nodes.Interior.Nodes.InteriorAnimalSpawnArea.GlobalPosition;
+          animal.Instance.GlobalPosition = interiorSpawn.GlobalPosition;
         }
 
-        if (animal.State == CreatureState.WaitForTalk) {
+        if (animal.State == CreatureState.WaitForTalk || animal.State == CreatureState.WalkToExit) {
           animal.Instance = Spawn(animal);
 
           // find an available chair
@@ -232,12 +234,50 @@ public partial class AnimalManager : Node2D {
 
             break;
           }
+
+        case CreatureState.WalkToExit: {
+            if (instance == null) {
+              continue;
+            }
+
+            var direction = (interiorSpawn.GlobalPosition - instance.GlobalPosition).Normalized();
+            instance.Position += direction * 100 * (float)delta;
+
+            if (instance.GlobalPosition.DistanceTo(interiorSpawn.GlobalPosition) < 10) {
+              FadeOutCreature(animal);
+
+              animal.State = CreatureState.Done;
+            }
+
+            break;
+          }
+
+        case CreatureState.Done:
+          break;
       }
     }
 
     var listOfCreatures = Root.Instance.ListOfCreatures;
 
-    listOfCreatures.Update(UpcomingCreatures);
+    listOfCreatures.Update(Creatures);
+  }
+
+  public async void FadeOutCreature(SpawnedCreature creature) {
+    var instance = creature.Instance;
+
+    if (instance == null) {
+      return;
+    }
+
+    for (int i = 0; i < 100; i++) {
+      instance.Modulate = new Color(1, 1, 1, 1 - (i / 100f));
+      await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+    }
+
+    Creatures.Remove(creature);
+
+    RemoveChild(instance);
+    instance.QueueFree();
   }
 
   public Node2D Spawn(SpawnedCreature spawnedCreature) {

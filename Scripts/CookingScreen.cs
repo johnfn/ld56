@@ -21,6 +21,10 @@ public partial class CookingScreen : Sprite2D {
   }
 
   public static async Task<Recipe> Cook() {
+    if (GameState.HYPERSPEED) {
+      return AllRecipes.ScrambledEggs;
+    }
+
     Root.Instance.UpdateCurrentScreen(GameScreen.Cooking);
 
     await Instance.Initialize();

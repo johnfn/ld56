@@ -66,6 +66,7 @@ public partial class UpcomingCreatureUi : ColorRect {
       CreatureState.WalkToTable => "Walking to table",
       CreatureState.WaitForTalk => "Sitting at table",
       CreatureState.WalkToExit => "Walking to exit",
+      CreatureState.Done => "Leaving",
     };
 
     Color = creature.State switch {
@@ -77,6 +78,7 @@ public partial class UpcomingCreatureUi : ColorRect {
       CreatureState.WalkToTable => Colors.Green,
       CreatureState.WaitForTalk => Colors.Green,
       CreatureState.WalkToExit => Colors.Green,
+      CreatureState.Done => Colors.Green,
     };
 
     location.Text = creature.CurrentScreen switch {
