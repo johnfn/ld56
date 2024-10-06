@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 using static Utils;
 
 namespace ld56;
@@ -58,6 +59,8 @@ public partial class Root : Node2D {
       ResetClock();
       HideNewspaper();
     };
+
+    Nodes.HUD.Nodes.Newspaper.Visible = false;
   }
 
   public void ResetClock() {
@@ -138,9 +141,34 @@ public partial class Root : Node2D {
     Nodes.HUD.Nodes.Newspaper.Visible = true;
 
     if (daysLeft == 0) {
-      Nodes.HUD.Nodes.Newspaper_HBoxContainer_DaysLeft.Text = "The Dinernb Extravaganza is tomorrow!";
+      Nodes.HUD.Nodes.Newspaper_DaysLeft.Text = "The Dinernb Extravaganza is tomorrow!";
     } else {
-      Nodes.HUD.Nodes.Newspaper_HBoxContainer_DaysLeft.Text = $"Days until the Great Dinernb Extravaganza: {daysLeft}!";
+      Nodes.HUD.Nodes.Newspaper_DaysLeft.Text = $"Days until the Great Dinernb Extravaganza: {daysLeft}!";
+    }
+
+    var todaysResults = GameState.CustomerResults.Where(result => result.DayIndex == GameState.DayIndex).ToList();
+
+    foreach (var child in Nodes.HUD.Nodes.Newspaper_NewspaperContentContainer.GetChildren()) {
+      child.QueueFree();
+    }
+
+    foreach (var result in todaysResults) {
+      var entry = NewspaperEntry.New();
+
+      entry.Nodes.TextContainer_Name.Text = result.Creature.Name;
+      entry.Nodes.TextContainer_Description.Text = result.Satisfaction switch {
+        CustomerSatisfaction.Elated => "Left a $5 tip and a 5 star review!",
+        CustomerSatisfaction.Impressed => "Left a $5 tip and a 5 star review!",
+        CustomerSatisfaction.Happy => "Left a $5 tip and a 5 star review!",
+        CustomerSatisfaction.Okay => "Left a $2 tip and a 1 star review!",
+        CustomerSatisfaction.Upset => "Left a $2 tip and a 3 star review.",
+        CustomerSatisfaction.Unhappy => "Left a $2 tip and a 3 star review.",
+        CustomerSatisfaction.Angry => "Left a $1 tip and a 1 star review.",
+        CustomerSatisfaction.Furious => "Cursed at the staff and left no tip.",
+        CustomerSatisfaction.GonnaMurderYou => "Threatened to kill the staff and left no tip.",
+      };
+
+      Nodes.HUD.Nodes.Newspaper_NewspaperContentContainer.AddChild(entry);
     }
 
     Engine.TimeScale = 0;

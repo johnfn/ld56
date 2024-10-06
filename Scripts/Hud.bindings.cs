@@ -52,19 +52,14 @@ public partial class Hud : CanvasLayer {
       get => _Newspaper_Newspaper ??= parent.GetNode<TextureRect>("Newspaper/Newspaper");
     }
 
-    private VBoxContainer? _Newspaper_HBoxContainer;
-    public VBoxContainer Newspaper_HBoxContainer {
-      get => _Newspaper_HBoxContainer ??= parent.GetNode<VBoxContainer>("Newspaper/HBoxContainer");
+    private Label? _Newspaper_DaysLeft;
+    public Label Newspaper_DaysLeft {
+      get => _Newspaper_DaysLeft ??= parent.GetNode<Label>("Newspaper/DaysLeft");
     }
 
-    private Label? _Newspaper_HBoxContainer_DaysLeft;
-    public Label Newspaper_HBoxContainer_DaysLeft {
-      get => _Newspaper_HBoxContainer_DaysLeft ??= parent.GetNode<Label>("Newspaper/HBoxContainer/DaysLeft");
-    }
-
-    private Label? _Newspaper_HBoxContainer_DaysLeft2;
-    public Label Newspaper_HBoxContainer_DaysLeft2 {
-      get => _Newspaper_HBoxContainer_DaysLeft2 ??= parent.GetNode<Label>("Newspaper/HBoxContainer/DaysLeft2");
+    private VBoxContainer? _Newspaper_NewspaperContentContainer;
+    public VBoxContainer Newspaper_NewspaperContentContainer {
+      get => _Newspaper_NewspaperContentContainer ??= parent.GetNode<VBoxContainer>("Newspaper/NewspaperContentContainer");
     }
 
     private Button? _Newspaper_CloseButton;
@@ -115,6 +110,11 @@ public partial class Hud : CanvasLayer {
     private DialogBox? _DialogBox;
     public DialogBox DialogBox {
       get => _DialogBox ??= parent.GetNode<DialogBox>("DialogBox");
+    }
+
+    private NewspaperEntry? _Newspaper_NewspaperContentContainer_NewspaperEntry;
+    public NewspaperEntry Newspaper_NewspaperContentContainer_NewspaperEntry {
+      get => _Newspaper_NewspaperContentContainer_NewspaperEntry ??= parent.GetNode<NewspaperEntry>("Newspaper/NewspaperContentContainer/NewspaperEntry");
     }
 
     private Clock? _Clock;

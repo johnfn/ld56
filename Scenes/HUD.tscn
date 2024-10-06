@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://6tml4ytuolux"]
+[gd_scene load_steps=24 format=3 uid="uid://6tml4ytuolux"]
 
 [ext_resource type="PackedScene" uid="uid://drdgs1oscnynx" path="res://Scenes/list_of_creatures.tscn" id="1_1te6p"]
 [ext_resource type="Script" path="res://Scripts/Hud.cs" id="1_eqs7q"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b40rl5mcurg50" path="res://Assets/UI/UI_Interior_Book.png" id="4_jb5i5"]
 [ext_resource type="PackedScene" uid="uid://07sx5xgd03q2" path="res://Scenes/dialog_box.tscn" id="4_xc7oc"]
 [ext_resource type="Script" path="res://Scripts/CoolButton.cs" id="5_w24eq"]
+[ext_resource type="PackedScene" uid="uid://bro01n3lxe6db" path="res://Scenes/newspaper_entry.tscn" id="11_4tq2l"]
 [ext_resource type="PackedScene" uid="uid://cpkhxlnapa4wa" path="res://clock.tscn" id="11_cepoc"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nm077"]
@@ -103,7 +104,6 @@ offset_right = 1181.0
 offset_bottom = 513.0
 
 [node name="Newspaper" type="ColorRect" parent="."]
-visible = false
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 0.607843)
@@ -116,25 +116,25 @@ offset_right = 1504.0
 offset_bottom = 1055.0
 texture = ExtResource("4_eaora")
 
-[node name="HBoxContainer" type="VBoxContainer" parent="Newspaper"]
+[node name="DaysLeft" type="Label" parent="Newspaper"]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 314.0
+offset_right = 569.0
+offset_bottom = 337.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "5 days left"
+
+[node name="NewspaperContentContainer" type="VBoxContainer" parent="Newspaper"]
 layout_mode = 0
 offset_left = 534.0
-offset_top = 305.0
+offset_top = 362.0
 offset_right = 1412.0
-offset_bottom = 728.0
+offset_bottom = 723.0
 
-[node name="DaysLeft" type="Label" parent="Newspaper/HBoxContainer"]
+[node name="NewspaperEntry" parent="Newspaper/NewspaperContentContainer" instance=ExtResource("11_4tq2l")]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-horizontal_alignment = 1
-
-[node name="DaysLeft2" type="Label" parent="Newspaper/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 6
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Nothing to report of late, and you can't make us talk about the weather."
-horizontal_alignment = 1
 
 [node name="CloseButton" type="Button" parent="Newspaper"]
 layout_mode = 0
@@ -175,6 +175,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="DebugEndDay" type="Button" parent="Debug"]
+layout_mode = 0
 offset_left = 1542.0
 offset_top = 244.0
 offset_right = 1914.0
@@ -183,6 +184,7 @@ theme_override_font_sizes/font_size = 36
 text = "[debug] End day"
 
 [node name="DebugServeCustomer" type="Button" parent="Debug"]
+layout_mode = 0
 offset_left = 1542.0
 offset_top = 310.0
 offset_right = 1962.0
