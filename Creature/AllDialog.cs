@@ -52,7 +52,7 @@ public static class AllDialog {
 
             GameState.CustomerResults.Add(new(
               Creature: creature,
-              TipEarned: 0,
+              TipEarned: 5,
               Satisfaction: CustomerSatisfaction.Upset,
               DayIndex: GameState.DayIndex
             ));

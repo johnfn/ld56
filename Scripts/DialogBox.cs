@@ -73,6 +73,8 @@ public partial class DialogBox : PanelContainer {
             }
           }
 
+          dialogItem.GetReward?.Invoke();
+
           break;
 
         case DialogOptions dialogOptions:

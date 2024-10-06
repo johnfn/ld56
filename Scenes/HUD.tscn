@@ -160,10 +160,32 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.0745098, 0.0823529, 0.215686, 0.337255)
 
-[node name="DebugEndDay" type="Button" parent="."]
+[node name="CustomersServed" type="Label" parent="."]
+offset_left = 1550.0
+offset_top = 180.0
+offset_right = 1905.0
+offset_bottom = 230.0
+theme_override_font_sizes/font_size = 36
+text = "Customers Served: 0"
+
+[node name="Debug" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DebugEndDay" type="Button" parent="Debug"]
 offset_left = 1542.0
-offset_top = 167.0
+offset_top = 244.0
 offset_right = 1914.0
-offset_bottom = 225.0
+offset_bottom = 302.0
 theme_override_font_sizes/font_size = 36
 text = "[debug] End day"
+
+[node name="DebugServeCustomer" type="Button" parent="Debug"]
+offset_left = 1542.0
+offset_top = 310.0
+offset_right = 1962.0
+offset_bottom = 368.0
+theme_override_font_sizes/font_size = 36
+text = "[debug] Serve customer"

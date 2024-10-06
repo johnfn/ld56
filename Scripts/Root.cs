@@ -17,6 +17,7 @@ public partial class Root : Node2D {
   }
 
   public float EndOfDayTime = 10f;
+  // This goes from 0 to 10.
   public float CurrentDayTime { get; private set; } = 0f;
 
   public int DaysLeft = 8;
@@ -40,8 +41,17 @@ public partial class Root : Node2D {
       ToggleRolodex();
     };
 
-    Nodes.HUD.Nodes.DebugEndDay.Pressed += () => {
+    Nodes.HUD.Nodes.Debug_DebugEndDay.Pressed += () => {
       EndDay();
+    };
+
+    Nodes.HUD.Nodes.Debug_DebugServeCustomer.Pressed += () => {
+      GameState.CustomerResults.Add(new(
+        Creature: AllCreatures.MrChicken,
+        TipEarned: 10,
+        Satisfaction: CustomerSatisfaction.Upset,
+        DayIndex: GameState.DayIndex
+      ));
     };
 
     Nodes.HUD.Nodes.Newspaper_CloseButton.Pressed += () => {
