@@ -51,14 +51,24 @@ public partial class AnimalManager : Node2D {
     //   CurrentScreen = CurrentScreen.Nowhere,
     // },
 
+    // new SpawnedCreature {
+    //   Creature = AllCreatures.MrsCow,
+    //   SpawnDelay = 0,
+    //   State = CreatureState.WalkToExit,
+    //   Instance = null,
+    //   CurrentScreen = CurrentScreen.Interior,
+    //   SelectedChair = null,
+    //   Dialog = AllDialog.MrsCow,
+    // },
+
     new SpawnedCreature {
-      Creature = AllCreatures.MrsCow,
+      Creature = AllCreatures.MrChicken,
       SpawnDelay = 0,
-      State = CreatureState.WalkToExit,
+      State = CreatureState.WaitForTalk,
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       SelectedChair = null,
-      Dialog = AllDialog.MrsCow,
+      Dialog = AllDialog.MrChicken,
     },
 
     new SpawnedCreature {
@@ -71,15 +81,15 @@ public partial class AnimalManager : Node2D {
       Dialog = AllDialog.MrChicken,
     },
 
-    // new SpawnedCreature {
-    //   Creature = AllCreatures.MrsCow,
-    //   SpawnDelay = 0,
-    //   State = CreatureState.WaitForTable,
-    //   Instance = null,
-    //   CurrentScreen = CurrentScreen.Interior,
-    //   SelectedChair = null,
-    //   Dialog = AllDialog.MrsCow,
-    // },
+    new SpawnedCreature {
+      Creature = AllCreatures.MrsCow,
+      SpawnDelay = 0,
+      State = CreatureState.WaitForTable,
+      Instance = null,
+      CurrentScreen = CurrentScreen.Interior,
+      SelectedChair = null,
+      Dialog = AllDialog.MrsCow,
+    },
 
     // new SpawnedCreature {
     //   Creature = AllCreatures.MrChicken,
@@ -340,6 +350,14 @@ public partial class AnimalManager : Node2D {
       GameState.Mode = GameMode.Normal;
 
       spawnedCreature.State = CreatureState.WalkToExit;
+
+      // give up seat
+
+      var chair = Chairs.Find(c => c.Creature == spawnedCreature);
+
+      if (chair != null) {
+        chair.Creature = null;
+      }
     }
   }
 }

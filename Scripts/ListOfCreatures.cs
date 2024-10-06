@@ -19,7 +19,6 @@ public partial class ListOfCreatures : HBoxContainer {
   }
 
   public void Initialize(List<SpawnedCreature> creatures) {
-    GD.Print($"Initializing list of creatures with {creatures.Count} creatures");
     foreach (var creature in creatures) {
       var ui = UpcomingCreatureUi.New();
       ui.Initialize(creature);
@@ -28,6 +27,7 @@ public partial class ListOfCreatures : HBoxContainer {
         Creature = creature,
         UiElement = ui
       });
+
       AddChild(ui);
     }
   }
