@@ -27,7 +27,7 @@ public partial class CookingScreen : Sprite2D {
     };
 
     Nodes.UI_CookButton.Pressed += () => {
-      CookingScreen.Cook();
+      Cook();
     };
 
     Initialize();

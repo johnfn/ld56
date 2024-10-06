@@ -1,4 +1,5 @@
 using Godot;
+using System;
 using System.Collections.Generic;
 namespace ld56;
 
@@ -32,7 +33,7 @@ public class SpawnedCreature {
   public required Node2D? Instance;
   public required CurrentScreen CurrentScreen;
   public required HighlightCircle? SelectedChair;
-  public required List<IDialogItem> Dialog;
+  public required Func<List<IDialogItem>> GetDialog;
 }
 
 public class Chair {
@@ -68,7 +69,7 @@ public partial class AnimalManager : Node2D {
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       SelectedChair = null,
-      Dialog = AllDialog.MrChicken,
+      GetDialog = () => NextDialog.For[AllCreatures.MrBlegg],
     },
 
     new SpawnedCreature {
@@ -78,7 +79,7 @@ public partial class AnimalManager : Node2D {
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       SelectedChair = null,
-      Dialog = AllDialog.MrChicken,
+      GetDialog = () => NextDialog.For[AllCreatures.MrBlegg],
     },
 
     new SpawnedCreature {
@@ -88,7 +89,7 @@ public partial class AnimalManager : Node2D {
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       SelectedChair = null,
-      Dialog = AllDialog.MrsCow,
+      GetDialog = () => NextDialog.For[AllCreatures.MrsCow],
     },
 
     // new SpawnedCreature {
@@ -108,7 +109,7 @@ public partial class AnimalManager : Node2D {
       Instance = null,
       CurrentScreen = CurrentScreen.Nowhere,
       SelectedChair = null,
-      Dialog = AllDialog.MrsCow,
+      GetDialog = () => NextDialog.For[AllCreatures.MrsCow],
     },
   ];
 
@@ -346,7 +347,7 @@ public partial class AnimalManager : Node2D {
     if (GameState.Mode == GameMode.Normal) {
       GameState.Mode = GameMode.Dialog;
 
-      await DialogBox.ShowDialog(spawnedCreature.Dialog, spawnedCreature.Creature);
+      await DialogBox.ShowDialog(spawnedCreature.GetDialog(), spawnedCreature.Creature);
       GameState.Mode = GameMode.Normal;
 
       spawnedCreature.State = CreatureState.WalkToExit;
