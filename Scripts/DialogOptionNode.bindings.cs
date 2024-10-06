@@ -1,9 +1,9 @@
 using Godot;
 namespace ld56;
 
-public partial class DialogOptionNode : RichTextLabel {
+public partial class DialogOptionNode : PanelContainer {
   public static DialogOptionNode New() {
-    return GD.Load<PackedScene>("res://Scenes/dialog_option_node.tscn").Instantiate<DialogOptionNode>();
+    return GD.Load<PackedScene>("res://Scenes/DialogOptionNode.tscn").Instantiate<DialogOptionNode>();
   }
   public DialogOptionNode() {
     foreach (var @interface in GetType().GetInterfaces()) {
@@ -17,6 +17,11 @@ public partial class DialogOptionNode : RichTextLabel {
     public DialogOptionNodeNodes(DialogOptionNode parent) {
       this.parent = parent;
     }
+    private RichTextLabel? _RichTextLabel;
+    public RichTextLabel RichTextLabel {
+      get => _RichTextLabel ??= parent.GetNode<RichTextLabel>("RichTextLabel");
+    }
+
   }
 
   public DialogOptionNodeNodes? _Nodes;

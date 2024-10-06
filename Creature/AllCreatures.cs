@@ -13,6 +13,7 @@ public static class AllCreatures {
     },
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Chipmunk_Neutral.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Chipmunk.png"),
+    DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Chipmunk.png"),
   };
 
   public static readonly Creature MrsCow = new() {
@@ -25,6 +26,7 @@ public static class AllCreatures {
     },
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Det-Cat_Neutral.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Detective-Cat.png"),
+    DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Detective-Cat.png"),
   };
 
   public static readonly Creature MrPig = new() {
@@ -37,6 +39,7 @@ public static class AllCreatures {
     },
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Frog_Neutral.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Frog.png"),
+    DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Frog.png"),
   };
 
   public static readonly Creature MrHamster = new() {
@@ -49,6 +52,7 @@ public static class AllCreatures {
     },
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Hamster_Neutral.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Hamster.png"),
+    DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Hamster.png"),
   };
 
   public static readonly Creature MrMouse = new() {
@@ -61,6 +65,7 @@ public static class AllCreatures {
     },
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Mouse_Neutral.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Mouse.png"),
+    DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Mouse.png"),
   };
 
   public static readonly Creature MrSquirrel = new() {
@@ -73,5 +78,6 @@ public static class AllCreatures {
     },
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Squirrel_Neutral.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Squirrel.png"),
+    DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Squirrel.png"),
   };
 }
