@@ -75,6 +75,10 @@ public partial class Root : Node2D {
     Nodes.HUD.Nodes.Newspaper.Visible = false;
     Nodes.HUD.Nodes.Shop.Visible = false;
     Nodes.HUD.Nodes.Menus.Visible = false;
+
+    Nodes.HUD.Nodes.Newspaper.Nodes.Newspaper_ShopButton.Pressed += () => {
+      DisplayShopHelper();
+    };
   }
 
   public void ResetClock() {

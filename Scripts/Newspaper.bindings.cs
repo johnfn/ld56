@@ -42,6 +42,11 @@ public partial class Newspaper : ColorRect {
       get => _Newspaper_CloseButton ??= parent.GetNode<Button>("Newspaper/CloseButton");
     }
 
+    private Button? _Newspaper_ShopButton;
+    public Button Newspaper_ShopButton {
+      get => _Newspaper_ShopButton ??= parent.GetNode<Button>("Newspaper/ShopButton");
+    }
+
     private NewspaperEntry? _Newspaper_VBoxContainer_NewspaperContentContainer_NewspaperEntry;
     public NewspaperEntry Newspaper_VBoxContainer_NewspaperContentContainer_NewspaperEntry {
       get => _Newspaper_VBoxContainer_NewspaperContentContainer_NewspaperEntry ??= parent.GetNode<NewspaperEntry>("Newspaper/VBoxContainer/NewspaperContentContainer/NewspaperEntry");
