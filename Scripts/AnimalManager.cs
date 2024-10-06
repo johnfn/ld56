@@ -302,10 +302,15 @@ public partial class AnimalManager : Node2D {
       var dialogResult = await Root.Instance.Nodes.HUD.Nodes.DialogBox.ShowDialog(spawnedCreature.Dialog);
 
       if (dialogResult == DialogReturn.BeginCooking) {
-        Mode = GameMode.Cooking;
+        BeginCookingFor(spawnedCreature);
       } else {
         Mode = GameMode.Normal;
       }
     }
+  }
+
+  public void BeginCookingFor(SpawnedCreature spawnedCreature) {
+    Mode = GameMode.Cooking;
+    Root.Instance.UpdateCurrentScreen(GameScreen.Cooking);
   }
 }

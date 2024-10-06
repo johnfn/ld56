@@ -1,5 +1,6 @@
 using Godot;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 namespace ld56;
 using static Utils;
@@ -24,7 +25,7 @@ public partial class DialogBox : PanelContainer {
     }
   }
 
-  public async Task<DialogReturn> ShowDialog(List<IDialogItem> dialog) {
+  public async Task<DialogReturn> ShowDialog(List<IDialogItem> dialog, bool isFirstCall = true) {
     Visible = true;
     Nodes.HBoxContainer_VBoxContainer_Label.Text = "";
     Nodes.HBoxContainer_DialogTextVBoxContainer_DialogText.Text = "";
@@ -34,10 +35,14 @@ public partial class DialogBox : PanelContainer {
       await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
     }
 
+    DialogReturn result = DialogReturn.None;
+
     foreach (var item in dialog) {
       switch (item) {
         case DialogBeginCooking dialogBeginCooking:
-          return DialogReturn.BeginCooking;
+          result = DialogReturn.BeginCooking;
+
+          goto done;
         case DialogItem dialogItem:
           Nodes.HBoxContainer_DialogTextVBoxContainer.Visible = true;
           Nodes.HBoxContainer_OptionsVBoxContainer.Visible = false;
@@ -53,9 +58,9 @@ public partial class DialogBox : PanelContainer {
                 j += 3;
               }
 
-              // if (Root.Instance.HYPER) {
-              //   break;
-              // }
+              if (Root.HYPERSPEED) {
+                break;
+              }
 
               await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
             }
@@ -94,7 +99,9 @@ public partial class DialogBox : PanelContainer {
           var onSelect = dialogOptions.Options[selectedOption.Value].OnSelect;
 
           if (onSelect != null) {
-            return await ShowDialog(onSelect());
+            result = await ShowDialog(onSelect(), false);
+
+            goto done;
           }
 
           break;
@@ -113,22 +120,27 @@ public partial class DialogBox : PanelContainer {
 
       Nodes.HBoxContainer_DialogTextVBoxContainer_ClickToContinue.Visible = true;
 
-      while (!_isMouseDown) {
+      if (!Root.HYPERSPEED) {
+        while (!_isMouseDown) {
+          await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+        }
+
+        while (_isMouseDown) {
+          await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+        }
+
         await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
       }
-
-      while (_isMouseDown) {
-        await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
-      }
-
-      await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
 
       Nodes.HBoxContainer_DialogTextVBoxContainer_DialogText.Text = "";
       Nodes.HBoxContainer_DialogTextVBoxContainer_ClickToContinue.Visible = false;
     }
+  done:
 
-    Visible = false;
+    if (isFirstCall) {
+      Visible = false;
+    }
 
-    return DialogReturn.None;
+    return result;
   }
 }

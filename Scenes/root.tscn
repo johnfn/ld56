@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cfniuyne644nj"]
+[gd_scene load_steps=12 format=3 uid="uid://cfniuyne644nj"]
 
 [ext_resource type="Script" path="res://Scripts/Root.cs" id="1_pn6rf"]
 [ext_resource type="PackedScene" uid="uid://bumbohrg72245" path="res://Scenes/exterior.tscn" id="2_xbt5w"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://do7usl2ad7mfr" path="res://Scenes/animal_manager.tscn" id="7_jilfn"]
 [ext_resource type="PackedScene" uid="uid://6tml4ytuolux" path="res://Scenes/HUD.tscn" id="7_upxnj"]
 [ext_resource type="PackedScene" uid="uid://cgp66o3gq8kie" path="res://Scenes/SoundManager.tscn" id="9_nxehi"]
+[ext_resource type="Texture2D" uid="uid://rbqlocxsxank" path="res://Assets/New Project (19).png" id="11_e317w"]
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_pn6rf")
@@ -31,3 +32,9 @@ position = Vector2(1959, 20)
 [node name="HUD" parent="." instance=ExtResource("7_upxnj")]
 
 [node name="AnimalManager" parent="." instance=ExtResource("7_jilfn")]
+
+[node name="CookingScreen" type="Sprite2D" parent="."]
+position = Vector2(-276, 1103)
+scale = Vector2(1.62578, 1.62578)
+texture = ExtResource("11_e317w")
+centered = false

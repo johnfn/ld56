@@ -6,7 +6,8 @@ namespace ld56;
 
 public enum GameScreen {
   Exterior,
-  Restaurant
+  Restaurant,
+  Cooking
 }
 
 public partial class Root : Node2D {
@@ -15,6 +16,7 @@ public partial class Root : Node2D {
   public ListOfCreatures ListOfCreatures {
     get => Nodes.HUD.Nodes.Container_MarginContainer_HBoxContainer_ListOfCreatures;
   }
+  public static bool HYPERSPEED = false;
 
   public float EndOfDayTime = 10f;
   public float CurrentDayTime { get; private set; } = 0f;
@@ -62,6 +64,12 @@ public partial class Root : Node2D {
       Engine.TimeScale = 1;
     }
 
+    if (Input.IsKeyPressed(Key.Ctrl)) {
+      HYPERSPEED = true;
+    } else {
+      HYPERSPEED = false;
+    }
+
     // Update clock
     CurrentDayTime += (float)delta / 10.0f;
     Nodes.HUD.Nodes.Clock.Nodes.ClockHand.Rotation = Mathf.DegToRad(118f - (CurrentDayTime / EndOfDayTime) * (118f + 30f));
@@ -93,6 +101,7 @@ public partial class Root : Node2D {
     Sprite2D node = CurrentScreen switch {
       GameScreen.Exterior => Nodes.Exterior,
       GameScreen.Restaurant => Nodes.Interior,
+      GameScreen.Cooking => Nodes.CookingScreen,
     };
 
     Nodes.Camera.Position = node.Position;
