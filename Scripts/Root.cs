@@ -64,12 +64,12 @@ public partial class Root : Node2D {
 
     // Update clock
     CurrentDayTime += (float)delta / 10.0f;
-    Nodes.HUD.Nodes.Clock_ClockHand.Rotation = Mathf.DegToRad(118f - (CurrentDayTime / EndOfDayTime) * (118f + 30f));
+    Nodes.HUD.Nodes.Clock.Nodes.ClockHand.Rotation = Mathf.DegToRad(118f - (CurrentDayTime / EndOfDayTime) * (118f + 30f));
 
     if (CurrentDayTime >= EndOfDayTime) {
       ToggleNewspaper();
       StartNewDay(); // Reset the clock for the new day
-    } else if (Mathf.RadToDeg(Nodes.HUD.Nodes.Clock_ClockHand.Rotation) < -0f) {
+    } else if (Mathf.RadToDeg(Nodes.HUD.Nodes.Clock.Nodes.ClockHand.Rotation) < -0f) {
       // Closing time - tween in closing time overlay node.
       Nodes.HUD.Nodes.ClosingTimeOverlay.Modulate = new Color(1, 1, 1, 0);
       Nodes.HUD.Nodes.ClosingTimeOverlay.Visible = true;

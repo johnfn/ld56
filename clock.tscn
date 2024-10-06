@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpkhxlnapa4wa"]
+[gd_scene load_steps=5 format=3 uid="uid://cpkhxlnapa4wa"]
 
 [ext_resource type="Texture2D" uid="uid://btod87fmr78hi" path="res://Assets/UI/clock.png" id="1_2unke"]
 [ext_resource type="Texture2D" uid="uid://bdelja1565khk" path="res://Assets/UI/clock-hand.png" id="2_qmbmd"]
+[ext_resource type="Script" path="res://Clock.cs" id="2_soxew"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fok62"]
+bg_color = Color(0.195312, 0.195312, 0.195312, 1)
 
 [node name="Clock" type="TextureRect"]
 offset_left = 1770.0
@@ -9,6 +13,7 @@ offset_top = -113.0
 offset_right = 1998.0
 offset_bottom = 149.0
 texture = ExtResource("1_2unke")
+script = ExtResource("2_soxew")
 
 [node name="ClockHand" type="TextureRect" parent="."]
 layout_mode = 0
@@ -19,3 +24,23 @@ offset_bottom = 207.0
 rotation = 2.056
 pivot_offset = Vector2(64.03, 68.11)
 texture = ExtResource("2_qmbmd")
+
+[node name="TimeLabelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = -221.0
+offset_top = 180.0
+offset_right = -36.0
+offset_bottom = 238.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fok62")
+
+[node name="MarginContainer" type="MarginContainer" parent="TimeLabelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="TimeLabelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "12:12 AM"

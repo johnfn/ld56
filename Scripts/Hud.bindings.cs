@@ -72,16 +72,6 @@ public partial class Hud : CanvasLayer {
       get => _Newspaper_CloseButton ??= parent.GetNode<Button>("Newspaper/CloseButton");
     }
 
-    private TextureRect? _Clock;
-    public TextureRect Clock {
-      get => _Clock ??= parent.GetNode<TextureRect>("Clock");
-    }
-
-    private TextureRect? _Clock_ClockHand;
-    public TextureRect Clock_ClockHand {
-      get => _Clock_ClockHand ??= parent.GetNode<TextureRect>("Clock/ClockHand");
-    }
-
     private ColorRect? _ClosingTimeOverlay;
     public ColorRect ClosingTimeOverlay {
       get => _ClosingTimeOverlay ??= parent.GetNode<ColorRect>("ClosingTimeOverlay");
@@ -105,6 +95,11 @@ public partial class Hud : CanvasLayer {
     private DialogBox? _DialogBox;
     public DialogBox DialogBox {
       get => _DialogBox ??= parent.GetNode<DialogBox>("DialogBox");
+    }
+
+    private Clock? _Clock;
+    public Clock Clock {
+      get => _Clock ??= parent.GetNode<Clock>("Clock");
     }
 
   }
