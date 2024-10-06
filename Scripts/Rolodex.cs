@@ -4,47 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 
 public partial class Rolodex : Sprite2D {
-  public List<Recipe> UnlockedRecipes = [
-    AllRecipes.TomatoSoupInACherryTomato,
-    AllRecipes.ScrambledEggs,
-  ];
-
-  public List<Creature> KnownGuests = [
-    AllCreatures.MrChicken,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-  ];
-
-  public List<Ingredient> KnownIngredients = [
-    AllIngredients.CherryTomato,
-    AllIngredients.Basil,
-    AllIngredients.Garlic,
-    AllIngredients.Onion,
-    AllIngredients.Carrot,
-    AllIngredients.Egg,
-  ];
-
-  public List<Ingredient> OwnedIngredients = [
-    AllIngredients.CherryTomato,
-    AllIngredients.CherryTomato,
-    AllIngredients.CherryTomato,
-    AllIngredients.CherryTomato,
-    AllIngredients.CherryTomato,
-    AllIngredients.Basil,
-    AllIngredients.Basil,
-    AllIngredients.Basil,
-  ];
-
   private int Page = 0;
   private int MaxEntriesPerPage = 5;
 
@@ -68,12 +27,12 @@ public partial class Rolodex : Sprite2D {
   }
 
   public void AddGuestEntry(Creature creature) {
-    KnownGuests.Add(creature);
+    GameState.KnownGuests.Add(creature);
     PopulatePages();
   }
 
   public void AddRecipeEntry(Recipe recipe) {
-    UnlockedRecipes.Add(recipe);
+    GameState.UnlockedRecipes.Add(recipe);
     PopulatePages();
   }
 
@@ -147,7 +106,7 @@ public partial class Rolodex : Sprite2D {
       Nodes.PrevPageButton.Visible = true;
     }
 
-    if (Page == KnownGuests.Count / MaxEntriesPerPage) {
+    if (Page == GameState.KnownGuests.Count / MaxEntriesPerPage) {
       Nodes.NextPageButton.Visible = false;
     } else {
       Nodes.NextPageButton.Visible = true;
@@ -166,47 +125,47 @@ public partial class Rolodex : Sprite2D {
     if (Tab == RolodexTab.Creatures) {
       // Populate the pages.
       for (int i = page1StartIndex; i < page2StartIndex; i++) {
-        if (i >= KnownGuests.Count) {
+        if (i >= GameState.KnownGuests.Count) {
           break;
         }
-        Nodes.Page1Viewport_MarginContainer_Page1.AddChild(CreateCreatureEntry(KnownGuests[i]));
+        Nodes.Page1Viewport_MarginContainer_Page1.AddChild(CreateCreatureEntry(GameState.KnownGuests[i]));
       }
 
       for (int i = page2StartIndex; i < page2EndIndex; i++) {
-        if (i >= KnownGuests.Count) {
+        if (i >= GameState.KnownGuests.Count) {
           break;
         }
-        Nodes.Page2Viewport_MarginContainer_Page2.AddChild(CreateCreatureEntry(KnownGuests[i]));
+        Nodes.Page2Viewport_MarginContainer_Page2.AddChild(CreateCreatureEntry(GameState.KnownGuests[i]));
       }
     } else if (Tab == RolodexTab.Recipes) {
       // TODO: Populate the recipes page.
       for (int i = page1StartIndex; i < page2StartIndex; i++) {
-        if (i >= UnlockedRecipes.Count) {
+        if (i >= GameState.UnlockedRecipes.Count) {
           break;
         }
-        Nodes.Page1Viewport_MarginContainer_Page1.AddChild(CreateRecipeEntry(UnlockedRecipes[i]));
+        Nodes.Page1Viewport_MarginContainer_Page1.AddChild(CreateRecipeEntry(GameState.UnlockedRecipes[i]));
       }
 
       for (int i = page2StartIndex; i < page2EndIndex; i++) {
-        if (i >= UnlockedRecipes.Count) {
+        if (i >= GameState.UnlockedRecipes.Count) {
           break;
         }
-        Nodes.Page2Viewport_MarginContainer_Page2.AddChild(CreateRecipeEntry(UnlockedRecipes[i]));
+        Nodes.Page2Viewport_MarginContainer_Page2.AddChild(CreateRecipeEntry(GameState.UnlockedRecipes[i]));
       }
     } else if (Tab == RolodexTab.Ingredients) {
 
       for (int i = page1StartIndex; i < page2StartIndex; i++) {
-        if (i >= KnownIngredients.Count) {
+        if (i >= GameState.KnownIngredients.Count) {
           break;
         }
-        Nodes.Page1Viewport_MarginContainer_Page1.AddChild(CreateIngredientEntry(KnownIngredients[i]));
+        Nodes.Page1Viewport_MarginContainer_Page1.AddChild(CreateIngredientEntry(GameState.KnownIngredients[i]));
       }
 
       for (int i = page2StartIndex; i < page2EndIndex; i++) {
-        if (i >= KnownIngredients.Count) {
+        if (i >= GameState.KnownIngredients.Count) {
           break;
         }
-        Nodes.Page2Viewport_MarginContainer_Page2.AddChild(CreateIngredientEntry(KnownIngredients[i]));
+        Nodes.Page2Viewport_MarginContainer_Page2.AddChild(CreateIngredientEntry(GameState.KnownIngredients[i]));
       }
     }
   }

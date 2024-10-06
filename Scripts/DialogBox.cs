@@ -62,7 +62,7 @@ public partial class DialogBox : PanelContainer {
                 j += 3;
               }
 
-              if (Root.HYPERSPEED) {
+              if (GameState.HYPERSPEED) {
                 break;
               }
 
@@ -124,7 +124,7 @@ public partial class DialogBox : PanelContainer {
 
       Nodes.HBoxContainer_DialogTextVBoxContainer_ClickToContinue.Visible = true;
 
-      if (!Root.HYPERSPEED) {
+      if (!GameState.HYPERSPEED) {
         while (!_isMouseDown) {
           await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
         }

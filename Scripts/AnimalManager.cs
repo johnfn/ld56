@@ -15,19 +15,13 @@ public enum CreatureState {
   WaitForTable,
   WalkToTable,
   WaitForTalk,
+  WalkToExit,
 }
 
 public enum CurrentScreen {
   Nowhere,
   Exterior,
   Interior,
-}
-
-public enum GameMode {
-  Normal,
-  ChooseTable,
-  Dialog,
-  Cooking,
 }
 
 public class SpawnedCreature {
@@ -46,7 +40,6 @@ public class Chair {
 }
 
 public partial class AnimalManager : Node2D {
-  public GameMode Mode = GameMode.Normal;
   public SpawnedCreature? CreatureCurrentlyBeingSit;
   public List<SpawnedCreature> UpcomingCreatures = [
     // new SpawnedCreature {
@@ -128,7 +121,7 @@ public partial class AnimalManager : Node2D {
       }
     }
 
-    if (Mode == GameMode.Cooking) {
+    if (GameState.Mode == GameMode.Cooking) {
       Root.Instance.UpdateCurrentScreen(GameScreen.Cooking);
     }
   }
@@ -268,7 +261,7 @@ public partial class AnimalManager : Node2D {
     }
 
     CreatureCurrentlyBeingSit = spawnedCreature;
-    Mode = GameMode.ChooseTable;
+    GameState.Mode = GameMode.ChooseTable;
   }
 
   public void SelectChair(HighlightCircle circle) {
@@ -296,17 +289,17 @@ public partial class AnimalManager : Node2D {
 
     CreatureCurrentlyBeingSit = null;
 
-    Mode = GameMode.Normal;
+    GameState.Mode = GameMode.Normal;
   }
 
   public async void StartDialog(SpawnedCreature spawnedCreature) {
-    if (Mode == GameMode.Normal) {
-      Mode = GameMode.Dialog;
+    if (GameState.Mode == GameMode.Normal) {
+      GameState.Mode = GameMode.Dialog;
 
-      var dialogResult = await DialogBox.ShowDialog(spawnedCreature.Dialog);
-      Mode = GameMode.Normal;
+      await DialogBox.ShowDialog(spawnedCreature.Dialog);
+      GameState.Mode = GameMode.Normal;
 
-      print("Done");
+      spawnedCreature.State = CreatureState.WalkToExit;
     }
   }
 }

@@ -47,6 +47,7 @@ public partial class HoverPanelExterior : PanelContainer {
       CreatureState.WalkInside => "",
       CreatureState.WalkToTable => "",
       CreatureState.WaitForTalk => "Talk",
+      CreatureState.WalkToExit => "",
     };
 
     Nodes.MarginContainer_HBoxContainer_Left_LeftLabel.Text = "";

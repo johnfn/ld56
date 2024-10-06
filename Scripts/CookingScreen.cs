@@ -55,7 +55,7 @@ public partial class CookingScreen : Sprite2D {
     // CookingScreen visible. If this is giving issues, we can remove it.
     await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
 
-    var allIngredients = Root.Instance.Nodes.Rolodex.OwnedIngredients;
+    var allIngredients = GameState.OwnedIngredients;
 
     var ingredientCounts = new Dictionary<IngredientId, int>();
 
@@ -111,7 +111,7 @@ public partial class CookingScreen : Sprite2D {
     Nodes.CookingResultModal.Nodes.HBoxContainer_Description.Text = result.Description;
 
     foreach (var ingredient in cookingList) {
-      var ownedIngredients = Root.Instance.Nodes.Rolodex.OwnedIngredients;
+      var ownedIngredients = GameState.OwnedIngredients;
       var ingredientToRemove = ownedIngredients.FirstOrDefault(x => x.Id == ingredient);
 
       if (ingredientToRemove != null) {

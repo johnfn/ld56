@@ -13,7 +13,7 @@ centered = false
 script = ExtResource("2_nxgdb")
 
 [node name="InteriorAnimalSpawnArea" type="Area2D" parent="."]
-position = Vector2(231, 580)
+position = Vector2(60, 573)
 
 [node name="Shape" type="CollisionShape2D" parent="InteriorAnimalSpawnArea"]
 shape = SubResource("RectangleShape2D_gnt6k")

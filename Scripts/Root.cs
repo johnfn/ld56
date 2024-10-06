@@ -11,12 +11,10 @@ public enum GameScreen {
 }
 
 public partial class Root : Node2D {
-  public GameScreen CurrentScreen { get; private set; } = GameScreen.Restaurant;
   public static Root Instance { get; private set; }
   public ListOfCreatures ListOfCreatures {
     get => Nodes.HUD.Nodes.Container_MarginContainer_HBoxContainer_ListOfCreatures;
   }
-  public static bool HYPERSPEED = false;
 
   public float EndOfDayTime = 10f;
   public float CurrentDayTime { get; private set; } = 0f;
@@ -26,7 +24,7 @@ public partial class Root : Node2D {
   public override void _Ready() {
     Instance = this;
 
-    UpdateCurrentScreen(CurrentScreen);
+    UpdateCurrentScreen(GameState.CurrentScreen);
 
     Nodes.AnimalManager.Initialize();
 
@@ -65,9 +63,9 @@ public partial class Root : Node2D {
     }
 
     if (Input.IsKeyPressed(Key.Ctrl)) {
-      HYPERSPEED = true;
+      GameState.HYPERSPEED = true;
     } else {
-      HYPERSPEED = false;
+      GameState.HYPERSPEED = false;
     }
 
     // Update clock
@@ -93,12 +91,12 @@ public partial class Root : Node2D {
   public void UpdateCurrentScreen(
     GameScreen newScreen
   ) {
-    CurrentScreen = newScreen;
+    GameState.CurrentScreen = newScreen;
 
-    Nodes.HUD.Nodes.ExteriorButton.Visible = CurrentScreen != GameScreen.Exterior;
-    Nodes.HUD.Nodes.InteriorButton.Visible = CurrentScreen != GameScreen.Restaurant;
+    Nodes.HUD.Nodes.ExteriorButton.Visible = GameState.CurrentScreen != GameScreen.Exterior;
+    Nodes.HUD.Nodes.InteriorButton.Visible = GameState.CurrentScreen != GameScreen.Restaurant;
 
-    Sprite2D node = CurrentScreen switch {
+    Sprite2D node = GameState.CurrentScreen switch {
       GameScreen.Exterior => Nodes.Exterior,
       GameScreen.Restaurant => Nodes.Interior,
       GameScreen.Cooking => Nodes.CookingScreen,
