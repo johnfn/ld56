@@ -47,34 +47,19 @@ public partial class RolodexRecipeEntry : PanelContainer {
       get => _HBoxContainer_TextContainer_Ingredients ??= parent.GetNode<HBoxContainer>("HBoxContainer/TextContainer/Ingredients");
     }
 
-    private TextureRect? _HBoxContainer_TextContainer_Ingredients_Ingredient1;
-    public TextureRect HBoxContainer_TextContainer_Ingredients_Ingredient1 {
-      get => _HBoxContainer_TextContainer_Ingredients_Ingredient1 ??= parent.GetNode<TextureRect>("HBoxContainer/TextContainer/Ingredients/Ingredient1");
+    private RolodexRecipeEntryIngredient? _HBoxContainer_TextContainer_Ingredients_Ingredient1;
+    public RolodexRecipeEntryIngredient HBoxContainer_TextContainer_Ingredients_Ingredient1 {
+      get => _HBoxContainer_TextContainer_Ingredients_Ingredient1 ??= parent.GetNode<RolodexRecipeEntryIngredient>("HBoxContainer/TextContainer/Ingredients/Ingredient1");
     }
 
-    private Label? _HBoxContainer_TextContainer_Ingredients_Ingredient1_QuestionMark;
-    public Label HBoxContainer_TextContainer_Ingredients_Ingredient1_QuestionMark {
-      get => _HBoxContainer_TextContainer_Ingredients_Ingredient1_QuestionMark ??= parent.GetNode<Label>("HBoxContainer/TextContainer/Ingredients/Ingredient1/QuestionMark");
+    private RolodexRecipeEntryIngredient? _HBoxContainer_TextContainer_Ingredients_Ingredient2;
+    public RolodexRecipeEntryIngredient HBoxContainer_TextContainer_Ingredients_Ingredient2 {
+      get => _HBoxContainer_TextContainer_Ingredients_Ingredient2 ??= parent.GetNode<RolodexRecipeEntryIngredient>("HBoxContainer/TextContainer/Ingredients/Ingredient2");
     }
 
-    private TextureRect? _HBoxContainer_TextContainer_Ingredients_Ingredient2;
-    public TextureRect HBoxContainer_TextContainer_Ingredients_Ingredient2 {
-      get => _HBoxContainer_TextContainer_Ingredients_Ingredient2 ??= parent.GetNode<TextureRect>("HBoxContainer/TextContainer/Ingredients/Ingredient2");
-    }
-
-    private Label? _HBoxContainer_TextContainer_Ingredients_Ingredient2_QuestionMark;
-    public Label HBoxContainer_TextContainer_Ingredients_Ingredient2_QuestionMark {
-      get => _HBoxContainer_TextContainer_Ingredients_Ingredient2_QuestionMark ??= parent.GetNode<Label>("HBoxContainer/TextContainer/Ingredients/Ingredient2/QuestionMark");
-    }
-
-    private TextureRect? _HBoxContainer_TextContainer_Ingredients_Ingredient3;
-    public TextureRect HBoxContainer_TextContainer_Ingredients_Ingredient3 {
-      get => _HBoxContainer_TextContainer_Ingredients_Ingredient3 ??= parent.GetNode<TextureRect>("HBoxContainer/TextContainer/Ingredients/Ingredient3");
-    }
-
-    private Label? _HBoxContainer_TextContainer_Ingredients_Ingredient3_QuestionMark;
-    public Label HBoxContainer_TextContainer_Ingredients_Ingredient3_QuestionMark {
-      get => _HBoxContainer_TextContainer_Ingredients_Ingredient3_QuestionMark ??= parent.GetNode<Label>("HBoxContainer/TextContainer/Ingredients/Ingredient3/QuestionMark");
+    private RolodexRecipeEntryIngredient? _HBoxContainer_TextContainer_Ingredients_Ingredient3;
+    public RolodexRecipeEntryIngredient HBoxContainer_TextContainer_Ingredients_Ingredient3 {
+      get => _HBoxContainer_TextContainer_Ingredients_Ingredient3 ??= parent.GetNode<RolodexRecipeEntryIngredient>("HBoxContainer/TextContainer/Ingredients/Ingredient3");
     }
 
   }
