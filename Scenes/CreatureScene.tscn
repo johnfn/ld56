@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://3phm7o0vm6l7"]
+
+[ext_resource type="Script" path="res://Scripts/CreatureScene.cs" id="1_06evm"]
+[ext_resource type="Texture2D" uid="uid://cw6wbj1j30eoy" path="res://Assets/Characters/Temp_Guest-A.png" id="2_dc8r4"]
+[ext_resource type="Theme" uid="uid://b26enpoebvd3m" path="res://Theme.tres" id="3_jahpv"]
+[ext_resource type="PackedScene" uid="uid://lvv1ltx4h1yj" path="res://Scenes/hover_panel_exterior.tscn" id="3_x500w"]
+
+[node name="CreatureScene" type="Node2D"]
+script = ExtResource("1_06evm")
+
+[node name="HoverPanelExterior" parent="." instance=ExtResource("3_x500w")]
+visible = false
+offset_left = -100.0
+offset_top = -245.0
+offset_right = 88.0
+offset_bottom = -169.0
+
+[node name="HoverArea" type="Button" parent="."]
+offset_left = -44.0
+offset_top = -86.0
+offset_right = 56.0
+offset_bottom = 40.0
+theme = ExtResource("3_jahpv")
+icon = ExtResource("2_dc8r4")
+flat = true
+expand_icon = true
+
+[node name="Name" type="Label" parent="."]
+offset_left = -28.0
+offset_top = -158.0
+offset_right = 40.0
+offset_bottom = -89.0
+theme_override_font_sizes/font_size = 50
+text = "???"

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://lvv1ltx4h1yj"]
 
 [ext_resource type="Script" path="res://Scripts/HoverPanelExterior.cs" id="1_50hsl"]
-[ext_resource type="Texture2D" uid="uid://cdcdmpu17aajq" path="res://Assets/Temp_Arrow.png" id="1_ra1p8"]
-[ext_resource type="Texture2D" uid="uid://cwgy6dlchlfk8" path="res://Assets/Temp_Arrow-Right.png" id="2_cf406"]
+[ext_resource type="Texture2D" uid="uid://cdcdmpu17aajq" path="res://Assets/UI/Temp_Arrow.png" id="1_ra1p8"]
+[ext_resource type="Texture2D" uid="uid://cwgy6dlchlfk8" path="res://Assets/UI/Temp_Arrow-Right.png" id="2_cf406"]
 
 [node name="HoverPanelExterior" type="PanelContainer"]
 offset_left = -99.0

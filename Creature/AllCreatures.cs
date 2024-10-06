@@ -5,10 +5,9 @@ public static class AllCreatures {
     Name = "Mr. Chicken",
     Description = "It's the neighborhood's richest chicken. It's always wearing a fancy hat and carrying a cane.",
     Instantiate = (spawnedCreature) => {
-      var chicken = Chicken.New();
-      chicken.SpawnedCreature = spawnedCreature;
-
-      return chicken;
+      var creature = CreatureScene.New();
+      creature.Data = spawnedCreature;
+      return creature;
     },
   };
 
@@ -16,10 +15,9 @@ public static class AllCreatures {
     Name = "Mrs. Cow",
     Description = "A big, friendly cow. She's always smiling and waving at people.",
     Instantiate = (spawnedCreature) => {
-      var cow = Cow.New();
-      cow.SpawnedCreature = spawnedCreature;
-
-      return cow;
+      var creature = CreatureScene.New();
+      creature.Data = spawnedCreature;
+      return creature;
     },
   };
 
@@ -27,10 +25,9 @@ public static class AllCreatures {
     Name = "Mr. Pig",
     Description = "A big pig. It hates chickens.",
     Instantiate = (spawnedCreature) => {
-      var chicken = Chicken.New();
-      chicken.SpawnedCreature = spawnedCreature;
-
-      return chicken;
+      var creature = CreatureScene.New();
+      creature.Data = spawnedCreature;
+      return creature;
     },
   };
 }
