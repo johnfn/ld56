@@ -47,31 +47,6 @@ public partial class Hud : CanvasLayer {
       get => _ClosingTimeOverlay ??= parent.GetNode<ColorRect>("ClosingTimeOverlay");
     }
 
-    private ColorRect? _Newspaper;
-    public ColorRect Newspaper {
-      get => _Newspaper ??= parent.GetNode<ColorRect>("Newspaper");
-    }
-
-    private TextureRect? _Newspaper_Newspaper;
-    public TextureRect Newspaper_Newspaper {
-      get => _Newspaper_Newspaper ??= parent.GetNode<TextureRect>("Newspaper/Newspaper");
-    }
-
-    private Label? _Newspaper_DaysLeft;
-    public Label Newspaper_DaysLeft {
-      get => _Newspaper_DaysLeft ??= parent.GetNode<Label>("Newspaper/DaysLeft");
-    }
-
-    private VBoxContainer? _Newspaper_NewspaperContentContainer;
-    public VBoxContainer Newspaper_NewspaperContentContainer {
-      get => _Newspaper_NewspaperContentContainer ??= parent.GetNode<VBoxContainer>("Newspaper/NewspaperContentContainer");
-    }
-
-    private Button? _Newspaper_CloseButton;
-    public Button Newspaper_CloseButton {
-      get => _Newspaper_CloseButton ??= parent.GetNode<Button>("Newspaper/CloseButton");
-    }
-
     private Label? _CustomersServed;
     public Label CustomersServed {
       get => _CustomersServed ??= parent.GetNode<Label>("CustomersServed");
@@ -112,9 +87,10 @@ public partial class Hud : CanvasLayer {
       get => _DialogBox ??= parent.GetNode<DialogBox>("DialogBox");
     }
 
-    private NewspaperEntry? _Newspaper_NewspaperContentContainer_NewspaperEntry;
-    public NewspaperEntry Newspaper_NewspaperContentContainer_NewspaperEntry {
-      get => _Newspaper_NewspaperContentContainer_NewspaperEntry ??= parent.GetNode<NewspaperEntry>("Newspaper/NewspaperContentContainer/NewspaperEntry");
+    // Can't find a script for ColorRect, so we use a more basic type here. 
+    private ColorRect? _Newspaper;
+    public ColorRect Newspaper {
+      get => _Newspaper ??= parent.GetNode<ColorRect>("Newspaper");
     }
 
     private Clock? _Clock;

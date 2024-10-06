@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://6tml4ytuolux"]
+[gd_scene load_steps=13 format=3 uid="uid://6tml4ytuolux"]
 
 [ext_resource type="PackedScene" uid="uid://drdgs1oscnynx" path="res://Scenes/list_of_creatures.tscn" id="1_1te6p"]
 [ext_resource type="Script" path="res://Scripts/Hud.cs" id="1_eqs7q"]
@@ -6,35 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://b6x8mab8cbrqo" path="res://Assets/UI/UI_Interior_Arrow_Left.png" id="3_i8kw0"]
 [ext_resource type="PackedScene" uid="uid://6lka55lm0755" path="res://Scenes/CoolButton.tscn" id="3_tp0ts"]
 [ext_resource type="Theme" uid="uid://b26enpoebvd3m" path="res://Theme.tres" id="3_wbuec"]
-[ext_resource type="Texture2D" uid="uid://bkaqtippwahvp" path="res://Assets/UI/newspaper.png" id="4_eaora"]
 [ext_resource type="Texture2D" uid="uid://b40rl5mcurg50" path="res://Assets/UI/UI_Interior_Book.png" id="4_jb5i5"]
 [ext_resource type="PackedScene" uid="uid://07sx5xgd03q2" path="res://Scenes/dialog_box.tscn" id="4_xc7oc"]
 [ext_resource type="Script" path="res://Scripts/CoolButton.cs" id="5_w24eq"]
-[ext_resource type="PackedScene" path="res://Scenes/newspaper_entry.tscn" id="11_4tq2l"]
+[ext_resource type="PackedScene" uid="uid://ws6vei54nero" path="res://Scenes/Newspaper.tscn" id="10_m6vq0"]
 [ext_resource type="PackedScene" uid="uid://b2ews7ockqsv5" path="res://clock.tscn" id="11_cepoc"]
 [ext_resource type="PackedScene" uid="uid://dy852coaojujg" path="res://Scenes/PauseMenu.tscn" id="13_kljas"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nm077"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ivqrp"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_piy0o"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6k7d"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1owxj"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ucltw"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y67yk"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8viex"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_anw0a"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bre28"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lqqcc"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_eqs7q")
@@ -111,55 +88,7 @@ offset_bottom = 1080.0
 mouse_filter = 2
 color = Color(0.0745098, 0.0823529, 0.215686, 0.337255)
 
-[node name="Newspaper" type="ColorRect" parent="."]
-visible = false
-offset_right = 1920.0
-offset_bottom = 1080.0
-color = Color(0, 0, 0, 0.607843)
-
-[node name="Newspaper" type="TextureRect" parent="Newspaper"]
-layout_mode = 0
-offset_left = 385.0
-offset_top = 6.0
-offset_right = 1504.0
-offset_bottom = 1055.0
-texture = ExtResource("4_eaora")
-
-[node name="DaysLeft" type="Label" parent="Newspaper"]
-layout_mode = 0
-offset_left = 529.0
-offset_top = 314.0
-offset_right = 569.0
-offset_bottom = 337.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
-text = "5 days left"
-
-[node name="NewspaperContentContainer" type="VBoxContainer" parent="Newspaper"]
-layout_mode = 0
-offset_left = 534.0
-offset_top = 362.0
-offset_right = 1412.0
-offset_bottom = 723.0
-
-[node name="NewspaperEntry" parent="Newspaper/NewspaperContentContainer" instance=ExtResource("11_4tq2l")]
-layout_mode = 2
-
-[node name="CloseButton" type="Button" parent="Newspaper"]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1073.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_nm077")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ivqrp")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_piy0o")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_g6k7d")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1owxj")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ucltw")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_y67yk")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_8viex")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_anw0a")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_bre28")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_lqqcc")
+[node name="Newspaper" parent="." instance=ExtResource("10_m6vq0")]
 
 [node name="CustomersServed" type="Label" parent="."]
 offset_left = 1550.0
