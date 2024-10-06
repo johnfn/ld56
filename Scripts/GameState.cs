@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using ld56;
+namespace ld56;
 
 public enum GameMode {
   Normal,
@@ -8,13 +8,36 @@ public enum GameMode {
   Cooking,
 }
 
+public enum CustomerSatisfaction {
+  Elated,
+  Impressed,
+  Happy,
+  Okay,
+  Unhappy,
+  Upset,
+  Angry,
+  Furious,
+  GonnaMurderYou,
+}
+
+public record CustomerResult(
+  Creature Creature,
+  int TipEarned,
+  CustomerSatisfaction Satisfaction,
+  int DayIndex
+);
+
 // TODO: Store overall day success / failure
 public static class GameState {
   public static bool HYPERSPEED = false;
   public static bool IS_DEBUG = true;
+
+  public static int DayIndexOfExtravaganza { get; set; } = 8;
+  public static int DayIndex { get; set; } = 0;
   public static int Gold { get; set; } = 0;
   public static GameMode Mode { get; set; } = GameMode.Normal;
   public static GameScreen CurrentScreen { get; set; } = GameScreen.Restaurant;
+  public static List<CustomerResult> CustomerResults { get; set; } = [];
 
   public static List<Recipe> UnlockedRecipes = [
     AllRecipes.TomatoSoupInACherryTomato,

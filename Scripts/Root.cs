@@ -55,7 +55,7 @@ public partial class Root : Node2D {
     Nodes.HUD.Nodes.ClosingTimeOverlay.Visible = false;
 
     CurrentDayTime = 0f;
-    DaysLeft--;
+    GameState.DayIndex++;
   }
 
   public override void _Process(double delta) {
@@ -126,8 +126,15 @@ public partial class Root : Node2D {
   }
 
   public void ShowNewspaper() {
+    var daysLeft = GameState.DayIndexOfExtravaganza - GameState.DayIndex;
     Nodes.HUD.Nodes.Newspaper.Visible = true;
-    Nodes.HUD.Nodes.Newspaper_HBoxContainer_DaysLeft.Text = $"Days until the Dinernb Extravaganza: {DaysLeft}!";
+
+    if (daysLeft == 0) {
+      Nodes.HUD.Nodes.Newspaper_HBoxContainer_DaysLeft.Text = "The Dinernb Extravaganza is tomorrow!";
+    } else {
+      Nodes.HUD.Nodes.Newspaper_HBoxContainer_DaysLeft.Text = $"Days until the Great Dinernb Extravaganza: {daysLeft}!";
+    }
+
     Engine.TimeScale = 0;
     Nodes.SoundManager.PlayPageTurnSFX();
   }

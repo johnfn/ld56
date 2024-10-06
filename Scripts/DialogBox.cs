@@ -7,7 +7,7 @@ namespace ld56;
 using static Utils;
 
 public class DialogReturn {
-  public Func<Task>? Next { get; set; }
+  public Func<Creature, Task>? Next { get; set; }
 }
 
 public partial class DialogBox : PanelContainer {
@@ -29,11 +29,14 @@ public partial class DialogBox : PanelContainer {
     }
   }
 
-  public static async Task<DialogReturn> ShowDialog(List<IDialogItem> dialog, bool isFirstCall = true) {
-    return await Instance.ShowDialogHelper(dialog, isFirstCall);
+  public static async Task<DialogReturn> ShowDialog(
+    List<IDialogItem> dialog,
+    Creature creature,
+    bool isFirstCall = true) {
+    return await Instance.ShowDialogHelper(dialog, creature, isFirstCall);
   }
 
-  private async Task<DialogReturn> ShowDialogHelper(List<IDialogItem> dialog, bool isFirstCall = true) {
+  private async Task<DialogReturn> ShowDialogHelper(List<IDialogItem> dialog, Creature creature, bool isFirstCall = true) {
     DialogReturn result = new();
 
     Visible = true;
@@ -140,7 +143,7 @@ public partial class DialogBox : PanelContainer {
       Visible = false;
 
       if (result.Next != null) {
-        await result.Next();
+        await result.Next(creature);
       }
     }
 

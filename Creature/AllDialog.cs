@@ -11,7 +11,7 @@ public static class AllDialog {
       Options = [
         new DialogOption {
           OptionText = "[color=green]Start cooking[/color]",
-          OnSelect = async () => {
+          OnSelect = async (Creature creature) => {
             var result = await CookingScreen.Cook();
 
             await DialogBox.ShowDialog([
@@ -22,9 +22,16 @@ public static class AllDialog {
                 Speaker = "Mr. Chicken",
                 GetReward = () => {
                   GameState.Gold -= 10;
+
+                  GameState.CustomerResults.Add(new(
+                    Creature: creature,
+                    TipEarned: 0,
+                    Satisfaction: CustomerSatisfaction.Angry,
+                    DayIndex: GameState.DayIndex
+                  ));
                 }
               },
-            ]);
+            ], creature);
 
             return;
           }
@@ -32,7 +39,7 @@ public static class AllDialog {
 
         new DialogOption {
           OptionText = "[color=red]I'm sorry, I can't do that[/color]",
-          OnSelect = async () => {
+          OnSelect = async (Creature creature) => {
             await DialogBox.ShowDialog([
               new DialogItem {
                 Text = "I'm going to tell your mom on you",
@@ -41,7 +48,14 @@ public static class AllDialog {
                   GameState.Gold += 10;
                 }
               },
-            ]);
+            ], creature);
+
+            GameState.CustomerResults.Add(new(
+              Creature: creature,
+              TipEarned: 0,
+              Satisfaction: CustomerSatisfaction.Upset,
+              DayIndex: GameState.DayIndex
+            ));
 
             return;
           }
