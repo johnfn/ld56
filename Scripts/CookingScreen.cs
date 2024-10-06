@@ -1,11 +1,10 @@
 using Godot;
-using ld56;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using static Utils;
+
+namespace ld56;
 
 public partial class CookingScreen : Sprite2D {
   private Dictionary<IngredientId, CookingIngredient> idToIngredient = [];
@@ -57,56 +56,32 @@ public partial class CookingScreen : Sprite2D {
   public async Task Initialize() {
     // This is only for the debug case where you start the game with
     // CookingScreen visible. If this is giving issues, we can remove it.
+
     await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
-
-    var allIngredients = GameState.OwnedIngredients;
-
-    var ingredientCounts = new Dictionary<IngredientId, int>();
-
-    foreach (var ingredient in allIngredients) {
-      if (ingredientCounts.TryGetValue(ingredient.Id, out int value)) {
-        ingredientCounts[ingredient.Id] = ++value;
-      } else {
-        ingredientCounts[ingredient.Id] = 1;
-      }
-    }
-
-    foreach (var child in Nodes.InventoryList.GetChildren()) {
-      child.QueueFree();
-    }
 
     foreach (var child in Nodes.CookingList.GetChildren()) {
       child.QueueFree();
     }
 
-    foreach (var (ingredientName, count) in ingredientCounts) {
-      var quantity = count;
-      var ingredient = AllIngredients.Get(ingredientName);
+    Nodes.InventoryList.Initialize();
 
-      var cookingIngredient = CookingIngredient.New();
+    Nodes.InventoryList.ClearListeners();
+    Nodes.InventoryList.OnClickIngredient += (ingredientId) => {
+      var success = Nodes.InventoryList.RemoveItemFromList(ingredientId);
 
-      Nodes.InventoryList.AddChild(cookingIngredient);
-      cookingIngredient.Nodes.HBoxContainer_MarginContainer_VBoxContainer_NameLabel.Text = ingredient.DisplayName;
-      cookingIngredient.Nodes.HBoxContainer_MarginContainer_VBoxContainer_QuantityLabel.Text = "x" + count.ToString();
+      if (success) {
+        cookingList.Add(ingredientId);
 
-      cookingIngredient.OnClick += (cookingIngredient) => {
-        if (quantity > 0) {
-          quantity--;
+        var ingredient = AllIngredients.Get(ingredientId);
+        var ingredientListItem = CookingIngredient.New();
 
-          cookingIngredient.Nodes.HBoxContainer_MarginContainer_VBoxContainer_QuantityLabel.Text = "x" + quantity.ToString();
+        Nodes.CookingList.AddChild(ingredientListItem);
 
-          var newIngredient = CookingIngredient.New();
-          Nodes.CookingList.AddChild(newIngredient);
-          newIngredient.Nodes.HBoxContainer_MarginContainer_VBoxContainer_NameLabel.Text = ingredient.DisplayName;
-          newIngredient.Nodes.HBoxContainer_MarginContainer_VBoxContainer_QuantityLabel.Text = "";
-
-          cookingList.Add(ingredientName);
-        }
-      };
-
-      idToIngredient[ingredientName] = cookingIngredient;
-    }
-
+        ingredientListItem.Nodes.HBoxContainer_MarginContainer_VBoxContainer_NameLabel.Text = ingredient.DisplayName;
+      } else {
+        // TODO: Show error somehow
+      }
+    };
   }
 
   private void ShowCookingCompleteModal(Recipe result) {

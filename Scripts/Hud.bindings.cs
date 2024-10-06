@@ -92,6 +92,16 @@ public partial class Hud : CanvasLayer {
       get => _Debug_DebugServeCustomer ??= parent.GetNode<Button>("Debug/DebugServeCustomer");
     }
 
+    private Button? _Debug_DebugShowShop;
+    public Button Debug_DebugShowShop {
+      get => _Debug_DebugShowShop ??= parent.GetNode<Button>("Debug/DebugShowShop");
+    }
+
+    private Button? _Debug_DebugShowCook;
+    public Button Debug_DebugShowCook {
+      get => _Debug_DebugShowCook ??= parent.GetNode<Button>("Debug/DebugShowCook");
+    }
+
     private ListOfCreatures? _Container_MarginContainer_HBoxContainer_ListOfCreatures;
     public ListOfCreatures Container_MarginContainer_HBoxContainer_ListOfCreatures {
       get => _Container_MarginContainer_HBoxContainer_ListOfCreatures ??= parent.GetNode<ListOfCreatures>("Container/MarginContainer/HBoxContainer/ListOfCreatures");

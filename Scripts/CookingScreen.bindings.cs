@@ -1,5 +1,5 @@
 using Godot;
-
+namespace ld56;
 
 public partial class CookingScreen : Sprite2D {
   public static CookingScreen New() {
@@ -22,11 +22,6 @@ public partial class CookingScreen : Sprite2D {
       get => _Label ??= parent.GetNode<Label>("Label");
     }
 
-    private VBoxContainer? _InventoryList;
-    public VBoxContainer InventoryList {
-      get => _InventoryList ??= parent.GetNode<VBoxContainer>("InventoryList");
-    }
-
     private Label? _Label2;
     public Label Label2 {
       get => _Label2 ??= parent.GetNode<Label>("Label2");
@@ -42,9 +37,9 @@ public partial class CookingScreen : Sprite2D {
       get => _Button ??= parent.GetNode<Button>("Button");
     }
 
-    private CookingIngredient? _InventoryList_CookingIngredient;
-    public CookingIngredient InventoryList_CookingIngredient {
-      get => _InventoryList_CookingIngredient ??= parent.GetNode<CookingIngredient>("InventoryList/CookingIngredient");
+    private InventoryList? _InventoryList;
+    public InventoryList InventoryList {
+      get => _InventoryList ??= parent.GetNode<InventoryList>("InventoryList");
     }
 
     private CookingIngredient? _CookingList_CookingIngredient;

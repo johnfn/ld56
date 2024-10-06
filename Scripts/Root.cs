@@ -55,6 +55,10 @@ public partial class Root : Node2D {
       ));
     };
 
+    Nodes.HUD.Nodes.Debug_DebugShowCook.Pressed += async () => {
+      await CookingScreen.Cook();
+    };
+
     Nodes.HUD.Nodes.Newspaper_CloseButton.Pressed += () => {
       ResetClock();
       HideNewspaper();

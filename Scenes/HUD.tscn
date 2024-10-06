@@ -191,3 +191,21 @@ offset_right = 1962.0
 offset_bottom = 368.0
 theme_override_font_sizes/font_size = 36
 text = "[debug] Serve customer"
+
+[node name="DebugShowShop" type="Button" parent="Debug"]
+layout_mode = 0
+offset_left = 1542.0
+offset_top = 387.0
+offset_right = 1962.0
+offset_bottom = 445.0
+theme_override_font_sizes/font_size = 36
+text = "[debug] Shop"
+
+[node name="DebugShowCook" type="Button" parent="Debug"]
+layout_mode = 0
+offset_left = 1546.0
+offset_top = 476.0
+offset_right = 1966.0
+offset_bottom = 534.0
+theme_override_font_sizes/font_size = 36
+text = "[debug] Cook"

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://h6vasrfdlxq"]
+
+[ext_resource type="PackedScene" uid="uid://iiqinsgr2l1n" path="res://Scenes/cooking_ingredient.tscn" id="1_ad2yj"]
+[ext_resource type="Script" path="res://Scripts/InventoryList.cs" id="1_jtk6x"]
+
+[node name="InventoryList" type="VBoxContainer"]
+offset_left = 36.0
+offset_top = 80.0
+offset_right = 356.0
+offset_bottom = 180.0
+script = ExtResource("1_jtk6x")
+
+[node name="CookingIngredient" parent="." instance=ExtResource("1_ad2yj")]
+layout_mode = 2
