@@ -96,6 +96,22 @@ theme_override_font_sizes/font_size = 28
 text = "Customers Served: 0"
 horizontal_alignment = 2
 
+[node name="Gold" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -441.0
+offset_top = 48.0
+offset_right = -18.0
+offset_bottom = 98.0
+grow_horizontal = 0
+theme = ExtResource("2_bldc1")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("15_07pbw")
+theme_override_font_sizes/font_size = 28
+text = "Gold: 1"
+horizontal_alignment = 2
+
 [node name="Debug" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -138,3 +154,12 @@ offset_right = 1966.0
 offset_bottom = 534.0
 theme_override_font_sizes/font_size = 36
 text = "[debug] Cook"
+
+[node name="DebugAddGold" type="Button" parent="Debug"]
+layout_mode = 0
+offset_left = 1546.0
+offset_top = 476.0
+offset_right = 1966.0
+offset_bottom = 534.0
+theme_override_font_sizes/font_size = 36
+text = "[debug] Add gold"

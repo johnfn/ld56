@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 
 namespace ld56;
+using static Utils;
 
 public partial class Shop : ColorRect {
   public override void _Ready() {
@@ -19,14 +20,31 @@ public partial class Shop : ColorRect {
     ownedList.Initialize(GameState.OwnedIngredients);
 
     shopList.OnMouseEnterIngredient += (ingredientId) => {
-      shopList.ShowTooltip(ingredientId, new TooltipInfo(
-        Name: "Egg",
-        Description: "A delicious egg. Yum!"
-      ));
+      shopList.ShowTooltip(ingredientId, AllIngredients.Get(ingredientId));
     };
 
     shopList.OnMouseExitIngredient += (ingredientId) => {
       shopList.HideTooltip(ingredientId);
+    };
+
+    shopList.OnClickIngredient += (ingredientId) => {
+      GD.Print($"About to buy {ingredientId}");
+
+      var ingredient = AllIngredients.Get(ingredientId);
+      if (GameState.Gold >= ingredient.Cost) {
+        GD.Print($"Bought {ingredientId} for {ingredient.Cost} gold");
+
+        GameState.Gold -= ingredient.Cost;
+        GameState.OwnedIngredients.Add(ingredient);
+
+        var newDisplayedIngredients = new List<Ingredient>(displayedIngredients);
+        newDisplayedIngredients.Remove(ingredient);
+
+        print(newDisplayedIngredients);
+        Initialize(newDisplayedIngredients);
+      } else {
+        // TODO: Too expensive
+      }
     };
   }
 }

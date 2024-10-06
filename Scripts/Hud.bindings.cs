@@ -37,6 +37,11 @@ public partial class Hud : CanvasLayer {
       get => _CustomersServed ??= parent.GetNode<Label>("CustomersServed");
     }
 
+    private Label? _Gold;
+    public Label Gold {
+      get => _Gold ??= parent.GetNode<Label>("Gold");
+    }
+
     private Control? _Debug;
     public Control Debug {
       get => _Debug ??= parent.GetNode<Control>("Debug");
@@ -60,6 +65,11 @@ public partial class Hud : CanvasLayer {
     private Button? _Debug_DebugShowCook;
     public Button Debug_DebugShowCook {
       get => _Debug_DebugShowCook ??= parent.GetNode<Button>("Debug/DebugShowCook");
+    }
+
+    private Button? _Debug_DebugAddGold;
+    public Button Debug_DebugAddGold {
+      get => _Debug_DebugAddGold ??= parent.GetNode<Button>("Debug/DebugAddGold");
     }
 
     private ListOfCreatures? _ListOfCreatures;

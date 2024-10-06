@@ -4,19 +4,22 @@ namespace ld56;
 
 public partial class Ingredient : Resource {
   [Export]
-  public string DisplayName { get; set; }
+  public required string DisplayName { get; set; }
 
   [Export]
-  public string Description { get; set; }
+  public required string Description { get; set; }
 
   [Export]
   public Texture2D Icon { get; set; }
 
   [Export]
-  public IngredientId Id { get; set; }
+  public required IngredientId Id { get; set; }
 
   [Export]
-  public Rarity Rarity { get; set; }
+  public required Rarity Rarity { get; set; }
+
+  [Export]
+  public required int Cost { get; set; }
 
   public Ingredient() {
     DisplayName = "New Ingredient";
@@ -24,6 +27,7 @@ public partial class Ingredient : Resource {
     Icon = null;
     Id = IngredientId.Basil;
     Rarity = Rarity.Common;
+    Cost = 10;
   }
 }
 

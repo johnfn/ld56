@@ -11,6 +11,7 @@ public partial class Hud : CanvasLayer {
 
   public override void _Process(double delta) {
     Nodes.CustomersServed.Text = $"Customers Served: {GameState.CustomerResults.Count}";
+    Nodes.Gold.Text = $"Gold: {GameState.Gold}";
 
     if (Input.IsActionJustPressed("debug")) {
       Nodes.Debug.Visible = !Nodes.Debug.Visible;

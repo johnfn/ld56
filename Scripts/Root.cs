@@ -64,6 +64,10 @@ public partial class Root : Node2D {
       DisplayShopHelper();
     };
 
+    Nodes.HUD.Nodes.Debug_DebugAddGold.Pressed += () => {
+      GameState.Gold += 100;
+    };
+
     Nodes.HUD.Nodes.Shop.Nodes.CloseButton.Pressed += () => {
       HideShop();
     };

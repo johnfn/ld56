@@ -65,7 +65,6 @@ public partial class CookingScreen : Sprite2D {
 
     Nodes.InventoryList.Initialize(GameState.OwnedIngredients);
 
-    Nodes.InventoryList.ClearListeners();
     Nodes.InventoryList.OnClickIngredient += (ingredientId) => {
       var success = Nodes.InventoryList.RemoveItemFromList(ingredientId);
 

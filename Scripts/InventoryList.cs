@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace ld56;
 
-public record TooltipInfo(string Name, string Description);
+public record TooltipInfo(string Name, string Description, int Cost);
 
 public partial class InventoryList : GridContainer {
   public event Action<IngredientId> OnClickIngredient;
@@ -15,9 +15,13 @@ public partial class InventoryList : GridContainer {
   private Dictionary<IngredientId, CookingIngredient> idToIngredientListItem = [];
 
   public void Initialize(List<Ingredient> displayedIngredients) {
+    ClearListeners();
+
     foreach (var child in GetChildren()) {
       child.QueueFree();
     }
+
+    ingredientCounts = [];
 
     foreach (var ingredient in displayedIngredients) {
       if (ingredientCounts.TryGetValue(ingredient.Id, out int value)) {
@@ -53,6 +57,8 @@ public partial class InventoryList : GridContainer {
 
   public void ClearListeners() {
     OnClickIngredient = null;
+    OnMouseEnterIngredient = null;
+    OnMouseExitIngredient = null;
   }
 
   public bool RemoveItemFromList(IngredientId ingredientId) {
@@ -69,10 +75,11 @@ public partial class InventoryList : GridContainer {
     }
   }
 
-  public void ShowTooltip(IngredientId ingredientId, TooltipInfo tooltipInfo) {
+  public void ShowTooltip(IngredientId ingredientId, Ingredient ingredient) {
     idToIngredientListItem[ingredientId].Nodes.BuyTooltip.Visible = true;
-    idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Name.Text = tooltipInfo.Name;
-    idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Description.Text = tooltipInfo.Description;
+    idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Name.Text = ingredient.DisplayName;
+    idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Description.Text = ingredient.Description;
+    idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Price.Text = ingredient.Cost.ToString();
   }
 
   public void HideTooltip(IngredientId ingredientId) {

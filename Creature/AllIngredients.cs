@@ -32,6 +32,7 @@ public static class AllIngredients {
     Description = "A small, round tomato.",
     Icon = GD.Load<Texture2D>("res://Assets/Ingredients/cherry_tomato.png"),
     Rarity = Rarity.Common,
+    Cost = 1,
   };
 
   public static readonly Ingredient Basil = new() {
@@ -40,6 +41,7 @@ public static class AllIngredients {
     Description = "A green herb with a strong aroma.",
     Icon = GD.Load<Texture2D>("res://Assets/Ingredients/basil_leaf.png"),
     Rarity = Rarity.Common,
+    Cost = 5,
   };
 
   public static readonly Ingredient Garlic = new() {
@@ -48,6 +50,7 @@ public static class AllIngredients {
     Description = "A bulb with strong-smelling cloves.",
     // Icon = GD.Load<Texture2D>("res://Assets/Ingredients/garlic.png"),
     Rarity = Rarity.Common,
+    Cost = 1,
   };
 
   public static readonly Ingredient Onion = new() {
@@ -56,6 +59,7 @@ public static class AllIngredients {
     Id = IngredientId.Onion,
     // Icon = GD.Load<Texture2D>("res://Assets/Ingredients/onion.png"),
     Rarity = Rarity.Common,
+    Cost = 10,
   };
 
   public static readonly Ingredient Carrot = new() {
@@ -64,6 +68,7 @@ public static class AllIngredients {
     Description = "A long, orange root.",
     // Icon = GD.Load<Texture2D>("res://Assets/Ingredients/carrot.png"),
     Rarity = Rarity.Common,
+    Cost = 1,
   };
 
   public static readonly Ingredient Egg = new() {
@@ -72,6 +77,16 @@ public static class AllIngredients {
     Id = IngredientId.Egg,
     // Icon = GD.Load<Texture2D>("res://Assets/Ingredients/egg.png"),
     Rarity = Rarity.Common,
+    Cost = 5,
+  };
+
+  public static readonly Ingredient DiscountEgg = new() {
+    DisplayName = "Egg",
+    Description = "omg, these eggs are on sale!",
+    Id = IngredientId.Egg,
+    // Icon = GD.Load<Texture2D>("res://Assets/Ingredients/egg.png"),
+    Rarity = Rarity.Common,
+    Cost = 1,
   };
 
   public static Ingredient Get(IngredientId name) {

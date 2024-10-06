@@ -34,7 +34,7 @@ public static class GameState {
 
   public static int DayIndexOfExtravaganza { get; set; } = 8;
   public static int DayIndex { get; set; } = 0;
-  public static int Gold { get; set; } = 0;
+  public static int Gold { get; set; } = IS_DEBUG ? 100 : 0;
   public static GameMode Mode { get; set; } = GameMode.Normal;
   public static GameScreen CurrentScreen { get; set; } = GameScreen.Exterior;
   public static List<CustomerResult> CustomerResults { get; set; } = [];
