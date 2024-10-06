@@ -40,8 +40,12 @@ public partial class Root : Node2D {
       ToggleRolodex();
     };
 
+    Nodes.HUD.Nodes.DebugEndDay.Pressed += () => {
+      EndDay();
+    };
+
     Nodes.HUD.Nodes.Newspaper_CloseButton.Pressed += () => {
-      ToggleNewspaper();
+      HideNewspaper();
     };
 
     StartNewDay();
@@ -52,7 +56,6 @@ public partial class Root : Node2D {
 
     CurrentDayTime = 0f;
     DaysLeft--;
-    Nodes.HUD.Nodes.Newspaper_HBoxContainer_DaysLeft.Text = $"Days until the Dinernb Extravaganza: {DaysLeft}!";
   }
 
   public override void _Process(double delta) {
@@ -73,8 +76,7 @@ public partial class Root : Node2D {
     Nodes.HUD.Nodes.Clock.Nodes.ClockHand.Rotation = Mathf.DegToRad(118f - (CurrentDayTime / EndOfDayTime) * (118f + 30f));
 
     if (CurrentDayTime >= EndOfDayTime) {
-      ToggleNewspaper();
-      StartNewDay(); // Reset the clock for the new day
+      EndDay();
     } else if (Mathf.RadToDeg(Nodes.HUD.Nodes.Clock.Nodes.ClockHand.Rotation) < -0f) {
       // Closing time - tween in closing time overlay node.
       Nodes.HUD.Nodes.ClosingTimeOverlay.Modulate = new Color(1, 1, 1, 0);
@@ -86,6 +88,11 @@ public partial class Root : Node2D {
         1f
       );
     }
+  }
+
+  public void EndDay() {
+    ShowNewspaper();
+    StartNewDay(); // Reset the clock for the new day
   }
 
   public void UpdateCurrentScreen(
@@ -118,15 +125,15 @@ public partial class Root : Node2D {
     Nodes.HUD.Nodes.Rolodex.Visible = !Nodes.HUD.Nodes.Rolodex.Visible;
   }
 
-  public void ToggleNewspaper() {
-    Nodes.HUD.Nodes.Newspaper.Visible = !Nodes.HUD.Nodes.Newspaper.Visible;
-
-    if (Nodes.HUD.Nodes.Newspaper.Visible) {
-      Engine.TimeScale = 0;
-    } else {
-      Engine.TimeScale = 1;
-    }
-
+  public void ShowNewspaper() {
+    Nodes.HUD.Nodes.Newspaper.Visible = true;
+    Nodes.HUD.Nodes.Newspaper_HBoxContainer_DaysLeft.Text = $"Days until the Dinernb Extravaganza: {DaysLeft}!";
+    Engine.TimeScale = 0;
     Nodes.SoundManager.PlayPageTurnSFX();
+  }
+
+  public void HideNewspaper() {
+    Nodes.HUD.Nodes.Newspaper.Visible = false;
+    Engine.TimeScale = 1;
   }
 }

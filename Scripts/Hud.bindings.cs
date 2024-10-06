@@ -77,6 +77,11 @@ public partial class Hud : CanvasLayer {
       get => _ClosingTimeOverlay ??= parent.GetNode<ColorRect>("ClosingTimeOverlay");
     }
 
+    private Button? _DebugEndDay;
+    public Button DebugEndDay {
+      get => _DebugEndDay ??= parent.GetNode<Button>("DebugEndDay");
+    }
+
     private ListOfCreatures? _Container_MarginContainer_HBoxContainer_ListOfCreatures;
     public ListOfCreatures Container_MarginContainer_HBoxContainer_ListOfCreatures {
       get => _Container_MarginContainer_HBoxContainer_ListOfCreatures ??= parent.GetNode<ListOfCreatures>("Container/MarginContainer/HBoxContainer/ListOfCreatures");

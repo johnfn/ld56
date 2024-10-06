@@ -159,3 +159,11 @@ visible = false
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0.0745098, 0.0823529, 0.215686, 0.337255)
+
+[node name="DebugEndDay" type="Button" parent="."]
+offset_left = 1542.0
+offset_top = 167.0
+offset_right = 1914.0
+offset_bottom = 225.0
+theme_override_font_sizes/font_size = 36
+text = "[debug] End day"
