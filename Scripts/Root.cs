@@ -48,11 +48,9 @@ public partial class Root : Node2D {
   }
 
   public void StartNewDay() {
-    // Nodes.HUD.Nodes.Clock_ClockHand.Rotation = Mathf.DegToRad(118f);
     Nodes.HUD.Nodes.ClosingTimeOverlay.Visible = false;
 
     CurrentDayTime = 0f;
-
     DaysLeft--;
     Nodes.HUD.Nodes.Newspaper_HBoxContainer_DaysLeft.Text = $"Days until the Dinernb Extravaganza: {DaysLeft}!";
   }
