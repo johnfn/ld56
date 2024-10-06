@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmyhb560brruo"]
+
+[ext_resource type="Script" path="res://Scripts/DialogOptionNode.cs" id="2_gxgmb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vj2yi"]
+content_margin_left = 24.0
+content_margin_top = 12.0
+content_margin_right = 24.0
+content_margin_bottom = 12.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 1000
+corner_radius_top_right = 1000
+corner_radius_bottom_right = 1000
+corner_radius_bottom_left = 1000
+
+[node name="DialogOptionNode" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_vj2yi")
+script = ExtResource("2_gxgmb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "I am a big chicken.  "
+fit_content = true
+autowrap_mode = 2
