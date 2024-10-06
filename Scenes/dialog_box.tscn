@@ -29,11 +29,13 @@ text = "Mrs. Chicken
 [node name="DialogTextVBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 
-[node name="DialogText" type="Label" parent="HBoxContainer/DialogTextVBoxContainer"]
+[node name="DialogText" type="RichTextLabel" parent="HBoxContainer/DialogTextVBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "I am a big chicken. "
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "I am a big chicken.  "
+fit_content = true
 autowrap_mode = 2
 
 [node name="ClickToContinue" type="Label" parent="HBoxContainer/DialogTextVBoxContainer"]

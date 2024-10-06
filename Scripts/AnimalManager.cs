@@ -27,6 +27,7 @@ public enum GameMode {
   Normal,
   ChooseTable,
   Dialog,
+  Cooking,
 }
 
 public class SpawnedCreature {
@@ -298,9 +299,13 @@ public partial class AnimalManager : Node2D {
     if (Mode == GameMode.Normal) {
       Mode = GameMode.Dialog;
 
-      await Root.Instance.Nodes.HUD.Nodes.DialogBox.ShowDialog(spawnedCreature.Dialog);
+      var dialogResult = await Root.Instance.Nodes.HUD.Nodes.DialogBox.ShowDialog(spawnedCreature.Dialog);
 
-      Mode = GameMode.Normal;
+      if (dialogResult == DialogReturn.BeginCooking) {
+        Mode = GameMode.Cooking;
+      } else {
+        Mode = GameMode.Normal;
+      }
     }
   }
 }

@@ -4,6 +4,11 @@ using System.Threading.Tasks;
 namespace ld56;
 using static Utils;
 
+public enum DialogReturn {
+  None,
+  BeginCooking,
+}
+
 public partial class DialogBox : PanelContainer {
   private bool _isMouseDown = false;
 
@@ -19,7 +24,7 @@ public partial class DialogBox : PanelContainer {
     }
   }
 
-  public async Task ShowDialog(List<IDialogItem> dialog) {
+  public async Task<DialogReturn> ShowDialog(List<IDialogItem> dialog) {
     Visible = true;
     Nodes.HBoxContainer_VBoxContainer_Label.Text = "";
     Nodes.HBoxContainer_DialogTextVBoxContainer_DialogText.Text = "";
@@ -31,13 +36,17 @@ public partial class DialogBox : PanelContainer {
 
     foreach (var item in dialog) {
       switch (item) {
+        case DialogBeginCooking dialogBeginCooking:
+          return DialogReturn.BeginCooking;
         case DialogItem dialogItem:
           Nodes.HBoxContainer_DialogTextVBoxContainer.Visible = true;
           Nodes.HBoxContainer_OptionsVBoxContainer.Visible = false;
           Nodes.HBoxContainer_VBoxContainer_Label.Text = dialogItem.Speaker;
 
+          Nodes.HBoxContainer_DialogTextVBoxContainer_DialogText.Text = dialogItem.Text;
+
           for (int i = 0; i < dialogItem.Text.Length; i++) {
-            Nodes.HBoxContainer_DialogTextVBoxContainer_DialogText.Text += dialogItem.Text[i];
+            Nodes.HBoxContainer_DialogTextVBoxContainer_DialogText.VisibleCharacters = i;
 
             for (int j = 0; j < 20; j++) {
               if (_isMouseDown) {
@@ -85,9 +94,7 @@ public partial class DialogBox : PanelContainer {
           var onSelect = dialogOptions.Options[selectedOption.Value].OnSelect;
 
           if (onSelect != null) {
-            await ShowDialog(onSelect());
-
-            return;
+            return await ShowDialog(onSelect());
           }
 
           break;
@@ -121,5 +128,7 @@ public partial class DialogBox : PanelContainer {
     }
 
     Visible = false;
+
+    return DialogReturn.None;
   }
 }

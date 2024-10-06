@@ -42,9 +42,9 @@ public partial class DialogBox : PanelContainer {
       get => _HBoxContainer_DialogTextVBoxContainer ??= parent.GetNode<VBoxContainer>("HBoxContainer/DialogTextVBoxContainer");
     }
 
-    private Label? _HBoxContainer_DialogTextVBoxContainer_DialogText;
-    public Label HBoxContainer_DialogTextVBoxContainer_DialogText {
-      get => _HBoxContainer_DialogTextVBoxContainer_DialogText ??= parent.GetNode<Label>("HBoxContainer/DialogTextVBoxContainer/DialogText");
+    private RichTextLabel? _HBoxContainer_DialogTextVBoxContainer_DialogText;
+    public RichTextLabel HBoxContainer_DialogTextVBoxContainer_DialogText {
+      get => _HBoxContainer_DialogTextVBoxContainer_DialogText ??= parent.GetNode<RichTextLabel>("HBoxContainer/DialogTextVBoxContainer/DialogText");
     }
 
     private Label? _HBoxContainer_DialogTextVBoxContainer_ClickToContinue;

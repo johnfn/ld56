@@ -10,6 +10,9 @@ public struct DialogReward : IDialogItem {
   public Action<bool> GetReward { get; set; }
 }
 
+public struct DialogBeginCooking : IDialogItem {
+}
+
 public struct DialogItem : IDialogItem {
   public string Text { get; set; }
   public string Speaker { get; set; }
@@ -27,19 +30,16 @@ public struct DialogOptions : IDialogItem {
 
 public static class AllDialog {
   public static List<IDialogItem> MrChicken = [
-    new DialogItem { Text = "Hello, I am Mr. Chicken", Speaker = "Mr. Chicken" },
+    new DialogItem { Text = "Hello, I am [color=green]Mr. Chicken[/color].", Speaker = "Mr. Chicken" },
     new DialogItem { Text = "I'm aware.", Speaker = "You" },
-    new DialogItem { Text = "Please, I beg you. I want a drink that reminds me of the sea.", Speaker = "Mr. Chicken" },
+    new DialogItem { Text = "Please, [color=gray]I beg you[/color]. I want a drink that reminds me of the sea.", Speaker = "Mr. Chicken" },
     new DialogOptions {
       Options = [
         new DialogOption {
-          OptionText = "Use the special sea salt your mom made you?",
-          IsAvailable = () => {
-            return false;
-          },
+          OptionText = "Start cooking",
           OnSelect = () => {
             return [
-              new DialogItem { Text = "Wtf, That's disgusting", Speaker = "Mr. Chicken" },
+              new DialogBeginCooking(),
             ];
           }
         },
