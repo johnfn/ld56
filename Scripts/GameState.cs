@@ -11,6 +11,7 @@ public enum GameMode {
 // TODO: Store overall day success / failure
 public static class GameState {
   public static bool HYPERSPEED = false;
+  public static int Gold = 0;
   public static GameMode Mode = GameMode.Normal;
   public static GameScreen CurrentScreen { get; set; } = GameScreen.Restaurant;
 

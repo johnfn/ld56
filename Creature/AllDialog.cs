@@ -18,16 +18,30 @@ public static class AllDialog {
               new DialogItem { Text = $"I made you some {result.DisplayName}", Speaker = "You" },
               new DialogItem { Text = "Bad news, my friend.", Speaker = "Mr. Chicken" },
               new DialogItem { Text = "You see, I HATE YOUR STUPID MEAL.", Speaker = "Mr. Chicken" },
+              new DialogItem {
+                Text = "You see, I HATE YOUR STUPID MEAL.",
+                Speaker = "Mr. Chicken",
+                GetReward = () => {
+                  GameState.Gold -= 10;
+                }
+              },
             ]);
 
             return;
           }
         },
+
         new DialogOption {
           OptionText = "[color=red]I'm sorry, I can't do that[/color]",
           OnSelect = async () => {
             await DialogBox.ShowDialog([
-              new DialogItem { Text = "I'm going to tell your mom on you", Speaker = "Mr. Chicken" },
+              new DialogItem {
+                Text = "I'm going to tell your mom on you",
+                Speaker = "Mr. Chicken",
+                GetReward = () => {
+                  GameState.Gold += 10;
+                }
+              },
             ]);
 
             return;
@@ -46,9 +60,10 @@ public static class AllDialog {
           new DialogOption {
             OptionText = "WTF. That seems... problematic.",
             IsAvailable = () => {
-              return false;
+              return GameState.Gold > 10;
             }
           },
+
           new DialogOption { OptionText = "OK... whatever." }
         ]
       },

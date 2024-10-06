@@ -7,14 +7,10 @@ namespace ld56;
 
 public interface IDialogItem { }
 
-public struct DialogReward : IDialogItem {
-  public string Text { get; set; }
-  public Action<bool> GetReward { get; set; }
-}
-
 public struct DialogItem : IDialogItem {
   public string Text { get; set; }
   public string Speaker { get; set; }
+  public Action GetReward { get; set; }
 }
 
 public struct DialogOption {
