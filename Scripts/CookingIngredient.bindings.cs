@@ -1,7 +1,7 @@
 using Godot;
 
 
-public partial class CookingIngredient : PanelContainer {
+public partial class CookingIngredient : Control {
   public static CookingIngredient New() {
     return GD.Load<PackedScene>("res://Scenes/cooking_ingredient.tscn").Instantiate<CookingIngredient>();
   }

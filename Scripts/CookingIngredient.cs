@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class CookingIngredient : PanelContainer {
+public partial class CookingIngredient : Control {
   public event Action<CookingIngredient> OnClick;
 
   public override void _Ready() {
@@ -9,6 +9,8 @@ public partial class CookingIngredient : PanelContainer {
     MouseExited += OnMouseExited;
     GuiInput += OnGuiInput;
     Modulate = new Color(0.7f, 0.7f, 0.7f);
+
+    Nodes.Tooltip.Visible = false;
   }
 
   private void OnMouseEntered() {

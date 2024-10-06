@@ -3,7 +3,7 @@ namespace ld56;
 
 public partial class ListOfCreatures : HBoxContainer {
   public static ListOfCreatures New() {
-    return GD.Load<PackedScene>("res://Scenes/list_of_creatures.tscn").Instantiate<ListOfCreatures>();
+    return GD.Load<PackedScene>("res://Scenes/list_of_people.tscn").Instantiate<ListOfCreatures>();
   }
   public ListOfCreatures() {
     foreach (var @interface in GetType().GetInterfaces()) {

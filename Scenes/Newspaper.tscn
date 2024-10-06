@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bgamugh02ehmj"]
 
-[ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="1_3j82h"]
+[ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="1_3j82h"]
 [ext_resource type="Texture2D" uid="uid://cwlu3v8477red" path="res://Assets/UI/UI_Newspaper.png" id="1_g6tcm"]
 [ext_resource type="PackedScene" uid="uid://bro01n3lxe6db" path="res://Scenes/newspaper_entry.tscn" id="2_1qv3o"]
 [ext_resource type="Script" path="res://Scripts/Newspaper.cs" id="2_s0dly"]
