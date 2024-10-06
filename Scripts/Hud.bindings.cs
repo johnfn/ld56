@@ -17,21 +17,6 @@ public partial class Hud : CanvasLayer {
     public HudNodes(Hud parent) {
       this.parent = parent;
     }
-    private Control? _Container;
-    public Control Container {
-      get => _Container ??= parent.GetNode<Control>("Container");
-    }
-
-    private MarginContainer? _Container_MarginContainer;
-    public MarginContainer Container_MarginContainer {
-      get => _Container_MarginContainer ??= parent.GetNode<MarginContainer>("Container/MarginContainer");
-    }
-
-    private HBoxContainer? _Container_MarginContainer_HBoxContainer;
-    public HBoxContainer Container_MarginContainer_HBoxContainer {
-      get => _Container_MarginContainer_HBoxContainer ??= parent.GetNode<HBoxContainer>("Container/MarginContainer/HBoxContainer");
-    }
-
     private Button? _RolodexButton;
     public Button RolodexButton {
       get => _RolodexButton ??= parent.GetNode<Button>("RolodexButton");
@@ -77,9 +62,9 @@ public partial class Hud : CanvasLayer {
       get => _Debug_DebugShowCook ??= parent.GetNode<Button>("Debug/DebugShowCook");
     }
 
-    private ListOfCreatures? _Container_MarginContainer_HBoxContainer_ListOfCreatures;
-    public ListOfCreatures Container_MarginContainer_HBoxContainer_ListOfCreatures {
-      get => _Container_MarginContainer_HBoxContainer_ListOfCreatures ??= parent.GetNode<ListOfCreatures>("Container/MarginContainer/HBoxContainer/ListOfCreatures");
+    private ListOfCreatures? _ListOfCreatures;
+    public ListOfCreatures ListOfCreatures {
+      get => _ListOfCreatures ??= parent.GetNode<ListOfCreatures>("ListOfCreatures");
     }
 
     private CoolButton? _ExteriorButton;

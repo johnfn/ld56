@@ -15,7 +15,7 @@ public enum GameScreen {
 public partial class Root : Node2D {
   public static Root Instance { get; private set; }
   public ListOfCreatures ListOfCreatures {
-    get => Nodes.HUD.Nodes.Container_MarginContainer_HBoxContainer_ListOfCreatures;
+    get => Nodes.HUD.Nodes.ListOfCreatures;
   }
 
   public float EndOfDayTime = 10f;

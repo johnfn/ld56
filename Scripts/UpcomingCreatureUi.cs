@@ -4,11 +4,12 @@ using System.Diagnostics;
 
 namespace ld56;
 
-public partial class UpcomingCreatureUi : ColorRect {
+public partial class UpcomingCreatureUi : TextureRect {
   private SpawnedCreature _spawnedCreature;
 
   public void Initialize(SpawnedCreature spawnedCreature) {
     _spawnedCreature = spawnedCreature;
+    this.Texture = spawnedCreature.Creature.Icon;
   }
 
   public override void _Ready() {
@@ -69,17 +70,17 @@ public partial class UpcomingCreatureUi : ColorRect {
       CreatureState.Done => "Leaving",
     };
 
-    Color = creature.State switch {
-      CreatureState.NotSpawnedYet => Colors.Red,
-      CreatureState.WalkToEntrance => Colors.Orange,
-      CreatureState.WaitToBeAdmitted => Colors.Yellow,
-      CreatureState.WalkInside => Colors.Green,
-      CreatureState.WaitForTable => Colors.Green,
-      CreatureState.WalkToTable => Colors.Green,
-      CreatureState.WaitForTalk => Colors.Green,
-      CreatureState.WalkToExit => Colors.Green,
-      CreatureState.Done => Colors.Green,
-    };
+    // Color = creature.State switch {
+    //   CreatureState.NotSpawnedYet => Colors.Red,
+    //   CreatureState.WalkToEntrance => Colors.Orange,
+    //   CreatureState.WaitToBeAdmitted => Colors.Yellow,
+    //   CreatureState.WalkInside => Colors.Green,
+    //   CreatureState.WaitForTable => Colors.Green,
+    //   CreatureState.WalkToTable => Colors.Green,
+    //   CreatureState.WaitForTalk => Colors.Green,
+    //   CreatureState.WalkToExit => Colors.Green,
+    //   CreatureState.Done => Colors.Green,
+    // };
 
     location.Text = creature.CurrentScreen switch {
       CurrentScreen.Exterior => "Outside",
