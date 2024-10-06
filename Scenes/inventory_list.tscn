@@ -4,10 +4,8 @@
 [ext_resource type="Script" path="res://Scripts/InventoryList.cs" id="1_jtk6x"]
 
 [node name="InventoryList" type="GridContainer"]
-offset_left = 36.0
-offset_top = 80.0
-offset_right = 356.0
-offset_bottom = 180.0
+offset_right = 412.0
+offset_bottom = 204.0
 columns = 4
 script = ExtResource("1_jtk6x")
 

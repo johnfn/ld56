@@ -3,22 +3,64 @@
 [ext_resource type="Script" path="res://Scripts/CookingIngredient.cs" id="1_4htc4"]
 [ext_resource type="Texture2D" uid="uid://dvystam1uwxhs" path="res://Assets/Ingredients/basil_leaf.png" id="1_hdg4o"]
 
-[node name="CookingIngredient" type="PanelContainer"]
+[node name="CookingIngredient" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 100.0
 offset_bottom = 100.0
 script = ExtResource("1_4htc4")
 
-[node name="IngredientImage" type="TextureRect" parent="."]
+[node name="Tooltip" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_top = -128.0
+offset_right = 415.0
+offset_bottom = -12.0
+
+[node name="HSeparator" type="HSeparator" parent="Tooltip"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tooltip/HSeparator"]
+layout_mode = 2
+offset_right = 415.0
+offset_bottom = 116.0
+
+[node name="Name" type="RichTextLabel" parent="Tooltip/HSeparator/VBoxContainer"]
+layout_mode = 2
+text = "Basil leaf"
+fit_content = true
+
+[node name="Description" type="RichTextLabel" parent="Tooltip/HSeparator/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.462891, 0.462891, 0.462891, 1)
+bbcode_enabled = true
+text = "Yummy yummy basil its so tasty yum yum yum yum yum yum yum yum yumyumyumyu"
+fit_content = true
+
+[node name="Price" type="RichTextLabel" parent="Tooltip/HSeparator"]
+layout_mode = 2
+offset_top = 77.0
+offset_right = 415.0
+offset_bottom = 100.0
+bbcode_enabled = true
+text = "[color=gold]5 gold[/color]"
+fit_content = true
+
+[node name="Container" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="IngredientImage" type="TextureRect" parent="Container"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 texture = ExtResource("1_hdg4o")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Container"]
 layout_mode = 2
 
-[node name="NameLabel" type="RichTextLabel" parent="."]
+[node name="NameLabel" type="RichTextLabel" parent="Container"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -27,7 +69,7 @@ bbcode_enabled = true
 text = "Basil leaf"
 fit_content = true
 
-[node name="QuantityLabel" type="RichTextLabel" parent="."]
+[node name="QuantityLabel" type="RichTextLabel" parent="Container"]
 layout_mode = 2
 size_flags_vertical = 8
 bbcode_enabled = true

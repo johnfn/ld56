@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using static Utils;
 
@@ -60,7 +61,11 @@ public partial class Root : Node2D {
     };
 
     Nodes.HUD.Nodes.Debug_DebugShowShop.Pressed += () => {
-      DisplayShop();
+      DisplayShopHelper();
+    };
+
+    Nodes.HUD.Nodes.Shop.Nodes.CloseButton.Pressed += () => {
+      HideShop();
     };
 
     Nodes.HUD.Nodes.Newspaper.Visible = false;
@@ -73,13 +78,23 @@ public partial class Root : Node2D {
     GameState.DayIndex++;
   }
 
-  public void DisplayShop() {
-    Nodes.HUD.Nodes.Shop.Initialize([
+  public void DisplayShopHelper() {
+    // TODO: Figure out what they actually sell, lol.
+
+    DisplayShop([
       AllIngredients.Egg,
       AllIngredients.Egg,
       AllIngredients.Egg,
     ]);
-    Nodes.HUD.Nodes.Shop.Visible = true;
+  }
+
+  public static void DisplayShop(List<Ingredient> displayedIngredients) {
+    Instance.Nodes.HUD.Nodes.Shop.Initialize(displayedIngredients);
+    Instance.Nodes.HUD.Nodes.Shop.Visible = true;
+  }
+
+  public void HideShop() {
+    Nodes.HUD.Nodes.Shop.Visible = false;
   }
 
   public override void _Process(double delta) {

@@ -6,6 +6,7 @@ namespace ld56;
 
 public partial class InventoryList : GridContainer {
   public event Action<IngredientId> OnClickIngredient;
+
   private Dictionary<IngredientId, int> ingredientCounts = [];
   private Dictionary<IngredientId, CookingIngredient> idToIngredientListItem = [];
 
@@ -28,8 +29,8 @@ public partial class InventoryList : GridContainer {
 
       AddChild(ingredientListItem);
 
-      ingredientListItem.Nodes.NameLabel.Text = ingredient.DisplayName;
-      ingredientListItem.Nodes.QuantityLabel.Text = "x" + count.ToString();
+      ingredientListItem.Nodes.Container_NameLabel.Text = ingredient.DisplayName;
+      ingredientListItem.Nodes.Container_QuantityLabel.Text = "x" + count.ToString();
 
       ingredientListItem.OnClick += (ingredient) => {
         OnClickIngredient?.Invoke(ingredientId);
@@ -49,7 +50,7 @@ public partial class InventoryList : GridContainer {
     if (quantity > 0) {
       quantity--;
       ingredientCounts[ingredientId] = quantity;
-      idToIngredientListItem[ingredientId].Nodes.QuantityLabel.Text = "x" + quantity.ToString();
+      idToIngredientListItem[ingredientId].Nodes.Container_QuantityLabel.Text = "x" + quantity.ToString();
 
       return true;
     } else {

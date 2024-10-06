@@ -1,52 +1,14 @@
-[gd_scene load_steps=15 format=3 uid="uid://gdfr1cdecogv"]
+[gd_scene load_steps=4 format=3 uid="uid://gdfr1cdecogv"]
 
 [ext_resource type="Texture2D" uid="uid://cwq2iu3ps48mr" path="res://Assets/Characters/Character_Hamster.png" id="1_i0vs7"]
 [ext_resource type="Script" path="res://Scripts/Shop.cs" id="1_vkjvu"]
 [ext_resource type="PackedScene" uid="uid://h6vasrfdlxq" path="res://Scenes/inventory_list.tscn" id="4_8tvhw"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nm077"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ivqrp"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_piy0o"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6k7d"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1owxj"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ucltw"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y67yk"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8viex"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_anw0a"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bre28"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lqqcc"]
 
 [node name="Shop" type="ColorRect"]
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 0.607843)
 script = ExtResource("1_vkjvu")
-
-[node name="CloseButton" type="Button" parent="."]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1073.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_nm077")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ivqrp")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_piy0o")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_g6k7d")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_1owxj")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ucltw")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_y67yk")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_8viex")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_anw0a")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_bre28")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_lqqcc")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -93,3 +55,12 @@ text = "Your inventory"
 
 [node name="InventoryList" parent="PanelContainer/HBoxContainer/VBoxContainer2" instance=ExtResource("4_8tvhw")]
 layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 926.0
+offset_right = 575.0
+offset_bottom = 957.0
+theme_override_font_sizes/font_size = 80
+text = "Close"

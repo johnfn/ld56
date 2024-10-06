@@ -17,11 +17,6 @@ public partial class Shop : ColorRect {
     public ShopNodes(Shop parent) {
       this.parent = parent;
     }
-    private Button? _CloseButton;
-    public Button CloseButton {
-      get => _CloseButton ??= parent.GetNode<Button>("CloseButton");
-    }
-
     private PanelContainer? _PanelContainer;
     public PanelContainer PanelContainer {
       get => _PanelContainer ??= parent.GetNode<PanelContainer>("PanelContainer");
@@ -60,6 +55,11 @@ public partial class Shop : ColorRect {
     private Label? _PanelContainer_HBoxContainer_VBoxContainer2_YourInventoryLabel;
     public Label PanelContainer_HBoxContainer_VBoxContainer2_YourInventoryLabel {
       get => _PanelContainer_HBoxContainer_VBoxContainer2_YourInventoryLabel ??= parent.GetNode<Label>("PanelContainer/HBoxContainer/VBoxContainer2/YourInventoryLabel");
+    }
+
+    private Button? _CloseButton;
+    public Button CloseButton {
+      get => _CloseButton ??= parent.GetNode<Button>("CloseButton");
     }
 
     private InventoryList? _PanelContainer_HBoxContainer_VBoxContainer2_ShopInventoryList;
