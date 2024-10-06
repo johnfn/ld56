@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://6tml4ytuolux"]
+[gd_scene load_steps=16 format=3 uid="uid://6tml4ytuolux"]
 
 [ext_resource type="PackedScene" uid="uid://drdgs1oscnynx" path="res://Scenes/list_of_creatures.tscn" id="1_1te6p"]
 [ext_resource type="Script" path="res://Scripts/Hud.cs" id="1_eqs7q"]
+[ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="2_bldc1"]
 [ext_resource type="PackedScene" uid="uid://cl4p3lwxo5lsa" path="res://Scenes/Rolodex.tscn" id="3_cpfkf"]
 [ext_resource type="Texture2D" uid="uid://b6x8mab8cbrqo" path="res://Assets/UI/UI_Interior_Arrow_Left.png" id="3_i8kw0"]
 [ext_resource type="PackedScene" uid="uid://6lka55lm0755" path="res://Scenes/CoolButton.tscn" id="3_tp0ts"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ws6vei54nero" path="res://Scenes/Newspaper.tscn" id="12_3vn73"]
 [ext_resource type="PackedScene" path="res://Scenes/shop.tscn" id="12_d7kfh"]
 [ext_resource type="PackedScene" uid="uid://dy852coaojujg" path="res://Scenes/PauseMenu.tscn" id="13_kljas"]
+[ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="15_07pbw"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_eqs7q")
@@ -24,6 +26,7 @@ anchor_bottom = 0.892
 offset_top = 116.64
 offset_bottom = 116.64
 grow_vertical = 0
+theme = ExtResource("2_bldc1")
 
 [node name="MarginContainer" type="MarginContainer" parent="Container"]
 layout_mode = 1
@@ -83,6 +86,7 @@ offset_right = 1181.0
 offset_bottom = 513.0
 
 [node name="Shop" parent="." instance=ExtResource("12_d7kfh")]
+theme = ExtResource("2_bldc1")
 
 [node name="Clock" parent="." instance=ExtResource("11_cepoc")]
 
@@ -98,18 +102,27 @@ color = Color(0.0745098, 0.0823529, 0.215686, 0.337255)
 [node name="Menus" parent="." instance=ExtResource("13_kljas")]
 
 [node name="CustomersServed" type="Label" parent="."]
-offset_left = 1550.0
-offset_top = 180.0
-offset_right = 1905.0
-offset_bottom = 230.0
-theme_override_font_sizes/font_size = 36
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -392.0
+offset_top = 19.0
+offset_right = -37.0
+offset_bottom = 69.0
+grow_horizontal = 0
+theme = ExtResource("2_bldc1")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("15_07pbw")
+theme_override_font_sizes/font_size = 24
 text = "Customers Served: 0"
+horizontal_alignment = 2
 
 [node name="Debug" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("2_bldc1")
 
 [node name="DebugEndDay" type="Button" parent="Debug"]
 layout_mode = 0
@@ -117,7 +130,6 @@ offset_left = 1542.0
 offset_top = 244.0
 offset_right = 1914.0
 offset_bottom = 302.0
-theme_override_font_sizes/font_size = 36
 text = "[debug] End day"
 
 [node name="DebugServeCustomer" type="Button" parent="Debug"]
@@ -126,7 +138,6 @@ offset_left = 1542.0
 offset_top = 310.0
 offset_right = 1962.0
 offset_bottom = 368.0
-theme_override_font_sizes/font_size = 36
 text = "[debug] Serve customer"
 
 [node name="DebugShowShop" type="Button" parent="Debug"]
@@ -135,7 +146,6 @@ offset_left = 1542.0
 offset_top = 387.0
 offset_right = 1962.0
 offset_bottom = 445.0
-theme_override_font_sizes/font_size = 36
 text = "[debug] Shop"
 
 [node name="DebugShowCook" type="Button" parent="Debug"]
@@ -144,5 +154,4 @@ offset_left = 1546.0
 offset_top = 476.0
 offset_right = 1966.0
 offset_bottom = 534.0
-theme_override_font_sizes/font_size = 36
 text = "[debug] Cook"
