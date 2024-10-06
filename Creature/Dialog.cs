@@ -1,5 +1,7 @@
+using Godot;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ld56;
 
@@ -10,9 +12,6 @@ public struct DialogReward : IDialogItem {
   public Action<bool> GetReward { get; set; }
 }
 
-public struct DialogBeginCooking : IDialogItem {
-}
-
 public struct DialogItem : IDialogItem {
   public string Text { get; set; }
   public string Speaker { get; set; }
@@ -21,7 +20,7 @@ public struct DialogItem : IDialogItem {
 public struct DialogOption {
   public string OptionText { get; set; }
   public Func<bool>? IsAvailable { get; set; }
-  public Func<List<IDialogItem>>? OnSelect { get; set; }
+  public Func<Task>? OnSelect { get; set; }
 }
 
 public struct DialogOptions : IDialogItem {
@@ -37,18 +36,26 @@ public static class AllDialog {
       Options = [
         new DialogOption {
           OptionText = "[color=green]Start cooking[/color]",
-          OnSelect = () => {
-            return [
-              new DialogBeginCooking(),
-            ];
+          OnSelect = async () => {
+            var result = await CookingScreen.Cook();
+
+            await DialogBox.ShowDialog([
+              new DialogItem { Text = $"I made you some {result.DisplayName}", Speaker = "You" },
+              new DialogItem { Text = "Bad news, my friend.", Speaker = "Mr. Chicken" },
+              new DialogItem { Text = "You see, I HATE YOUR STUPID MEAL.", Speaker = "Mr. Chicken" },
+            ]);
+
+            return;
           }
         },
         new DialogOption {
           OptionText = "[color=red]I'm sorry, I can't do that[/color]",
-          OnSelect = () => {
-            return [
+          OnSelect = async () => {
+            await DialogBox.ShowDialog([
               new DialogItem { Text = "I'm going to tell your mom on you", Speaker = "Mr. Chicken" },
-            ];
+            ]);
+
+            return;
           }
         }
       ]

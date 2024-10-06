@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgco38xny3gof"]
+
+[ext_resource type="Script" path="res://Scripts/CookingResultModal.cs" id="1_hmcw3"]
+
+[node name="CookingResultModal" type="PanelContainer"]
+offset_left = 215.896
+offset_top = 215.896
+offset_right = 1034.9
+offset_bottom = 561.896
+script = ExtResource("1_hmcw3")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "THE RESULT OF YOUR LABORS IS!!!"
+
+[node name="Spacer" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="Result" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Egg"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "A small, round egg."
+
+[node name="Spacer2" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Confirm" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Cool I guess."

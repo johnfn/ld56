@@ -37,6 +37,11 @@ public partial class CookingScreen : Sprite2D {
       get => _CookingList ??= parent.GetNode<VBoxContainer>("CookingList");
     }
 
+    private Button? _Button;
+    public Button Button {
+      get => _Button ??= parent.GetNode<Button>("Button");
+    }
+
     private CookingIngredient? _InventoryList_CookingIngredient;
     public CookingIngredient InventoryList_CookingIngredient {
       get => _InventoryList_CookingIngredient ??= parent.GetNode<CookingIngredient>("InventoryList/CookingIngredient");
@@ -45,6 +50,11 @@ public partial class CookingScreen : Sprite2D {
     private CookingIngredient? _CookingList_CookingIngredient;
     public CookingIngredient CookingList_CookingIngredient {
       get => _CookingList_CookingIngredient ??= parent.GetNode<CookingIngredient>("CookingList/CookingIngredient");
+    }
+
+    private CookingResultModal? _CookingResultModal;
+    public CookingResultModal CookingResultModal {
+      get => _CookingResultModal ??= parent.GetNode<CookingResultModal>("CookingResultModal");
     }
 
   }

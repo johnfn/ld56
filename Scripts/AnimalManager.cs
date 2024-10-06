@@ -46,7 +46,7 @@ public class Chair {
 }
 
 public partial class AnimalManager : Node2D {
-  public GameMode Mode = GameMode.Cooking;
+  public GameMode Mode = GameMode.Normal;
   public SpawnedCreature? CreatureCurrentlyBeingSit;
   public List<SpawnedCreature> UpcomingCreatures = [
     // new SpawnedCreature {
@@ -303,18 +303,8 @@ public partial class AnimalManager : Node2D {
     if (Mode == GameMode.Normal) {
       Mode = GameMode.Dialog;
 
-      var dialogResult = await Root.Instance.Nodes.HUD.Nodes.DialogBox.ShowDialog(spawnedCreature.Dialog);
-
-      if (dialogResult == DialogReturn.BeginCooking) {
-        BeginCookingFor(spawnedCreature);
-      } else {
-        Mode = GameMode.Normal;
-      }
+      var dialogResult = await DialogBox.ShowDialog(spawnedCreature.Dialog);
+      Mode = GameMode.Normal;
     }
-  }
-
-  public void BeginCookingFor(SpawnedCreature spawnedCreature) {
-    Mode = GameMode.Cooking;
-    Root.Instance.UpdateCurrentScreen(GameScreen.Cooking);
   }
 }

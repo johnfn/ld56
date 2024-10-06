@@ -94,7 +94,7 @@ public partial class Rolodex : Sprite2D {
     if (recipe.Icon != null) {
       recipeEntry.Nodes.HBoxContainer_TextureRect.Texture = recipe.Icon;
     }
-    recipeEntry.Nodes.HBoxContainer_VBoxContainer_Name.Text = recipe.Name;
+    recipeEntry.Nodes.HBoxContainer_VBoxContainer_Name.Text = recipe.DisplayName;
     recipeEntry.Nodes.HBoxContainer_VBoxContainer_Characteristic.Text = recipe.Description;
 
     recipeEntry.Nodes.HBoxContainer_VBoxContainer_Ingredients.GetChildren().ToList().ForEach(n => n.QueueFree());

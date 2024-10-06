@@ -5,15 +5,18 @@ using System.Threading.Tasks;
 namespace ld56;
 using static Utils;
 
-public enum DialogReturn {
-  None,
-  BeginCooking,
+public class DialogReturn {
+  public Task? Next { get; set; }
 }
 
 public partial class DialogBox : PanelContainer {
+  public static DialogBox Instance { get; private set; }
+
   private bool _isMouseDown = false;
 
   public override void _Ready() {
+    Instance = this;
+
     Visible = false;
   }
 
@@ -25,7 +28,13 @@ public partial class DialogBox : PanelContainer {
     }
   }
 
-  public async Task<DialogReturn> ShowDialog(List<IDialogItem> dialog, bool isFirstCall = true) {
+  public static async Task<DialogReturn> ShowDialog(List<IDialogItem> dialog, bool isFirstCall = true) {
+    return await Instance.ShowDialogHelper(dialog, isFirstCall);
+  }
+
+  private async Task<DialogReturn> ShowDialogHelper(List<IDialogItem> dialog, bool isFirstCall = true) {
+    DialogReturn result = new();
+
     Visible = true;
     Nodes.HBoxContainer_VBoxContainer_Label.Text = "";
     Nodes.HBoxContainer_DialogTextVBoxContainer_DialogText.Text = "";
@@ -35,14 +44,8 @@ public partial class DialogBox : PanelContainer {
       await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
     }
 
-    DialogReturn result = DialogReturn.None;
-
     foreach (var item in dialog) {
       switch (item) {
-        case DialogBeginCooking dialogBeginCooking:
-          result = DialogReturn.BeginCooking;
-
-          goto done;
         case DialogItem dialogItem:
           Nodes.HBoxContainer_DialogTextVBoxContainer.Visible = true;
           Nodes.HBoxContainer_OptionsVBoxContainer.Visible = false;
@@ -99,7 +102,7 @@ public partial class DialogBox : PanelContainer {
           var onSelect = dialogOptions.Options[selectedOption.Value].OnSelect;
 
           if (onSelect != null) {
-            result = await ShowDialog(onSelect(), false);
+            result = new DialogReturn { Next = onSelect() };
 
             goto done;
           }
