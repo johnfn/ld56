@@ -17,19 +17,19 @@ public partial class CreatureScene : Node2D {
     public CreatureSceneNodes(CreatureScene parent) {
       this.parent = parent;
     }
-    private Label? _NameLabel;
-    public Label NameLabel {
-      get => _NameLabel ??= parent.GetNode<Label>("NameLabel");
+    private VBoxContainer? _VBoxContainer;
+    public VBoxContainer VBoxContainer {
+      get => _VBoxContainer ??= parent.GetNode<VBoxContainer>("VBoxContainer");
     }
 
-    private TextureRect? _TextureRect;
-    public TextureRect TextureRect {
-      get => _TextureRect ??= parent.GetNode<TextureRect>("TextureRect");
+    private Label? _VBoxContainer_NameLabel;
+    public Label VBoxContainer_NameLabel {
+      get => _VBoxContainer_NameLabel ??= parent.GetNode<Label>("VBoxContainer/NameLabel");
     }
 
-    private Button? _TextureRect_HoverArea;
-    public Button TextureRect_HoverArea {
-      get => _TextureRect_HoverArea ??= parent.GetNode<Button>("TextureRect/HoverArea");
+    private Button? _VBoxContainer_TextureRect;
+    public Button VBoxContainer_TextureRect {
+      get => _VBoxContainer_TextureRect ??= parent.GetNode<Button>("VBoxContainer/TextureRect");
     }
 
     private HoverPanelExterior? _HoverPanelExterior;
