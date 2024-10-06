@@ -42,6 +42,31 @@ public partial class Hud : CanvasLayer {
       get => _InteriorButton ??= parent.GetNode<Button>("InteriorButton");
     }
 
+    private ColorRect? _Newspaper;
+    public ColorRect Newspaper {
+      get => _Newspaper ??= parent.GetNode<ColorRect>("Newspaper");
+    }
+
+    private TextureRect? _Newspaper_Newspaper;
+    public TextureRect Newspaper_Newspaper {
+      get => _Newspaper_Newspaper ??= parent.GetNode<TextureRect>("Newspaper/Newspaper");
+    }
+
+    private Label? _Newspaper_DaysLeft;
+    public Label Newspaper_DaysLeft {
+      get => _Newspaper_DaysLeft ??= parent.GetNode<Label>("Newspaper/DaysLeft");
+    }
+
+    private VBoxContainer? _Newspaper_NewspaperContentContainer;
+    public VBoxContainer Newspaper_NewspaperContentContainer {
+      get => _Newspaper_NewspaperContentContainer ??= parent.GetNode<VBoxContainer>("Newspaper/NewspaperContentContainer");
+    }
+
+    private Button? _Newspaper_CloseButton;
+    public Button Newspaper_CloseButton {
+      get => _Newspaper_CloseButton ??= parent.GetNode<Button>("Newspaper/CloseButton");
+    }
+
     private ColorRect? _ClosingTimeOverlay;
     public ColorRect ClosingTimeOverlay {
       get => _ClosingTimeOverlay ??= parent.GetNode<ColorRect>("ClosingTimeOverlay");
@@ -67,6 +92,16 @@ public partial class Hud : CanvasLayer {
       get => _Debug_DebugServeCustomer ??= parent.GetNode<Button>("Debug/DebugServeCustomer");
     }
 
+    private Button? _Debug_DebugShowShop;
+    public Button Debug_DebugShowShop {
+      get => _Debug_DebugShowShop ??= parent.GetNode<Button>("Debug/DebugShowShop");
+    }
+
+    private Button? _Debug_DebugShowCook;
+    public Button Debug_DebugShowCook {
+      get => _Debug_DebugShowCook ??= parent.GetNode<Button>("Debug/DebugShowCook");
+    }
+
     private ListOfCreatures? _Container_MarginContainer_HBoxContainer_ListOfCreatures;
     public ListOfCreatures Container_MarginContainer_HBoxContainer_ListOfCreatures {
       get => _Container_MarginContainer_HBoxContainer_ListOfCreatures ??= parent.GetNode<ListOfCreatures>("Container/MarginContainer/HBoxContainer/ListOfCreatures");
@@ -87,10 +122,14 @@ public partial class Hud : CanvasLayer {
       get => _DialogBox ??= parent.GetNode<DialogBox>("DialogBox");
     }
 
-    // Can't find a script for ColorRect, so we use a more basic type here. 
-    private ColorRect? _Newspaper;
-    public ColorRect Newspaper {
-      get => _Newspaper ??= parent.GetNode<ColorRect>("Newspaper");
+    private NewspaperEntry? _Newspaper_NewspaperContentContainer_NewspaperEntry;
+    public NewspaperEntry Newspaper_NewspaperContentContainer_NewspaperEntry {
+      get => _Newspaper_NewspaperContentContainer_NewspaperEntry ??= parent.GetNode<NewspaperEntry>("Newspaper/NewspaperContentContainer/NewspaperEntry");
+    }
+
+    private Shop? _Shop;
+    public Shop Shop {
+      get => _Shop ??= parent.GetNode<Shop>("Shop");
     }
 
     private Clock? _Clock;

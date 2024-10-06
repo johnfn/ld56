@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://betnjocdht33q"]
+[gd_scene load_steps=7 format=3 uid="uid://betnjocdht33q"]
 
 [ext_resource type="Texture2D" uid="uid://rbqlocxsxank" path="res://Assets/New Project (19).png" id="1_bfag0"]
 [ext_resource type="Script" path="res://Scripts/CookingScreen.cs" id="2_eb8ax"]
+[ext_resource type="PackedScene" uid="uid://h6vasrfdlxq" path="res://Scenes/inventory_list.tscn" id="3_c0iee"]
 [ext_resource type="PackedScene" uid="uid://iiqinsgr2l1n" path="res://Scenes/cooking_ingredient.tscn" id="3_hau8t"]
 [ext_resource type="PackedScene" uid="uid://cgco38xny3gof" path="res://Scenes/cooking_result_modal.tscn" id="4_u87xr"]
 
@@ -23,14 +24,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 36
 text = "Inventory"
 
-[node name="InventoryList" type="VBoxContainer" parent="."]
-offset_left = 35.6752
-offset_top = 82.422
-offset_right = 355.675
-offset_bottom = 182.422
-
-[node name="CookingIngredient" parent="InventoryList" instance=ExtResource("3_hau8t")]
-layout_mode = 2
+[node name="InventoryList" parent="." instance=ExtResource("3_c0iee")]
 
 [node name="Label2" type="Label" parent="."]
 offset_left = 929.4

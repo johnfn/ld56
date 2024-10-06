@@ -21,7 +21,6 @@ public partial class CookingIngredient : PanelContainer {
 
   private void OnGuiInput(InputEvent @event) {
     if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed) {
-      GD.Print("2 clicked!");
       OnClick?.Invoke(this);
     }
   }
