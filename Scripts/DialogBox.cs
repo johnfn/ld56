@@ -101,6 +101,11 @@ public partial class DialogBox : PanelContainer {
 
           for (int i = 0; i < dialogOptions.Options.Count; i++) {
             var option = dialogOptions.Options[i];
+
+            if (option.IsHidden != null && option.IsHidden()) {
+              continue;
+            }
+
             var newOption = DialogOptionNode.New();
             newOption.Nodes.RichTextLabel.Text = option.OptionText;
 

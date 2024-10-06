@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
 
 namespace ld56;
 
@@ -43,6 +42,9 @@ public static class AllDialog {
           OptionText = "[color=yellow]Pay her 200g to get out of your hair.[/color]",
           IsAvailable = () => {
             return GameState.Gold > 200;
+          },
+          IsHidden = () => {
+            return false;
           },
           OnSelect = async (Creature creature) => {
             GameState.Gold -= 200;

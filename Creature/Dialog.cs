@@ -16,6 +16,7 @@ public struct DialogItem : IDialogItem {
 public struct DialogOption {
   public required string OptionText { get; set; }
   public Func<bool>? IsAvailable { get; set; }
+  public Func<bool>? IsHidden { get; set; }
   public Func<Creature, Task>? OnSelect { get; set; }
 }
 
