@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cludvum6eu3o1"
-path="res://.godot/imported/Rolodex_BG.png-5cb2ec2929733ccb3998b929be9f8f1d.ctex"
+uid="uid://b80c4vi440d22"
+path="res://.godot/imported/Rolodex_Tab_Ingredients.png-e53fe61b667f66d0e6b2605a42263619.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Rolodex_BG.png"
-dest_files=["res://.godot/imported/Rolodex_BG.png-5cb2ec2929733ccb3998b929be9f8f1d.ctex"]
+source_file="res://Assets/UI/Rolodex_Tab_Ingredients.png"
+dest_files=["res://.godot/imported/Rolodex_Tab_Ingredients.png-e53fe61b667f66d0e6b2605a42263619.ctex"]
 
 [params]
 
