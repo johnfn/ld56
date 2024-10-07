@@ -28,9 +28,14 @@ public partial class RolodexIngredientEntry : PanelContainer {
       get => _HBoxContainer_TextureRect ??= parent.GetNode<TextureRect>("HBoxContainer/TextureRect");
     }
 
-    private Label? _HBoxContainer_TextureRect_Quantity;
-    public Label HBoxContainer_TextureRect_Quantity {
-      get => _HBoxContainer_TextureRect_Quantity ??= parent.GetNode<Label>("HBoxContainer/TextureRect/Quantity");
+    private PanelContainer? _HBoxContainer_TextureRect_AddLabel;
+    public PanelContainer HBoxContainer_TextureRect_AddLabel {
+      get => _HBoxContainer_TextureRect_AddLabel ??= parent.GetNode<PanelContainer>("HBoxContainer/TextureRect/AddLabel");
+    }
+
+    private Label? _HBoxContainer_TextureRect_AddLabel_Label;
+    public Label HBoxContainer_TextureRect_AddLabel_Label {
+      get => _HBoxContainer_TextureRect_AddLabel_Label ??= parent.GetNode<Label>("HBoxContainer/TextureRect/AddLabel/Label");
     }
 
     private VBoxContainer? _HBoxContainer_TextContainer;
@@ -51,6 +56,11 @@ public partial class RolodexIngredientEntry : PanelContainer {
     private Button? _Button;
     public Button Button {
       get => _Button ??= parent.GetNode<Button>("Button");
+    }
+
+    private Label? _Quantity;
+    public Label Quantity {
+      get => _Quantity ??= parent.GetNode<Label>("Quantity");
     }
 
   }

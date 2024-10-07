@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://4tw7tplf15cj"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://78lu3emfpwvq"]
 
 [ext_resource type="FontFile" uid="uid://cgxb4jmix2cb1" path="res://Resources/ShortStack-Regular.ttf" id="1_5wk5g"]
 [ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="1_63mwy"]
@@ -23,6 +23,17 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5m1i5"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ejhgb"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
@@ -37,6 +48,8 @@ Label/colors/font_color = Color(0.12, 0.0192, 0.02088, 1)
 Label/fonts/font = ExtResource("1_5wk5g")
 LabelWithOutline/base_type = &"Label"
 LabelWithOutline/styles/normal = SubResource("StyleBoxFlat_am665")
+OutlineButton/base_type = &"Button"
+OutlineButton/styles/pressed = SubResource("StyleBoxFlat_5m1i5")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_ejhgb")
 RichTextLabel/colors/default_color = Color(0.2, 0.012, 0.012, 1)
 RichTextLabel/font_sizes/bold_font_size = 28

@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://unique_nectar_uid"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://decakyxempe3k"]
 
-[ext_resource type="Texture2D" uid="uid://unique_nectar_texture_uid" path="res://Assets/Ingredients/Ingredients_Nectar.png" id="1_nectar"]
 [ext_resource type="Script" path="res://Creature/Ingredient.cs" id="1_ingredient_script"]
+[ext_resource type="Texture2D" uid="uid://b3r6hesiamj68" path="res://Assets/Ingredients/Ingredients_Nectar.png" id="1_nectar"]
 
 [resource]
 script = ExtResource("1_ingredient_script")
 DisplayName = "Nectar"
 Description = "A sweet liquid produced by plants"
 Icon = ExtResource("1_nectar")
-Id = "nectar"
+Id = 0
 Rarity = 2
 Cost = 20

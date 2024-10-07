@@ -7,7 +7,7 @@
 [node name="RolodexCreatureEntry" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 125)
 offset_right = 962.0
-offset_bottom = 166.0
+offset_bottom = 116.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme = ExtResource("1_p757g")
@@ -93,7 +93,7 @@ theme_override_constants/separation = 10
 [node name="Name" type="Label" parent="HBoxContainer/TextContainer"]
 layout_mode = 2
 size_flags_vertical = 5
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 20
 text = "Creature"
 
 [node name="KnownInformationContainer" type="VBoxContainer" parent="HBoxContainer/TextContainer"]

@@ -34,8 +34,8 @@ public partial class Rolodex : ColorRect {
     Nodes.BookTexture_IngredientsTab.Pressed += () => ChangeTab(RolodexTab.Ingredients);
 
     // Make sure the viewports can handle the input.
-    Nodes.BookTexture_Page1Viewport_MarginContainer_Page1.SetProcessInput(true);
-    Nodes.BookTexture_Page2Viewport_MarginContainer_Page2.SetProcessInput(true);
+    Nodes.BookTexture_PageContents_Page1_Page1.SetProcessInput(true);
+    Nodes.BookTexture_PageContents_Page2_Page2.SetProcessInput(true);
 
     Nodes.ClickOutside.Pressed += () => {
       Root.Instance.ToggleRolodex();
@@ -49,37 +49,6 @@ public partial class Rolodex : ColorRect {
   public void ClearSignals() {
     OnClickIngredient = null;
   }
-
-  public override void _Input(InputEvent @event) {
-    if (@event is InputEventMouse mouseEvent) {
-      Vector2 globalMousePos = mouseEvent.GlobalPosition;
-
-      HandlePageInput(Nodes.BookTexture_LeftPageContents, Nodes.BookTexture_Page1Viewport, globalMousePos, mouseEvent, "Left");
-      HandlePageInput(Nodes.BookTexture_RightPageContents, Nodes.BookTexture_Page2Viewport, globalMousePos, mouseEvent, "Right");
-    }
-  }
-
-  private void HandlePageInput(Control pageContents, SubViewport viewport, Vector2 globalMousePos, InputEventMouse mouseEvent, string pageName) {
-    if (pageContents.GetGlobalRect().HasPoint(globalMousePos)) {
-      Vector2 localPosPage = pageContents.GetGlobalTransform().AffineInverse().BasisXform(globalMousePos);
-
-      Vector2 viewportLocalPos = viewport.GlobalCanvasTransform.AffineInverse().BasisXform(globalMousePos);
-
-      // Calculate the scale factor between the viewport and the texture rect
-      float scaleX = viewport.Size.X / pageContents.Size.X;
-      float scaleY = viewport.Size.Y / pageContents.Size.Y;
-      Vector2 scaledPos = viewportLocalPos * new Vector2(scaleX, scaleY);
-
-      // Create a new mouse event with the scaled position
-      var scaledEvent = (InputEventMouse)mouseEvent.Duplicate();
-      scaledEvent.Position = scaledPos;
-      scaledEvent.GlobalPosition = scaledPos;
-
-      // Push the scaled event to the viewport
-      viewport.PushInput(scaledEvent);
-    }
-  }
-
 
   public void AddGuestEntry(CreatureData creature) {
     GameState.KnownGuests.Add(creature);
@@ -125,7 +94,7 @@ public partial class Rolodex : ColorRect {
 
   private RolodexIngredientEntry CreateIngredientEntry(Ingredient ingredientData) {
     var ingredientEntry = GD.Load<PackedScene>("res://Scenes/RolodexIngredientEntry.tscn").Instantiate<RolodexIngredientEntry>();
-    ingredientEntry.Initialize(ingredientData);
+    ingredientEntry.Initialize(ingredientData, GameState.CurrentScreen == GameScreen.Cooking);
 
     return ingredientEntry;
   }
@@ -162,8 +131,8 @@ public partial class Rolodex : ColorRect {
     }
 
     // Clear existing entries.
-    Nodes.BookTexture_Page1Viewport_MarginContainer_Page1.GetChildren().ToList().ForEach(n => n.QueueFree());
-    Nodes.BookTexture_Page2Viewport_MarginContainer_Page2.GetChildren().ToList().ForEach(n => n.QueueFree());
+    Nodes.BookTexture_PageContents_Page1_Page1.GetChildren().ToList().ForEach(n => n.QueueFree());
+    Nodes.BookTexture_PageContents_Page2_Page2.GetChildren().ToList().ForEach(n => n.QueueFree());
 
     var page1StartIndex = Page * MaxEntriesPerPage;
     var page2StartIndex = (Page * MaxEntriesPerPage) + MaxEntriesPerPage;
@@ -178,9 +147,9 @@ public partial class Rolodex : ColorRect {
         // Add an HSeparator to the page, if it's not the last entry.
         if (i != page1StartIndex) {
           var separator = new HSeparator();
-          Nodes.BookTexture_Page1Viewport_MarginContainer_Page1.AddChild(separator);
+          Nodes.BookTexture_PageContents_Page1_Page1.AddChild(separator);
         }
-        Nodes.BookTexture_Page1Viewport_MarginContainer_Page1.AddChild(CreateCreatureEntry(GameState.KnownGuests[i]));
+        Nodes.BookTexture_PageContents_Page1_Page1.AddChild(CreateCreatureEntry(GameState.KnownGuests[i]));
       }
 
       for (int i = page2StartIndex; i < page2EndIndex; i++) {
@@ -190,9 +159,9 @@ public partial class Rolodex : ColorRect {
         if (i != page2StartIndex) {
           // Add an HSeparator
           var separator = new HSeparator();
-          Nodes.BookTexture_Page2Viewport_MarginContainer_Page2.AddChild(separator);
+          Nodes.BookTexture_PageContents_Page2_Page2.AddChild(separator);
         }
-        Nodes.BookTexture_Page2Viewport_MarginContainer_Page2.AddChild(CreateCreatureEntry(GameState.KnownGuests[i]));
+        Nodes.BookTexture_PageContents_Page2_Page2.AddChild(CreateCreatureEntry(GameState.KnownGuests[i]));
 
       }
     } else if (Tab == RolodexTab.Recipes) {
@@ -204,9 +173,9 @@ public partial class Rolodex : ColorRect {
         if (i != page1StartIndex) {
           // Add an HSeparator
           var separator = new HSeparator();
-          Nodes.BookTexture_Page1Viewport_MarginContainer_Page1.AddChild(separator);
+          Nodes.BookTexture_PageContents_Page1_Page1.AddChild(separator);
         }
-        Nodes.BookTexture_Page1Viewport_MarginContainer_Page1.AddChild(CreateRecipeEntry(GameState.UnlockedRecipes[i]));
+        Nodes.BookTexture_PageContents_Page1_Page1.AddChild(CreateRecipeEntry(GameState.UnlockedRecipes[i]));
       }
 
       for (int i = page2StartIndex; i < page2EndIndex; i++) {
@@ -216,9 +185,9 @@ public partial class Rolodex : ColorRect {
         if (i != page2StartIndex) {
           // Add an HSeparator
           var separator = new HSeparator();
-          Nodes.BookTexture_Page2Viewport_MarginContainer_Page2.AddChild(separator);
+          Nodes.BookTexture_PageContents_Page2_Page2.AddChild(separator);
         }
-        Nodes.BookTexture_Page2Viewport_MarginContainer_Page2.AddChild(CreateRecipeEntry(GameState.UnlockedRecipes[i]));
+        Nodes.BookTexture_PageContents_Page2_Page2.AddChild(CreateRecipeEntry(GameState.UnlockedRecipes[i]));
 
       }
     } else if (Tab == RolodexTab.Ingredients) {
@@ -233,14 +202,14 @@ public partial class Rolodex : ColorRect {
         if (i != page1StartIndex) {
           // Add an HSeparator
           var separator = new HSeparator();
-          Nodes.BookTexture_Page1Viewport_MarginContainer_Page1.AddChild(separator);
+          Nodes.BookTexture_PageContents_Page1_Page1.AddChild(separator);
         }
         var ingredientEntry = CreateIngredientEntry(ingredient);
         ingredientEntry.Nodes.Button.Pressed += () => {
           GD.Print($"Clicked {ingredient.DisplayName}");
           OnClickIngredient?.Invoke(ingredient.Id);
         };
-        Nodes.BookTexture_Page1Viewport_MarginContainer_Page1.AddChild(ingredientEntry);
+        Nodes.BookTexture_PageContents_Page1_Page1.AddChild(ingredientEntry);
 
       }
 
@@ -254,13 +223,13 @@ public partial class Rolodex : ColorRect {
         if (i != page2StartIndex) {
           // Add an HSeparator
           var separator = new HSeparator();
-          Nodes.BookTexture_Page2Viewport_MarginContainer_Page2.AddChild(separator);
+          Nodes.BookTexture_PageContents_Page2_Page2.AddChild(separator);
         }
         var ingredientEntry = CreateIngredientEntry(ingredient);
         ingredientEntry.Nodes.Button.Pressed += () => {
           OnClickIngredient?.Invoke(ingredient.Id);
         };
-        Nodes.BookTexture_Page2Viewport_MarginContainer_Page2.AddChild(ingredientEntry);
+        Nodes.BookTexture_PageContents_Page2_Page2.AddChild(ingredientEntry);
       }
     }
   }
