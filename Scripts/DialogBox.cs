@@ -56,16 +56,41 @@ public partial class DialogBox : Control {
     }
 
     Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.VisibleCharacters = text.Length;
+
+
+    if (!_isMouseDown) {
+      while (!_isMouseDown) {
+        await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+      }
+    } else {
+      while (_isMouseDown) {
+        await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+      }
+    }
   }
 
   private async Task<DialogReturn> ShowDialogHelper(List<IDialogItem> dialog, CreatureData creature, bool isFirstCall = true) {
     DialogReturn result = new();
 
     Visible = true;
-    Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = creature.DisplayName;
-    Nodes.DialogBox_HBoxContainer_CharacterDialogSprite.Texture = creature.DialogPortraitTexture;
     Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.Text = "";
     Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText_ClickToContinue.Visible = false;
+
+    switch (dialog[0]) {
+      case DialogItem dialogItem:
+        GD.Print(dialogItem.OverrideSpeakerName ?? dialogItem.Speaker.DisplayName);
+        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogItem.OverrideSpeakerName ?? dialogItem.Speaker.DisplayName;
+        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite.Texture = dialogItem.Speaker.DialogPortraitTexture;
+        Nodes.DialogBox_HBoxContainer_DialogTextVBoxContainer.Visible = true;
+        Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.Visible = false;
+        break;
+      case DialogOptions dialogOptions:
+        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogOptions.OverrideSpeakerName ?? dialogOptions.Speaker.DisplayName;
+        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite.Texture = dialogOptions.Speaker.DialogPortraitTexture;
+        Nodes.DialogBox_HBoxContainer_DialogTextVBoxContainer.Visible = false;
+        Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.Visible = true;
+        break;
+    }
 
     while (_isMouseDown) {
       await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);

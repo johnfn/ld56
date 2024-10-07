@@ -25,5 +25,6 @@ public struct DialogOptions : IDialogItem {
   public required string Text { get; set; }
   public required CreatureData Speaker { get; set; }
   public required List<DialogOption> Options { get; set; }
+  public string? OverrideSpeakerName { get; set; }
 }
 

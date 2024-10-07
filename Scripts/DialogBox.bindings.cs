@@ -17,6 +17,7 @@ public partial class DialogBox : Control {
     public DialogBoxNodes(DialogBox parent) {
       this.parent = parent;
     }
+    // Scene: ./Scenes/dialog_box.tscn
     private ColorRect? _Background;
     public ColorRect Background {
       get => _Background ??= parent.GetNode<ColorRect>("Background");
