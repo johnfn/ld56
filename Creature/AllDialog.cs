@@ -26,8 +26,6 @@ public static class AllDialog {
   ];
 }
 
-
-
 // public static class SampleDialog {
 //   public static List<IDialogItem> MrChicken = [
 //     new DialogItem { Text = "Hello, I am [color=green]Mr. Chicken[/color].", Speaker = AllCreatures.MrChicken },

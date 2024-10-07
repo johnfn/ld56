@@ -10,6 +10,7 @@ public partial class CookingScreen : Sprite2D {
   private Dictionary<IngredientId, CookingIngredient> idToIngredient = [];
   public static List<IngredientId> CookingList = [];
   public static CookingScreen Instance { get; private set; }
+  private static bool _hasPressedCook = false;
 
   public override void _Ready() {
     Instance = this;
@@ -51,6 +52,7 @@ public partial class CookingScreen : Sprite2D {
         return;
       }
 
+      _hasPressedCook = true;
       Cook();
     };
 
@@ -69,12 +71,13 @@ public partial class CookingScreen : Sprite2D {
 
     await Instance.Initialize();
 
-    var hasPressedCook = false;
-    Instance.Nodes.UI_CookButton.Pressed += () => hasPressedCook = true;
+    _hasPressedCook = false;
 
-    while (!hasPressedCook) {
+    while (!_hasPressedCook) {
       await Instance.ToSignal(Instance.GetTree(), SceneTree.SignalName.ProcessFrame);
     }
+
+    _hasPressedCook = false;
 
     // TODO: Some sort of logic to figure out what we made.
     var result = AllRecipes.ScrambledEggs;
