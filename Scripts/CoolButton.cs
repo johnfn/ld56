@@ -5,7 +5,6 @@ using System;
 public partial class CoolButton : Button {
   // Called when the node enters the scene tree for the first time.
   public override void _Ready() {
-    this.PivotOffset = new Vector2(this.Size.X / 2, this.Size.Y / 2);
     this.Pressed += () => {
       Root.Instance.Nodes.SoundManager.PlayButtonPressSFX();
     };

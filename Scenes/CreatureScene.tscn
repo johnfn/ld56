@@ -5,8 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://lvv1ltx4h1yj" path="res://Scenes/hover_panel_exterior.tscn" id="3_x500w"]
 [ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="5_gqy4h"]
 [ext_resource type="Texture2D" uid="uid://cwq2iu3ps48mr" path="res://Assets/Characters/Character_Hamster.png" id="5_rcc7m"]
-[ext_resource type="Script" path="res://Scripts/CoolButton.cs" id="6_0mdyr"]
 [ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="6_rrudo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwops"]
+bg_color = Color(0, 0, 0, 0.647059)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [sub_resource type="Shader" id="Shader_83x55"]
 code = "shader_type canvas_item;
@@ -97,35 +103,39 @@ offset_top = -245.0
 offset_right = 88.0
 offset_bottom = -169.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -71.0
-offset_top = -32.5
-offset_right = 71.0
-offset_bottom = 32.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = -119.0
+offset_top = -120.0
+offset_right = 134.0
+offset_bottom = -51.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bwops")
 
-[node name="NameLabel" type="Label" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+
+[node name="NameLabel" type="Label" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
 theme = ExtResource("5_gqy4h")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_rrudo")
 theme_override_font_sizes/font_size = 36
-text = "MRs Cow"
+text = "pig pig pig pig "
 horizontal_alignment = 1
 
-[node name="TextureRect" type="Button" parent="VBoxContainer"]
+[node name="TextureRect" type="Button" parent="."]
 material = SubResource("ShaderMaterial_3is5w")
-custom_minimum_size = Vector2(0, 156)
-layout_mode = 2
+custom_minimum_size = Vector2(156, 156)
+offset_left = -113.0
+offset_top = -48.0
+offset_right = 140.0
+offset_bottom = 108.0
+pivot_offset = Vector2(120, 80)
 theme = ExtResource("5_gqy4h")
 icon = ExtResource("5_rcc7m")
 flat = true
 icon_alignment = 1
 expand_icon = true
-script = ExtResource("6_0mdyr")

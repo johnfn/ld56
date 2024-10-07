@@ -4,15 +4,43 @@ using System;
 namespace ld56;
 
 public partial class CreatureScene : Node2D {
-
   private SpawnedCreature _data;
   public SpawnedCreature Data;
+
+  public override void _Ready() {
+    Nodes.HoverPanelExterior.SpawnedCreature = Data;
+
+    // Show the hover panel on click
+    // Nodes.TextureRect_HoverArea.Pressed += () => {
+    //   Nodes.HoverPanelExterior.Visible = !Nodes.HoverPanelExterior.Visible;
+    // };
+
+    Nodes.TextureRect.Pressed += OnClick;
+
+    Nodes.TextureRect.MouseEntered += () => {
+      (Nodes.TextureRect.Material as ShaderMaterial).Set("shader_parameter/width", 10.0);
+    };
+
+    Nodes.TextureRect.MouseExited += () => {
+      (Nodes.TextureRect.Material as ShaderMaterial).Set("shader_parameter/width", 0.0);
+    };
+
+    Nodes.PanelContainer.Visible = false;
+
+    Nodes.TextureRect.MouseEntered += () => {
+      Nodes.PanelContainer.Visible = true;
+    };
+
+    Nodes.TextureRect.MouseExited += () => {
+      Nodes.PanelContainer.Visible = false;
+    };
+  }
 
   public override void _Input(InputEvent @event) {
     if (@event is InputEventMouseButton mouseEvent && mouseEvent.ButtonIndex == MouseButton.Left && mouseEvent.Pressed) {
       if (
         Nodes.HoverPanelExterior.Visible &&
-        !Nodes.VBoxContainer_TextureRect.GetGlobalRect().HasPoint(GetGlobalMousePosition())
+        !Nodes.TextureRect.GetGlobalRect().HasPoint(GetGlobalMousePosition())
         && !Nodes.HoverPanelExterior.GetGlobalRect().HasPoint(GetGlobalMousePosition())
       ) {
         Nodes.HoverPanelExterior.Visible = false;
@@ -23,31 +51,13 @@ public partial class CreatureScene : Node2D {
   public void Initialize(SpawnedCreature data) {
     Data = data;
     if (data.Data.FullBodyTexture != null) {
-      Nodes.VBoxContainer_TextureRect.Icon = data.Data.FullBodyTexture;
+      Nodes.TextureRect.Icon = data.Data.FullBodyTexture;
     }
-    Nodes.VBoxContainer_NameLabel.Text = data.Data.DisplayName;
+    Nodes.PanelContainer_MarginContainer_NameLabel.Text = data.Data.DisplayName;
     // Move the name's X coordinate over so it's centered
-    Nodes.VBoxContainer_NameLabel.Position = new Vector2(-Nodes.VBoxContainer_NameLabel.Size.X / 2, Nodes.VBoxContainer_NameLabel.Position.Y);
+    Nodes.PanelContainer_MarginContainer_NameLabel.Position = new Vector2(-Nodes.PanelContainer_MarginContainer_NameLabel.Size.X / 2, Nodes.PanelContainer_MarginContainer_NameLabel.Position.Y);
   }
 
-  public override void _Ready() {
-    Nodes.HoverPanelExterior.SpawnedCreature = Data;
-
-    // Show the hover panel on click
-    // Nodes.TextureRect_HoverArea.Pressed += () => {
-    //   Nodes.HoverPanelExterior.Visible = !Nodes.HoverPanelExterior.Visible;
-    // };
-
-    Nodes.VBoxContainer_TextureRect.Pressed += OnClick;
-
-    Nodes.VBoxContainer_TextureRect.MouseEntered += () => {
-      (Nodes.VBoxContainer_TextureRect.Material as ShaderMaterial).Set("shader_parameter/width", 10.0);
-    };
-
-    Nodes.VBoxContainer_TextureRect.MouseExited += () => {
-      (Nodes.VBoxContainer_TextureRect.Material as ShaderMaterial).Set("shader_parameter/width", 0.0);
-    };
-  }
 
   private void OnClick() {
     if (Data.State == CreatureState.WaitToBeAdmitted) {

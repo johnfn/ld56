@@ -17,6 +17,15 @@ public partial class PauseMenu : ColorRect {
     public PauseMenuNodes(PauseMenu parent) {
       this.parent = parent;
     }
+    // Multiple scenes use this script, so it's possible that fewer nodes are in this list than you'd expect.
+    // Scene: ./Scenes/PauseMenu.tscn
+    // Scene: ./Scenes/Rolodex.tscn
+    // Scene: ./Scenes/CreatureScene.tscn
+    // Scene: ./Scenes/Newspaper.tscn
+    // Scene: ./Scenes/upcoming_creature_ui.tscn
+    // Scene: ./Scenes/HUD.tscn
+    // Scene: ./Scenes/CoolButton.tscn
+    // Scene: ./Scenes/cooking_screen.tscn
     private TextureRect? _Background;
     public TextureRect Background {
       get => _Background ??= parent.GetNode<TextureRect>("Background");

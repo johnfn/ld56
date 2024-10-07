@@ -23,19 +23,24 @@ public partial class CreatureScene : Node2D {
       get => _Shadow ??= parent.GetNode<Sprite2D>("Shadow");
     }
 
-    private VBoxContainer? _VBoxContainer;
-    public VBoxContainer VBoxContainer {
-      get => _VBoxContainer ??= parent.GetNode<VBoxContainer>("VBoxContainer");
+    private PanelContainer? _PanelContainer;
+    public PanelContainer PanelContainer {
+      get => _PanelContainer ??= parent.GetNode<PanelContainer>("PanelContainer");
     }
 
-    private Label? _VBoxContainer_NameLabel;
-    public Label VBoxContainer_NameLabel {
-      get => _VBoxContainer_NameLabel ??= parent.GetNode<Label>("VBoxContainer/NameLabel");
+    private MarginContainer? _PanelContainer_MarginContainer;
+    public MarginContainer PanelContainer_MarginContainer {
+      get => _PanelContainer_MarginContainer ??= parent.GetNode<MarginContainer>("PanelContainer/MarginContainer");
     }
 
-    private Button? _VBoxContainer_TextureRect;
-    public Button VBoxContainer_TextureRect {
-      get => _VBoxContainer_TextureRect ??= parent.GetNode<Button>("VBoxContainer/TextureRect");
+    private Label? _PanelContainer_MarginContainer_NameLabel;
+    public Label PanelContainer_MarginContainer_NameLabel {
+      get => _PanelContainer_MarginContainer_NameLabel ??= parent.GetNode<Label>("PanelContainer/MarginContainer/NameLabel");
+    }
+
+    private Button? _TextureRect;
+    public Button TextureRect {
+      get => _TextureRect ??= parent.GetNode<Button>("TextureRect");
     }
 
     private HoverPanelExterior? _HoverPanelExterior;
