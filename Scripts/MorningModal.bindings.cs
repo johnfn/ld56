@@ -17,6 +17,7 @@ public partial class MorningModal : PanelContainer {
     public MorningModalNodes(MorningModal parent) {
       this.parent = parent;
     }
+    // Scene: ./Scenes/morning_modal.tscn
     private MarginContainer? _MarginContainer;
     public MarginContainer MarginContainer {
       get => _MarginContainer ??= parent.GetNode<MarginContainer>("MarginContainer");
@@ -55,11 +56,6 @@ public partial class MorningModal : PanelContainer {
     private Button? _MarginContainer_VBoxContainer_DoneButton;
     public Button MarginContainer_VBoxContainer_DoneButton {
       get => _MarginContainer_VBoxContainer_DoneButton ??= parent.GetNode<Button>("MarginContainer/VBoxContainer/DoneButton");
-    }
-
-    private ReservationCard? _MarginContainer_VBoxContainer_ReservationList_PanelContainer;
-    public ReservationCard MarginContainer_VBoxContainer_ReservationList_PanelContainer {
-      get => _MarginContainer_VBoxContainer_ReservationList_PanelContainer ??= parent.GetNode<ReservationCard>("MarginContainer/VBoxContainer/ReservationList/PanelContainer");
     }
 
   }

@@ -95,7 +95,10 @@ public partial class Root : Node2D {
     GameState.Mode = GameMode.ReservationModal;
     Nodes.HUD.Nodes.MorningModal.Visible = true;
 
-    foreach (var reservation in AllLevels.Levels[dayIndex]) {
+    var reservations = AllLevels.Levels[dayIndex];
+    var sortedReservations = reservations.OrderBy(r => r.ReservationTime).ToList();
+
+    foreach (var reservation in sortedReservations) {
       var newCard = ReservationCard.New();
       var (timeString, period) = Clock.GetTimeString(reservation.ReservationTime);
 

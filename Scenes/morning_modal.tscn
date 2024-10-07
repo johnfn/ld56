@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://kf7466dsd6hh"]
+[gd_scene load_steps=11 format=3 uid="uid://kf7466dsd6hh"]
 
 [ext_resource type="Script" path="res://Scripts/MorningModal.cs" id="1_wlxjc"]
 [ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="2_duvbd"]
-[ext_resource type="PackedScene" uid="uid://c4j40g48aoas3" path="res://Scenes/reservation_card.tscn" id="2_uo0sk"]
 [ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="4_xutds"]
 [ext_resource type="FontFile" uid="uid://cgxb4jmix2cb1" path="res://Resources/ShortStack-Regular.ttf" id="5_803u5"]
 
@@ -107,9 +106,6 @@ layout_mode = 2
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
 columns = 3
-
-[node name="PanelContainer" parent="MarginContainer/VBoxContainer/ReservationList" instance=ExtResource("2_uo0sk")]
-layout_mode = 2
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
