@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=2 format=3 uid="uid://UNIQUE_UID_HERE"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://cs5l2emloomes"]
 
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
-[ext_resource type="Texture2D" uid="uid://UNIQUE_UID_HERE" path="res://Assets/Dishes/Dish_Lactose-Omelet.png" id="2_icon"]
+[ext_resource type="Texture2D" uid="uid://dyq0sfusekdyd" path="res://Assets/Dishes/Dish_Lactose-Omelet.png" id="2_icon"]
+[ext_resource type="Resource" uid="uid://b6hydttyeuq67" path="res://Resources/Ingredients/Egg.tres" id="2_ve6a6"]
+[ext_resource type="Resource" uid="uid://eywo0n3g50gj" path="res://Resources/Ingredients/Milk.tres" id="3_0vqpb"]
+[ext_resource type="Resource" uid="uid://ecieh2bka1vl" path="res://Resources/Ingredients/Cheese.tres" id="4_35c4h"]
 
 [resource]
 script = ExtResource("1_recipe")
 DisplayName = "Lactose Omelet"
 Description = "A dairy-rich omelet."
-Ingredients = []
+Ingredients = [ExtResource("2_ve6a6"), ExtResource("3_0vqpb"), ExtResource("4_35c4h")]
 Icon = ExtResource("2_icon")

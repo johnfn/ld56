@@ -1,11 +1,16 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://cmqqhfolxc3um"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=8 format=3 uid="uid://cmqqhfolxc3um"]
 
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
 [ext_resource type="Texture2D" uid="uid://chip8q0ftcsf1" path="res://Assets/Dishes/Dish_Salad-of-the-Gods_Salad.png" id="2_icon"]
+[ext_resource type="Resource" uid="uid://cigpmjqyop55p" path="res://Resources/Ingredients/Leaf.tres" id="2_wqdfa"]
+[ext_resource type="Resource" uid="uid://77hdm25u7rbc" path="res://Resources/Ingredients/Mushroom.tres" id="3_cfasw"]
+[ext_resource type="Resource" uid="uid://decakyxempe3k" path="res://Resources/Ingredients/Nectar.tres" id="4_7clof"]
+[ext_resource type="Resource" uid="uid://uwssspksrtjf" path="res://Resources/Ingredients/Turnip.tres" id="5_45dn7"]
+[ext_resource type="Resource" uid="uid://cyfnflxb4sep5" path="res://Resources/Ingredients/Tomato.tres" id="6_7syyv"]
 
 [resource]
 script = ExtResource("1_recipe")
 DisplayName = "Salad of the Gods Salad"
 Description = "A complex, divine salad."
-Ingredients = []
+Ingredients = [ExtResource("2_wqdfa"), ExtResource("3_cfasw"), ExtResource("4_7clof"), ExtResource("3_cfasw"), ExtResource("5_45dn7"), ExtResource("6_7syyv")]
 Icon = ExtResource("2_icon")

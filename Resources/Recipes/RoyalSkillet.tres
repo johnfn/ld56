@@ -1,11 +1,17 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://4mxs5v5j8rpa"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=9 format=3 uid="uid://4mxs5v5j8rpa"]
 
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
 [ext_resource type="Texture2D" uid="uid://dgg4n0vmwhsi8" path="res://Assets/Dishes/Dish_Royal-Skillet.png" id="2_icon"]
+[ext_resource type="Resource" uid="uid://b6hydttyeuq67" path="res://Resources/Ingredients/Egg.tres" id="2_peovd"]
+[ext_resource type="Resource" uid="uid://bp0uieph6cs0n" path="res://Resources/Ingredients/Avocado.tres" id="3_lq4wx"]
+[ext_resource type="Resource" uid="uid://csdh48lys8oc0" path="res://Resources/Ingredients/Onion.tres" id="4_i0r5c"]
+[ext_resource type="Resource" uid="uid://77hdm25u7rbc" path="res://Resources/Ingredients/Mushroom.tres" id="5_65ook"]
+[ext_resource type="Resource" uid="uid://dm1r3i0l8y0oe" path="res://Resources/Ingredients/Bean.tres" id="6_frfh6"]
+[ext_resource type="Resource" uid="uid://ecieh2bka1vl" path="res://Resources/Ingredients/Cheese.tres" id="7_b0p4n"]
 
 [resource]
 script = ExtResource("1_recipe")
 DisplayName = "Royal Skillet"
 Description = "A luxurious dish fit for royalty."
-Ingredients = []
+Ingredients = [ExtResource("2_peovd"), ExtResource("3_lq4wx"), ExtResource("4_i0r5c"), ExtResource("5_65ook"), ExtResource("6_frfh6"), ExtResource("7_b0p4n")]
 Icon = ExtResource("2_icon")

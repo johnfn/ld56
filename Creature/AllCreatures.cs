@@ -21,7 +21,7 @@ public static class AllCreatures {
 
   public static readonly CreatureData Hazel = new() {
     DisplayName = "Hazel",
-    Description = "Very polite.",
+    Description = "Very polite. Unless you make her angry, that is.",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
       creature.Initialize(spawnedCreature);
@@ -34,7 +34,7 @@ public static class AllCreatures {
 
   public static readonly CreatureData Chip = new() {
     DisplayName = "Chip",
-    Description = "Learning to skateboard.",
+    Description = "Learning to skateboard… slowly.",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
       creature.Initialize(spawnedCreature);
@@ -46,8 +46,8 @@ public static class AllCreatures {
   };
 
   public static readonly CreatureData Kero = new() {
-    DisplayName = "Chip",
-    Description = "Always on the lookout for some adventure.",
+    DisplayName = "Kero",
+    Description = "The local banker. Working on his self-image.",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
       creature.Initialize(spawnedCreature);
@@ -60,7 +60,7 @@ public static class AllCreatures {
 
   public static readonly CreatureData Rufus = new() {
     DisplayName = "Rufus",
-    Description = "Recently divorced.",
+    Description = "The librarian. Sometimes gets confused.",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
       creature.Initialize(spawnedCreature);
@@ -73,7 +73,7 @@ public static class AllCreatures {
 
   public static readonly CreatureData Bonnie = new() {
     DisplayName = "Bonnie",
-    Description = "Her glasses are purely cosmetic.",
+    Description = "From out of state.",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
       creature.Initialize(spawnedCreature);
@@ -86,7 +86,7 @@ public static class AllCreatures {
 
   public static readonly CreatureData Poe = new() {
     DisplayName = "Poe",
-    Description = "Claims to be haunted.",
+    Description = "Not sure, but he might be haunted.",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
       creature.Initialize(spawnedCreature);
@@ -99,7 +99,7 @@ public static class AllCreatures {
 
   public static readonly CreatureData Speedy = new() {
     DisplayName = "Speedy",
-    Description = "Always in a hurry.",
+    Description = "The track star. Always in a hurry.",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
       creature.Initialize(spawnedCreature);
@@ -112,7 +112,7 @@ public static class AllCreatures {
 
   public static readonly CreatureData Lav = new() {
     DisplayName = "Lav",
-    Description = "Obessed with the cosmos.",
+    Description = "Your enigmatic neighbor. Obsessed with the cosmos.",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
       creature.Initialize(spawnedCreature);
@@ -124,8 +124,8 @@ public static class AllCreatures {
   };
 
   public static readonly CreatureData Pip = new() {
-    DisplayName = "Poe",
-    Description = "Claims to be haunted.",
+    DisplayName = "Pip",
+    Description = "Very friendly, but very indecisive.",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
       creature.Initialize(spawnedCreature);
@@ -138,7 +138,7 @@ public static class AllCreatures {
 
   public static readonly CreatureData Emily = new() {
     DisplayName = "Emily",
-    Description = "Aspiring poet.",
+    Description = "An aspiring poet. Friendly, but can get huffy. ",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
       creature.Initialize(spawnedCreature);

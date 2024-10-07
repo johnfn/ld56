@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://cuuxlylxp6vkk"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://cuuxlylxp6vkk"]
 
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
+[ext_resource type="Resource" uid="uid://cvw67ck2443er" path="res://Resources/Ingredients/Flour.tres" id="2_3mpbc"]
 [ext_resource type="Texture2D" uid="uid://bb02wjymegwvc" path="res://Assets/Dishes/Dish_Syrupy-Flapjack.png" id="2_icon"]
+[ext_resource type="Resource" uid="uid://decakyxempe3k" path="res://Resources/Ingredients/Nectar.tres" id="3_g0gvp"]
 
 [resource]
 script = ExtResource("1_recipe")
 DisplayName = "Syrupy Flapjack"
 Description = "Pancakes drenched in sweet syrup."
-Ingredients = []
+Ingredients = [ExtResource("2_3mpbc"), ExtResource("3_g0gvp")]
 Icon = ExtResource("2_icon")

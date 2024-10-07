@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=2 format=3 uid="uid://UNIQUE_UID_HERE"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://cxyyxixj0uw2m"]
 
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
-[ext_resource type="Texture2D" uid="uid://UNIQUE_UID_HERE" path="res://Assets/Dishes/Dish_Tomato_Soup.png" id="2_icon"]
+[ext_resource type="Texture2D" uid="uid://34dhxul6eqb4" path="res://Assets/Dishes/Dish_Tomato_Soup.png" id="2_icon"]
+[ext_resource type="Resource" uid="uid://cyfnflxb4sep5" path="res://Resources/Ingredients/Tomato.tres" id="2_rn6oq"]
+[ext_resource type="Resource" uid="uid://eywo0n3g50gj" path="res://Resources/Ingredients/Milk.tres" id="3_xlgie"]
 
 [resource]
 script = ExtResource("1_recipe")
 DisplayName = "Tomato Soup"
 Description = "A comforting tomato soup."
-Ingredients = []
+Ingredients = [ExtResource("2_rn6oq"), ExtResource("3_xlgie")]
 Icon = ExtResource("2_icon")
