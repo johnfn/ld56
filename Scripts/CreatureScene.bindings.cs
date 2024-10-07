@@ -17,11 +17,7 @@ public partial class CreatureScene : Node2D {
     public CreatureSceneNodes(CreatureScene parent) {
       this.parent = parent;
     }
-    private Sprite2D? _Checkmark;
-    public Sprite2D Checkmark {
-      get => _Checkmark ??= parent.GetNode<Sprite2D>("Checkmark");
-    }
-
+    // Scene: ./Scenes/CreatureScene.tscn
     private VBoxContainer? _VBoxContainer;
     public VBoxContainer VBoxContainer {
       get => _VBoxContainer ??= parent.GetNode<VBoxContainer>("VBoxContainer");

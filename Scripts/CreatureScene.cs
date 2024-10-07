@@ -60,10 +60,5 @@ public partial class CreatureScene : Node2D {
   }
 
   public override void _Process(double delta) {
-    if (Data.State == CreatureState.WaitForEveryoneToFinish) {
-      Nodes.Checkmark.Visible = true;
-    } else {
-      Nodes.Checkmark.Visible = false;
-    }
   }
 }
