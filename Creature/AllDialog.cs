@@ -5,7 +5,7 @@ namespace ld56;
 
 public static class AllDialog {
 
-// Tom
+  // Tom
   public static List<IDialogItem> Tom = [
     new DialogItem {
       Text = "It was late spring morning.",
@@ -17,7 +17,7 @@ public static class AllDialog {
       Text = "Not that I was complaining.",
       Speaker = CreatureId.Tom, OverrideSpeakerName = "????"},
     new DialogItem {
-      Text = "Mornings like this keep me sharp too,"
+      Text = "Mornings like this keep me sharp too,",
       Speaker = CreatureId.Tom, OverrideSpeakerName = "????"},
     new DialogItem {
       Text = "and most days, a sharp wit’s the only thing keeping me from taking a long nap in the Main Street gutter with half a dozen bullets in my back.",
@@ -31,7 +31,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "Any my lovers, well, that’s not something I ought to discuss in polite company.", Speaker = CreatureId.Tom},
     new DialogItem {
-      Text = "Um. Can I take your order, Detective Shortcoat?", Speaker = CreatureId.None},    
+      Text = "Um. Can I take your order, Detective Shortcoat?", Speaker = CreatureId.None},
     new DialogItem {
       Text = "The dame had powder-blue eyes that grew as big as dinner plates when she saw me walk through the door.", Speaker = CreatureId.Tom},
     new DialogItem {
@@ -39,13 +39,13 @@ public static class AllDialog {
     new DialogItem {
       Text = "and let’s just say her smile could maybe buy a cup of coffee if you lent her a couple bucks.", Speaker = CreatureId.Tom},
     new DialogItem {
-      Text = "Excuse me???", Speaker = CreatureId.None},    
+      Text = "Excuse me???", Speaker = CreatureId.None},
     new DialogItem {
       Text = "All my nutrition lately had come from whiskey and cigarette smoke, I mused,", Speaker = CreatureId.Tom},
     new DialogItem {
       Text = "so I reulctantly ordered a [color=af973e]veggie omelet.[/color]", Speaker = CreatureId.Tom},
     new DialogItem {
-      Text = "...coming right up...", Speaker = CreatureId.None, 
+      Text = "...coming right up...", Speaker = CreatureId.None,
       OnComplete = async (CreatureId creatureId) => {
         var recipe = await CookingScreen.Cook();
       },
@@ -53,18 +53,18 @@ public static class AllDialog {
   ];
 
 
-// Hazel
+  // Hazel
   public static List<IDialogItem> Hazel = [
     new DialogItem {
       Text = "Hi~ How's it going~", Speaker = CreatureId.Hazel},
     new DialogItem {
-      Text = "Doing great, and you?", Speaker = CreatureId.None},   
+      Text = "Doing great, and you?", Speaker = CreatureId.None},
     new DialogItem {
-      Text = "Couldn't be better~", Speaker = CreatureId.Hazel},   
+      Text = "Couldn't be better~", Speaker = CreatureId.Hazel},
     new DialogItem {
-      Text = "May I have an [color=af3e48]onion soup[/color] please~", Speaker = CreatureId.Hazel}
+      Text = "May I have an [color=af3e48]onion soup[/color] please~", Speaker = CreatureId.Hazel},
     new DialogItem {
-      Text = "Absolutely!", Speaker = CreatureId.None,      
+      Text = "Absolutely!", Speaker = CreatureId.None,
       OnComplete = async (CreatureId creatureId) => {
         var recipe = await CookingScreen.Cook();
       }
@@ -72,24 +72,22 @@ public static class AllDialog {
   ];
 
 
-// Chip
+  // Chip
 
-    public static List<IDialogItem> Hazel = [
-    new DialogItem {
+  public static List<IDialogItem> Chip = [
+  new DialogItem {
       Text = "Whoa, Chip! You look banged up.", Speaker = CreatureId.None},
     new DialogItem {
-      Text = "All good, Lena. Can’t learn to skateboard without cracking a few eggs!", Speaker = CreatureId.Chip},   
+      Text = "All good, Lena. Can’t learn to skateboard without cracking a few eggs!", Speaker = CreatureId.Chip},
     new DialogItem {
-      Text = "And you know what? That sounds pretty good. Can you get me anything with [color=af973e]egg[/color], please?", Speaker = CreatureId.Chip},   
+      Text = "And you know what? That sounds pretty good. Can you get me anything with [color=af973e]egg[/color], please?", Speaker = CreatureId.Chip},
     new DialogItem {
       Text = "Coming right up!", Speaker = CreatureId.None,
       OnComplete = async (CreatureId creatureId) => {
         var recipe = await CookingScreen.Cook();
       }
     }
-  ];
-
-
+];
 
 
   // Example dialogue
@@ -225,12 +223,10 @@ public static class AllDialog {
   public static List<IDialogItem> MrBleggSecond = new()
   {
     new DialogItem { Text = "Hello, I am [color=green]Mr. Blegg[/color].", Speaker = CreatureId.None},
-    new DialogItem { Text = "Not again. Please, no.", Speaker = CreatureId.None
+    new DialogItem { Text = "Not again. Please, no.", Speaker = CreatureId.None,
       OnComplete = async (CreatureId creatureId) => {
-       MrBlegg = MrBleggThird;
+       MrBlegg = MrBleggSecond;
       }
-
-    
     }
   };
 

@@ -54,6 +54,12 @@ public partial class RolodexIngredientEntry : PanelContainer {
       Nodes.HBoxContainer_TextureRect.Texture = ingredientData.Icon;
     }
 
+    if (!isKnown) {
+      Nodes.HBoxContainer_TextureRect.Modulate = new Color(0.3f, 0.3f, 0.3f, 1.0f);
+    } else {
+      Nodes.HBoxContainer_TextureRect.Modulate = new Color(1, 1, 1, 1.0f);
+    }
+
     _isClickable = isClickable;
 
     if (isKnown) {

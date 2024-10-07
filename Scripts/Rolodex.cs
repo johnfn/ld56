@@ -139,6 +139,7 @@ public partial class Rolodex : ColorRect {
   public void ChangeTab(RolodexTab tab) {
     Root.Instance.Nodes.SoundManager.PlayPageTurnSFX();
     Tab = tab;
+    Page = 0;
     PopulatePages();
   }
 
@@ -149,10 +150,24 @@ public partial class Rolodex : ColorRect {
       Nodes.BookTexture_PrevPageButton.Visible = true;
     }
 
-    if (Page == GameState.KnownGuests.Count / MaxEntriesPerPage) {
-      Nodes.BookTexture_NextPageButton.Visible = false;
-    } else {
-      Nodes.BookTexture_NextPageButton.Visible = true;
+    if (Tab == RolodexTab.Creatures) {
+      if (Page == GameState.KnownGuests.Count / MaxEntriesPerPage) {
+        Nodes.BookTexture_NextPageButton.Visible = false;
+      } else {
+        Nodes.BookTexture_NextPageButton.Visible = true;
+      }
+    } else if (Tab == RolodexTab.Recipes) {
+      if (Page == GameState.UnlockedRecipes.Count / MaxEntriesPerPage) {
+        Nodes.BookTexture_NextPageButton.Visible = false;
+      } else {
+        Nodes.BookTexture_NextPageButton.Visible = true;
+      }
+    } else if (Tab == RolodexTab.Ingredients) {
+      if (Page == AllIngredients.Ingredients.Count / MaxEntriesPerPage) {
+        Nodes.BookTexture_NextPageButton.Visible = false;
+      } else {
+        Nodes.BookTexture_NextPageButton.Visible = true;
+      }
     }
 
     // Clear existing entries.
