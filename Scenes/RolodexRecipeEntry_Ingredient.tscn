@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cguvibqj1jiwv"]
 
-[ext_resource type="Texture2D" uid="uid://bb03hc30ic4ma" path="res://Assets/Ingredients/cherry_tomato.png" id="1_ekofu"]
+[ext_resource type="Texture2D" uid="uid://bi5s53uty3j1e" path="res://Assets/Ingredients/Ingredients_Tomato.png" id="1_ekofu"]
 [ext_resource type="Script" path="res://Scenes/RolodexRecipeEntryIngredient.cs" id="2_dg60r"]
 
 [node name="Ingredient1" type="TextureRect"]

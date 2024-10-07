@@ -17,7 +17,6 @@ public partial class CookingIngredient : Button {
     public CookingIngredientNodes(CookingIngredient parent) {
       this.parent = parent;
     }
-    // Scene: ./Scenes/cooking_ingredient.tscn
     private TextureRect? _IngredientImage;
     public TextureRect IngredientImage {
       get => _IngredientImage ??= parent.GetNode<TextureRect>("IngredientImage");

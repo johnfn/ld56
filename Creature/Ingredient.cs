@@ -2,7 +2,9 @@ using Godot;
 
 namespace ld56;
 
-public partial class IngredientData : Resource {
+[GlobalClass]
+[Tool]
+public partial class Ingredient : Resource {
   [Export]
   public required string DisplayName { get; set; }
 
@@ -21,11 +23,13 @@ public partial class IngredientData : Resource {
   [Export]
   public required int Cost { get; set; }
 
-  public IngredientData() {
+
+  // This is called when the ingredient is loaded into memory.
+  public Ingredient() {
     DisplayName = "New Ingredient";
     Description = "A new ingredient.";
     Icon = null;
-    Id = IngredientId.Basil;
+    Id = IngredientId.None;
     Rarity = Rarity.Common;
     Cost = 10;
   }

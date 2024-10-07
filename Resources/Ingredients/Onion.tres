@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://unique_onion_uid"]
+
+[ext_resource type="Texture2D" uid="uid://unique_onion_texture_uid" path="res://Assets/Ingredients/Ingredients_Onion.png" id="1_onion"]
+[ext_resource type="Script" path="res://Creature/Ingredient.cs" id="1_ingredient_script"]
+
+[resource]
+script = ExtResource("1_ingredient_script")
+DisplayName = "Onion"
+Description = "A pungent and flavorful vegetable"
+Icon = ExtResource("1_onion")
+Id = "onion"
+Rarity = 0
+Cost = 5

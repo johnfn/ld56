@@ -17,7 +17,6 @@ public partial class Interior : Sprite2D {
     public InteriorNodes(Interior parent) {
       this.parent = parent;
     }
-    // Scene: ./Scenes/interior.tscn
     private Area2D? _InteriorAnimalSpawnArea;
     public Area2D InteriorAnimalSpawnArea {
       get => _InteriorAnimalSpawnArea ??= parent.GetNode<Area2D>("InteriorAnimalSpawnArea");

@@ -6,7 +6,7 @@ using System.Linq;
 using static Utils;
 
 public partial class RolodexIngredientEntry : PanelContainer {
-  private IngredientData _ingredientData;
+  private Ingredient _ingredientData;
 
   public override void _Ready() {
     this.Nodes.Button.Pressed += () => {
@@ -34,7 +34,7 @@ public partial class RolodexIngredientEntry : PanelContainer {
     Nodes.HBoxContainer_TextureRect_Quantity.Text = $"x {quantity}";
   }
 
-  public void Initialize(IngredientData ingredientData) {
+  public void Initialize(Ingredient ingredientData) {
     _ingredientData = ingredientData;
 
     if (ingredientData.Icon != null) {

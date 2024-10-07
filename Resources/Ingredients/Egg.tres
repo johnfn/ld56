@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://unique_egg_uid"]
+
+[ext_resource type="Texture2D" uid="uid://unique_egg_texture_uid" path="res://Assets/Ingredients/Ingredients_Egg.png" id="1_egg"]
+[ext_resource type="Script" path="res://Creature/Ingredient.cs" id="1_ingredient_script"]
+
+[resource]
+script = ExtResource("1_ingredient_script")
+DisplayName = "Egg"
+Description = "A versatile protein source"
+Icon = ExtResource("1_egg")
+Id = "egg"
+Rarity = 0
+Cost = 7

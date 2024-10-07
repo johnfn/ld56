@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://unique_avocado_uid"]
+
+[ext_resource type="Texture2D" uid="uid://unique_avocado_texture_uid" path="res://Assets/Ingredients/Ingredients_Avocado.png" id="1_avocado"]
+[ext_resource type="Script" path="res://Creature/Ingredient.cs" id="1_ingredient_script"]
+
+[resource]
+script = ExtResource("1_ingredient_script")
+DisplayName = "Avocado"
+Description = "A creamy, nutritious fruit"
+Icon = ExtResource("1_avocado")
+Id = "avocado"
+Rarity = 1
+Cost = 15

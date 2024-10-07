@@ -17,7 +17,6 @@ public partial class Hud : CanvasLayer {
     public HudNodes(Hud parent) {
       this.parent = parent;
     }
-    // Scene: ./Scenes/HUD.tscn
     private Button? _RolodexButton;
     public Button RolodexButton {
       get => _RolodexButton ??= parent.GetNode<Button>("RolodexButton");
