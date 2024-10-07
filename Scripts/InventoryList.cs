@@ -70,7 +70,6 @@ public partial class InventoryList : GridContainer {
     if (quantity > 0) {
       quantity--;
       ingredientCounts[ingredientId] = quantity;
-      //idToIngredientListItem[ingredientId].Nodes.Container_QuantityLabel.Text = "x" + quantity.ToString();
 
       return true;
     } else {
