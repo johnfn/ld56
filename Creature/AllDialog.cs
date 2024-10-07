@@ -47,7 +47,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "...coming right up...", Speaker = CreatureId.None,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Flour, IngredientId.Egg]);
+        var recipe = await CookingScreen.Cook([IngredientId.Egg, IngredientId.Onion, IngredientId.Mushroom]);
       },
     }
   ];
@@ -65,7 +65,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "Absolutely!", Speaker = CreatureId.None,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook();
+        var recipe = await CookingScreen.Cook([IngredientId.Milk, IngredientId.Onion]);
       }
     }
   ];
@@ -82,7 +82,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "Coming right up!", Speaker = CreatureId.None,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook();
+        var recipe = await CookingScreen.Cook([IngredientId.Egg]);
       }
     }
 ];
@@ -99,7 +99,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "Coming right up!", Speaker = CreatureId.None,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook();
+        var recipe = await CookingScreen.Cook([IngredientId.Leaf]);
       }
     }
 ];
@@ -116,7 +116,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "Oh. Coming right up, I guess?", Speaker = CreatureId.None,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook();
+        var recipe = await CookingScreen.Cook([IngredientId.Leaf]);
       }
     }
 ];
@@ -133,7 +133,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "Why, of course!", Speaker = CreatureId.None,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook();
+        var recipe = await CookingScreen.Cook([IngredientId.Flour]);
       }
     }
 ];
@@ -158,7 +158,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "Uh, sure.", Speaker = CreatureId.None,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook();
+        var recipe = await CookingScreen.Cook([IngredientId.Leaf]);
       }
     }
 ];
@@ -175,7 +175,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "Right away!", Speaker = CreatureId.None,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook();
+        var recipe = await CookingScreen.Cook([IngredientId.Flour]);
       }
     }
 ];
@@ -206,6 +206,26 @@ public static class AllDialog {
       }
     }
 ];
+
+
+// Emily
+    public static List<IDialogItem> Emily = [
+    new DialogItem {
+      Text = "Ahem.", Speaker = CreatureId.Emily},   
+    new DialogItem {
+      Text = "Some golden victuals do desire I;\n‘pon morel duty cook, perchance to cry", Speaker = CreatureId.Emily},
+    new DialogItem {
+      Text = "Uh... what did you mean by this?", Speaker = CreatureId.None},   
+        new DialogItem {
+      Text = "Well, I never! Some philistines simply cannot appreciate poetry. An omelet of vegetable, if you do so please.", Speaker = CreatureId.Emily},
+    new DialogItem {
+      Text = "Oh, sure. Coming right up!", Speaker = CreatureId.None,
+      OnComplete = async (CreatureId creatureId) => {
+        var recipe = await CookingScreen.Cook([IngredientId.Egg, IngredientId.Onion, IngredientId.Mushroom]);
+      }
+    }
+  ];
+
 
 
 
