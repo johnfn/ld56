@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_ingredient_script")
 DisplayName = "Blueberry"
-Description = "A sweet, antioxidant-rich berry"
+Description = "An antioxidant-rich berry"
 Icon = ExtResource("1_blueberry")
 Id = 3
 Rarity = 1
