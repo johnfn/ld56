@@ -157,7 +157,7 @@ public static class AllCreatures {
       creature.Initialize(spawnedCreature);
       return creature;
     },
-    Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Detective-Cat_Happy.png"),
+    Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Det-Cat_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Detective-Cat.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Detective-Cat.png"),
   };
