@@ -110,6 +110,7 @@ flat = true
 script = ExtResource("8_pgeh1")
 
 [node name="RecipesTooltip" type="PanelContainer" parent="UI/RecipesButton"]
+layout_mode = 0
 offset_left = 241.0
 offset_top = 68.0
 offset_right = 484.0

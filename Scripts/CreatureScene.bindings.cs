@@ -18,6 +18,11 @@ public partial class CreatureScene : Node2D {
       this.parent = parent;
     }
     // Scene: ./Scenes/CreatureScene.tscn
+    private Sprite2D? _Shadow;
+    public Sprite2D Shadow {
+      get => _Shadow ??= parent.GetNode<Sprite2D>("Shadow");
+    }
+
     private VBoxContainer? _VBoxContainer;
     public VBoxContainer VBoxContainer {
       get => _VBoxContainer ??= parent.GetNode<VBoxContainer>("VBoxContainer");

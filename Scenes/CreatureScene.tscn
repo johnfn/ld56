@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://3phm7o0vm6l7"]
+[gd_scene load_steps=10 format=3 uid="uid://3phm7o0vm6l7"]
 
 [ext_resource type="Script" path="res://Scripts/CreatureScene.cs" id="1_06evm"]
+[ext_resource type="Texture2D" uid="uid://csr7lgqgfnx1v" path="res://Assets/UI/Shadow.png" id="2_1if17"]
 [ext_resource type="PackedScene" uid="uid://lvv1ltx4h1yj" path="res://Scenes/hover_panel_exterior.tscn" id="3_x500w"]
 [ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="5_gqy4h"]
 [ext_resource type="Texture2D" uid="uid://cwq2iu3ps48mr" path="res://Assets/Characters/Character_Hamster.png" id="5_rcc7m"]
@@ -82,6 +83,12 @@ shader_parameter/add_margins = true
 
 [node name="CreatureScene" type="Node2D"]
 script = ExtResource("1_06evm")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.435294)
+position = Vector2(-3, 98)
+scale = Vector2(0.315471, 0.215735)
+texture = ExtResource("2_1if17")
 
 [node name="HoverPanelExterior" parent="." instance=ExtResource("3_x500w")]
 visible = false
