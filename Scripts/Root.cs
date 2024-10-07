@@ -27,8 +27,6 @@ public partial class Root : Node2D {
 
     UpdateCurrentScreen(GameState.CurrentScreen);
 
-    Nodes.AnimalManager.Initialize();
-
     Nodes.HUD.Nodes.ExteriorButton.Pressed += () => {
       UpdateCurrentScreen(GameScreen.Exterior);
     };
@@ -82,6 +80,8 @@ public partial class Root : Node2D {
   }
 
   public async Task StartNewDay() {
+    Nodes.AnimalManager.Initialize(GameState.DayIndex);
+
     await DisplayReservationModal(GameState.DayIndex);
 
     GameState.CurrentDayTime = 0f;

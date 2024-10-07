@@ -46,13 +46,21 @@ public class Chair {
 
 public partial class AnimalManager : Node2D {
   public SpawnedCreature? CreatureCurrentlyBeingSit;
-  public List<SpawnedCreature> Creatures = AllLevels.Levels[0];
+  public List<SpawnedCreature> Creatures = [];
 
   public List<Chair> Chairs = [];
 
   public override void _Ready() { }
 
-  public void Initialize() {
+  public void Initialize(int levelIndex) {
+    foreach (var spawnedCreature in Creatures) {
+      if (spawnedCreature.Instance != null) {
+        spawnedCreature.Instance.QueueFree();
+      }
+    }
+
+    Creatures = AllLevels.Levels[levelIndex];
+
     Root.Instance.ListOfCreatures.Initialize(Creatures);
 
     var tableIndex = 0;
