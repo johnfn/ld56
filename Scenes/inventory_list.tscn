@@ -11,6 +11,10 @@ script = ExtResource("1_jtk6x")
 
 [node name="CookingIngredient" parent="." instance=ExtResource("1_ad2yj")]
 layout_mode = 2
+size_flags_vertical = 1
+theme = null
 
 [node name="CookingIngredient2" parent="." instance=ExtResource("1_ad2yj")]
 layout_mode = 2
+size_flags_vertical = 1
+theme = null

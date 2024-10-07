@@ -38,6 +38,7 @@ public partial class Shop : ColorRect {
 
         Initialize(newDisplayedIngredients);
       } else {
+        GD.Print($"Not enough gold to buy {ingredient.DisplayName}");
         // TODO: Too expensive
       }
     };

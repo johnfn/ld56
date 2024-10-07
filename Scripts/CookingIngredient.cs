@@ -20,5 +20,7 @@ public partial class CookingIngredient : Button {
       // Scale down
       this.Scale = this.Scale / 1.1f;
     };
+
+    Nodes.Tooltip.Visible = false;
   }
 }

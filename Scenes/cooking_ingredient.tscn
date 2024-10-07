@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dksv0nvtjkh60"]
+[gd_scene load_steps=6 format=3 uid="uid://iiqinsgr2l1n"]
 
 [ext_resource type="Script" path="res://Scripts/CookingIngredient.cs" id="1_4htc4"]
 [ext_resource type="Texture2D" uid="uid://dvystam1uwxhs" path="res://Assets/Ingredients/basil_leaf.png" id="1_hdg4o"]
-[ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="1_hs7iv"]
+[ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="1_hs7iv"]
 [ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="4_w2l4s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ud6b3"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 
 [node name="CookingIngredient" type="Button"]
 custom_minimum_size = Vector2(100, 100)
@@ -62,3 +69,41 @@ theme_override_fonts/font = ExtResource("4_w2l4s")
 theme_override_font_sizes/font_size = 36
 text = "x5"
 horizontal_alignment = 2
+
+[node name="Tooltip" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_top = -181.0
+offset_right = 257.0
+offset_bottom = -42.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ud6b3")
+
+[node name="MarginContainer" type="MarginContainer" parent="Tooltip"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tooltip/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Tooltip/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "Egg"
+fit_content = true
+
+[node name="Description" type="RichTextLabel" parent="Tooltip/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "This is an egg."
+fit_content = true
+
+[node name="Price" type="RichTextLabel" parent="Tooltip/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "Price: 8"
+fit_content = true

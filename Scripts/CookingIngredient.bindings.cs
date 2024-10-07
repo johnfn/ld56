@@ -32,6 +32,36 @@ public partial class CookingIngredient : Button {
       get => _QuantityLabel ??= parent.GetNode<Label>("QuantityLabel");
     }
 
+    private PanelContainer? _Tooltip;
+    public PanelContainer Tooltip {
+      get => _Tooltip ??= parent.GetNode<PanelContainer>("Tooltip");
+    }
+
+    private MarginContainer? _Tooltip_MarginContainer;
+    public MarginContainer Tooltip_MarginContainer {
+      get => _Tooltip_MarginContainer ??= parent.GetNode<MarginContainer>("Tooltip/MarginContainer");
+    }
+
+    private VBoxContainer? _Tooltip_MarginContainer_VBoxContainer;
+    public VBoxContainer Tooltip_MarginContainer_VBoxContainer {
+      get => _Tooltip_MarginContainer_VBoxContainer ??= parent.GetNode<VBoxContainer>("Tooltip/MarginContainer/VBoxContainer");
+    }
+
+    private RichTextLabel? _Tooltip_MarginContainer_VBoxContainer_Title;
+    public RichTextLabel Tooltip_MarginContainer_VBoxContainer_Title {
+      get => _Tooltip_MarginContainer_VBoxContainer_Title ??= parent.GetNode<RichTextLabel>("Tooltip/MarginContainer/VBoxContainer/Title");
+    }
+
+    private RichTextLabel? _Tooltip_MarginContainer_VBoxContainer_Description;
+    public RichTextLabel Tooltip_MarginContainer_VBoxContainer_Description {
+      get => _Tooltip_MarginContainer_VBoxContainer_Description ??= parent.GetNode<RichTextLabel>("Tooltip/MarginContainer/VBoxContainer/Description");
+    }
+
+    private RichTextLabel? _Tooltip_MarginContainer_VBoxContainer_Price;
+    public RichTextLabel Tooltip_MarginContainer_VBoxContainer_Price {
+      get => _Tooltip_MarginContainer_VBoxContainer_Price ??= parent.GetNode<RichTextLabel>("Tooltip/MarginContainer/VBoxContainer/Price");
+    }
+
   }
 
   public CookingIngredientNodes? _Nodes;

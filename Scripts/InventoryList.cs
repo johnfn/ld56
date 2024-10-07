@@ -40,16 +40,17 @@ public partial class InventoryList : GridContainer {
       ingredientListItem.Nodes.NameLabel.Text = ingredient.DisplayName;
       ingredientListItem.Nodes.QuantityLabel.Text = "x" + count.ToString();
 
-      // ingredientListItem.Pressed += (ingredient) => {
-      //   OnClickIngredient?.Invoke(ingredientId);
-      // };
+      ingredientListItem.Pressed += () => {
+        OnClickIngredient?.Invoke(ingredientId);
+      };
 
-      // ingredientListItem.OnMouseEnter += (ingredient) => {
-      //   OnMouseEnterIngredient?.Invoke(ingredientId);
-      // };
-      // ingredientListItem.OnMouseExit += (ingredient) => {
-      //   OnMouseExitIngredient?.Invoke(ingredientId);
-      // };
+      ingredientListItem.MouseEntered += () => {
+        OnMouseEnterIngredient?.Invoke(ingredientId);
+      };
+
+      ingredientListItem.MouseExited += () => {
+        OnMouseExitIngredient?.Invoke(ingredientId);
+      };
 
       idToIngredientListItem[ingredientId] = ingredientListItem;
     }
@@ -76,13 +77,13 @@ public partial class InventoryList : GridContainer {
   }
 
   public void ShowTooltip(IngredientId ingredientId, Ingredient ingredient) {
-    // idToIngredientListItem[ingredientId].Nodes.BuyTooltip.Visible = true;
-    // idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Name.Text = ingredient.DisplayName;
-    // idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Description.Text = ingredient.Description;
-    // idToIngredientListItem[ingredientId].Nodes.BuyTooltip_VBoxContainer_Price.Text = "[color=gold]" + ingredient.Cost.ToString() + " gold[/color]";
+    idToIngredientListItem[ingredientId].Nodes.Tooltip.Visible = true;
+    idToIngredientListItem[ingredientId].Nodes.Tooltip_MarginContainer_VBoxContainer_Title.Text = ingredient.DisplayName;
+    idToIngredientListItem[ingredientId].Nodes.Tooltip_MarginContainer_VBoxContainer_Description.Text = ingredient.Description;
+    idToIngredientListItem[ingredientId].Nodes.Tooltip_MarginContainer_VBoxContainer_Price.Text = "[color=gold]" + ingredient.Cost.ToString() + " gold[/color]";
   }
 
   public void HideTooltip(IngredientId ingredientId) {
-    //idToIngredientListItem[ingredientId].Nodes.BuyTooltip.Visible = false;
+    idToIngredientListItem[ingredientId].Nodes.Tooltip.Visible = false;
   }
 }

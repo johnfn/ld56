@@ -70,7 +70,6 @@ offset_bottom = 513.0
 visible = false
 
 [node name="Shop" parent="." instance=ExtResource("12_d7kfh")]
-visible = false
 
 [node name="Clock" parent="." instance=ExtResource("11_cepoc")]
 
@@ -155,3 +154,4 @@ theme_override_font_sizes/font_size = 36
 text = "[debug] Add gold"
 
 [node name="MorningModal" parent="." instance=ExtResource("16_5ov87")]
+visible = false
