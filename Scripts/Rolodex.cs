@@ -151,19 +151,19 @@ public partial class Rolodex : ColorRect {
     }
 
     if (Tab == RolodexTab.Creatures) {
-      if (Page == GameState.KnownGuests.Count / MaxEntriesPerPage) {
+      if ((Page + 2) * 4 >= GameState.KnownGuests.Count) {
         Nodes.BookTexture_NextPageButton.Visible = false;
       } else {
         Nodes.BookTexture_NextPageButton.Visible = true;
       }
     } else if (Tab == RolodexTab.Recipes) {
-      if (Page == GameState.UnlockedRecipes.Count / MaxEntriesPerPage) {
+      if ((Page + 2) * 4 >= GameState.UnlockedRecipes.Count) {
         Nodes.BookTexture_NextPageButton.Visible = false;
       } else {
         Nodes.BookTexture_NextPageButton.Visible = true;
       }
     } else if (Tab == RolodexTab.Ingredients) {
-      if (Page == AllIngredients.Ingredients.Count / MaxEntriesPerPage) {
+      if ((Page + 2) * 4 >= AllIngredients.Ingredients.Count) {
         Nodes.BookTexture_NextPageButton.Visible = false;
       } else {
         Nodes.BookTexture_NextPageButton.Visible = true;
