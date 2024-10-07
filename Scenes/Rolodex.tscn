@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dlghlthc65fle" path="res://Assets/UI/Rolodex_BG_v2_NOBG.png" id="1_ceq2y"]
 [ext_resource type="Script" path="res://Scripts/Rolodex.cs" id="2_s2ex6"]
-[ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="3_5uipw"]
+[ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="3_5uipw"]
 [ext_resource type="Theme" uid="uid://b26enpoebvd3m" path="res://Theme.tres" id="4_d1xda"]
 [ext_resource type="Texture2D" uid="uid://3e2r6m6lwwor" path="res://Assets/UI/Rolodex_Tab_Arrow_Right.png" id="5_4e3ou"]
 [ext_resource type="Script" path="res://Scripts/CoolButton.cs" id="6_2afhd"]

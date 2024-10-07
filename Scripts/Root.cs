@@ -83,6 +83,7 @@ public partial class Root : Node2D {
   }
 
   public async Task StartNewDay() {
+    GD.Print("Starting new day");
     await DisplayReservationModal(GameState.DayIndex);
     Nodes.AnimalManager.Initialize(GameState.DayIndex);
 
@@ -94,10 +95,6 @@ public partial class Root : Node2D {
   public async Task DisplayReservationModal(int dayIndex) {
     GameState.Mode = GameMode.ReservationModal;
     Nodes.HUD.Nodes.MorningModal.Visible = true;
-
-    foreach (var child in Nodes.HUD.Nodes.MorningModal.Nodes.MarginContainer_VBoxContainer_ReservationList.GetChildren()) {
-      child.QueueFree();
-    }
 
     foreach (var reservation in AllLevels.Levels[dayIndex]) {
       var newCard = ReservationCard.New();
