@@ -27,9 +27,7 @@ public static class AllIngredients {
     Ingredients.Clear();
     var ingredientsFolder = "res://Resources/Ingredients";
     var ingredientsFiles = Utils.ListDirContents(ingredientsFolder, "tres");
-    GD.Print(ingredientsFiles.Count);
     foreach (var file in ingredientsFiles) {
-      GD.Print(file);
       var ingredient = ResourceLoader.Load<Ingredient>($"{ingredientsFolder}/{file}");
       Ingredients.Add(ingredient);
     }

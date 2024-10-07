@@ -716,16 +716,15 @@ class MyCodegen
   }
 
   private bool IsWatchedFile(
-    string path
-  )
+     string path
+   )
   {
     return (
-      path.EndsWith(".tscn") ||
-      path.EndsWith(".cs") ||
-      path.EndsWith(".tres") &&
+      path.EndsWith(".tscn") || (
+      path.EndsWith(".cs") &&
       !path.EndsWith("BindingGen.cs") &&
       !path.EndsWith("bindings.cs")
-    );
+    ));
   }
 
   public void WatchForChanges()
@@ -740,7 +739,7 @@ class MyCodegen
     GenerateBindings(allScenes);
 
     GenerateResourceEnums(
-      new[] { "./Resources/Ingredients", "./Resources/Recipes" },
+      new[] { "./Resources/Ingredients", "./Resources/Recipes", "./Resources/Creatures" },
       "./Resources"
     );
 

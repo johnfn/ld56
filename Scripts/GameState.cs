@@ -23,7 +23,7 @@ public enum CustomerSatisfaction {
 }
 
 public record CustomerResult(
-  CreatureData Creature,
+  CreatureId CreatureId,
   int TipEarned,
   CustomerSatisfaction Satisfaction,
   int DayIndex
@@ -40,12 +40,13 @@ public static class GameState {
   public static GameMode Mode { get; set; } = GameMode.Normal;
   public static GameScreen CurrentScreen { get; set; } = GameScreen.Exterior;
   public static List<CustomerResult> CustomerResults { get; set; } = [];
+  public static List<CustomerResult> CustomerResultsForDay { get; set; } = [];
   public static float CurrentDayTime { get; set; } = 0f;
 
   public static List<Recipe> UnlockedRecipes = [
   ];
 
-  public static List<CreatureData> KnownGuests = [
+  public static List<Creature> KnownGuests = [
   ];
 
   public static List<Ingredient> KnownIngredients = [

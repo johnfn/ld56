@@ -81,7 +81,7 @@ public partial class Rolodex : ColorRect {
   }
 
 
-  public void AddGuestEntry(CreatureData creature) {
+  public void AddGuestEntry(Creature creature) {
     GameState.KnownGuests.Add(creature);
     PopulatePages();
   }
@@ -92,7 +92,7 @@ public partial class Rolodex : ColorRect {
   }
 
 
-  private RolodexCreatureEntry CreateCreatureEntry(CreatureData creature) {
+  private RolodexCreatureEntry CreateCreatureEntry(Creature creature) {
     var creatureEntry = GD.Load<PackedScene>("res://Scenes/RolodexCreatureEntry.tscn").Instantiate<RolodexCreatureEntry>();
     if (creature.Icon != null) {
       creatureEntry.Nodes.HBoxContainer_TextureRect.Texture = creature.Icon;

@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://cguvibqj1jiwv"]
 
-[ext_resource type="Texture2D" uid="uid://bi5s53uty3j1e" path="res://Assets/Ingredients/Ingredients_Tomato.png" id="1_ekofu"]
 [ext_resource type="Script" path="res://Scenes/RolodexRecipeEntryIngredient.cs" id="2_dg60r"]
+[ext_resource type="Texture2D" uid="uid://bi5s53uty3j1e" path="res://Assets/Ingredients/Ingredients_Tomato.png" id="3_2ic5n"]
 
 [node name="Ingredient1" type="TextureRect"]
 custom_minimum_size = Vector2(36, 36)
-texture = ExtResource("1_ekofu")
+texture = ExtResource("3_2ic5n")
 expand_mode = 1
 stretch_mode = 4
 script = ExtResource("2_dg60r")

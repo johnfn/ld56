@@ -5,7 +5,6 @@
 [ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="4_w2l4s"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cwxsk"]
-load_path = "res://.godot/imported/basil_leaf.png-0407b6f1cc9d6c2108309b1f55102738.ctex"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ud6b3"]
 bg_color = Color(1, 1, 1, 1)

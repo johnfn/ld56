@@ -17,7 +17,6 @@ public partial class SoundManager : Node {
     public SoundManagerNodes(SoundManager parent) {
       this.parent = parent;
     }
-    // Scene: ./Scenes/SoundManager.tscn
     private AudioStreamPlayer2D? _AudioStreamPlayer2D;
     public AudioStreamPlayer2D AudioStreamPlayer2D {
       get => _AudioStreamPlayer2D ??= parent.GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");

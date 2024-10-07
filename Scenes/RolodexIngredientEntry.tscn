@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" path="res://Scripts/RolodexIngredientEntry.cs" id="1_0xbdf"]
 [ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="1_jqf1o"]
+[ext_resource type="Texture2D" uid="uid://bi5s53uty3j1e" path="res://Assets/Ingredients/Ingredients_Tomato.png" id="3_2ic5n"]
 [ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="4_jtpa2"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tmfkk"]
-load_path = "res://.godot/imported/cherry_tomato.png-032b82863d8930198ecedf9df65ad4c1.ctex"
 
 [node name="RolodexIngredientEntry" type="PanelContainer"]
 custom_minimum_size = Vector2(0, 125)
@@ -23,7 +21,7 @@ theme_override_constants/separation = 24
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(25, 25)
 layout_mode = 2
-texture = SubResource("CompressedTexture2D_tmfkk")
+texture = ExtResource("3_2ic5n")
 expand_mode = 2
 stretch_mode = 4
 

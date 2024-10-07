@@ -26,6 +26,8 @@ public partial class Root : Node2D {
     Instance = this;
 
     AllIngredients.LoadFromResources();
+    AllRecipes.LoadFromResources();
+    AllCreatures.LoadFromResources();
 
     UpdateCurrentScreen(GameState.CurrentScreen);
 
@@ -47,7 +49,7 @@ public partial class Root : Node2D {
 
     Nodes.HUD.Nodes.Debug_DebugServeCustomer.Pressed += () => {
       GameState.CustomerResults.Add(new(
-        Creature: AllCreatures.Hazel,
+        CreatureId: CreatureId.MrChicken,
         TipEarned: 10,
         Satisfaction: CustomerSatisfaction.Upset,
         DayIndex: GameState.DayIndex

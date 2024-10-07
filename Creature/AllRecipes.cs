@@ -8,14 +8,19 @@ public static class AllRecipes {
 
   internal static void LoadFromResources() {
     Recipes.Clear();
-    GD.Print("Loading recipes from resources");
     var recipesFolder = "res://Resources/Recipes";
     var recipesFiles = Utils.ListDirContents(recipesFolder, "tres");
-    GD.Print(recipesFiles.Count);
     foreach (var file in recipesFiles) {
-      GD.Print(file);
       var recipe = ResourceLoader.Load<Recipe>($"{recipesFolder}/{file}");
       Recipes.Add(recipe);
     }
+
+    GameState.UnlockedRecipes.Clear();
+    foreach (var recipe in Recipes) {
+      GameState.UnlockedRecipes.Add(recipe);
+    }
   }
+
+
+
 }

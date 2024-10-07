@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Creature" load_steps=5 format=3 uid="uid://unique_id_here"]
+
+[ext_resource type="Script" path="res://Creature/Creature.cs" id="1_script"]
+[ext_resource type="Texture2D" path="res://Assets/UI/UI_Character-Det-Cat_Neutral.png" id="2_icon"]
+[ext_resource type="Texture2D" path="res://Assets/Characters/Character_Detective-Cat.png" id="3_fullbody"]
+[ext_resource type="Texture2D" path="res://Assets/UI/UI_Portrait_Detective-Cat.png" id="4_portrait"]
+
+[resource]
+script = ExtResource("1_script")
+DisplayName = "cat"
+Description = "A big, friendly cat. She's always smiling and waving at people."
+Icon = ExtResource("2_icon")
+FullBodyTexture = ExtResource("3_fullbody")
+DialogPortraitTexture = ExtResource("4_portrait")
+Id = 2

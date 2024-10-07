@@ -17,6 +17,7 @@ public partial class Rolodex : ColorRect {
     public RolodexNodes(Rolodex parent) {
       this.parent = parent;
     }
+    // Scene: ./Scenes/Rolodex.tscn
     private Button? _ClickOutside;
     public Button ClickOutside {
       get => _ClickOutside ??= parent.GetNode<Button>("ClickOutside");
