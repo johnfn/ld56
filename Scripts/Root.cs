@@ -82,14 +82,14 @@ public partial class Root : Node2D {
   }
 
   public async Task StartNewDay() {
-    await DisplayReservationModal();
+    await DisplayReservationModal(GameState.DayIndex);
 
     GameState.CurrentDayTime = 0f;
     GameState.DayIndex++;
     GameState.Mode = GameMode.Normal;
   }
 
-  public async Task DisplayReservationModal() {
+  public async Task DisplayReservationModal(int dayIndex) {
     GameState.Mode = GameMode.ReservationModal;
     Nodes.HUD.Nodes.MorningModal.Visible = true;
 
@@ -97,7 +97,7 @@ public partial class Root : Node2D {
       child.QueueFree();
     }
 
-    foreach (var reservation in AllLevels.Levels[GameState.DayIndex]) {
+    foreach (var reservation in AllLevels.Levels[dayIndex]) {
       var newCard = ReservationCard.New();
       var (timeString, period) = Clock.GetTimeString(reservation.ReservationTime);
 

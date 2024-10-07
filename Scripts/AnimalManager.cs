@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 namespace ld56;
 
 using static Utils;
@@ -237,7 +238,12 @@ public partial class AnimalManager : Node2D {
                   chair.SpawnedCreatureOnChair = null;
                 }
               }
+            }
 
+            // We need this if we can't seat a full table.
+            var areAllCreaturesReady = Creatures.All(c => c.State == CreatureState.WaitForEveryoneToFinish);
+            if (areAllCreaturesReady) {
+              animal.State = CreatureState.WalkToExit;
             }
 
             break;
