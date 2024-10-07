@@ -65,8 +65,6 @@ public partial class AnimalManager : Node2D {
             SpawnedCreatureOnChair = null,
             TableIndex = tableIndex,
           });
-
-          highlightCircle.Visible = false;
         }
       }
 
@@ -313,12 +311,6 @@ public partial class AnimalManager : Node2D {
   }
 
   public void Sit(SpawnedCreature spawnedCreature) {
-    foreach (var chair in Chairs) {
-      if (chair.SpawnedCreatureOnChair == null) {
-        chair.Circle.Visible = true;
-      }
-    }
-
     CreatureCurrentlyBeingSit = spawnedCreature;
     GameState.Mode = GameMode.ChooseTable;
   }
@@ -341,10 +333,6 @@ public partial class AnimalManager : Node2D {
     }
 
     chairToUpdate.SpawnedCreatureOnChair = CreatureCurrentlyBeingSit;
-
-    foreach (var chair in Chairs) {
-      chair.Circle.Visible = false;
-    }
 
     CreatureCurrentlyBeingSit = null;
 

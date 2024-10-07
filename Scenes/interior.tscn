@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dydo884ty4kdb"]
+[gd_scene load_steps=8 format=3 uid="uid://dydo884ty4kdb"]
 
-[ext_resource type="Texture2D" uid="uid://dao638tuiqy3r" path="res://Assets/Backgrounds/Interior_BG.png" id="1_rau6r"]
+[ext_resource type="Texture2D" uid="uid://cdu2eeyybayuf" path="res://Assets/Backgrounds/Interior_BG_v2.png" id="1_lirbk"]
 [ext_resource type="Script" path="res://Scripts/Interior.cs" id="2_nxgdb"]
 [ext_resource type="PackedScene" uid="uid://0pvu3gdqahdj" path="res://Scenes/highlight_circle.tscn" id="3_17ai5"]
+[ext_resource type="Texture2D" uid="uid://5ift8685ndkk" path="res://Assets/Backgrounds/Interior_Chair_Left.png" id="4_pbpnq"]
+[ext_resource type="Texture2D" uid="uid://5xciwwuiyqk3" path="res://Assets/Backgrounds/Interior_Chair_Right.png" id="5_7hl3t"]
+[ext_resource type="Texture2D" uid="uid://bop1o53fxn042" path="res://Assets/Backgrounds/Interior_Table.png" id="6_5dsrw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gnt6k"]
 size = Vector2(148.732, 146.16)
 
 [node name="Interior" type="Sprite2D"]
-texture = ExtResource("1_rau6r")
+texture = ExtResource("1_lirbk")
 centered = false
 script = ExtResource("2_nxgdb")
 
@@ -24,40 +27,83 @@ position = Vector2(0, -1)
 [node name="Table1" type="Node2D" parent="Tables"]
 
 [node name="HighlightCircle" parent="Tables/Table1" instance=ExtResource("3_17ai5")]
+position = Vector2(487, 974)
+scale = Vector2(1, 1)
+texture = ExtResource("5_7hl3t")
+ChairFacing = 1
 
 [node name="HighlightCircle2" parent="Tables/Table1" instance=ExtResource("3_17ai5")]
 position = Vector2(734, 827)
+scale = Vector2(1, 1)
+texture = ExtResource("4_pbpnq")
 
 [node name="HighlightCircle3" parent="Tables/Table1" instance=ExtResource("3_17ai5")]
 position = Vector2(469, 710)
+scale = Vector2(1, 1)
+texture = ExtResource("4_pbpnq")
 
 [node name="HighlightCircle4" parent="Tables/Table1" instance=ExtResource("3_17ai5")]
 position = Vector2(203, 834)
+scale = Vector2(1, 1)
+texture = ExtResource("5_7hl3t")
+ChairFacing = 1
 
 [node name="Table2" type="Node2D" parent="Tables"]
 
 [node name="HighlightCircle" parent="Tables/Table2" instance=ExtResource("3_17ai5")]
 position = Vector2(604, 494)
+scale = Vector2(1, 1)
+texture = ExtResource("5_7hl3t")
+ChairFacing = 1
 
 [node name="HighlightCircle1" parent="Tables/Table2" instance=ExtResource("3_17ai5")]
-position = Vector2(855, 593)
+position = Vector2(856, 613)
+scale = Vector2(1, 1)
+texture = ExtResource("5_7hl3t")
+ChairFacing = 1
 
 [node name="HighlightCircle2" parent="Tables/Table2" instance=ExtResource("3_17ai5")]
 position = Vector2(1115, 503)
+scale = Vector2(1, 1)
+texture = ExtResource("4_pbpnq")
 
 [node name="HighlightCircle3" parent="Tables/Table2" instance=ExtResource("3_17ai5")]
 position = Vector2(847, 354)
+scale = Vector2(1, 1)
+texture = ExtResource("4_pbpnq")
 
 [node name="Table3" type="Node2D" parent="Tables"]
 
 [node name="HighlightCircle5" parent="Tables/Table3" instance=ExtResource("3_17ai5")]
-position = Vector2(604, 494)
+position = Vector2(962, 839.5)
+scale = Vector2(1, 1)
+texture = ExtResource("5_7hl3t")
+ChairFacing = 1
 
 [node name="HighlightCircle6" parent="Tables/Table3" instance=ExtResource("3_17ai5")]
-position = Vector2(855, 593)
+position = Vector2(1215, 966)
+scale = Vector2(1, 1)
+texture = ExtResource("5_7hl3t")
+ChairFacing = 1
 
 [node name="HighlightCircle7" parent="Tables/Table3" instance=ExtResource("3_17ai5")]
-position = Vector2(1115, 503)
+position = Vector2(1473, 848.5)
+scale = Vector2(1, 1)
+texture = ExtResource("4_pbpnq")
 
 [node name="HighlightCircle8" parent="Tables/Table3" instance=ExtResource("3_17ai5")]
-position = Vector2(847, 354)
+position = Vector2(1205, 699.5)
+scale = Vector2(1, 1)
+texture = ExtResource("4_pbpnq")
+
+[node name="TableGraphic" type="Sprite2D" parent="."]
+position = Vector2(464, 825)
+texture = ExtResource("6_5dsrw")
+
+[node name="TableGraphic2" type="Sprite2D" parent="."]
+position = Vector2(870, 471)
+texture = ExtResource("6_5dsrw")
+
+[node name="TableGraphic3" type="Sprite2D" parent="."]
+position = Vector2(1221, 820)
+texture = ExtResource("6_5dsrw")

@@ -47,6 +47,21 @@ public partial class Interior : Sprite2D {
       get => _Tables_Table3 ??= parent.GetNode<Node2D>("Tables/Table3");
     }
 
+    private Sprite2D? _TableGraphic;
+    public Sprite2D TableGraphic {
+      get => _TableGraphic ??= parent.GetNode<Sprite2D>("TableGraphic");
+    }
+
+    private Sprite2D? _TableGraphic2;
+    public Sprite2D TableGraphic2 {
+      get => _TableGraphic2 ??= parent.GetNode<Sprite2D>("TableGraphic2");
+    }
+
+    private Sprite2D? _TableGraphic3;
+    public Sprite2D TableGraphic3 {
+      get => _TableGraphic3 ??= parent.GetNode<Sprite2D>("TableGraphic3");
+    }
+
     private HighlightCircle? _Tables_Table1_HighlightCircle;
     public HighlightCircle Tables_Table1_HighlightCircle {
       get => _Tables_Table1_HighlightCircle ??= parent.GetNode<HighlightCircle>("Tables/Table1/HighlightCircle");
