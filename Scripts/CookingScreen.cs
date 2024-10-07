@@ -59,7 +59,11 @@ public partial class CookingScreen : Sprite2D {
     Initialize();
   }
 
-  public static async Task<Recipe> Cook() {
+  public static async Task<Recipe> Cook(
+    List<IngredientId>? desiredIngredients = null
+  ) {
+    desiredIngredients ??= [];
+
     // if (GameState.HYPERSPEED) {
     //   return AllRecipes.ScrambledEggs;
     // }

@@ -24,9 +24,6 @@ public partial class CreatureData : Resource {
   [Export]
   public CreatureId Id { get; set; }
 
-  [Export]
-  public List<IngredientId> FavoriteIngredients { get; set; } = [];
-
   // This will be set programmatically after loading
   [System.NonSerialized]
   public System.Func<SpawnedCreature, Node2D> Instantiate;

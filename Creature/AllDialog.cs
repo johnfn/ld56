@@ -47,7 +47,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "...coming right up...", Speaker = CreatureId.None,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook();
+        var recipe = await CookingScreen.Cook([IngredientId.Flour, IngredientId.Egg]);
       },
     }
   ];

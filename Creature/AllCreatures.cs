@@ -17,12 +17,6 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Chipmunk_Neutral.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Chipmunk.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Chipmunk.png"),
-    FavoriteIngredients = [
-      IngredientId.Blueberry,
-      IngredientId.Flour,
-      IngredientId.Milk,
-      IngredientId.Egg,
-    ],
   };
 
   public static readonly CreatureData Hazel = new() {
