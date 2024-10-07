@@ -20,7 +20,4 @@ public static class AllRecipes {
       GameState.UnlockedRecipes.Add(recipe);
     }
   }
-
-
-
 }

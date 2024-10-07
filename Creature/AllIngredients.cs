@@ -29,10 +29,8 @@ public static class AllIngredients {
       Ingredients.Add(ingredient);
     }
 
-    GameState.KnownIngredients.Clear();
-    foreach (var ingredient in Ingredients) {
-      GameState.KnownIngredients.Add(ingredient);
-    }
+    GameState.KnownIngredients.Add(Bean.Id);
+    GameState.KnownIngredients.Add(Leaf.Id);
   }
 
   private static Ingredient _avocado;

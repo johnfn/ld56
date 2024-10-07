@@ -117,9 +117,9 @@ public partial class Rolodex : ColorRect {
     return recipeEntry;
   }
 
-  private RolodexIngredientEntry CreateIngredientEntry(Ingredient ingredientData) {
+  private RolodexIngredientEntry CreateIngredientEntry(Ingredient ingredientData, bool isKnown) {
     var ingredientEntry = GD.Load<PackedScene>("res://Scenes/RolodexIngredientEntry.tscn").Instantiate<RolodexIngredientEntry>();
-    ingredientEntry.Initialize(ingredientData, GameState.CurrentScreen == GameScreen.Cooking);
+    ingredientEntry.Initialize(ingredientData, GameState.CurrentScreen == GameScreen.Cooking, isKnown);
 
     return ingredientEntry;
   }
@@ -169,11 +169,13 @@ public partial class Rolodex : ColorRect {
         if (i >= GameState.KnownGuests.Count) {
           break;
         }
+
         // Add an HSeparator to the page, if it's not the last entry.
         if (i != page1StartIndex) {
           var separator = new HSeparator();
           Nodes.BookTexture_PageContents_Page1_Page1.AddChild(separator);
         }
+
         Nodes.BookTexture_PageContents_Page1_Page1.AddChild(CreateCreatureEntry(GameState.KnownGuests[i]));
       }
 
@@ -212,44 +214,49 @@ public partial class Rolodex : ColorRect {
           var separator = new HSeparator();
           Nodes.BookTexture_PageContents_Page2_Page2.AddChild(separator);
         }
-        Nodes.BookTexture_PageContents_Page2_Page2.AddChild(CreateRecipeEntry(GameState.UnlockedRecipes[i]));
 
+        Nodes.BookTexture_PageContents_Page2_Page2.AddChild(CreateRecipeEntry(GameState.UnlockedRecipes[i]));
       }
     } else if (Tab == RolodexTab.Ingredients) {
 
       for (int i = page1StartIndex; i < page2StartIndex; i++) {
         // necessary because of closure stuff
-        var ingredient = GameState.KnownIngredients[i];
+        var ingredient = AllIngredients.Ingredients[i];
 
-        if (i >= GameState.KnownIngredients.Count) {
+        if (i >= AllIngredients.Ingredients.Count) {
           break;
         }
+
         if (i != page1StartIndex) {
           // Add an HSeparator
           var separator = new HSeparator();
           Nodes.BookTexture_PageContents_Page1_Page1.AddChild(separator);
         }
-        var ingredientEntry = CreateIngredientEntry(ingredient);
+        var ingredientEntry = CreateIngredientEntry(
+          ingredient,
+          GameState.KnownIngredients.Contains(ingredient.Id)
+        );
         ingredientEntry.Nodes.Button.Pressed += () => {
           OnClickIngredient?.Invoke(ingredient.Id);
         };
         Nodes.BookTexture_PageContents_Page1_Page1.AddChild(ingredientEntry);
-
       }
 
       for (int i = page2StartIndex; i < page2EndIndex; i++) {
         // necessary because of closure stuff
-        var ingredient = GameState.KnownIngredients[i];
+        var ingredient = AllIngredients.Ingredients[i];
 
-        if (i >= GameState.KnownIngredients.Count) {
+        if (i >= AllIngredients.Ingredients.Count) {
           break;
         }
+
         if (i != page2StartIndex) {
           // Add an HSeparator
           var separator = new HSeparator();
           Nodes.BookTexture_PageContents_Page2_Page2.AddChild(separator);
         }
-        var ingredientEntry = CreateIngredientEntry(ingredient);
+
+        var ingredientEntry = CreateIngredientEntry(ingredient, GameState.KnownIngredients.Contains(ingredient.Id));
         ingredientEntry.Nodes.Button.Pressed += () => {
           OnClickIngredient?.Invoke(ingredient.Id);
         };

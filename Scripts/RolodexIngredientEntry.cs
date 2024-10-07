@@ -47,16 +47,21 @@ public partial class RolodexIngredientEntry : PanelContainer {
     }
   }
 
-  public void Initialize(Ingredient ingredientData, bool isClickable) {
+  public void Initialize(Ingredient ingredientData, bool isClickable, bool isKnown) {
     _ingredientData = ingredientData;
 
-    if (ingredientData.Icon != null) {
+    if (ingredientData.Icon != null && isKnown) {
       Nodes.HBoxContainer_TextureRect.Texture = ingredientData.Icon;
     }
 
     _isClickable = isClickable;
 
-    Nodes.HBoxContainer_TextContainer_Name.Text = ingredientData.DisplayName;
-    Nodes.HBoxContainer_TextContainer_Description.Text = ingredientData.Description;
+    if (isKnown) {
+      Nodes.HBoxContainer_TextContainer_Name.Text = ingredientData.DisplayName;
+      Nodes.HBoxContainer_TextContainer_Description.Text = ingredientData.Description;
+    } else {
+      Nodes.HBoxContainer_TextContainer_Name.Text = "???";
+      Nodes.HBoxContainer_TextContainer_Description.Text = "This ingredient is a mystery to you.";
+    }
   }
 }

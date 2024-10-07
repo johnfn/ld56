@@ -49,7 +49,7 @@ public static class GameState {
   public static List<CreatureData> KnownGuests = [
   ];
 
-  public static List<Ingredient> KnownIngredients = [
+  public static HashSet<IngredientId> KnownIngredients = [
   ];
 
   public static List<Ingredient> OwnedIngredients = [
