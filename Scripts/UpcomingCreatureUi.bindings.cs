@@ -63,6 +63,11 @@ public partial class UpcomingCreatureUi : TextureRect {
       get => _Popover_MarginContainer_VBoxContainer_Description ??= parent.GetNode<Label>("Popover/MarginContainer/VBoxContainer/Description");
     }
 
+    private Sprite2D? _Checkmark;
+    public Sprite2D Checkmark {
+      get => _Checkmark ??= parent.GetNode<Sprite2D>("Checkmark");
+    }
+
   }
 
   public UpcomingCreatureUiNodes? _Nodes;

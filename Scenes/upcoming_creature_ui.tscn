@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://epptr1vhg57"]
+[gd_scene load_steps=7 format=3 uid="uid://epptr1vhg57"]
 
 [ext_resource type="Texture2D" uid="uid://biug4mknu660d" path="res://Assets/UI/UI_Character-Squirrel_Neutral.png" id="1_s7112"]
 [ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="1_tghvx"]
 [ext_resource type="Script" path="res://Scripts/UpcomingCreatureUi.cs" id="1_ufo37"]
 [ext_resource type="Script" path="res://Scripts/CoolButton.cs" id="3_r5aw0"]
+[ext_resource type="Texture2D" uid="uid://dg2af8tbro8ym" path="res://Assets/Characters/Checkmark.png" id="5_ks0qq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eh2sa"]
 bg_color = Color(1, 1, 1, 1)
@@ -85,3 +86,8 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "This is a tiny creature"
 autowrap_mode = 2
+
+[node name="Checkmark" type="Sprite2D" parent="."]
+position = Vector2(36, 35)
+scale = Vector2(1.24, 1.24)
+texture = ExtResource("5_ks0qq")

@@ -14,6 +14,7 @@ public partial class UpcomingCreatureUi : TextureRect {
 
   public override void _Ready() {
     Nodes.Popover.Visible = false;
+    Nodes.Checkmark.Visible = false;
 
     MouseEntered += () => {
       Nodes.Popover.Visible = true;
@@ -84,6 +85,10 @@ public partial class UpcomingCreatureUi : TextureRect {
       SelfModulate = new Color(0.5f, 0.5f, 0.5f, 1);
     } else {
       SelfModulate = new Color(1, 1, 1, 1);
+    }
+
+    if (creature.State == CreatureState.WaitForEveryoneToFinish) {
+      Nodes.Checkmark.Visible = true;
     }
   }
 }
