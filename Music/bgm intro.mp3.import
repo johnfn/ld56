@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://celjxb5avidqu"
+path="res://.godot/imported/bgm intro.mp3-b13d3230c5e5ab68de399dbe6a88553e.mp3str"
+
+[deps]
+
+source_file="res://Music/bgm intro.mp3"
+dest_files=["res://.godot/imported/bgm intro.mp3-b13d3230c5e5ab68de399dbe6a88553e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

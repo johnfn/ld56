@@ -187,13 +187,6 @@ public partial class AnimalManager : Node2D {
     var admit = Root.Instance.Nodes.Exterior.Nodes.AnimalAdmitArea;
     var interiorSpawn = Root.Instance.Nodes.Interior.Nodes.InteriorAnimalSpawnArea;
 
-    GD.Print($"Chairs: {Chairs.Count}");
-    foreach (var chair in Chairs) {
-      if (chair.SpawnedCreatureOnChair != null) {
-        GD.Print($"{chair.SpawnedCreatureOnChair.Data.DisplayName} is on chair at table {chair.TableIndex}");
-      }
-    }
-
     foreach (var animal in Creatures) {
       var instance = animal.Instance;
 

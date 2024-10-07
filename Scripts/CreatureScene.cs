@@ -47,8 +47,6 @@ public partial class CreatureScene : Node2D {
     Nodes.VBoxContainer_TextureRect.MouseExited += () => {
       (Nodes.VBoxContainer_TextureRect.Material as ShaderMaterial).Set("shader_parameter/width", 0.0);
     };
-
-
   }
 
   private void OnClick() {
@@ -58,6 +56,14 @@ public partial class CreatureScene : Node2D {
       Root.Instance.Nodes.AnimalManager.Sit(Data);
     } else if (Data.State == CreatureState.WaitForTalk) {
       Root.Instance.Nodes.AnimalManager.StartDialog(Data);
+    }
+  }
+
+  public override void _Process(double delta) {
+    if (Data.State == CreatureState.WaitForEveryoneToFinish) {
+      Nodes.Checkmark.Visible = true;
+    } else {
+      Nodes.Checkmark.Visible = false;
     }
   }
 }

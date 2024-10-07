@@ -19,6 +19,7 @@ position = Vector2(60, 573)
 shape = SubResource("RectangleShape2D_gnt6k")
 
 [node name="Tables" type="Node2D" parent="."]
+position = Vector2(0, -1)
 
 [node name="Table1" type="Node2D" parent="Tables"]
 
