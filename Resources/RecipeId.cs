@@ -1,0 +1,21 @@
+public enum RecipeId {
+  None,
+  BeanSoup,
+  BlueberryFlapjack,
+  Flapjack,
+  FluffFlapjack,
+  GigaSalad,
+  LactoseOmelet,
+  MegaSalad,
+  Omelet,
+  OnionSoup,
+  RoyalSkillet,
+  Salad,
+  SaladOfTheGodsSalad,
+  StrawberryFlapjack,
+  SyrupyFlapjack,
+  TestRecipe,
+  TomatoSoup,
+  VeggieOmelet,
+  WhatTrashSoup
+}

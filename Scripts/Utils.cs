@@ -59,4 +59,22 @@ class Utils {
       what3Expression + "=" + ToString(what3)
     );
   }
+
+  public static List<string> ListDirContents(string path, string extension) {
+    using var dir = DirAccess.Open(path);
+    var files = new List<string>();
+    if (dir != null) {
+      dir.ListDirBegin();
+      string fileName = dir.GetNext();
+      while (fileName != "") {
+        if (!dir.CurrentIsDir() && fileName.EndsWith(extension)) {
+          files.Add(fileName);
+        }
+        fileName = dir.GetNext();
+      }
+    } else {
+      GD.Print("An error occurred when trying to access the path.");
+    }
+    return files;
+  }
 }

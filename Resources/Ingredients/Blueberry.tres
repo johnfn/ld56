@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://ci7t4n0y7yqad"]
+
+[ext_resource type="Texture2D" uid="uid://dwl0k8yg2c0s1" path="res://Assets/Ingredients/Ingredients_Blueberry.png" id="1_blueberry"]
+[ext_resource type="Script" path="res://Creature/Ingredient.cs" id="1_ingredient_script"]
+
+[resource]
+script = ExtResource("1_ingredient_script")
+DisplayName = "Blueberry"
+Description = "A sweet, antioxidant-rich berry"
+Icon = ExtResource("1_blueberry")
+Id = 0
+Rarity = 1
+Cost = 10

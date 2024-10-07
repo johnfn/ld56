@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Creature" load_steps=2 format=3 uid="uid://b1jqne050ummb"]
+
+[ext_resource type="Script" path="res://Creature/Creature.cs" id="1_34mbb"]
+
+[resource]
+script = ExtResource("1_34mbb")
+DisplayName = "New Creature"
+Description = "A new creature."
+Id = 0

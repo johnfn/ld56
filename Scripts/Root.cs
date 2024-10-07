@@ -25,6 +25,10 @@ public partial class Root : Node2D {
   public override void _Ready() {
     Instance = this;
 
+    AllIngredients.LoadFromResources();
+    AllRecipes.LoadFromResources();
+    AllCreatures.LoadFromResources();
+
     UpdateCurrentScreen(GameState.CurrentScreen);
 
     Nodes.HUD.Nodes.ExteriorButton.Pressed += () => {
@@ -45,7 +49,7 @@ public partial class Root : Node2D {
 
     Nodes.HUD.Nodes.Debug_DebugServeCustomer.Pressed += () => {
       GameState.CustomerResults.Add(new(
-        Creature: AllCreatures.Hazel,
+        CreatureId: CreatureId.MrChicken,
         TipEarned: 10,
         Satisfaction: CustomerSatisfaction.Upset,
         DayIndex: GameState.DayIndex
@@ -123,14 +127,14 @@ public partial class Root : Node2D {
   public void DisplayShopHelper() {
     // TODO: Figure out what they actually sell, lol.
 
-    DisplayShop([
-      AllIngredients.Egg,
-      AllIngredients.Egg,
-      AllIngredients.Egg,
-    ]);
+    // DisplayShop([
+    //   AllIngredients.Egg,
+    //   AllIngredients.Egg,
+    //   AllIngredients.Egg,
+    // ]);
   }
 
-  public static void DisplayShop(List<IngredientData> displayedIngredients) {
+  public static void DisplayShop(List<Ingredient> displayedIngredients) {
     Instance.Nodes.HUD.Nodes.Shop.Initialize(displayedIngredients);
     Instance.Nodes.HUD.Nodes.Shop.Visible = true;
   }

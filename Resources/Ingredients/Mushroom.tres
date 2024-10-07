@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://unique_mushroom_uid"]
+
+[ext_resource type="Texture2D" uid="uid://unique_mushroom_texture_uid" path="res://Assets/Ingredients/Ingredients_Mushroom.png" id="1_mushroom"]
+[ext_resource type="Script" path="res://Creature/Ingredient.cs" id="1_ingredient_script"]
+
+[resource]
+script = ExtResource("1_ingredient_script")
+DisplayName = "Mushroom"
+Description = "A flavorful fungus"
+Icon = ExtResource("1_mushroom")
+Id = "mushroom"
+Rarity = 1
+Cost = 10

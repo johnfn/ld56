@@ -23,7 +23,7 @@ public enum CustomerSatisfaction {
 }
 
 public record CustomerResult(
-  CreatureData Creature,
+  CreatureId CreatureId,
   int TipEarned,
   CustomerSatisfaction Satisfaction,
   int DayIndex
@@ -40,33 +40,18 @@ public static class GameState {
   public static GameMode Mode { get; set; } = GameMode.Normal;
   public static GameScreen CurrentScreen { get; set; } = GameScreen.Exterior;
   public static List<CustomerResult> CustomerResults { get; set; } = [];
+  public static List<CustomerResult> CustomerResultsForDay { get; set; } = [];
   public static float CurrentDayTime { get; set; } = 0f;
 
   public static List<Recipe> UnlockedRecipes = [
-    AllRecipes.TomatoSoupInACherryTomato,
-    AllRecipes.ScrambledEggs,
   ];
 
-  public static List<CreatureData> KnownGuests = [
+  public static List<Creature> KnownGuests = [
   ];
 
-  public static List<IngredientData> KnownIngredients = [
-    AllIngredients.CherryTomato,
-    AllIngredients.Basil,
-    AllIngredients.Garlic,
-    AllIngredients.Onion,
-    AllIngredients.Carrot,
-    AllIngredients.Egg,
+  public static List<Ingredient> KnownIngredients = [
   ];
 
-  public static List<IngredientData> OwnedIngredients = [
-    AllIngredients.CherryTomato,
-    AllIngredients.CherryTomato,
-    AllIngredients.CherryTomato,
-    AllIngredients.CherryTomato,
-    AllIngredients.CherryTomato,
-    AllIngredients.Basil,
-    AllIngredients.Basil,
-    AllIngredients.Basil,
+  public static List<Ingredient> OwnedIngredients = [
   ];
 }

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://unique_bread_uid"]
+
+[ext_resource type="Texture2D" uid="uid://unique_bread_texture_uid" path="res://Assets/Ingredients/Ingredients_Bread.png" id="1_bread"]
+[ext_resource type="Script" path="res://Creature/Ingredient.cs" id="1_ingredient_script"]
+
+[resource]
+script = ExtResource("1_ingredient_script")
+DisplayName = "Bread"
+Description = "A staple food made from flour"
+Icon = ExtResource("1_bread")
+Id = "bread"
+Rarity = 0
+Cost = 8

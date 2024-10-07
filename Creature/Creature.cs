@@ -1,17 +1,37 @@
-using System;
 using Godot;
 
 namespace ld56;
 
-public partial class CreatureData : Resource {
-  public string DisplayName { get; set; }
-  public string Description { get; set; }
-  public Func<SpawnedCreature, Node2D> Instantiate { get; set; }
+[GlobalClass]
+[Tool]
+public partial class Creature : Resource {
+  [Export]
+  public string DisplayName { get; set; } = "New Creature";
+
+  [Export]
+  public string Description { get; set; } = "A new creature.";
+
+  [Export]
   public Texture2D Icon { get; set; }
+
+  [Export]
   public Texture2D FullBodyTexture { get; set; }
+
+  [Export]
   public Texture2D DialogPortraitTexture { get; set; }
-  public CreatureData() {
-    DisplayName = "New Creature";
-    Description = "A new creature.";
+
+  [Export]
+  public CreatureId Id { get; set; }
+
+  // This will be set programmatically after loading
+  [System.NonSerialized]
+  public System.Func<SpawnedCreature, Node2D> Instantiate;
+
+  public Creature() {
+    Instantiate = (spawnedCreature) => {
+      var creature = CreatureScene.New();
+      creature.Initialize(spawnedCreature);
+      return creature;
+    };
   }
 }

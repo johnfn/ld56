@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://iiqinsgr2l1n"]
+[gd_scene load_steps=6 format=3 uid="uid://dksv0nvtjkh60"]
 
 [ext_resource type="Script" path="res://Scripts/CookingIngredient.cs" id="1_4htc4"]
-[ext_resource type="Texture2D" uid="uid://dvystam1uwxhs" path="res://Assets/Ingredients/basil_leaf.png" id="1_hdg4o"]
-[ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="1_hs7iv"]
+[ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="1_hs7iv"]
 [ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="4_w2l4s"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cwxsk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ud6b3"]
 bg_color = Color(1, 1, 1, 1)
@@ -32,7 +33,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("1_hdg4o")
+texture = SubResource("CompressedTexture2D_cwxsk")
 expand_mode = 2
 stretch_mode = 4
 
