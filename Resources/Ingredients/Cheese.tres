@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_ingredient_script")
 DisplayName = "Cheese"
-Description = "A dairy product with various flavors"
+Description = "A dairy product"
 Icon = ExtResource("1_cheese")
 Id = 5
 Rarity = 1

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c7fp7kxolgo0e"]
 
 [ext_resource type="Script" path="res://Scripts/RolodexIngredientEntry.cs" id="1_0xbdf"]
-[ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="1_jqf1o"]
+[ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="1_jqf1o"]
 [ext_resource type="Texture2D" uid="uid://bi5s53uty3j1e" path="res://Assets/Ingredients/Ingredients_Tomato.png" id="3_2ic5n"]
 [ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="4_jtpa2"]
 

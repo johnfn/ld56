@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=2 format=3 uid="uid://UNIQUE_UID_HERE"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://cmqqhfolxc3um"]
 
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
-[ext_resource type="Texture2D" uid="uid://UNIQUE_UID_HERE" path="res://Assets/Dishes/Dish_Salad-of-the-Gods_Salad.png" id="2_icon"]
+[ext_resource type="Texture2D" uid="uid://chip8q0ftcsf1" path="res://Assets/Dishes/Dish_Salad-of-the-Gods_Salad.png" id="2_icon"]
 
 [resource]
 script = ExtResource("1_recipe")
 DisplayName = "Salad of the Gods Salad"
-Description = "A divine salad with heavenly ingredients."
+Description = "A complex, divine salad."
 Ingredients = []
 Icon = ExtResource("2_icon")
