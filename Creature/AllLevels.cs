@@ -11,15 +11,16 @@ public static class AllLevels {
 
     // Day 2
     [
-      new SpawnedCreature {
-        Data = AllCreatures.Hazel,
-        ReservationTime = Clock.GetTimeFromString("8:00 AM"),
-        State = CreatureState.WaitForTalk,
-        Instance = null,
-        CurrentScreen = CurrentScreen.Interior,
-        SelectedChair = null,
-        GetDialog = () => AllDialog.Hazel,
-      },
+      CreateSpawnedCreature(CreatureId.MrPig, "8:00 AM")
+      // new SpawnedCreature {
+      //   Data = AllCreatures.Hazel,
+      //   ReservationTime = Clock.GetTimeFromString("8:00 AM"),
+      //   State = CreatureState.WaitForTalk,
+      //   Instance = null,
+      //   CurrentScreen = CurrentScreen.Interior,
+      //   SelectedChair = null,
+      //   GetDialog = () => AllDialog.Hazel,
+      // },
     ],
 
     // [
@@ -89,7 +90,7 @@ public static class AllLevels {
     };
   }
 
-  private static Creature FindCreatureById(CreatureId id) {
+  private static CreatureData FindCreatureById(CreatureId id) {
     return AllCreatures.Creatures.FirstOrDefault(c => c.Id == id)
       ?? throw new System.Exception($"Creature with id {id} not found");
   }

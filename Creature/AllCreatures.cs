@@ -4,7 +4,7 @@ using Godot;
 namespace ld56;
 
 public static class AllCreatures {
-    public static readonly CreatureData You = new() {
+  public static readonly CreatureData You = new() {
     DisplayName = "You",
     Description = "It's you! You shouldn't be reading this...",
     Instantiate = (spawnedCreature) => {
@@ -18,7 +18,7 @@ public static class AllCreatures {
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Chipmunk.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Chipmunk.png"),
   };
-  
+
   public static readonly CreatureData Hazel = new() {
     DisplayName = "Hazel",
     Description = "Very polite.",
@@ -108,7 +108,7 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Mouse-2_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Mouse-2.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Mouse-2.png"),
-  };  
+  };
 
   public static readonly CreatureData Lav = new() {
     DisplayName = "Lav",
@@ -384,9 +384,9 @@ public static class AllCreatures {
   //   FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Squirrel.png"),
   //   DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Squirrel.png"),
   // };
-  public static List<Creature> Creatures = new();
+  public static List<CreatureData> Creatures = new();
 
-  public static Creature GetCreature(CreatureId creatureId) {
+  public static CreatureData GetCreature(CreatureId creatureId) {
     return Creatures.Find(creature => creature.Id == creatureId);
   }
 
@@ -395,7 +395,7 @@ public static class AllCreatures {
     var creaturesFolder = "res://Resources/Creatures";
     var creaturesFiles = Utils.ListDirContents(creaturesFolder, "tres");
     foreach (var file in creaturesFiles) {
-      var creature = ResourceLoader.Load<Creature>($"{creaturesFolder}/{file}");
+      var creature = ResourceLoader.Load<CreatureData>($"{creaturesFolder}/{file}");
       Creatures.Add(creature);
     }
 

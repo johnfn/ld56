@@ -46,7 +46,7 @@ public static class GameState {
   public static List<Recipe> UnlockedRecipes = [
   ];
 
-  public static List<Creature> KnownGuests = [
+  public static List<CreatureData> KnownGuests = [
   ];
 
   public static List<Ingredient> KnownIngredients = [

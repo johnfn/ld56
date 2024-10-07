@@ -4,7 +4,7 @@ namespace ld56;
 
 [GlobalClass]
 [Tool]
-public partial class Creature : Resource {
+public partial class CreatureData : Resource {
   [Export]
   public string DisplayName { get; set; } = "New Creature";
 
@@ -27,7 +27,7 @@ public partial class Creature : Resource {
   [System.NonSerialized]
   public System.Func<SpawnedCreature, Node2D> Instantiate;
 
-  public Creature() {
+  public CreatureData() {
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
       creature.Initialize(spawnedCreature);
