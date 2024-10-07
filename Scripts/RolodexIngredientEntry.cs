@@ -3,6 +3,8 @@ using System;
 using ld56;
 using System.Linq;
 
+using static Utils;
+
 public partial class RolodexIngredientEntry : PanelContainer {
   private IngredientData _ingredientData;
 
@@ -23,6 +25,11 @@ public partial class RolodexIngredientEntry : PanelContainer {
 
   public override void _Process(double delta) {
     var quantity = GameState.OwnedIngredients.Count(i => i.Id == _ingredientData.Id);
+    var numUsedInCooking = CookingScreen.CookingList.Count(id => id == _ingredientData.Id);
+
+    if (GameState.Mode == GameMode.Cooking) {
+      quantity -= numUsedInCooking;
+    }
 
     Nodes.HBoxContainer_TextureRect_Quantity.Text = $"x {quantity}";
   }

@@ -8,7 +8,7 @@ namespace ld56;
 
 public partial class CookingScreen : Sprite2D {
   private Dictionary<IngredientId, CookingIngredient> idToIngredient = [];
-  private static List<IngredientId> cookingList = [];
+  public static List<IngredientId> CookingList = [];
   public static CookingScreen Instance { get; private set; }
 
   public override void _Ready() {
@@ -57,6 +57,9 @@ public partial class CookingScreen : Sprite2D {
       return AllRecipes.ScrambledEggs;
     }
 
+    var prevMode = GameState.Mode;
+    GameState.Mode = GameMode.Cooking;
+
     Root.Instance.UpdateCurrentScreen(GameScreen.Cooking);
 
     await Instance.Initialize();
@@ -72,7 +75,7 @@ public partial class CookingScreen : Sprite2D {
     var result = AllRecipes.ScrambledEggs;
 
     // TODO: Remove them from the inventory.
-    cookingList.ForEach(id => GameState.OwnedIngredients.Remove(AllIngredients.Get(id)));
+    CookingList.ForEach(id => GameState.OwnedIngredients.Remove(AllIngredients.Get(id)));
 
     Instance.ShowCookingCompleteModal(result);
 
@@ -85,6 +88,8 @@ public partial class CookingScreen : Sprite2D {
     }
 
     Root.Instance.UpdateCurrentScreen(GameScreen.Restaurant);
+
+    GameState.Mode = prevMode;
 
     return result;
   }
@@ -102,14 +107,14 @@ public partial class CookingScreen : Sprite2D {
     Rolodex.Instance.ClearSignals();
 
     Rolodex.Instance.OnClickIngredient += (ingredientId) => {
-      cookingList.Add(ingredientId);
+      CookingList.Add(ingredientId);
       var ingredient = AllIngredients.Get(ingredientId);
       var ingredientListItem = CookingIngredient.New();
       ingredientListItem.Nodes.QuantityLabel.Visible = false;
 
       Nodes.UI_IngredientSlotsTexture_Container.AddChild(ingredientListItem);
       ingredientListItem.Pressed += () => {
-        cookingList.Remove(ingredientId);
+        CookingList.Remove(ingredientId);
         Nodes.UI_IngredientSlotsTexture_Container.RemoveChild(ingredientListItem);
       };
 
@@ -124,7 +129,7 @@ public partial class CookingScreen : Sprite2D {
       Nodes.UI_CookingResultModal.Nodes.TextureRect.Texture = result.Icon;
     }
 
-    foreach (var ingredient in cookingList) {
+    foreach (var ingredient in CookingList) {
       var ownedIngredients = GameState.OwnedIngredients;
       var ingredientToRemove = ownedIngredients.FirstOrDefault(x => x.Id == ingredient);
 
