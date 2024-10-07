@@ -1,7 +1,20 @@
+using System;
 using System.Collections.Generic;
 using Godot;
 
 namespace ld56;
+
+public enum MealQuality {
+  Perfect,
+  Close,
+  Miss,
+}
+
+[System.Serializable]
+public class MealResult {
+  public List<string> Text;
+  public Action Result;
+}
 
 [GlobalClass]
 [Tool]
@@ -23,6 +36,8 @@ public partial class CreatureData : Resource {
 
   [Export]
   public CreatureId Id { get; set; }
+
+  public Dictionary<MealQuality, MealResult> MealResults { get; set; } = new();
 
   // This will be set programmatically after loading
   [System.NonSerialized]
