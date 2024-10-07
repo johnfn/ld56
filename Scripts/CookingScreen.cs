@@ -105,6 +105,7 @@ public partial class CookingScreen : Sprite2D {
       cookingList.Add(ingredientId);
       var ingredient = AllIngredients.Get(ingredientId);
       var ingredientListItem = CookingIngredient.New();
+      ingredientListItem.Nodes.QuantityLabel.Visible = false;
 
       Nodes.UI_IngredientSlotsTexture_Container.AddChild(ingredientListItem);
       ingredientListItem.Pressed += () => {
