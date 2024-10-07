@@ -80,9 +80,8 @@ public partial class Root : Node2D {
   }
 
   public async Task StartNewDay() {
-    Nodes.AnimalManager.Initialize(GameState.DayIndex);
-
     await DisplayReservationModal(GameState.DayIndex);
+    Nodes.AnimalManager.Initialize(GameState.DayIndex);
 
     GameState.CurrentDayTime = 0f;
     GameState.DayIndex++;
