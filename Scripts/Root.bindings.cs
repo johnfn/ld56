@@ -17,7 +17,6 @@ public partial class Root : Node2D {
     public RootNodes(Root parent) {
       this.parent = parent;
     }
-    // Scene: ./Scenes/root.tscn
     private SoundManager? _SoundManager;
     public SoundManager SoundManager {
       get => _SoundManager ??= parent.GetNode<SoundManager>("SoundManager");

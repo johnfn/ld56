@@ -118,6 +118,11 @@ public partial class Hud : CanvasLayer {
       get => _MorningModal ??= parent.GetNode<MorningModal>("MorningModal");
     }
 
+    private GenericDialog? _GenericDialog;
+    public GenericDialog GenericDialog {
+      get => _GenericDialog ??= parent.GetNode<GenericDialog>("GenericDialog");
+    }
+
   }
 
   public HudNodes? _Nodes;
