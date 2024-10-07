@@ -52,7 +52,6 @@ public static class AllDialog {
     }
   ];
 
-
   // Hazel
   public static List<IDialogItem> Hazel = [
     new DialogItem {
@@ -167,7 +166,7 @@ public static class AllDialog {
 
   // Speedy
   public static List<IDialogItem> Speedy = [
-  new DialogItem {
+    new DialogItem {
       Text = "Gimme any flapjack! I gotta carbo-load!", Speaker = CreatureId.Speedy},
     new DialogItem {
       Text = "Any toppings in particular?", Speaker = CreatureId.None},
@@ -348,8 +347,6 @@ public static class AllDialog {
       OnComplete = async (CreatureId creatureId) => {
        MrBlegg = MrBleggSecond;
       }
-
-
     }
   };
 
@@ -370,7 +367,6 @@ public static class AllDialog {
       }
     },
   };
-
 
   public static List<IDialogItem> MrPigWithMouse = [
     new DialogItem {
@@ -398,6 +394,10 @@ public static class AllDialog {
   public static List<IDialogItem> MrSquirrel = [
     new DialogItem { Text = "I don't have dialog yet.", Speaker = CreatureId.None}
   ];
+
+  // TODO: Remove once they exist.
+  public static List<IDialogItem> Lav = null;
+  public static List<IDialogItem> Jerry = null;
 }
 
 // public static class SampleDialog {

@@ -121,7 +121,7 @@ public static class AllLevels {
         CurrentScreen = CurrentScreen.Interior,
         SelectedChair = null,
       },
-    ]
+    ],
 
     // Day 4
     [
@@ -156,7 +156,7 @@ public static class AllLevels {
         Instance = null,
         CurrentScreen = CurrentScreen.Interior,
         SelectedChair = null,
-      },
+      }
     ]
   ];
 
