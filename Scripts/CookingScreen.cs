@@ -99,6 +99,8 @@ public partial class CookingScreen : Sprite2D {
       child.QueueFree();
     }
 
+    Rolodex.Instance.ClearSignals();
+
     Rolodex.Instance.OnClickIngredient += (ingredientId) => {
       cookingList.Add(ingredientId);
       var ingredient = AllIngredients.Get(ingredientId);

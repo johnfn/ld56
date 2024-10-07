@@ -1,14 +1,12 @@
 using Godot;
 using ld56;
-using System.Collections.Generic;
+using System;
 using System.Linq;
 
 using static Utils;
 
 public partial class Rolodex : ColorRect {
-
-  [Signal]
-  public delegate void OnClickIngredientEventHandler(IngredientId ingredientId);
+  public event Action<IngredientId> OnClickIngredient;
 
   public static Rolodex Instance { get; private set; }
 
@@ -44,6 +42,9 @@ public partial class Rolodex : ColorRect {
     };
   }
 
+  public void ClearSignals() {
+    OnClickIngredient = null;
+  }
 
   public override void _Input(InputEvent @event) {
     if (@event is InputEventMouse mouseEvent) {
@@ -228,7 +229,8 @@ public partial class Rolodex : ColorRect {
         }
         var ingredientEntry = CreateIngredientEntry(GameState.KnownIngredients[i]);
         ingredientEntry.Nodes.Button.Pressed += () => {
-          EmitSignal(SignalName.OnClickIngredient, GameState.KnownIngredients[i].DisplayName);
+          GD.Print($"Clicked {GameState.KnownIngredients[i].DisplayName}");
+          OnClickIngredient?.Invoke(GameState.KnownIngredients[i].Id);
         };
         Nodes.BookTexture_Page1Viewport_MarginContainer_Page1.AddChild(ingredientEntry);
 
@@ -245,7 +247,7 @@ public partial class Rolodex : ColorRect {
         }
         var ingredientEntry = CreateIngredientEntry(GameState.KnownIngredients[i]);
         ingredientEntry.Nodes.Button.Pressed += () => {
-          EmitSignal(SignalName.OnClickIngredient, GameState.KnownIngredients[i].DisplayName);
+          OnClickIngredient?.Invoke(GameState.KnownIngredients[i].Id);
         };
         Nodes.BookTexture_Page2Viewport_MarginContainer_Page2.AddChild(ingredientEntry);
       }
