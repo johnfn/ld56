@@ -9,6 +9,8 @@ public enum CreatureId {
   Pip,
   Poe,
   Speedy,
+  Lav,
+  Jerry,
   MrBlegg,
   MrChicken,
   MrHamster,

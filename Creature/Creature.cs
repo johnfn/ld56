@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Godot;
 
 namespace ld56;
@@ -22,6 +23,9 @@ public partial class CreatureData : Resource {
 
   [Export]
   public CreatureId Id { get; set; }
+
+  [Export]
+  public List<IngredientId> FavoriteIngredients { get; set; } = [];
 
   // This will be set programmatically after loading
   [System.NonSerialized]
