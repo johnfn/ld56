@@ -1,7 +1,7 @@
 using Godot;
 namespace ld56;
 
-public partial class DialogBox : PanelContainer {
+public partial class DialogBox : Control {
   public static DialogBox New() {
     return GD.Load<PackedScene>("res://Scenes/dialog_box.tscn").Instantiate<DialogBox>();
   }
@@ -17,49 +17,59 @@ public partial class DialogBox : PanelContainer {
     public DialogBoxNodes(DialogBox parent) {
       this.parent = parent;
     }
-    private HBoxContainer? _HBoxContainer;
-    public HBoxContainer HBoxContainer {
-      get => _HBoxContainer ??= parent.GetNode<HBoxContainer>("HBoxContainer");
+    private ColorRect? _Background;
+    public ColorRect Background {
+      get => _Background ??= parent.GetNode<ColorRect>("Background");
     }
 
-    private TextureRect? _HBoxContainer_CharacterDialogSprite;
-    public TextureRect HBoxContainer_CharacterDialogSprite {
-      get => _HBoxContainer_CharacterDialogSprite ??= parent.GetNode<TextureRect>("HBoxContainer/CharacterDialogSprite");
+    private PanelContainer? _DialogBox_;
+    public PanelContainer DialogBox_ {
+      get => _DialogBox_ ??= parent.GetNode<PanelContainer>("DialogBox");
     }
 
-    private Label? _HBoxContainer_CharacterDialogSprite_CharacterName;
-    public Label HBoxContainer_CharacterDialogSprite_CharacterName {
-      get => _HBoxContainer_CharacterDialogSprite_CharacterName ??= parent.GetNode<Label>("HBoxContainer/CharacterDialogSprite/CharacterName");
+    private HBoxContainer? _DialogBox_HBoxContainer;
+    public HBoxContainer DialogBox_HBoxContainer {
+      get => _DialogBox_HBoxContainer ??= parent.GetNode<HBoxContainer>("DialogBox/HBoxContainer");
     }
 
-    private VBoxContainer? _HBoxContainer_CharacterDialogSprite_VBoxContainer;
-    public VBoxContainer HBoxContainer_CharacterDialogSprite_VBoxContainer {
-      get => _HBoxContainer_CharacterDialogSprite_VBoxContainer ??= parent.GetNode<VBoxContainer>("HBoxContainer/CharacterDialogSprite/VBoxContainer");
+    private TextureRect? _DialogBox_HBoxContainer_CharacterDialogSprite;
+    public TextureRect DialogBox_HBoxContainer_CharacterDialogSprite {
+      get => _DialogBox_HBoxContainer_CharacterDialogSprite ??= parent.GetNode<TextureRect>("DialogBox/HBoxContainer/CharacterDialogSprite");
     }
 
-    private PanelContainer? _HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer;
-    public PanelContainer HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer {
-      get => _HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer ??= parent.GetNode<PanelContainer>("HBoxContainer/CharacterDialogSprite/VBoxContainer/PanelContainer");
+    private Label? _DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName;
+    public Label DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName {
+      get => _DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName ??= parent.GetNode<Label>("DialogBox/HBoxContainer/CharacterDialogSprite/CharacterName");
     }
 
-    private RichTextLabel? _HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText;
-    public RichTextLabel HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText {
-      get => _HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText ??= parent.GetNode<RichTextLabel>("HBoxContainer/CharacterDialogSprite/VBoxContainer/PanelContainer/DialogText");
+    private VBoxContainer? _DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer;
+    public VBoxContainer DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer {
+      get => _DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer ??= parent.GetNode<VBoxContainer>("DialogBox/HBoxContainer/CharacterDialogSprite/VBoxContainer");
     }
 
-    private Label? _HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText_ClickToContinue;
-    public Label HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText_ClickToContinue {
-      get => _HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText_ClickToContinue ??= parent.GetNode<Label>("HBoxContainer/CharacterDialogSprite/VBoxContainer/PanelContainer/DialogText/ClickToContinue");
+    private PanelContainer? _DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer;
+    public PanelContainer DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer {
+      get => _DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer ??= parent.GetNode<PanelContainer>("DialogBox/HBoxContainer/CharacterDialogSprite/VBoxContainer/PanelContainer");
     }
 
-    private VBoxContainer? _HBoxContainer_DialogTextVBoxContainer;
-    public VBoxContainer HBoxContainer_DialogTextVBoxContainer {
-      get => _HBoxContainer_DialogTextVBoxContainer ??= parent.GetNode<VBoxContainer>("HBoxContainer/DialogTextVBoxContainer");
+    private RichTextLabel? _DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText;
+    public RichTextLabel DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText {
+      get => _DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText ??= parent.GetNode<RichTextLabel>("DialogBox/HBoxContainer/CharacterDialogSprite/VBoxContainer/PanelContainer/DialogText");
     }
 
-    private VBoxContainer? _HBoxContainer_OptionsVBoxContainer;
-    public VBoxContainer HBoxContainer_OptionsVBoxContainer {
-      get => _HBoxContainer_OptionsVBoxContainer ??= parent.GetNode<VBoxContainer>("HBoxContainer/OptionsVBoxContainer");
+    private Label? _DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText_ClickToContinue;
+    public Label DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText_ClickToContinue {
+      get => _DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText_ClickToContinue ??= parent.GetNode<Label>("DialogBox/HBoxContainer/CharacterDialogSprite/VBoxContainer/PanelContainer/DialogText/ClickToContinue");
+    }
+
+    private VBoxContainer? _DialogBox_HBoxContainer_DialogTextVBoxContainer;
+    public VBoxContainer DialogBox_HBoxContainer_DialogTextVBoxContainer {
+      get => _DialogBox_HBoxContainer_DialogTextVBoxContainer ??= parent.GetNode<VBoxContainer>("DialogBox/HBoxContainer/DialogTextVBoxContainer");
+    }
+
+    private VBoxContainer? _DialogBox_HBoxContainer_OptionsVBoxContainer;
+    public VBoxContainer DialogBox_HBoxContainer_OptionsVBoxContainer {
+      get => _DialogBox_HBoxContainer_OptionsVBoxContainer ??= parent.GetNode<VBoxContainer>("DialogBox/HBoxContainer/OptionsVBoxContainer");
     }
 
   }

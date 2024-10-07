@@ -15,21 +15,35 @@ corner_radius_top_right = 1000
 corner_radius_bottom_right = 1000
 corner_radius_bottom_left = 1000
 
-[node name="DialogBox" type="PanelContainer"]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 802.0
+offset_bottom = 577.0
+script = ExtResource("1_7kf6x")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -999.0
+offset_top = -398.0
+offset_right = 2086.0
+offset_bottom = 1369.0
+color = Color(0, 0, 0, 0.396078)
+
+[node name="DialogBox" type="PanelContainer" parent="."]
 offset_top = 2.0
 offset_right = 802.0
 offset_bottom = 295.0
 theme = ExtResource("1_2wud0")
-script = ExtResource("1_7kf6x")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogBox"]
 layout_mode = 2
 
-[node name="CharacterDialogSprite" type="TextureRect" parent="HBoxContainer"]
+[node name="CharacterDialogSprite" type="TextureRect" parent="DialogBox/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("3_vb4ao")
 
-[node name="CharacterName" type="Label" parent="HBoxContainer/CharacterDialogSprite"]
+[node name="CharacterName" type="Label" parent="DialogBox/HBoxContainer/CharacterDialogSprite"]
 layout_mode = 2
 offset_left = 31.0
 offset_top = 39.0
@@ -39,7 +53,7 @@ theme_override_font_sizes/font_size = 48
 text = "Mrs. Chicken
 "
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/CharacterDialogSprite"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogBox/HBoxContainer/CharacterDialogSprite"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -53,11 +67,11 @@ offset_bottom = 21.01
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer/CharacterDialogSprite/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="DialogBox/HBoxContainer/CharacterDialogSprite/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_l7vqo")
 
-[node name="DialogText" type="RichTextLabel" parent="HBoxContainer/CharacterDialogSprite/VBoxContainer/PanelContainer"]
+[node name="DialogText" type="RichTextLabel" parent="DialogBox/HBoxContainer/CharacterDialogSprite/VBoxContainer/PanelContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
 bbcode_enabled = true
@@ -65,7 +79,7 @@ text = "I am a big chicken.  "
 fit_content = true
 autowrap_mode = 2
 
-[node name="ClickToContinue" type="Label" parent="HBoxContainer/CharacterDialogSprite/VBoxContainer/PanelContainer/DialogText"]
+[node name="ClickToContinue" type="Label" parent="DialogBox/HBoxContainer/CharacterDialogSprite/VBoxContainer/PanelContainer/DialogText"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 1
 anchors_preset = 3
@@ -84,8 +98,8 @@ text = "Click to continue"
 horizontal_alignment = 2
 autowrap_mode = 2
 
-[node name="DialogTextVBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="DialogTextVBoxContainer" type="VBoxContainer" parent="DialogBox/HBoxContainer"]
 layout_mode = 2
 
-[node name="OptionsVBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="OptionsVBoxContainer" type="VBoxContainer" parent="DialogBox/HBoxContainer"]
 layout_mode = 2
