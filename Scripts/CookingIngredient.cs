@@ -32,6 +32,6 @@ public partial class CookingIngredient : Container {
       this.Scale = this.Scale / 1.1f;
     };
 
-    Nodes.Tooltip.Visible = false;
+    Nodes.Control_Tooltip.Visible = false;
   }
 }

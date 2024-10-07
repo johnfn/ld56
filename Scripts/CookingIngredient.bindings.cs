@@ -28,39 +28,54 @@ public partial class CookingIngredient : Container {
       get => _NameLabel ??= parent.GetNode<RichTextLabel>("NameLabel");
     }
 
-    private Label? _QuantityLabel;
-    public Label QuantityLabel {
-      get => _QuantityLabel ??= parent.GetNode<Label>("QuantityLabel");
+    private PanelContainer? _PanelContainer;
+    public PanelContainer PanelContainer {
+      get => _PanelContainer ??= parent.GetNode<PanelContainer>("PanelContainer");
     }
 
-    private PanelContainer? _Tooltip;
-    public PanelContainer Tooltip {
-      get => _Tooltip ??= parent.GetNode<PanelContainer>("Tooltip");
+    private MarginContainer? _PanelContainer_MarginContainer;
+    public MarginContainer PanelContainer_MarginContainer {
+      get => _PanelContainer_MarginContainer ??= parent.GetNode<MarginContainer>("PanelContainer/MarginContainer");
     }
 
-    private MarginContainer? _Tooltip_MarginContainer;
-    public MarginContainer Tooltip_MarginContainer {
-      get => _Tooltip_MarginContainer ??= parent.GetNode<MarginContainer>("Tooltip/MarginContainer");
+    private Label? _PanelContainer_MarginContainer_QuantityLabel;
+    public Label PanelContainer_MarginContainer_QuantityLabel {
+      get => _PanelContainer_MarginContainer_QuantityLabel ??= parent.GetNode<Label>("PanelContainer/MarginContainer/QuantityLabel");
     }
 
-    private VBoxContainer? _Tooltip_MarginContainer_VBoxContainer;
-    public VBoxContainer Tooltip_MarginContainer_VBoxContainer {
-      get => _Tooltip_MarginContainer_VBoxContainer ??= parent.GetNode<VBoxContainer>("Tooltip/MarginContainer/VBoxContainer");
+    private Control? _Control;
+    public Control Control {
+      get => _Control ??= parent.GetNode<Control>("Control");
     }
 
-    private RichTextLabel? _Tooltip_MarginContainer_VBoxContainer_Title;
-    public RichTextLabel Tooltip_MarginContainer_VBoxContainer_Title {
-      get => _Tooltip_MarginContainer_VBoxContainer_Title ??= parent.GetNode<RichTextLabel>("Tooltip/MarginContainer/VBoxContainer/Title");
+    private PanelContainer? _Control_Tooltip;
+    public PanelContainer Control_Tooltip {
+      get => _Control_Tooltip ??= parent.GetNode<PanelContainer>("Control/Tooltip");
     }
 
-    private RichTextLabel? _Tooltip_MarginContainer_VBoxContainer_Description;
-    public RichTextLabel Tooltip_MarginContainer_VBoxContainer_Description {
-      get => _Tooltip_MarginContainer_VBoxContainer_Description ??= parent.GetNode<RichTextLabel>("Tooltip/MarginContainer/VBoxContainer/Description");
+    private MarginContainer? _Control_Tooltip_MarginContainer;
+    public MarginContainer Control_Tooltip_MarginContainer {
+      get => _Control_Tooltip_MarginContainer ??= parent.GetNode<MarginContainer>("Control/Tooltip/MarginContainer");
     }
 
-    private RichTextLabel? _Tooltip_MarginContainer_VBoxContainer_Price;
-    public RichTextLabel Tooltip_MarginContainer_VBoxContainer_Price {
-      get => _Tooltip_MarginContainer_VBoxContainer_Price ??= parent.GetNode<RichTextLabel>("Tooltip/MarginContainer/VBoxContainer/Price");
+    private VBoxContainer? _Control_Tooltip_MarginContainer_VBoxContainer;
+    public VBoxContainer Control_Tooltip_MarginContainer_VBoxContainer {
+      get => _Control_Tooltip_MarginContainer_VBoxContainer ??= parent.GetNode<VBoxContainer>("Control/Tooltip/MarginContainer/VBoxContainer");
+    }
+
+    private RichTextLabel? _Control_Tooltip_MarginContainer_VBoxContainer_Title;
+    public RichTextLabel Control_Tooltip_MarginContainer_VBoxContainer_Title {
+      get => _Control_Tooltip_MarginContainer_VBoxContainer_Title ??= parent.GetNode<RichTextLabel>("Control/Tooltip/MarginContainer/VBoxContainer/Title");
+    }
+
+    private RichTextLabel? _Control_Tooltip_MarginContainer_VBoxContainer_Description;
+    public RichTextLabel Control_Tooltip_MarginContainer_VBoxContainer_Description {
+      get => _Control_Tooltip_MarginContainer_VBoxContainer_Description ??= parent.GetNode<RichTextLabel>("Control/Tooltip/MarginContainer/VBoxContainer/Description");
+    }
+
+    private RichTextLabel? _Control_Tooltip_MarginContainer_VBoxContainer_Price;
+    public RichTextLabel Control_Tooltip_MarginContainer_VBoxContainer_Price {
+      get => _Control_Tooltip_MarginContainer_VBoxContainer_Price ??= parent.GetNode<RichTextLabel>("Control/Tooltip/MarginContainer/VBoxContainer/Price");
     }
 
     private TextureRect? _TextureRect;
