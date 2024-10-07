@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq6c3kgpj4vfu"]
+
+[ext_resource type="Texture2D" uid="uid://b111yh6p78io5" path="res://Assets/UI/HighlightCircle.png" id="1_bfhxp"]
+[ext_resource type="Script" path="res://Scripts/DayIndicator.cs" id="1_gikip"]
+[ext_resource type="Texture2D" uid="uid://dg2af8tbro8ym" path="res://Assets/Characters/Checkmark.png" id="2_fcvpy"]
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_gikip")
+
+[node name="HighlightCircle" type="Sprite2D" parent="."]
+position = Vector2(68, 63)
+scale = Vector2(0.3375, 0.3375)
+texture = ExtResource("1_bfhxp")
+
+[node name="Checkmark" type="Sprite2D" parent="."]
+position = Vector2(64, 59)
+scale = Vector2(2.16802, 2.16802)
+texture = ExtResource("2_fcvpy")

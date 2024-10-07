@@ -72,6 +72,26 @@ public partial class Hud : CanvasLayer {
       get => _Debug_DebugAddGold ??= parent.GetNode<Button>("Debug/DebugAddGold");
     }
 
+    private Panel? _PanelContainer;
+    public Panel PanelContainer {
+      get => _PanelContainer ??= parent.GetNode<Panel>("PanelContainer");
+    }
+
+    private RichTextLabel? _PanelContainer_GoodMorningLabel;
+    public RichTextLabel PanelContainer_GoodMorningLabel {
+      get => _PanelContainer_GoodMorningLabel ??= parent.GetNode<RichTextLabel>("PanelContainer/GoodMorningLabel");
+    }
+
+    private HBoxContainer? _PanelContainer_CheckHBox;
+    public HBoxContainer PanelContainer_CheckHBox {
+      get => _PanelContainer_CheckHBox ??= parent.GetNode<HBoxContainer>("PanelContainer/CheckHBox");
+    }
+
+    private RichTextLabel? _PanelContainer_ReservationLabel;
+    public RichTextLabel PanelContainer_ReservationLabel {
+      get => _PanelContainer_ReservationLabel ??= parent.GetNode<RichTextLabel>("PanelContainer/ReservationLabel");
+    }
+
     private ListOfCreatures? _ListOfCreatures;
     public ListOfCreatures ListOfCreatures {
       get => _ListOfCreatures ??= parent.GetNode<ListOfCreatures>("ListOfCreatures");
@@ -110,6 +130,46 @@ public partial class Hud : CanvasLayer {
     private PauseMenu? _Menus;
     public PauseMenu Menus {
       get => _Menus ??= parent.GetNode<PauseMenu>("Menus");
+    }
+
+    private DayIndicator? _PanelContainer_CheckHBox_DayIndicator;
+    public DayIndicator PanelContainer_CheckHBox_DayIndicator {
+      get => _PanelContainer_CheckHBox_DayIndicator ??= parent.GetNode<DayIndicator>("PanelContainer/CheckHBox/DayIndicator");
+    }
+
+    private DayIndicator? _PanelContainer_CheckHBox_DayIndicator2;
+    public DayIndicator PanelContainer_CheckHBox_DayIndicator2 {
+      get => _PanelContainer_CheckHBox_DayIndicator2 ??= parent.GetNode<DayIndicator>("PanelContainer/CheckHBox/DayIndicator2");
+    }
+
+    private DayIndicator? _PanelContainer_CheckHBox_DayIndicator3;
+    public DayIndicator PanelContainer_CheckHBox_DayIndicator3 {
+      get => _PanelContainer_CheckHBox_DayIndicator3 ??= parent.GetNode<DayIndicator>("PanelContainer/CheckHBox/DayIndicator3");
+    }
+
+    private DayIndicator? _PanelContainer_CheckHBox_DayIndicator4;
+    public DayIndicator PanelContainer_CheckHBox_DayIndicator4 {
+      get => _PanelContainer_CheckHBox_DayIndicator4 ??= parent.GetNode<DayIndicator>("PanelContainer/CheckHBox/DayIndicator4");
+    }
+
+    private DayIndicator? _PanelContainer_CheckHBox_DayIndicator5;
+    public DayIndicator PanelContainer_CheckHBox_DayIndicator5 {
+      get => _PanelContainer_CheckHBox_DayIndicator5 ??= parent.GetNode<DayIndicator>("PanelContainer/CheckHBox/DayIndicator5");
+    }
+
+    private DayIndicator? _PanelContainer_CheckHBox_DayIndicator6;
+    public DayIndicator PanelContainer_CheckHBox_DayIndicator6 {
+      get => _PanelContainer_CheckHBox_DayIndicator6 ??= parent.GetNode<DayIndicator>("PanelContainer/CheckHBox/DayIndicator6");
+    }
+
+    private DayIndicator? _PanelContainer_CheckHBox_DayIndicator7;
+    public DayIndicator PanelContainer_CheckHBox_DayIndicator7 {
+      get => _PanelContainer_CheckHBox_DayIndicator7 ??= parent.GetNode<DayIndicator>("PanelContainer/CheckHBox/DayIndicator7");
+    }
+
+    private DayIndicator? _PanelContainer_CheckHBox_DayIndicator8;
+    public DayIndicator PanelContainer_CheckHBox_DayIndicator8 {
+      get => _PanelContainer_CheckHBox_DayIndicator8 ??= parent.GetNode<DayIndicator>("PanelContainer/CheckHBox/DayIndicator8");
     }
 
   }

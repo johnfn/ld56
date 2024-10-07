@@ -6,6 +6,12 @@ public partial class CookingResultModal : Control {
   public event Action OnClose;
 
   public override void _Ready() {
+    PrepSfx();
+  }
+
+  private async void PrepSfx() {
+    await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+
     Nodes.ClickOutside.Pressed += () => OnClose?.Invoke();
 
     // Spawn 5 random cooking SFX
@@ -15,7 +21,7 @@ public partial class CookingResultModal : Control {
       var audioStreamPlayer2D = new AudioStreamPlayer2D {
         Stream = randomCookingSFX
       };
-      audioStreamPlayer2D.Play();
+      // audioStreamPlayer2D.Play();
     }
   }
 
