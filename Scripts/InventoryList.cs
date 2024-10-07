@@ -40,7 +40,7 @@ public partial class InventoryList : GridContainer {
       ingredientListItem.Nodes.IngredientImage.Texture = ingredient.Icon;
 
       ingredientListItem.Nodes.NameLabel.Text = ingredient.DisplayName;
-      ingredientListItem.Nodes.QuantityLabel.Text = "x" + count.ToString();
+      ingredientListItem.Nodes.PanelContainer_MarginContainer_QuantityLabel.Text = "x" + count.ToString();
 
       ingredientListItem.Pressed += () => {
         OnClickIngredient?.Invoke(ingredientId);
@@ -79,13 +79,13 @@ public partial class InventoryList : GridContainer {
   }
 
   public void ShowTooltip(IngredientId ingredientId, Ingredient ingredient) {
-    idToIngredientListItem[ingredientId].Nodes.Tooltip.Visible = true;
-    idToIngredientListItem[ingredientId].Nodes.Tooltip_MarginContainer_VBoxContainer_Title.Text = ingredient.DisplayName;
-    idToIngredientListItem[ingredientId].Nodes.Tooltip_MarginContainer_VBoxContainer_Description.Text = ingredient.Description;
-    idToIngredientListItem[ingredientId].Nodes.Tooltip_MarginContainer_VBoxContainer_Price.Text = "[color=gold]" + ingredient.Cost.ToString() + " gold[/color]";
+    idToIngredientListItem[ingredientId].Nodes.Control_Tooltip.Visible = true;
+    idToIngredientListItem[ingredientId].Nodes.Control_Tooltip_MarginContainer_VBoxContainer_Title.Text = ingredient.DisplayName;
+    idToIngredientListItem[ingredientId].Nodes.Control_Tooltip_MarginContainer_VBoxContainer_Description.Text = ingredient.Description;
+    idToIngredientListItem[ingredientId].Nodes.Control_Tooltip_MarginContainer_VBoxContainer_Price.Text = "[color=gold]" + ingredient.Cost.ToString() + " gold[/color]";
   }
 
   public void HideTooltip(IngredientId ingredientId) {
-    idToIngredientListItem[ingredientId].Nodes.Tooltip.Visible = false;
+    idToIngredientListItem[ingredientId].Nodes.Control_Tooltip.Visible = false;
   }
 }
