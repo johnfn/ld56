@@ -8,6 +8,6 @@ script = ExtResource("1_ingredient_script")
 DisplayName = "Bread"
 Description = "A staple food made from flour"
 Icon = ExtResource("1_bread")
-Id = 0
+Id = 4
 Rarity = 0
 Cost = 8

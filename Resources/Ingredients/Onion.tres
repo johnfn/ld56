@@ -8,6 +8,6 @@ script = ExtResource("1_ingredient_script")
 DisplayName = "Onion"
 Description = "A pungent and flavorful vegetable"
 Icon = ExtResource("1_onion")
-Id = 0
+Id = 12
 Rarity = 0
 Cost = 5

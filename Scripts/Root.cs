@@ -123,11 +123,21 @@ public partial class Root : Node2D {
   public void DisplayShopHelper() {
     // TODO: Figure out what they actually sell, lol.
 
-    // DisplayShop([
-    //   AllIngredients.Egg,
-    //   AllIngredients.Egg,
-    //   AllIngredients.Egg,
-    // ]);
+    DisplayShop([
+      AllIngredients.Egg,
+      AllIngredients.Egg,
+      AllIngredients.Egg,
+
+      AllIngredients.Flour,
+      AllIngredients.Flour,
+      AllIngredients.Flour,
+
+      AllIngredients.Milk,
+      AllIngredients.Milk,
+      AllIngredients.Milk,
+      AllIngredients.Milk,
+      AllIngredients.Milk,
+    ]);
   }
 
   public static void DisplayShop(List<Ingredient> displayedIngredients) {

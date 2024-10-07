@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://unique_flour_uid"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://cvw67ck2443er"]
 
-[ext_resource type="Texture2D" uid="uid://unique_flour_texture_uid" path="res://Assets/Ingredients/Ingredients_Flour.png" id="1_flour"]
+[ext_resource type="Texture2D" uid="uid://fb1gond03muu" path="res://Assets/Ingredients/Ingredients_Flour.png" id="1_flour"]
 [ext_resource type="Script" path="res://Creature/Ingredient.cs" id="1_ingredient_script"]
 
 [resource]
@@ -8,6 +8,6 @@ script = ExtResource("1_ingredient_script")
 DisplayName = "Flour"
 Description = "A fine powder made from grains"
 Icon = ExtResource("1_flour")
-Id = "flour"
+Id = 7
 Rarity = 0
 Cost = 5

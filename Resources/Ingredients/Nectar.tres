@@ -8,6 +8,6 @@ script = ExtResource("1_ingredient_script")
 DisplayName = "Nectar"
 Description = "A sweet liquid produced by plants"
 Icon = ExtResource("1_nectar")
-Id = 0
+Id = 11
 Rarity = 2
 Cost = 20

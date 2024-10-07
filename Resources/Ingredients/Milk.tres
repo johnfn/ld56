@@ -8,6 +8,6 @@ script = ExtResource("1_ingredient_script")
 DisplayName = "Milk"
 Description = "A nutritious dairy beverage"
 Icon = ExtResource("1_milk")
-Id = 0
+Id = 9
 Rarity = 0
 Cost = 6

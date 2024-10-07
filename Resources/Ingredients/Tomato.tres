@@ -8,6 +8,6 @@ script = ExtResource("1_ingredient_script")
 DisplayName = "Tomato"
 Description = "A versatile fruit often used as a vegetable"
 Icon = ExtResource("1_tomato")
-Id = 0
+Id = 14
 Rarity = 0
 Cost = 8

@@ -8,6 +8,6 @@ script = ExtResource("1_r1v6u")
 DisplayName = "Leaf"
 Description = "A fresh, aromatic leaf"
 Icon = ExtResource("1_jq070")
-Id = 0
+Id = 8
 Rarity = 0
 Cost = 5

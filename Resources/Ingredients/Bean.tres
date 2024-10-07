@@ -8,6 +8,6 @@ script = ExtResource("1_ingredient_script")
 DisplayName = "Bean"
 Description = "A protein-rich legume"
 Icon = ExtResource("1_bean")
-Id = 0
+Id = 2
 Rarity = 0
 Cost = 5

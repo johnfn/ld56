@@ -8,6 +8,6 @@ script = ExtResource("1_ingredient_script")
 DisplayName = "Blueberry"
 Description = "A sweet, antioxidant-rich berry"
 Icon = ExtResource("1_blueberry")
-Id = 0
+Id = 3
 Rarity = 1
 Cost = 10
