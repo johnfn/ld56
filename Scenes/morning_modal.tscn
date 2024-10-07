@@ -72,10 +72,10 @@ script = ExtResource("1_wlxjc")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -92,8 +92,10 @@ fit_content = true
 
 [node name="ReservationLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_duvbd")
+theme_override_colors/default_color = Color(0.791016, 0.791016, 0.791016, 1)
 theme_override_font_sizes/normal_font_size = 36
-text = "Today we have reservations from:"
+text = "Here are our reservations today:"
 fit_content = true
 
 [node name="Gap" type="Control" parent="MarginContainer/VBoxContainer"]
