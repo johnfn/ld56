@@ -267,6 +267,11 @@ public partial class AnimalManager : Node2D {
           }
 
         case CreatureState.Done:
+          var areAllCreaturesDone = Creatures.All(c => c.State == CreatureState.Done);
+          if (areAllCreaturesDone) {
+            Root.Instance.EndDay();
+          }
+
           break;
       }
     }
