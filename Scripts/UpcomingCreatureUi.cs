@@ -58,8 +58,11 @@ public partial class UpcomingCreatureUi : TextureRect {
 
     title.Text = creature.Data.DisplayName;
     description.Text = creature.Data.Description;
+
+    var (timeString, period) = Clock.GetTimeString(creature.ReservationTime);
+
     status.Text = creature.State switch {
-      CreatureState.NotSpawnedYet => "Coming to Dinernb",
+      CreatureState.NotSpawnedYet => $"Arriving at {timeString} {period}",
       CreatureState.WalkToEntrance => "Exterior of Dinernb",
       CreatureState.WaitToBeAdmitted => "Waiting to be admitted",
       CreatureState.WalkInside => "Walking inside",
@@ -70,18 +73,6 @@ public partial class UpcomingCreatureUi : TextureRect {
       CreatureState.WaitForEveryoneToFinish => "Politely waiting for everyone to finish",
       CreatureState.Done => "Leaving",
     };
-
-    // Color = creature.State switch {
-    //   CreatureState.NotSpawnedYet => Colors.Red,
-    //   CreatureState.WalkToEntrance => Colors.Orange,
-    //   CreatureState.WaitToBeAdmitted => Colors.Yellow,
-    //   CreatureState.WalkInside => Colors.Green,
-    //   CreatureState.WaitForTable => Colors.Green,
-    //   CreatureState.WalkToTable => Colors.Green,
-    //   CreatureState.WaitForTalk => Colors.Green,
-    //   CreatureState.WalkToExit => Colors.Green,
-    //   CreatureState.Done => Colors.Green,
-    // };
 
     location.Text = creature.CurrentScreen switch {
       CurrentScreen.Exterior => "Outside",

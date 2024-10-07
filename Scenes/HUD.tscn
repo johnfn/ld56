@@ -70,6 +70,7 @@ offset_bottom = 513.0
 visible = false
 
 [node name="Shop" parent="." instance=ExtResource("12_d7kfh")]
+visible = false
 
 [node name="Clock" parent="." instance=ExtResource("11_cepoc")]
 

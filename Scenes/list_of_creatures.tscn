@@ -1,7 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://drdgs1oscnynx"]
+[gd_scene load_steps=4 format=3 uid="uid://drdgs1oscnynx"]
 
+[ext_resource type="PackedScene" uid="uid://epptr1vhg57" path="res://Scenes/upcoming_creature_ui.tscn" id="1_hkaqs"]
 [ext_resource type="Script" path="res://Scripts/ListOfCreatures.cs" id="1_vfwpq"]
 
-[node name="ListOfCreatures" type="HBoxContainer"]
-theme_override_constants/separation = 16
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qw87j"]
+bg_color = Color(0.119141, 0.119141, 0.119141, 1)
+
+[node name="PanelContainer" type="PanelContainer"]
+theme_override_styles/panel = SubResource("StyleBoxFlat_qw87j")
 script = ExtResource("1_vfwpq")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="CreatureList" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="UpcomingCreatureUi" parent="MarginContainer/CreatureList" instance=ExtResource("1_hkaqs")]
+layout_mode = 2

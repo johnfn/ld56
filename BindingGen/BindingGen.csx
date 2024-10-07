@@ -217,7 +217,6 @@ class MyCodegen {
 
       CreateBindings(
         scene,
-        allScenes,
         rootScript.FilePath.Replace(".cs", ".bindings.cs")
       );
     }
@@ -225,11 +224,20 @@ class MyCodegen {
 
   public void GenerateBindingsForFile(string tscnOrCsPath, List<Scene> allScenes) {
     Scene? scene;
+    List<Scene>? allMatchingScenes = null;
 
     if (tscnOrCsPath.EndsWith(".tscn")) {
-      scene = allScenes.FirstOrDefault(s => NormalizePath(s.FilePath) == NormalizePath(tscnOrCsPath));
+      allMatchingScenes = allScenes.Where(s => NormalizePath(s.FilePath) == NormalizePath(tscnOrCsPath)).ToList();
+
+      scene = allMatchingScenes.FirstOrDefault();
     } else if (tscnOrCsPath.EndsWith(".cs")) {
-      scene = allScenes.FirstOrDefault(s => s.Scripts.Any(script => NormalizePath(script.FilePath) == NormalizePath(tscnOrCsPath)));
+      allMatchingScenes = allScenes.Where(s => s.Scripts.Any(script => NormalizePath(script.FilePath) == NormalizePath(tscnOrCsPath))).ToList();
+
+      if (allMatchingScenes.Count() > 1) {
+        WriteLine("Multiple scenes found for {0}", tscnOrCsPath);
+      }
+
+      scene = allMatchingScenes.First();
     } else {
       throw new Exception("Invalid file type");
     }
@@ -250,8 +258,8 @@ class MyCodegen {
 
     CreateBindings(
       scene,
-      allScenes,
-      bindingFilePath
+      bindingFilePath,
+      allMatchingScenes
     );
   }
 
@@ -407,9 +415,11 @@ class MyCodegen {
 
   public static void CreateBindings(
     Scene scene,
-    List<Scene> allScenes,
-    string outputPath
+    string outputPath,
+    List<Scene>? allScenesWithScript = null
   ) {
+    Console.WriteLine("Create bindings for {0}", scene.FilePath);
+
     var rootScript = scene.RootNode?.Script;
 
     if (rootScript == null) {
@@ -460,6 +470,18 @@ class MyCodegen {
     newFileContent += $"    public {className}Nodes({className} parent) {{\n";
     newFileContent += $"      this.parent = parent;\n";
     newFileContent += $"    }}\n";
+
+    if (allScenesWithScript != null) {
+      if (allScenesWithScript.Count() > 1) {
+        newFileContent += $"    // Multiple scenes use this script, so it's possible that fewer nodes are in this list than you'd expect.\n";
+
+        foreach (var sc in allScenesWithScript) {
+          newFileContent += $"    // Scene: {sc.FilePath}\n";
+        }
+      } else {
+        newFileContent += $"    // Scene: {allScenesWithScript.First().FilePath}\n";
+      }
+    }
 
     foreach (var node in scene.Nodes) {
       var normalizedPath = node.FullPath.Replace("/", "_");

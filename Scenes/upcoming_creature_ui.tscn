@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://epptr1vhg57"]
 
 [ext_resource type="Texture2D" uid="uid://biug4mknu660d" path="res://Assets/UI/UI_Character-Squirrel_Neutral.png" id="1_s7112"]
-[ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="1_tghvx"]
+[ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="1_tghvx"]
 [ext_resource type="Script" path="res://Scripts/UpcomingCreatureUi.cs" id="1_ufo37"]
 [ext_resource type="Script" path="res://Scripts/CoolButton.cs" id="3_r5aw0"]
 
@@ -34,10 +34,10 @@ script = ExtResource("3_r5aw0")
 
 [node name="Popover" type="PanelContainer" parent="."]
 layout_mode = 0
-offset_left = 19.0
-offset_top = -229.0
-offset_right = 451.0
-offset_bottom = -23.0
+offset_left = -2.0
+offset_top = -337.0
+offset_right = 430.0
+offset_bottom = -77.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_eh2sa")
 
 [node name="MarginContainer" type="MarginContainer" parent="Popover"]
@@ -53,29 +53,29 @@ layout_mode = 2
 [node name="Title" type="Label" parent="Popover/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 48
 text = "This is a tiny creature"
 autowrap_mode = 2
 
 [node name="Status" type="Label" parent="Popover/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.835938, 0.835938, 0.835938, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.0976562, 0.0976562, 0.0976562, 1)
+theme_override_font_sizes/font_size = 24
 text = "This is a tiny creature"
 autowrap_mode = 2
 
 [node name="Location" type="Label" parent="Popover/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.835938, 0.835938, 0.835938, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.294922, 0.294922, 0.294922, 1)
+theme_override_font_sizes/font_size = 24
 text = "This is a tiny creature"
 autowrap_mode = 2
 
 [node name="Description" type="Label" parent="Popover/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 24
 text = "This is a tiny creature"
 autowrap_mode = 2

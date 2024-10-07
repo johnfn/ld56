@@ -17,6 +17,7 @@ public partial class UpcomingCreatureUi : TextureRect {
     public UpcomingCreatureUiNodes(UpcomingCreatureUi parent) {
       this.parent = parent;
     }
+    // Scene: ./Scenes/upcoming_creature_ui.tscn
     private Button? _Button;
     public Button Button {
       get => _Button ??= parent.GetNode<Button>("Button");

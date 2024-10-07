@@ -9,7 +9,7 @@ public class CreatureAndUiElement {
   public UpcomingCreatureUi UiElement;
 }
 
-public partial class ListOfCreatures : HBoxContainer {
+public partial class ListOfCreatures : PanelContainer {
   List<CreatureAndUiElement> CreatureUiElements = [];
 
   public override void _Ready() {
@@ -19,6 +19,10 @@ public partial class ListOfCreatures : HBoxContainer {
   }
 
   public void Initialize(List<SpawnedCreature> creatures) {
+    foreach (var child in Nodes.MarginContainer_CreatureList.GetChildren()) {
+      child.QueueFree();
+    }
+
     foreach (var creature in creatures) {
       var ui = UpcomingCreatureUi.New();
       ui.Initialize(creature);
@@ -28,7 +32,7 @@ public partial class ListOfCreatures : HBoxContainer {
         UiElement = ui
       });
 
-      AddChild(ui);
+      Nodes.MarginContainer_CreatureList.AddChild(ui);
     }
   }
 
