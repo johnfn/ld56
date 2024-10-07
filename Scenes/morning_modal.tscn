@@ -1,14 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://kf7466dsd6hh"]
+[gd_scene load_steps=12 format=3 uid="uid://kf7466dsd6hh"]
 
 [ext_resource type="Script" path="res://Scripts/MorningModal.cs" id="1_wlxjc"]
 [ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="2_duvbd"]
 [ext_resource type="PackedScene" uid="uid://c4j40g48aoas3" path="res://Scenes/reservation_card.tscn" id="2_uo0sk"]
+[ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="4_xutds"]
+[ext_resource type="FontFile" uid="uid://cgxb4jmix2cb1" path="res://Resources/ShortStack-Regular.ttf" id="5_803u5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uv5en"]
+bg_color = Color(0.0325548, 0.0831447, 0.140625, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_8dtly"]
+color = Color(0.62, 0.1178, 0.12617, 1)
+grow_begin = -20.0
+grow_end = -20.0
+thickness = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_am665"]
+bg_color = Color(0.901961, 0.901961, 0.901961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.541176, 0.129412, 0.137255, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ejhgb"]
+
+[sub_resource type="Theme" id="Theme_2p07j"]
+default_font = ExtResource("5_803u5")
+Button/colors/font_color = Color(0.29, 0.0319, 0.0319, 1)
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("4_xutds")
+Button/styles/focus = null
+HSeparator/styles/separator = SubResource("StyleBoxLine_8dtly")
+Label/colors/font_color = Color(0.12, 0.0192, 0.02088, 1)
+Label/fonts/font = ExtResource("5_803u5")
+LabelWithOutline/base_type = &"Label"
+LabelWithOutline/styles/normal = SubResource("StyleBoxFlat_am665")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ejhgb")
+RichTextLabel/colors/default_color = Color(0.2, 0.012, 0.012, 1)
+RichTextLabel/font_sizes/bold_font_size = 28
+RichTextLabel/font_sizes/bold_italics_font_size = 28
+RichTextLabel/font_sizes/italics_font_size = 24
+RichTextLabel/font_sizes/mono_font_size = 24
+RichTextLabel/font_sizes/normal_font_size = 24
+RichTextLabel/fonts/bold_font = ExtResource("5_803u5")
+RichTextLabel/fonts/bold_italics_font = ExtResource("5_803u5")
+RichTextLabel/fonts/italics_font = ExtResource("5_803u5")
+RichTextLabel/fonts/mono_font = ExtResource("5_803u5")
+RichTextLabel/fonts/normal_font = ExtResource("5_803u5")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3n01c"]
+bg_color = Color(0.494141, 0.494141, 0.494141, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [node name="MorningModal" type="PanelContainer"]
 offset_left = 376.0
 offset_top = 122.0
 offset_right = 1509.0
 offset_bottom = 1080.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_uv5en")
 script = ExtResource("1_wlxjc")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -26,6 +85,8 @@ layout_mode = 2
 theme = ExtResource("2_duvbd")
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
+bbcode_enabled = true
 text = "Good morning!"
 fit_content = true
 
@@ -35,8 +96,14 @@ theme_override_font_sizes/normal_font_size = 36
 text = "Today we have reservations from:"
 fit_content = true
 
+[node name="Gap" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
 [node name="ReservationList" type="GridContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
 columns = 3
 
 [node name="PanelContainer" parent="MarginContainer/VBoxContainer/ReservationList" instance=ExtResource("2_uo0sk")]
@@ -48,5 +115,8 @@ layout_mode = 2
 
 [node name="DoneButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_2p07j")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 58
+theme_override_styles/normal = SubResource("StyleBoxFlat_3n01c")
 text = "Got it!"

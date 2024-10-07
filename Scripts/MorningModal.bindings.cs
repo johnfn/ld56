@@ -38,6 +38,11 @@ public partial class MorningModal : PanelContainer {
       get => _MarginContainer_VBoxContainer_ReservationLabel ??= parent.GetNode<RichTextLabel>("MarginContainer/VBoxContainer/ReservationLabel");
     }
 
+    private Control? _MarginContainer_VBoxContainer_Gap;
+    public Control MarginContainer_VBoxContainer_Gap {
+      get => _MarginContainer_VBoxContainer_Gap ??= parent.GetNode<Control>("MarginContainer/VBoxContainer/Gap");
+    }
+
     private GridContainer? _MarginContainer_VBoxContainer_ReservationList;
     public GridContainer MarginContainer_VBoxContainer_ReservationList {
       get => _MarginContainer_VBoxContainer_ReservationList ??= parent.GetNode<GridContainer>("MarginContainer/VBoxContainer/ReservationList");

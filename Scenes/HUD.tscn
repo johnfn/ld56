@@ -155,3 +155,5 @@ theme_override_font_sizes/font_size = 36
 text = "[debug] Add gold"
 
 [node name="MorningModal" parent="." instance=ExtResource("16_5ov87")]
+offset_right = 1346.0
+offset_bottom = 611.0
