@@ -16,6 +16,20 @@ public static class AllCreatures {
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Frog-3.png"),
   };
 
+  public static readonly CreatureData You = new() {
+    DisplayName = "You",
+    Description = "It's you! You shouldn't be reading this...",
+    Instantiate = (spawnedCreature) => {
+      GD.Print("You should not be reading this...");
+      var creature = CreatureScene.New();
+      creature.Initialize(spawnedCreature);
+      return creature;
+    },
+    // TODO...
+    Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Chipmunk_Neutral.png"),
+    FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Chipmunk.png"),
+    DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Chipmunk.png"),
+  };
 
 
 
@@ -30,21 +44,6 @@ public static class AllCreatures {
   //     creature.Initialize(spawnedCreature);
   //     return creature;
   //   },
-  //   Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Chipmunk_Neutral.png"),
-  //   FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Chipmunk.png"),
-  //   DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Chipmunk.png"),
-  // };
-
-  // public static readonly CreatureData You = new() {
-  //   DisplayName = "You",
-  //   Description = "It's you! You shouldn't be reading this...",
-  //   Instantiate = (spawnedCreature) => {
-  //     GD.Print("You should not be reading this...");
-  //     var creature = CreatureScene.New();
-  //     creature.Initialize(spawnedCreature);
-  //     return creature;
-  //   },
-  //   // TODO...
   //   Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Chipmunk_Neutral.png"),
   //   FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Chipmunk.png"),
   //   DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Chipmunk.png"),

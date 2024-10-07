@@ -17,6 +17,7 @@ public partial class CreatureScene : Node2D {
     public CreatureSceneNodes(CreatureScene parent) {
       this.parent = parent;
     }
+    // Scene: ./Scenes/CreatureScene.tscn
     private Sprite2D? _Shadow;
     public Sprite2D Shadow {
       get => _Shadow ??= parent.GetNode<Sprite2D>("Shadow");

@@ -134,6 +134,7 @@ offset_top = -48.0
 offset_right = 140.0
 offset_bottom = 108.0
 pivot_offset = Vector2(120, 80)
+mouse_default_cursor_shape = 2
 theme = ExtResource("5_gqy4h")
 icon = ExtResource("5_rcc7m")
 flat = true
