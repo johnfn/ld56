@@ -17,6 +17,7 @@ public partial class CookingScreen : Sprite2D {
     public CookingScreenNodes(CookingScreen parent) {
       this.parent = parent;
     }
+    // Scene: ./Scenes/cooking_screen.tscn
     private Sprite2D? _Pot;
     public Sprite2D Pot {
       get => _Pot ??= parent.GetNode<Sprite2D>("Pot");
@@ -37,9 +38,39 @@ public partial class CookingScreen : Sprite2D {
       get => _UI_IngredientsButton ??= parent.GetNode<Button>("UI/IngredientsButton");
     }
 
+    private PanelContainer? _UI_IngredientsButton_IngredientsTooltip;
+    public PanelContainer UI_IngredientsButton_IngredientsTooltip {
+      get => _UI_IngredientsButton_IngredientsTooltip ??= parent.GetNode<PanelContainer>("UI/IngredientsButton/IngredientsTooltip");
+    }
+
+    private MarginContainer? _UI_IngredientsButton_IngredientsTooltip_MarginContainer;
+    public MarginContainer UI_IngredientsButton_IngredientsTooltip_MarginContainer {
+      get => _UI_IngredientsButton_IngredientsTooltip_MarginContainer ??= parent.GetNode<MarginContainer>("UI/IngredientsButton/IngredientsTooltip/MarginContainer");
+    }
+
+    private Label? _UI_IngredientsButton_IngredientsTooltip_MarginContainer_Label;
+    public Label UI_IngredientsButton_IngredientsTooltip_MarginContainer_Label {
+      get => _UI_IngredientsButton_IngredientsTooltip_MarginContainer_Label ??= parent.GetNode<Label>("UI/IngredientsButton/IngredientsTooltip/MarginContainer/Label");
+    }
+
     private Button? _UI_RecipesButton;
     public Button UI_RecipesButton {
       get => _UI_RecipesButton ??= parent.GetNode<Button>("UI/RecipesButton");
+    }
+
+    private PanelContainer? _UI_RecipesButton_RecipesTooltip;
+    public PanelContainer UI_RecipesButton_RecipesTooltip {
+      get => _UI_RecipesButton_RecipesTooltip ??= parent.GetNode<PanelContainer>("UI/RecipesButton/RecipesTooltip");
+    }
+
+    private MarginContainer? _UI_RecipesButton_RecipesTooltip_MarginContainer;
+    public MarginContainer UI_RecipesButton_RecipesTooltip_MarginContainer {
+      get => _UI_RecipesButton_RecipesTooltip_MarginContainer ??= parent.GetNode<MarginContainer>("UI/RecipesButton/RecipesTooltip/MarginContainer");
+    }
+
+    private Label? _UI_RecipesButton_RecipesTooltip_MarginContainer_Label;
+    public Label UI_RecipesButton_RecipesTooltip_MarginContainer_Label {
+      get => _UI_RecipesButton_RecipesTooltip_MarginContainer_Label ??= parent.GetNode<Label>("UI/RecipesButton/RecipesTooltip/MarginContainer/Label");
     }
 
     private TextureRect? _UI_IngredientSlotsTexture;

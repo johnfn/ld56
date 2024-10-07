@@ -128,15 +128,11 @@ public static class AllDialog {
   ];
 
   public static List<IDialogItem> MrPig = [
-    new DialogItem {
-      Text = "Hello.",
-      Speaker = AllCreatures.MrPig,
+    new DialogItem { Text = "Hello.", Speaker = AllCreatures.MrPig },
+    new DialogItem { Text = "Hi.", Speaker = AllCreatures.You },
+    new DialogItem { Text = "Please make me some food.", Speaker = AllCreatures.You,
       OnComplete = async (CreatureData creature) => {
-        if (AnimalManager.AreSeatedNextToEachOther(AllCreatures.MrMouse, creature)) {
-          await DialogBox.ShowDialog(MrPigWithMouse, creature);
-        } else {
-          await DialogBox.ShowDialog(NoDialogYet, creature);
-        }
+        await CookingScreen.Cook();
       }
     },
   ];

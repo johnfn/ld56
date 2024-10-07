@@ -16,6 +16,25 @@ public partial class CookingScreen : Sprite2D {
 
     Nodes.UI_CookingResultModal.Visible = false;
 
+    Nodes.UI_IngredientsButton_IngredientsTooltip.Visible = false;
+    Nodes.UI_RecipesButton_RecipesTooltip.Visible = false;
+
+    Nodes.UI_IngredientsButton.MouseEntered += () => {
+      Nodes.UI_IngredientsButton_IngredientsTooltip.Visible = true;
+    };
+
+    Nodes.UI_IngredientsButton.MouseExited += () => {
+      Nodes.UI_IngredientsButton_IngredientsTooltip.Visible = false;
+    };
+
+    Nodes.UI_RecipesButton.MouseEntered += () => {
+      Nodes.UI_RecipesButton_RecipesTooltip.Visible = true;
+    };
+
+    Nodes.UI_RecipesButton.MouseExited += () => {
+      Nodes.UI_RecipesButton_RecipesTooltip.Visible = false;
+    };
+
     Nodes.UI_IngredientsButton.Pressed += () => {
       Rolodex.Instance.Show();
       Rolodex.Instance.ChangeTab(Rolodex.RolodexTab.Ingredients);

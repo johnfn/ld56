@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://betnjocdht33q"]
+[gd_scene load_steps=13 format=3 uid="uid://betnjocdht33q"]
 
 [ext_resource type="Texture2D" uid="uid://b8tldbrjgf2d8" path="res://Assets/Backgrounds/Interior_Cooking_BG.png" id="1_5akxm"]
 [ext_resource type="Script" path="res://Scripts/CookingScreen.cs" id="2_eb8ax"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://cbgfrnsa1uneo" path="res://Assets/UI/UI_Cooking_Slots.png" id="9_puge8"]
 [ext_resource type="Texture2D" uid="uid://cpcqfh31o7v7l" path="res://Assets/UI/UI_Cooking_Ingredients.png" id="9_stfb2"]
 [ext_resource type="Texture2D" uid="uid://b3f0wnelesvde" path="res://Assets/UI/UI_Cooking_Recipes.png" id="10_n1lxr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7j31d"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="CookingScreen" type="Sprite2D"]
 texture = ExtResource("1_5akxm")
@@ -58,7 +61,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -927.0
 offset_top = 115.0
-offset_right = -479.0
+offset_right = -710.0
 offset_bottom = 294.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -66,6 +69,27 @@ theme_override_font_sizes/font_size = 48
 icon = ExtResource("9_stfb2")
 flat = true
 script = ExtResource("8_pgeh1")
+
+[node name="IngredientsTooltip" type="PanelContainer" parent="UI/IngredientsButton"]
+layout_mode = 0
+offset_left = 241.0
+offset_top = 68.0
+offset_right = 379.0
+offset_bottom = 120.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7j31d")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/IngredientsButton/IngredientsTooltip"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="UI/IngredientsButton/IngredientsTooltip/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Ingredients"
 
 [node name="RecipesButton" type="Button" parent="UI"]
 layout_mode = 1
@@ -85,7 +109,28 @@ icon = ExtResource("10_n1lxr")
 flat = true
 script = ExtResource("8_pgeh1")
 
+[node name="RecipesTooltip" type="PanelContainer" parent="UI/RecipesButton"]
+offset_left = 241.0
+offset_top = 68.0
+offset_right = 484.0
+offset_bottom = 140.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7j31d")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/RecipesButton/RecipesTooltip"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="UI/RecipesButton/RecipesTooltip/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Recipes"
+
 [node name="CookingResultModal" parent="UI" instance=ExtResource("4_u87xr")]
+visible = false
 z_index = 3
 layout_mode = 1
 
