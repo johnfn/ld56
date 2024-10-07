@@ -212,11 +212,13 @@ public partial class Rolodex : ColorRect {
         if (i >= GameState.UnlockedRecipes.Count) {
           break;
         }
+
         if (i != page1StartIndex) {
           // Add an HSeparator
           var separator = new HSeparator();
           Nodes.BookTexture_PageContents_Page1_Page1.AddChild(separator);
         }
+
         Nodes.BookTexture_PageContents_Page1_Page1.AddChild(CreateRecipeEntry(GameState.UnlockedRecipes[i]));
       }
 
@@ -224,6 +226,7 @@ public partial class Rolodex : ColorRect {
         if (i >= GameState.UnlockedRecipes.Count) {
           break;
         }
+
         if (i != page2StartIndex) {
           // Add an HSeparator
           var separator = new HSeparator();

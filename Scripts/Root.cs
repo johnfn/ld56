@@ -80,6 +80,16 @@ public partial class Root : Node2D {
     };
 
     StartNewDay();
+
+    if (GameState.IS_DEBUG) {
+      GameState.OwnedIngredients.Add(AllIngredients.Egg);
+      GameState.OwnedIngredients.Add(AllIngredients.Egg);
+      GameState.OwnedIngredients.Add(AllIngredients.Cheese);
+      GameState.OwnedIngredients.Add(AllIngredients.Cheese);
+
+      GameState.KnownIngredients.Add(AllIngredients.Egg.Id);
+      GameState.KnownIngredients.Add(AllIngredients.Cheese.Id);
+    }
   }
 
   public async Task StartNewDay() {

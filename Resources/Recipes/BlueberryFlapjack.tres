@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=2 format=3 uid="uid://UNIQUE_UID_HERE"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://u88ule20hbfq"]
 
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
-[ext_resource type="Texture2D" uid="uid://UNIQUE_UID_HERE" path="res://Assets/Dishes/Dish_Blueberry-Flapjack.png" id="2_icon"]
+[ext_resource type="Texture2D" uid="uid://mqfv0sryqtyh" path="res://Assets/Dishes/Dish_Blueberry-Flapjack.png" id="2_icon"]
 
 [resource]
 script = ExtResource("1_recipe")

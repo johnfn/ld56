@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=2 format=3 uid="uid://bjc4i1yf06bko"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=4 format=3 uid="uid://bjc4i1yf06bko"]
 
+[ext_resource type="Resource" uid="uid://b6hydttyeuq67" path="res://Resources/Ingredients/Egg.tres" id="1_eotxu"]
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
+[ext_resource type="Resource" uid="uid://ecieh2bka1vl" path="res://Resources/Ingredients/Cheese.tres" id="2_jonui"]
 
 [resource]
 script = ExtResource("1_recipe")
 DisplayName = "Bean Soup"
 Description = "A hearty bean soup."
-Ingredients = []
+Ingredients = [ExtResource("1_eotxu"), ExtResource("2_jonui")]
