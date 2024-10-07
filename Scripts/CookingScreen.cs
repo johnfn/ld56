@@ -46,6 +46,11 @@ public partial class CookingScreen : Sprite2D {
     };
 
     Nodes.UI_CookButton.Pressed += () => {
+      if (CookingList.Count == 0) {
+        GenericDialog.Instance.Show("First, add some ingredients!");
+        return;
+      }
+
       Cook();
     };
 
