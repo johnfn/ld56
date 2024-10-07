@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using static Utils;
 
 namespace ld56;
@@ -18,9 +19,6 @@ public partial class Root : Node2D {
     get => Nodes.HUD.Nodes.ListOfCreatures;
   }
 
-  public float EndOfDayTime = 10f;
-  // This goes from 0 to 10.
-  public float CurrentDayTime { get; private set; } = 0f;
 
   public int DaysLeft = 8;
 
@@ -79,11 +77,47 @@ public partial class Root : Node2D {
     Nodes.HUD.Nodes.Newspaper.Nodes.Newspaper_ShopButton.Pressed += () => {
       DisplayShopHelper();
     };
+
+    StartNewDay();
   }
 
-  public void StartNewDay() {
-    CurrentDayTime = 0f;
+  public async Task StartNewDay() {
+    await DisplayReservationModal();
+
+    GameState.CurrentDayTime = 0f;
     GameState.DayIndex++;
+    GameState.Mode = GameMode.Normal;
+  }
+
+  public async Task DisplayReservationModal() {
+    GameState.Mode = GameMode.ReservationModal;
+    Nodes.HUD.Nodes.MorningModal.Visible = true;
+
+    foreach (var child in Nodes.HUD.Nodes.MorningModal.Nodes.ReservationList.GetChildren()) {
+      child.QueueFree();
+    }
+
+    foreach (var reservation in AllLevels.Levels[GameState.DayIndex]) {
+      var newCard = ReservationCard.New();
+      var (timeString, period) = Clock.GetTimeString(reservation.ReservationTime);
+
+      newCard.Nodes.HBoxContainer_VBoxContainer_NameLabel.Text = reservation.Data.DisplayName;
+      newCard.Nodes.HBoxContainer_VBoxContainer_TimeLabel.Text = $"{timeString} {period}";
+      Nodes.HUD.Nodes.MorningModal.Nodes.ReservationList.AddChild(newCard);
+    }
+
+    var didDismiss = false;
+
+    Nodes.HUD.Nodes.MorningModal.OnClose += () => {
+      didDismiss = true;
+    };
+
+    while (!didDismiss) {
+      await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+    }
+
+    Nodes.HUD.Nodes.MorningModal.ClearAction();
+    Nodes.HUD.Nodes.MorningModal.Visible = false;
     GameState.Mode = GameMode.Normal;
   }
 
@@ -121,10 +155,10 @@ public partial class Root : Node2D {
 
     // Update clock
     if (GameState.Mode == GameMode.Normal || GameState.Mode == GameMode.ChooseTable) {
-      CurrentDayTime += (float)delta / 10.0f;
+      GameState.CurrentDayTime += (float)delta / 10.0f;
     }
 
-    if (CurrentDayTime >= EndOfDayTime) {
+    if (GameState.CurrentDayTime >= GameConstants.EndOfDayTime) {
       EndDay();
     }
   }

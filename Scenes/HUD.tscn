@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://gdfr1cdecogv" path="res://Scenes/shop.tscn" id="12_d7kfh"]
 [ext_resource type="PackedScene" uid="uid://bvrs6e5qiytf8" path="res://Scenes/PauseMenu.tscn" id="13_kljas"]
 [ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="15_07pbw"]
-[ext_resource type="PackedScene" uid="uid://dq6c3kgpj4vfu" path="res://Scripts/day_indicator.tscn" id="16_lm33q"]
+[ext_resource type="PackedScene" uid="uid://kf7466dsd6hh" path="res://Scenes/morning_modal.tscn" id="16_5ov87"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_eqs7q")
@@ -154,57 +154,4 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "[debug] Add gold"
 
-[node name="PanelContainer" type="Panel" parent="."]
-offset_left = 376.0
-offset_top = 122.0
-offset_right = 1509.0
-offset_bottom = 1080.0
-
-[node name="GoodMorningLabel" type="RichTextLabel" parent="PanelContainer"]
-layout_mode = 2
-offset_right = 1129.0
-offset_bottom = 67.0
-theme_override_font_sizes/normal_font_size = 48
-text = "Good morning!"
-fit_content = true
-
-[node name="CheckHBox" type="HBoxContainer" parent="PanelContainer"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 182.0
-offset_right = 834.0
-offset_bottom = 282.0
-
-[node name="DayIndicator" parent="PanelContainer/CheckHBox" instance=ExtResource("16_lm33q")]
-layout_mode = 2
-
-[node name="DayIndicator2" parent="PanelContainer/CheckHBox" instance=ExtResource("16_lm33q")]
-layout_mode = 2
-
-[node name="DayIndicator3" parent="PanelContainer/CheckHBox" instance=ExtResource("16_lm33q")]
-layout_mode = 2
-
-[node name="DayIndicator4" parent="PanelContainer/CheckHBox" instance=ExtResource("16_lm33q")]
-layout_mode = 2
-
-[node name="DayIndicator5" parent="PanelContainer/CheckHBox" instance=ExtResource("16_lm33q")]
-layout_mode = 2
-
-[node name="DayIndicator6" parent="PanelContainer/CheckHBox" instance=ExtResource("16_lm33q")]
-layout_mode = 2
-
-[node name="DayIndicator7" parent="PanelContainer/CheckHBox" instance=ExtResource("16_lm33q")]
-layout_mode = 2
-
-[node name="DayIndicator8" parent="PanelContainer/CheckHBox" instance=ExtResource("16_lm33q")]
-layout_mode = 2
-
-[node name="ReservationLabel" type="RichTextLabel" parent="PanelContainer"]
-layout_mode = 2
-offset_left = 25.0
-offset_top = 346.0
-offset_right = 1154.0
-offset_bottom = 413.0
-theme_override_font_sizes/normal_font_size = 36
-text = "Today we have reservations from:"
-fit_content = true
+[node name="MorningModal" parent="." instance=ExtResource("16_5ov87")]

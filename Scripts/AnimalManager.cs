@@ -29,7 +29,7 @@ public enum CurrentScreen {
 
 public class SpawnedCreature {
   public required CreatureData Data;
-  public required double SpawnDelay;
+  public required double ReservationTime;
   public required CreatureState State;
   public required Node2D? Instance;
   public required CurrentScreen CurrentScreen;
@@ -49,8 +49,7 @@ public partial class AnimalManager : Node2D {
 
   public List<Chair> Chairs = [];
 
-  public override void _Ready() {
-  }
+  public override void _Ready() { }
 
   public void Initialize() {
     Root.Instance.ListOfCreatures.Initialize(Creatures);
@@ -124,9 +123,7 @@ public partial class AnimalManager : Node2D {
 
       switch (animal.State) {
         case CreatureState.NotSpawnedYet:
-          animal.SpawnDelay -= delta;
-
-          if (animal.SpawnDelay <= 0) {
+          if (GameState.CurrentDayTime > animal.ReservationTime) {
             animal.Instance = Spawn(animal);
             animal.State = CreatureState.WalkToEntrance;
             animal.CurrentScreen = CurrentScreen.Exterior;

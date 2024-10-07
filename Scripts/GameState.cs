@@ -2,6 +2,7 @@ using System.Collections.Generic;
 namespace ld56;
 
 public enum GameMode {
+  ReservationModal,
   Normal,
   ChooseTable,
   Dialog,
@@ -39,6 +40,7 @@ public static class GameState {
   public static GameMode Mode { get; set; } = GameMode.Normal;
   public static GameScreen CurrentScreen { get; set; } = GameScreen.Exterior;
   public static List<CustomerResult> CustomerResults { get; set; } = [];
+  public static float CurrentDayTime { get; set; } = 0f;
 
   public static List<Recipe> UnlockedRecipes = [
     AllRecipes.TomatoSoupInACherryTomato,

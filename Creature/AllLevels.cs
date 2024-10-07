@@ -7,8 +7,8 @@ public static class AllLevels {
     [
       new SpawnedCreature {
       Data = AllCreatures.MrPig,
-      SpawnDelay = 0,
-      State = CreatureState.WaitForTable,
+      ReservationTime = Clock.GetTimeFromString("8:00 AM"),
+      State = CreatureState.NotSpawnedYet,
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       SelectedChair = null,
@@ -17,8 +17,8 @@ public static class AllLevels {
 
     new SpawnedCreature {
       Data = AllCreatures.MrMouse,
-      SpawnDelay = 0,
-      State = CreatureState.WaitForTable,
+      ReservationTime = Clock.GetTimeFromString("9:00 AM"),
+      State = CreatureState.NotSpawnedYet,
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       SelectedChair = null,
@@ -27,8 +27,8 @@ public static class AllLevels {
 
     new SpawnedCreature {
       Data = AllCreatures.MrPig,
-      SpawnDelay = 0,
-      State = CreatureState.WaitForTable,
+      ReservationTime = Clock.GetTimeFromString("10:00 AM"),
+      State = CreatureState.NotSpawnedYet,
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       SelectedChair = null,
@@ -37,8 +37,8 @@ public static class AllLevels {
 
     new SpawnedCreature {
       Data = AllCreatures.MrMouse,
-      SpawnDelay = 0,
-      State = CreatureState.WaitForTable,
+      ReservationTime = Clock.GetTimeFromString("12:00 PM"),
+      State = CreatureState.NotSpawnedYet,
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       SelectedChair = null,

@@ -31,6 +31,7 @@ offset_bottom = 1369.0
 color = Color(0, 0, 0, 0.396078)
 
 [node name="DialogBox" type="PanelContainer" parent="."]
+layout_mode = 0
 offset_top = 2.0
 offset_right = 802.0
 offset_bottom = 295.0

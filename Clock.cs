@@ -23,12 +23,21 @@ public partial class Clock : TextureRect {
   }
 
   public override void _Process(double delta) {
-    var currentTime = Root.Instance.CurrentDayTime;
-    var endOfDayTime = Root.Instance.EndOfDayTime;
+    var currentTime = GameState.CurrentDayTime;
+    var endOfDayTime = GameConstants.EndOfDayTime;
 
     // Convert currentTime to a clock hand rotation, between -127 (start of day) and 52 (end of day)
     var clockHandRotation = Mathf.Lerp(_startRotation, _endRotation, (float)(currentTime / endOfDayTime));
     Nodes.ClockHand.Rotation = clockHandRotation;
+
+    var (timeString, period) = GetTimeString(currentTime);
+
+    Nodes.TimeLabelContainer_HBoxContainer_TimeLabel.Text = timeString;
+    Nodes.TimeLabelContainer_HBoxContainer_AMPMLabel.Text = period;
+  }
+
+  public static (string, string) GetTimeString(double currentTime) {
+    var endOfDayTime = GameConstants.EndOfDayTime;
 
     // Update time label
     // start of day is 8:00 AM
@@ -45,9 +54,34 @@ public partial class Clock : TextureRect {
     if (hours > 12) hours -= 12;
     if (hours == 0) hours = 12;
 
-    var timeString = $"{hours}:{minutes:D2}";
+    return ($"{hours}:{minutes:D2}", period);
+  }
 
-    Nodes.TimeLabelContainer_HBoxContainer_TimeLabel.Text = timeString;
-    Nodes.TimeLabelContainer_HBoxContainer_AMPMLabel.Text = period;
+  public static double GetTimeFromString(string timeString) {
+    var endOfDayTime = GameConstants.EndOfDayTime;
+
+    // start of day is 8:00 AM
+    // end of day is 10:00 PM
+
+    var startHour = 8; // 8:00 AM
+    var endHour = 22; // 10:00 PM
+
+    var timeParts = timeString.Split(' ');
+    var time = timeParts[0].Split(':');
+    var period = timeParts[1];
+
+    var hours = int.Parse(time[0]);
+    var minutes = int.Parse(time[1]);
+
+    if (period == "PM" && hours != 12) {
+      hours += 12;
+    } else if (period == "AM" && hours == 12) {
+      hours = 0;
+    }
+
+    var totalMinutes = (hours - startHour) * 60 + minutes;
+    var currentTime = (totalMinutes / ((endHour - startHour) * 60.0)) * endOfDayTime;
+
+    return currentTime;
   }
 }
