@@ -67,6 +67,7 @@ public partial class UpcomingCreatureUi : TextureRect {
       CreatureState.WalkToTable => "Walking to table",
       CreatureState.WaitForTalk => "Sitting at table",
       CreatureState.WalkToExit => "Walking to exit",
+      CreatureState.WaitForEveryoneToFinish => "Politely waiting for everyone to finish",
       CreatureState.Done => "Leaving",
     };
 

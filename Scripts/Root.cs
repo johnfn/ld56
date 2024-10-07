@@ -134,6 +134,7 @@ public partial class Root : Node2D {
 
     Nodes.HUD.Nodes.ClosingTimeOverlay.Modulate = new Color(1, 1, 1, 0);
     Nodes.HUD.Nodes.ClosingTimeOverlay.Visible = true;
+
     CreateTween().TweenProperty(
         Nodes.HUD.Nodes.ClosingTimeOverlay,
         "modulate",
