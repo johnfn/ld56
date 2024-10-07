@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://dgj77mswxdn5e"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://dm1r3i0l8y0oe"]
 
 [ext_resource type="Texture2D" uid="uid://coqgb6wffvg16" path="res://Assets/Ingredients/Ingredients_Bean.png" id="1_bean"]
 [ext_resource type="Script" path="res://Creature/Ingredient.cs" id="1_ingredient_script"]

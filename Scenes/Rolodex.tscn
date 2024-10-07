@@ -1,11 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://cl4p3lwxo5lsa"]
+[gd_scene load_steps=13 format=3 uid="uid://cl4p3lwxo5lsa"]
 
 [ext_resource type="Texture2D" uid="uid://dlghlthc65fle" path="res://Assets/UI/Rolodex_BG_v2_NOBG.png" id="1_ceq2y"]
 [ext_resource type="Script" path="res://Scripts/Rolodex.cs" id="2_s2ex6"]
-[ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="3_5uipw"]
-[ext_resource type="PackedScene" uid="uid://cmx8m8efavlh0" path="res://Scenes/RolodexRecipeEntry.tscn" id="3_w152g"]
+[ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="3_5uipw"]
 [ext_resource type="Theme" uid="uid://b26enpoebvd3m" path="res://Theme.tres" id="4_d1xda"]
-[ext_resource type="Shader" path="res://Resources/Rolodex.gdshader" id="4_g2p00"]
 [ext_resource type="Texture2D" uid="uid://3e2r6m6lwwor" path="res://Assets/UI/Rolodex_Tab_Arrow_Right.png" id="5_4e3ou"]
 [ext_resource type="Script" path="res://Scripts/CoolButton.cs" id="6_2afhd"]
 [ext_resource type="Texture2D" uid="uid://bpdekjtakp055" path="res://Assets/UI/Rolodex_Tab_Arrow_Left.png" id="6_fr14v"]
@@ -13,16 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ddlit6o1ni11m" path="res://Assets/UI/Rolodex_Tab_Recipe.png" id="8_04okw"]
 [ext_resource type="Texture2D" uid="uid://b80c4vi440d22" path="res://Assets/UI/Rolodex_Tab_Ingredients.png" id="8_sspxm"]
 [ext_resource type="Texture2D" uid="uid://gehfg0h1sxvy" path="res://Assets/UI/Rolodex_Top-Pages.png" id="10_v3f4w"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u3u5d"]
-shader = ExtResource("4_g2p00")
-shader_parameter/curvature = 0.05
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_vqwj0"]
-viewport_path = NodePath("BookTexture/Page1Viewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_n53t8"]
-viewport_path = NodePath("BookTexture/Page2Viewport")
+[ext_resource type="PackedScene" uid="uid://b54uj42n8bunp" path="res://Scenes/RolodexCreatureEntry.tscn" id="12_43md1"]
 
 [node name="Rolodex" type="ColorRect"]
 anchors_preset = 15
@@ -52,59 +41,6 @@ texture = ExtResource("1_ceq2y")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Page1Viewport" type="SubViewport" parent="BookTexture"]
-transparent_bg = true
-size = Vector2i(711, 791)
-
-[node name="MarginContainer" type="MarginContainer" parent="BookTexture/Page1Viewport"]
-offset_right = 711.0
-offset_bottom = 729.0
-size_flags_horizontal = 3
-theme = ExtResource("3_5uipw")
-theme_override_constants/margin_left = 48
-theme_override_constants/margin_top = 48
-theme_override_constants/margin_right = 48
-theme_override_constants/margin_bottom = 24
-
-[node name="Page1" type="VBoxContainer" parent="BookTexture/Page1Viewport/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 28
-
-[node name="RolodexRecipeEntry" parent="BookTexture/Page1Viewport/MarginContainer/Page1" instance=ExtResource("3_w152g")]
-layout_mode = 2
-
-[node name="HSeparator" type="HSeparator" parent="BookTexture/Page1Viewport/MarginContainer/Page1"]
-layout_mode = 2
-
-[node name="RolodexRecipeEntry2" parent="BookTexture/Page1Viewport/MarginContainer/Page1" instance=ExtResource("3_w152g")]
-layout_mode = 2
-
-[node name="HSeparator2" type="HSeparator" parent="BookTexture/Page1Viewport/MarginContainer/Page1"]
-layout_mode = 2
-
-[node name="RolodexRecipeEntry3" parent="BookTexture/Page1Viewport/MarginContainer/Page1" instance=ExtResource("3_w152g")]
-layout_mode = 2
-
-[node name="Page2Viewport" type="SubViewport" parent="BookTexture"]
-transparent_bg = true
-size = Vector2i(711, 791)
-
-[node name="MarginContainer" type="MarginContainer" parent="BookTexture/Page2Viewport"]
-offset_right = 711.0
-offset_bottom = 729.0
-size_flags_horizontal = 3
-theme = ExtResource("3_5uipw")
-theme_override_constants/margin_left = 48
-theme_override_constants/margin_top = 48
-theme_override_constants/margin_right = 48
-theme_override_constants/margin_bottom = 24
-
-[node name="Page2" type="VBoxContainer" parent="BookTexture/Page2Viewport/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 28
-
 [node name="NextPageButton" type="Button" parent="BookTexture"]
 layout_mode = 1
 anchors_preset = -1
@@ -112,6 +48,8 @@ anchor_left = 0.863542
 anchor_top = 0.731481
 anchor_right = 0.953125
 anchor_bottom = 0.875
+offset_right = 22.5756
+offset_bottom = 20.3797
 theme = ExtResource("4_d1xda")
 icon = ExtResource("5_4e3ou")
 flat = true
@@ -125,6 +63,8 @@ anchor_left = 0.0348958
 anchor_top = 0.730556
 anchor_right = 0.124479
 anchor_bottom = 0.874074
+offset_right = 22.5752
+offset_bottom = 20.3801
 theme = ExtResource("4_d1xda")
 icon = ExtResource("6_fr14v")
 flat = true
@@ -138,7 +78,8 @@ anchor_left = 0.153646
 anchor_top = 0.0398148
 anchor_right = 0.252604
 anchor_bottom = 0.172222
-offset_right = 3.05176e-05
+offset_right = 23.9381
+offset_bottom = 18.802
 theme = ExtResource("4_d1xda")
 icon = ExtResource("7_mjcfv")
 flat = true
@@ -153,6 +94,8 @@ anchor_top = 0.0259259
 anchor_right = 0.351562
 anchor_bottom = 0.153704
 offset_left = 3.05176e-05
+offset_right = 19.9381
+offset_bottom = 18.1441
 theme = ExtResource("4_d1xda")
 icon = ExtResource("8_04okw")
 flat = true
@@ -166,6 +109,7 @@ anchor_left = 0.354688
 anchor_top = 0.037963
 anchor_right = 0.453646
 anchor_bottom = 0.174074
+offset_bottom = 19.3279
 theme = ExtResource("4_d1xda")
 icon = ExtResource("8_sspxm")
 flat = true
@@ -188,31 +132,70 @@ texture = ExtResource("10_v3f4w")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="LeftPageContents" type="TextureRect" parent="BookTexture"]
-material = SubResource("ShaderMaterial_u3u5d")
-layout_mode = 0
-offset_left = 192.0
-offset_top = 140.0
-offset_right = 910.0
-offset_bottom = 931.0
-rotation = -0.0174533
-mouse_filter = 2
-texture = SubResource("ViewportTexture_vqwj0")
-expand_mode = 1
-stretch_mode = 4
+[node name="PageContents" type="HBoxContainer" parent="BookTexture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 151.0
+offset_top = 108.0
+offset_right = -208.0
+offset_bottom = -103.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 45
 
-[node name="RightPageContents" type="TextureRect" parent="BookTexture"]
-material = SubResource("ShaderMaterial_u3u5d")
-layout_mode = 0
-offset_left = 1012.0
-offset_top = 135.0
-offset_right = 1707.0
-offset_bottom = 926.0
-rotation = 0.0174533
-mouse_filter = 2
-texture = SubResource("ViewportTexture_n53t8")
-expand_mode = 1
-stretch_mode = 4
+[node name="Page1" type="MarginContainer" parent="BookTexture/PageContents"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_5uipw")
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 24
+
+[node name="Page1" type="VBoxContainer" parent="BookTexture/PageContents/Page1"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="RolodexCreatureEntry" parent="BookTexture/PageContents/Page1/Page1" instance=ExtResource("12_43md1")]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="BookTexture/PageContents/Page1/Page1"]
+layout_mode = 2
+
+[node name="RolodexCreatureEntry2" parent="BookTexture/PageContents/Page1/Page1" instance=ExtResource("12_43md1")]
+layout_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="BookTexture/PageContents/Page1/Page1"]
+layout_mode = 2
+
+[node name="RolodexCreatureEntry3" parent="BookTexture/PageContents/Page1/Page1" instance=ExtResource("12_43md1")]
+layout_mode = 2
+
+[node name="HSeparator3" type="HSeparator" parent="BookTexture/PageContents/Page1/Page1"]
+layout_mode = 2
+
+[node name="RolodexCreatureEntry4" parent="BookTexture/PageContents/Page1/Page1" instance=ExtResource("12_43md1")]
+layout_mode = 2
+
+[node name="HSeparator4" type="HSeparator" parent="BookTexture/PageContents/Page1/Page1"]
+layout_mode = 2
+
+[node name="Page2" type="MarginContainer" parent="BookTexture/PageContents"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_5uipw")
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 24
+
+[node name="Page2" type="VBoxContainer" parent="BookTexture/PageContents/Page2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 

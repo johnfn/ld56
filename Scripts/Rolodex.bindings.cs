@@ -28,46 +28,6 @@ public partial class Rolodex : ColorRect {
       get => _BookTexture ??= parent.GetNode<TextureRect>("BookTexture");
     }
 
-    private SubViewport? _BookTexture_Page1Viewport;
-    public SubViewport BookTexture_Page1Viewport {
-      get => _BookTexture_Page1Viewport ??= parent.GetNode<SubViewport>("BookTexture/Page1Viewport");
-    }
-
-    private MarginContainer? _BookTexture_Page1Viewport_MarginContainer;
-    public MarginContainer BookTexture_Page1Viewport_MarginContainer {
-      get => _BookTexture_Page1Viewport_MarginContainer ??= parent.GetNode<MarginContainer>("BookTexture/Page1Viewport/MarginContainer");
-    }
-
-    private VBoxContainer? _BookTexture_Page1Viewport_MarginContainer_Page1;
-    public VBoxContainer BookTexture_Page1Viewport_MarginContainer_Page1 {
-      get => _BookTexture_Page1Viewport_MarginContainer_Page1 ??= parent.GetNode<VBoxContainer>("BookTexture/Page1Viewport/MarginContainer/Page1");
-    }
-
-    private HSeparator? _BookTexture_Page1Viewport_MarginContainer_Page1_HSeparator;
-    public HSeparator BookTexture_Page1Viewport_MarginContainer_Page1_HSeparator {
-      get => _BookTexture_Page1Viewport_MarginContainer_Page1_HSeparator ??= parent.GetNode<HSeparator>("BookTexture/Page1Viewport/MarginContainer/Page1/HSeparator");
-    }
-
-    private HSeparator? _BookTexture_Page1Viewport_MarginContainer_Page1_HSeparator2;
-    public HSeparator BookTexture_Page1Viewport_MarginContainer_Page1_HSeparator2 {
-      get => _BookTexture_Page1Viewport_MarginContainer_Page1_HSeparator2 ??= parent.GetNode<HSeparator>("BookTexture/Page1Viewport/MarginContainer/Page1/HSeparator2");
-    }
-
-    private SubViewport? _BookTexture_Page2Viewport;
-    public SubViewport BookTexture_Page2Viewport {
-      get => _BookTexture_Page2Viewport ??= parent.GetNode<SubViewport>("BookTexture/Page2Viewport");
-    }
-
-    private MarginContainer? _BookTexture_Page2Viewport_MarginContainer;
-    public MarginContainer BookTexture_Page2Viewport_MarginContainer {
-      get => _BookTexture_Page2Viewport_MarginContainer ??= parent.GetNode<MarginContainer>("BookTexture/Page2Viewport/MarginContainer");
-    }
-
-    private VBoxContainer? _BookTexture_Page2Viewport_MarginContainer_Page2;
-    public VBoxContainer BookTexture_Page2Viewport_MarginContainer_Page2 {
-      get => _BookTexture_Page2Viewport_MarginContainer_Page2 ??= parent.GetNode<VBoxContainer>("BookTexture/Page2Viewport/MarginContainer/Page2");
-    }
-
     private Button? _BookTexture_NextPageButton;
     public Button BookTexture_NextPageButton {
       get => _BookTexture_NextPageButton ??= parent.GetNode<Button>("BookTexture/NextPageButton");
@@ -98,14 +58,49 @@ public partial class Rolodex : ColorRect {
       get => _BookTexture_TopPages ??= parent.GetNode<TextureRect>("BookTexture/TopPages");
     }
 
-    private TextureRect? _BookTexture_LeftPageContents;
-    public TextureRect BookTexture_LeftPageContents {
-      get => _BookTexture_LeftPageContents ??= parent.GetNode<TextureRect>("BookTexture/LeftPageContents");
+    private HBoxContainer? _BookTexture_PageContents;
+    public HBoxContainer BookTexture_PageContents {
+      get => _BookTexture_PageContents ??= parent.GetNode<HBoxContainer>("BookTexture/PageContents");
     }
 
-    private TextureRect? _BookTexture_RightPageContents;
-    public TextureRect BookTexture_RightPageContents {
-      get => _BookTexture_RightPageContents ??= parent.GetNode<TextureRect>("BookTexture/RightPageContents");
+    private MarginContainer? _BookTexture_PageContents_Page1;
+    public MarginContainer BookTexture_PageContents_Page1 {
+      get => _BookTexture_PageContents_Page1 ??= parent.GetNode<MarginContainer>("BookTexture/PageContents/Page1");
+    }
+
+    private VBoxContainer? _BookTexture_PageContents_Page1_Page1;
+    public VBoxContainer BookTexture_PageContents_Page1_Page1 {
+      get => _BookTexture_PageContents_Page1_Page1 ??= parent.GetNode<VBoxContainer>("BookTexture/PageContents/Page1/Page1");
+    }
+
+    private HSeparator? _BookTexture_PageContents_Page1_Page1_HSeparator;
+    public HSeparator BookTexture_PageContents_Page1_Page1_HSeparator {
+      get => _BookTexture_PageContents_Page1_Page1_HSeparator ??= parent.GetNode<HSeparator>("BookTexture/PageContents/Page1/Page1/HSeparator");
+    }
+
+    private HSeparator? _BookTexture_PageContents_Page1_Page1_HSeparator2;
+    public HSeparator BookTexture_PageContents_Page1_Page1_HSeparator2 {
+      get => _BookTexture_PageContents_Page1_Page1_HSeparator2 ??= parent.GetNode<HSeparator>("BookTexture/PageContents/Page1/Page1/HSeparator2");
+    }
+
+    private HSeparator? _BookTexture_PageContents_Page1_Page1_HSeparator3;
+    public HSeparator BookTexture_PageContents_Page1_Page1_HSeparator3 {
+      get => _BookTexture_PageContents_Page1_Page1_HSeparator3 ??= parent.GetNode<HSeparator>("BookTexture/PageContents/Page1/Page1/HSeparator3");
+    }
+
+    private HSeparator? _BookTexture_PageContents_Page1_Page1_HSeparator4;
+    public HSeparator BookTexture_PageContents_Page1_Page1_HSeparator4 {
+      get => _BookTexture_PageContents_Page1_Page1_HSeparator4 ??= parent.GetNode<HSeparator>("BookTexture/PageContents/Page1/Page1/HSeparator4");
+    }
+
+    private MarginContainer? _BookTexture_PageContents_Page2;
+    public MarginContainer BookTexture_PageContents_Page2 {
+      get => _BookTexture_PageContents_Page2 ??= parent.GetNode<MarginContainer>("BookTexture/PageContents/Page2");
+    }
+
+    private VBoxContainer? _BookTexture_PageContents_Page2_Page2;
+    public VBoxContainer BookTexture_PageContents_Page2_Page2 {
+      get => _BookTexture_PageContents_Page2_Page2 ??= parent.GetNode<VBoxContainer>("BookTexture/PageContents/Page2/Page2");
     }
 
     private AudioStreamPlayer2D? _AudioStreamPlayer2D;
@@ -118,19 +113,24 @@ public partial class Rolodex : ColorRect {
       get => _CloseRolodex ??= parent.GetNode<Button>("CloseRolodex");
     }
 
-    private RolodexRecipeEntry? _BookTexture_Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry;
-    public RolodexRecipeEntry BookTexture_Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry {
-      get => _BookTexture_Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry ??= parent.GetNode<RolodexRecipeEntry>("BookTexture/Page1Viewport/MarginContainer/Page1/RolodexRecipeEntry");
+    private RolodexCreatureEntry? _BookTexture_PageContents_Page1_Page1_RolodexCreatureEntry;
+    public RolodexCreatureEntry BookTexture_PageContents_Page1_Page1_RolodexCreatureEntry {
+      get => _BookTexture_PageContents_Page1_Page1_RolodexCreatureEntry ??= parent.GetNode<RolodexCreatureEntry>("BookTexture/PageContents/Page1/Page1/RolodexCreatureEntry");
     }
 
-    private RolodexRecipeEntry? _BookTexture_Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry2;
-    public RolodexRecipeEntry BookTexture_Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry2 {
-      get => _BookTexture_Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry2 ??= parent.GetNode<RolodexRecipeEntry>("BookTexture/Page1Viewport/MarginContainer/Page1/RolodexRecipeEntry2");
+    private RolodexCreatureEntry? _BookTexture_PageContents_Page1_Page1_RolodexCreatureEntry2;
+    public RolodexCreatureEntry BookTexture_PageContents_Page1_Page1_RolodexCreatureEntry2 {
+      get => _BookTexture_PageContents_Page1_Page1_RolodexCreatureEntry2 ??= parent.GetNode<RolodexCreatureEntry>("BookTexture/PageContents/Page1/Page1/RolodexCreatureEntry2");
     }
 
-    private RolodexRecipeEntry? _BookTexture_Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry3;
-    public RolodexRecipeEntry BookTexture_Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry3 {
-      get => _BookTexture_Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry3 ??= parent.GetNode<RolodexRecipeEntry>("BookTexture/Page1Viewport/MarginContainer/Page1/RolodexRecipeEntry3");
+    private RolodexCreatureEntry? _BookTexture_PageContents_Page1_Page1_RolodexCreatureEntry3;
+    public RolodexCreatureEntry BookTexture_PageContents_Page1_Page1_RolodexCreatureEntry3 {
+      get => _BookTexture_PageContents_Page1_Page1_RolodexCreatureEntry3 ??= parent.GetNode<RolodexCreatureEntry>("BookTexture/PageContents/Page1/Page1/RolodexCreatureEntry3");
+    }
+
+    private RolodexCreatureEntry? _BookTexture_PageContents_Page1_Page1_RolodexCreatureEntry4;
+    public RolodexCreatureEntry BookTexture_PageContents_Page1_Page1_RolodexCreatureEntry4 {
+      get => _BookTexture_PageContents_Page1_Page1_RolodexCreatureEntry4 ??= parent.GetNode<RolodexCreatureEntry>("BookTexture/PageContents/Page1/Page1/RolodexCreatureEntry4");
     }
 
   }

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://ckvqemrmpl1ld"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://bp0uieph6cs0n"]
 
 [ext_resource type="Texture2D" uid="uid://ccmxt7wnn5oip" path="res://Assets/Ingredients/Ingredients_Avocado.png" id="1_avocado"]
 [ext_resource type="Script" path="res://Creature/Ingredient.cs" id="1_ingredient_script"]

@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://unique_tomato_uid"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://cyfnflxb4sep5"]
 
-[ext_resource type="Texture2D" uid="uid://unique_tomato_texture_uid" path="res://Assets/Ingredients/Ingredients_Tomato.png" id="1_tomato"]
 [ext_resource type="Script" path="res://Creature/Ingredient.cs" id="1_ingredient_script"]
+[ext_resource type="Texture2D" uid="uid://bi5s53uty3j1e" path="res://Assets/Ingredients/Ingredients_Tomato.png" id="1_tomato"]
 
 [resource]
 script = ExtResource("1_ingredient_script")
 DisplayName = "Tomato"
 Description = "A versatile fruit often used as a vegetable"
 Icon = ExtResource("1_tomato")
-Id = "tomato"
+Id = 0
 Rarity = 0
 Cost = 8

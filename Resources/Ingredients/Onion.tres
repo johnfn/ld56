@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://unique_onion_uid"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://csdh48lys8oc0"]
 
-[ext_resource type="Texture2D" uid="uid://unique_onion_texture_uid" path="res://Assets/Ingredients/Ingredients_Onion.png" id="1_onion"]
 [ext_resource type="Script" path="res://Creature/Ingredient.cs" id="1_ingredient_script"]
+[ext_resource type="Texture2D" uid="uid://coqqhk4l3wn3t" path="res://Assets/Ingredients/Ingredients_Onion.png" id="1_onion"]
 
 [resource]
 script = ExtResource("1_ingredient_script")
 DisplayName = "Onion"
 Description = "A pungent and flavorful vegetable"
 Icon = ExtResource("1_onion")
-Id = "onion"
+Id = 0
 Rarity = 0
 Cost = 5

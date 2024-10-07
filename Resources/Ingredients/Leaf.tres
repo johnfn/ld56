@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://cigpmjqyop55p"]
 
-[ext_resource type="Texture2D" uid="uid://dvystam1uwxhs" path="res://Assets/Ingredients/Ingredients_Leaf.png" id="1_jq070"]
+[ext_resource type="Texture2D" uid="uid://collvlb6tnpvu" path="res://Assets/Ingredients/Ingredients_Leaf.png" id="1_jq070"]
 [ext_resource type="Script" path="res://Creature/Ingredient.cs" id="1_r1v6u"]
 
 [resource]
@@ -8,6 +8,6 @@ script = ExtResource("1_r1v6u")
 DisplayName = "Leaf"
 Description = "A fresh, aromatic leaf"
 Icon = ExtResource("1_jq070")
-Id = "leaf"
+Id = 0
 Rarity = 0
 Cost = 5
