@@ -115,6 +115,11 @@ public partial class CookingScreen : Sprite2D {
     Rolodex.Instance.ClearSignals();
 
     Rolodex.Instance.OnClickIngredient += (ingredientId) => {
+      if (GameState.Mode != GameMode.Cooking) {
+        // apparently, this can always happen.
+        return;
+      }
+
       if (CookingList.Count >= 5) {
         GenericDialog.Instance.Show("You can only cook with 5 ingredients at a time!");
         return;
