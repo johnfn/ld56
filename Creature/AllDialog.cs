@@ -20,7 +20,7 @@ public static class AllDialog {
       Text = "Anything with a [color=green]leaf[/color] would be great.",
       Speaker = AllCreatures.Hazel,
       OnComplete = async (CreatureData creature) => {
-        await CookingScreen.Cook();
+        var recipe = await CookingScreen.Cook();
       }
     },
   ];

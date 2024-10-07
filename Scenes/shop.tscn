@@ -42,15 +42,21 @@ theme_override_constants/separation = 16
 
 [node name="ForSaleLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 56
 text = "For sale"
+
+[node name="NoneForSale" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.535156, 0.535156, 0.535156, 1)
+theme_override_font_sizes/font_size = 32
+text = "None left!"
 
 [node name="ShopInventoryList" parent="PanelContainer/HBoxContainer/VBoxContainer2" instance=ExtResource("4_8tvhw")]
 layout_mode = 2
 
 [node name="YourInventoryLabel" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 56
 text = "Your inventory"
 
 [node name="InventoryList" parent="PanelContainer/HBoxContainer/VBoxContainer2" instance=ExtResource("4_8tvhw")]

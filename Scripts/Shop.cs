@@ -19,6 +19,12 @@ public partial class Shop : ColorRect {
     shopList.Initialize(displayedIngredients);
     ownedList.Initialize(GameState.OwnedIngredients);
 
+    if (displayedIngredients.Count == 0) {
+      Nodes.PanelContainer_HBoxContainer_VBoxContainer2_NoneForSale.Visible = true;
+    } else {
+      Nodes.PanelContainer_HBoxContainer_VBoxContainer2_NoneForSale.Visible = false;
+    }
+
     shopList.OnMouseEnterIngredient += (ingredientId) => {
       shopList.ShowTooltip(ingredientId, AllIngredients.Get(ingredientId));
     };
@@ -38,8 +44,7 @@ public partial class Shop : ColorRect {
 
         Initialize(newDisplayedIngredients);
       } else {
-        GD.Print($"Not enough gold to buy {ingredient.DisplayName}");
-        // TODO: Too expensive
+        GenericDialog.Instance.Show("You don't have enough gold to buy that!");
       }
     };
 
