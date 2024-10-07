@@ -43,6 +43,51 @@ public partial class Rolodex : ColorRect {
       get => _BookTexture_CreaturesTab ??= parent.GetNode<Button>("BookTexture/CreaturesTab");
     }
 
+    private PanelContainer? _BookTexture_CreaturesTooltip;
+    public PanelContainer BookTexture_CreaturesTooltip {
+      get => _BookTexture_CreaturesTooltip ??= parent.GetNode<PanelContainer>("BookTexture/CreaturesTooltip");
+    }
+
+    private MarginContainer? _BookTexture_CreaturesTooltip_MarginContainer;
+    public MarginContainer BookTexture_CreaturesTooltip_MarginContainer {
+      get => _BookTexture_CreaturesTooltip_MarginContainer ??= parent.GetNode<MarginContainer>("BookTexture/CreaturesTooltip/MarginContainer");
+    }
+
+    private Label? _BookTexture_CreaturesTooltip_MarginContainer_Label;
+    public Label BookTexture_CreaturesTooltip_MarginContainer_Label {
+      get => _BookTexture_CreaturesTooltip_MarginContainer_Label ??= parent.GetNode<Label>("BookTexture/CreaturesTooltip/MarginContainer/Label");
+    }
+
+    private PanelContainer? _BookTexture_RecipesTooltip;
+    public PanelContainer BookTexture_RecipesTooltip {
+      get => _BookTexture_RecipesTooltip ??= parent.GetNode<PanelContainer>("BookTexture/RecipesTooltip");
+    }
+
+    private MarginContainer? _BookTexture_RecipesTooltip_MarginContainer;
+    public MarginContainer BookTexture_RecipesTooltip_MarginContainer {
+      get => _BookTexture_RecipesTooltip_MarginContainer ??= parent.GetNode<MarginContainer>("BookTexture/RecipesTooltip/MarginContainer");
+    }
+
+    private Label? _BookTexture_RecipesTooltip_MarginContainer_Label;
+    public Label BookTexture_RecipesTooltip_MarginContainer_Label {
+      get => _BookTexture_RecipesTooltip_MarginContainer_Label ??= parent.GetNode<Label>("BookTexture/RecipesTooltip/MarginContainer/Label");
+    }
+
+    private PanelContainer? _BookTexture_IngredientsTooltip;
+    public PanelContainer BookTexture_IngredientsTooltip {
+      get => _BookTexture_IngredientsTooltip ??= parent.GetNode<PanelContainer>("BookTexture/IngredientsTooltip");
+    }
+
+    private MarginContainer? _BookTexture_IngredientsTooltip_MarginContainer;
+    public MarginContainer BookTexture_IngredientsTooltip_MarginContainer {
+      get => _BookTexture_IngredientsTooltip_MarginContainer ??= parent.GetNode<MarginContainer>("BookTexture/IngredientsTooltip/MarginContainer");
+    }
+
+    private Label? _BookTexture_IngredientsTooltip_MarginContainer_Label;
+    public Label BookTexture_IngredientsTooltip_MarginContainer_Label {
+      get => _BookTexture_IngredientsTooltip_MarginContainer_Label ??= parent.GetNode<Label>("BookTexture/IngredientsTooltip/MarginContainer/Label");
+    }
+
     private Button? _BookTexture_RecipesTab;
     public Button BookTexture_RecipesTab {
       get => _BookTexture_RecipesTab ??= parent.GetNode<Button>("BookTexture/RecipesTab");

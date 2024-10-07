@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cl4p3lwxo5lsa"]
+[gd_scene load_steps=14 format=3 uid="uid://cl4p3lwxo5lsa"]
 
 [ext_resource type="Texture2D" uid="uid://dlghlthc65fle" path="res://Assets/UI/Rolodex_BG_v2_NOBG.png" id="1_ceq2y"]
 [ext_resource type="Script" path="res://Scripts/Rolodex.cs" id="2_s2ex6"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://b80c4vi440d22" path="res://Assets/UI/Rolodex_Tab_Ingredients.png" id="8_sspxm"]
 [ext_resource type="Texture2D" uid="uid://gehfg0h1sxvy" path="res://Assets/UI/Rolodex_Top-Pages.png" id="10_v3f4w"]
 [ext_resource type="PackedScene" uid="uid://b54uj42n8bunp" path="res://Scenes/RolodexCreatureEntry.tscn" id="12_43md1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2b3m"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Rolodex" type="ColorRect"]
 anchors_preset = 15
@@ -85,6 +88,67 @@ icon = ExtResource("7_mjcfv")
 flat = true
 script = ExtResource("6_2afhd")
 metadata/_edit_use_anchors_ = true
+
+[node name="CreaturesTooltip" type="PanelContainer" parent="BookTexture"]
+offset_left = 280.0
+offset_top = -36.0
+offset_right = 488.0
+offset_bottom = 41.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c2b3m")
+
+[node name="MarginContainer" type="MarginContainer" parent="BookTexture/CreaturesTooltip"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="BookTexture/CreaturesTooltip/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Creatures
+"
+
+[node name="RecipesTooltip" type="PanelContainer" parent="BookTexture"]
+offset_left = 458.0
+offset_top = -47.0
+offset_right = 666.0
+offset_bottom = 30.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c2b3m")
+
+[node name="MarginContainer" type="MarginContainer" parent="BookTexture/RecipesTooltip"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="BookTexture/RecipesTooltip/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Recipes"
+
+[node name="IngredientsTooltip" type="PanelContainer" parent="BookTexture"]
+offset_left = 650.0
+offset_top = -47.0
+offset_right = 858.0
+offset_bottom = 30.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_c2b3m")
+
+[node name="MarginContainer" type="MarginContainer" parent="BookTexture/IngredientsTooltip"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="BookTexture/IngredientsTooltip/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Ingredients"
 
 [node name="RecipesTab" type="Button" parent="BookTexture"]
 layout_mode = 1

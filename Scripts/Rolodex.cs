@@ -26,6 +26,31 @@ public partial class Rolodex : ColorRect {
 
     PopulatePages();
 
+    Nodes.BookTexture_CreaturesTooltip.Visible = false;
+    Nodes.BookTexture_RecipesTooltip.Visible = false;
+    Nodes.BookTexture_IngredientsTooltip.Visible = false;
+
+    Nodes.BookTexture_CreaturesTab.MouseEntered += () => {
+      Nodes.BookTexture_CreaturesTooltip.Visible = true;
+    };
+    Nodes.BookTexture_CreaturesTab.MouseExited += () => {
+      Nodes.BookTexture_CreaturesTooltip.Visible = false;
+    };
+
+    Nodes.BookTexture_RecipesTab.MouseEntered += () => {
+      Nodes.BookTexture_RecipesTooltip.Visible = true;
+    };
+    Nodes.BookTexture_RecipesTab.MouseExited += () => {
+      Nodes.BookTexture_RecipesTooltip.Visible = false;
+    };
+
+    Nodes.BookTexture_IngredientsTab.MouseEntered += () => {
+      Nodes.BookTexture_IngredientsTooltip.Visible = true;
+    };
+    Nodes.BookTexture_IngredientsTab.MouseExited += () => {
+      Nodes.BookTexture_IngredientsTooltip.Visible = false;
+    };
+
     Nodes.BookTexture_NextPageButton.Pressed += () => FlipPage(true);
     Nodes.BookTexture_PrevPageButton.Pressed += () => FlipPage(false);
 
