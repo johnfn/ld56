@@ -22,10 +22,10 @@ public partial class CreatureScene : Node2D {
 
   public void Initialize(SpawnedCreature data) {
     Data = data;
-    if (data.Creature.FullBodyTexture != null) {
-      Nodes.VBoxContainer_TextureRect.Icon = data.Creature.FullBodyTexture;
+    if (data.Data.FullBodyTexture != null) {
+      Nodes.VBoxContainer_TextureRect.Icon = data.Data.FullBodyTexture;
     }
-    Nodes.VBoxContainer_NameLabel.Text = data.Creature.DisplayName;
+    Nodes.VBoxContainer_NameLabel.Text = data.Data.DisplayName;
     // Move the name's X coordinate over so it's centered
     Nodes.VBoxContainer_NameLabel.Position = new Vector2(-Nodes.VBoxContainer_NameLabel.Size.X / 2, Nodes.VBoxContainer_NameLabel.Position.Y);
   }

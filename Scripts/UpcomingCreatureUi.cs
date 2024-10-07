@@ -9,7 +9,7 @@ public partial class UpcomingCreatureUi : TextureRect {
 
   public void Initialize(SpawnedCreature spawnedCreature) {
     _spawnedCreature = spawnedCreature;
-    this.Texture = spawnedCreature.Creature.Icon;
+    this.Texture = spawnedCreature.Data.Icon;
   }
 
   public override void _Ready() {
@@ -56,8 +56,8 @@ public partial class UpcomingCreatureUi : TextureRect {
     var description = Nodes.Popover_MarginContainer_VBoxContainer_Description;
     var location = Nodes.Popover_MarginContainer_VBoxContainer_Location;
 
-    title.Text = creature.Creature.DisplayName;
-    description.Text = creature.Creature.Description;
+    title.Text = creature.Data.DisplayName;
+    description.Text = creature.Data.Description;
     status.Text = creature.State switch {
       CreatureState.NotSpawnedYet => "Coming to Dinernb",
       CreatureState.WalkToEntrance => "Exterior of Dinernb",

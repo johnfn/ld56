@@ -27,7 +27,7 @@ public enum CurrentScreen {
 }
 
 public class SpawnedCreature {
-  public required Creature Creature;
+  public required CreatureData Data;
   public required double SpawnDelay;
   public required CreatureState State;
   public required Node2D? Instance;
@@ -38,7 +38,8 @@ public class SpawnedCreature {
 
 public class Chair {
   public required HighlightCircle Circle;
-  public required SpawnedCreature? Creature;
+  public required SpawnedCreature? SpawnedCreature;
+  public required int TableIndex;
 }
 
 public partial class AnimalManager : Node2D {
@@ -63,34 +64,34 @@ public partial class AnimalManager : Node2D {
     // },
 
     new SpawnedCreature {
-      Creature = AllCreatures.MrChicken,
-      SpawnDelay = 0,
-      State = CreatureState.WaitForTalk,
-      Instance = null,
-      CurrentScreen = CurrentScreen.Interior,
-      SelectedChair = null,
-      GetDialog = () => NextDialog.For[AllCreatures.MrChicken],
-    },
-
-    new SpawnedCreature {
-      Creature = AllCreatures.MrChicken,
-      SpawnDelay = 0,
-      State = CreatureState.WaitForTalk,
-      Instance = null,
-      CurrentScreen = CurrentScreen.Interior,
-      SelectedChair = null,
-      GetDialog = () => NextDialog.For[AllCreatures.MrChicken],
-    },
-
-    new SpawnedCreature {
-      Creature = AllCreatures.MrsCow,
+      Data = AllCreatures.MrPig,
       SpawnDelay = 0,
       State = CreatureState.WaitForTable,
       Instance = null,
       CurrentScreen = CurrentScreen.Interior,
       SelectedChair = null,
-      GetDialog = () => NextDialog.For[AllCreatures.MrsCow],
+      GetDialog = () => NextDialog.For[AllCreatures.MrPig],
     },
+
+    new SpawnedCreature {
+      Data = AllCreatures.MrMouse,
+      SpawnDelay = 0,
+      State = CreatureState.WaitForTable,
+      Instance = null,
+      CurrentScreen = CurrentScreen.Interior,
+      SelectedChair = null,
+      GetDialog = () => NextDialog.For[AllCreatures.MrMouse],
+    },
+
+    // new SpawnedCreature {
+    //   Data = AllCreatures.MrsCow,
+    //   SpawnDelay = 0,
+    //   State = CreatureState.WaitForTalk,
+    //   Instance = null,
+    //   CurrentScreen = CurrentScreen.Interior,
+    //   SelectedChair = null,
+    //   GetDialog = () => NextDialog.For[AllCreatures.MrsCow],
+    // },
 
     // new SpawnedCreature {
     //   Creature = AllCreatures.MrChicken,
@@ -103,7 +104,7 @@ public partial class AnimalManager : Node2D {
     // },
 
     new SpawnedCreature {
-      Creature = AllCreatures.MrsCow,
+      Data = AllCreatures.MrsCow,
       SpawnDelay = 10,
       State = CreatureState.NotSpawnedYet,
       Instance = null,
@@ -121,21 +122,44 @@ public partial class AnimalManager : Node2D {
   public void Initialize() {
     Root.Instance.ListOfCreatures.Initialize(Creatures);
 
-    // Initialize chairs
-    foreach (var chair in Root.Instance.Nodes.Interior.Nodes.Chairs.GetChildren()) {
-      if (chair is HighlightCircle highlightCircle) {
-        Chairs.Add(new Chair {
-          Circle = highlightCircle,
-          Creature = null,
-        });
+    var tableIndex = 0;
 
-        highlightCircle.Visible = false;
+    foreach (var table in Root.Instance.Nodes.Interior.Nodes.Tables.GetChildren()) {
+      foreach (var chair in table.GetChildren()) {
+        if (chair is HighlightCircle highlightCircle) {
+          Chairs.Add(new Chair {
+            Circle = highlightCircle,
+            SpawnedCreature = null,
+            TableIndex = tableIndex,
+          });
+
+          highlightCircle.Visible = false;
+        }
       }
+
+      tableIndex++;
     }
 
     if (GameState.Mode == GameMode.Cooking) {
       Root.Instance.UpdateCurrentScreen(GameScreen.Cooking);
     }
+  }
+
+  public static bool AreSeatedNextToEachOther(CreatureData someCreature, CreatureData creature2) {
+    var creature1Chair = Root.Instance.Nodes.AnimalManager.Chairs.Find(c => c.SpawnedCreature?.Data == someCreature);
+    var creature1TableIndex = creature1Chair?.TableIndex ?? -1;
+
+    print($"Looking for {creature2.DisplayName} and {someCreature.DisplayName}");
+
+    foreach (var chair in Root.Instance.Nodes.AnimalManager.Chairs) {
+      if (chair.TableIndex == creature1TableIndex) {
+        if (chair.SpawnedCreature != null && chair.SpawnedCreature.Data.DisplayName == creature2.DisplayName) {
+          return true;
+        }
+      }
+    }
+
+    return false;
   }
 
   public override void _Process(double delta) {
@@ -157,13 +181,13 @@ public partial class AnimalManager : Node2D {
           animal.Instance = Spawn(animal);
 
           // find an available chair
-          var availableChair = Chairs.Find(c => c.Creature == null);
+          var availableChair = Chairs.Find(c => c.SpawnedCreature == null);
           if (availableChair == null) {
             continue;
           }
 
           animal.Instance.GlobalPosition = availableChair.Circle.GlobalPosition;
-          availableChair.Creature = animal;
+          availableChair.SpawnedCreature = animal;
         }
       }
 
@@ -292,7 +316,7 @@ public partial class AnimalManager : Node2D {
   }
 
   public Node2D Spawn(SpawnedCreature spawnedCreature) {
-    var newAnimal = spawnedCreature.Creature.Instantiate(spawnedCreature);
+    var newAnimal = spawnedCreature.Data.Instantiate(spawnedCreature);
 
     AddChild(newAnimal);
     newAnimal.GlobalPosition = Root.Instance.Nodes.Exterior.Nodes.AnimalSpawnArea.GlobalPosition;
@@ -306,7 +330,7 @@ public partial class AnimalManager : Node2D {
 
   public void Sit(SpawnedCreature spawnedCreature) {
     foreach (var chair in Chairs) {
-      if (chair.Creature == null) {
+      if (chair.SpawnedCreature == null) {
         chair.Circle.Visible = true;
       }
     }
@@ -332,7 +356,7 @@ public partial class AnimalManager : Node2D {
       return;
     }
 
-    chairToUpdate.Creature = CreatureCurrentlyBeingSit;
+    chairToUpdate.SpawnedCreature = CreatureCurrentlyBeingSit;
 
     foreach (var chair in Chairs) {
       chair.Circle.Visible = false;
@@ -347,17 +371,17 @@ public partial class AnimalManager : Node2D {
     if (GameState.Mode == GameMode.Normal) {
       GameState.Mode = GameMode.Dialog;
 
-      await DialogBox.ShowDialog(spawnedCreature.GetDialog(), spawnedCreature.Creature);
+      await DialogBox.ShowDialog(spawnedCreature.GetDialog(), spawnedCreature.Data);
       GameState.Mode = GameMode.Normal;
 
       spawnedCreature.State = CreatureState.WalkToExit;
 
       // give up seat
 
-      var chair = Chairs.Find(c => c.Creature == spawnedCreature);
+      var chair = Chairs.Find(c => c.SpawnedCreature == spawnedCreature);
 
       if (chair != null) {
-        chair.Creature = null;
+        chair.SpawnedCreature = null;
       }
     }
   }

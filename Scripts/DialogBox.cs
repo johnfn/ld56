@@ -7,7 +7,7 @@ namespace ld56;
 using static Utils;
 
 public class DialogReturn {
-  public Func<Creature, Task>? Next { get; set; }
+  public Func<CreatureData, Task>? Next { get; set; }
 }
 
 public partial class DialogBox : PanelContainer {
@@ -31,7 +31,7 @@ public partial class DialogBox : PanelContainer {
 
   public static async Task<DialogReturn> ShowDialog(
     List<IDialogItem> dialog,
-    Creature creature,
+    CreatureData creature,
     bool isFirstCall = true) {
     return await Instance.ShowDialogHelper(dialog, creature, isFirstCall);
   }
@@ -58,7 +58,7 @@ public partial class DialogBox : PanelContainer {
     Nodes.HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.VisibleCharacters = text.Length;
   }
 
-  private async Task<DialogReturn> ShowDialogHelper(List<IDialogItem> dialog, Creature creature, bool isFirstCall = true) {
+  private async Task<DialogReturn> ShowDialogHelper(List<IDialogItem> dialog, CreatureData creature, bool isFirstCall = true) {
     DialogReturn result = new();
 
     Visible = true;
@@ -81,7 +81,11 @@ public partial class DialogBox : PanelContainer {
 
           await ShowDialogText(dialogItem.Text);
 
-          dialogItem.OnComplete?.Invoke();
+          if (dialogItem.OnComplete != null) {
+            result = new DialogReturn { Next = dialogItem.OnComplete };
+
+            goto done;
+          }
 
           break;
 

@@ -22,7 +22,7 @@ public enum CustomerSatisfaction {
 }
 
 public record CustomerResult(
-  Creature Creature,
+  CreatureData Creature,
   int TipEarned,
   CustomerSatisfaction Satisfaction,
   int DayIndex
@@ -51,7 +51,7 @@ public static class GameState {
     AllRecipes.ScrambledEggs,
   ];
 
-  public static List<Creature> KnownGuests = [
+  public static List<CreatureData> KnownGuests = [
     AllCreatures.MrChicken,
     AllCreatures.MrPig,
     AllCreatures.MrPig,

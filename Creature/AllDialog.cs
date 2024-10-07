@@ -12,7 +12,7 @@ public static class AllDialog {
       Options = [
         new DialogOption {
           OptionText = "[color=green]Start cooking[/color]",
-          OnSelect = async (Creature creature) => {
+          OnSelect = async (CreatureData creature) => {
             var result = await CookingScreen.Cook();
 
             await DialogBox.ShowDialog([
@@ -25,7 +25,7 @@ public static class AllDialog {
               new DialogItem {
                 Text = "You see, I HATE YOUR STUPID MEAL.",
                 Speaker = AllCreatures.MrChicken,
-                OnComplete = () => {
+                OnComplete = async (CreatureData creature) => {
                   GameState.Gold -= 10;
 
                   GameState.CustomerResults.Add(new(
@@ -50,7 +50,7 @@ public static class AllDialog {
           IsHidden = () => {
             return false;
           },
-          OnSelect = async (Creature creature) => {
+          OnSelect = async (CreatureData creature) => {
             GameState.Gold -= 200;
 
             await DialogBox.ShowDialog([
@@ -63,12 +63,12 @@ public static class AllDialog {
 
         new DialogOption {
           OptionText = "[color=red]I'm sorry, I can't do that[/color]",
-          OnSelect = async (Creature creature) => {
+          OnSelect = async (CreatureData creature) => {
             await DialogBox.ShowDialog([
               new DialogItem {
                 Text = "I'm going to tell your mom on you",
                 Speaker = AllCreatures.MrChicken,
-                OnComplete = () => {
+                OnComplete = async (CreatureData creature) => {
                   GameState.Gold += 10;
                 }
               },
@@ -112,7 +112,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "Oh no. No. NO. NOT THE BLEGG.",
       Speaker = AllCreatures.You,
-      OnComplete = () => {
+      OnComplete = async (CreatureData creature) => {
         NextDialog.For[AllCreatures.MrBlegg] = MrBleggSecond;
       }
     },
@@ -126,18 +126,62 @@ public static class AllDialog {
   public static List<IDialogItem> NoDialogYet = [
     new DialogItem { Text = "I don't have dialog yet.", Speaker = AllCreatures.MrBlegg },
   ];
+
+  public static List<IDialogItem> MrPig = [
+    new DialogItem {
+      Text = "Hello.",
+      Speaker = AllCreatures.MrPig,
+      OnComplete = async (CreatureData creature) => {
+        if (AnimalManager.AreSeatedNextToEachOther(AllCreatures.MrMouse, creature)) {
+          await DialogBox.ShowDialog(MrPigWithMouse, creature);
+        } else {
+          await DialogBox.ShowDialog(NoDialogYet, creature);
+        }
+      }
+    },
+  ];
+
+
+  public static List<IDialogItem> MrPigWithMouse = [
+    new DialogItem {
+      Text = "Mr. Mouse, you're late.",
+      Speaker = AllCreatures.MrPig,
+    },
+    new DialogItem {
+      Text = "...",
+      Speaker = AllCreatures.MrMouse,
+    },
+    new DialogItem {
+      Text = "I'm sorry, I was held up by a [color=yellow]cat[/color].",
+      Speaker = AllCreatures.MrMouse,
+    },
+  ];
+
+  public static List<IDialogItem> MrMouse = [
+    new DialogItem { Text = "I don't have dialog yet.", Speaker = AllCreatures.MrMouse },
+  ];
+
+  public static List<IDialogItem> MrHamster = [
+    new DialogItem { Text = "I don't have dialog yet.", Speaker = AllCreatures.MrHamster },
+  ];
+
+  public static List<IDialogItem> MrSquirrel = [
+    new DialogItem { Text = "I don't have dialog yet.", Speaker = AllCreatures.MrSquirrel },
+  ];
 }
 
 
 public static class NextDialog {
-  public static Dictionary<Creature, List<IDialogItem>> For = new() {
+  public static Dictionary<CreatureData, List<IDialogItem>> For = new() {
     [AllCreatures.MrChicken] = AllDialog.MrChicken,
     [AllCreatures.MrsCow] = AllDialog.MrsCow,
     [AllCreatures.MrBlegg] = AllDialog.MrBleggFirst,
+    [AllCreatures.MrPig] = AllDialog.MrPig,
+    [AllCreatures.MrMouse] = AllDialog.MrMouse,
 
-    [AllCreatures.MrPig] = AllDialog.NoDialogYet,
-    [AllCreatures.MrHamster] = AllDialog.NoDialogYet,
-    [AllCreatures.MrMouse] = AllDialog.NoDialogYet,
-    [AllCreatures.MrSquirrel] = AllDialog.NoDialogYet,
+    // there isn't really anything here
+
+    [AllCreatures.MrHamster] = AllDialog.MrHamster,
+    [AllCreatures.MrSquirrel] = AllDialog.MrSquirrel,
   };
 }

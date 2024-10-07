@@ -3,7 +3,7 @@ using Godot;
 namespace ld56;
 
 public static class AllCreatures {
-  public static readonly Creature MrChicken = new() {
+  public static readonly CreatureData MrChicken = new() {
     DisplayName = "chipmunk",
     Description = "It's the neighborhood's richest chicke- uh, I mean chipmunk. It's always wearing a fancy hat and carrying a cane.",
     Instantiate = (spawnedCreature) => {
@@ -16,7 +16,7 @@ public static class AllCreatures {
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Chipmunk.png"),
   };
 
-  public static readonly Creature You = new() {
+  public static readonly CreatureData You = new() {
     DisplayName = "You",
     Description = "It's you! You shouldn't be reading this...",
     Instantiate = (spawnedCreature) => {
@@ -31,7 +31,7 @@ public static class AllCreatures {
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Chipmunk.png"),
   };
 
-  public static readonly Creature MrsCow = new() {
+  public static readonly CreatureData MrsCow = new() {
     DisplayName = "cat",
     Description = "A big, friendly cat. She's always smiling and waving at people.",
     Instantiate = (spawnedCreature) => {
@@ -44,9 +44,9 @@ public static class AllCreatures {
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Detective-Cat.png"),
   };
 
-  public static readonly Creature MrPig = new() {
-    DisplayName = "frog",
-    Description = "A big frog. It hates pigs.",
+  public static readonly CreatureData MrPig = new() {
+    DisplayName = "pig",
+    Description = "A big pig. It hates frogs.",
     Instantiate = (spawnedCreature) => {
       var creature = CreatureScene.New();
       creature.Initialize(spawnedCreature);
@@ -57,7 +57,7 @@ public static class AllCreatures {
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Frog.png"),
   };
 
-  public static readonly Creature MrHamster = new() {
+  public static readonly CreatureData MrHamster = new() {
     DisplayName = "hamster",
     Description = "weee oooo yeee yaahhfh ehhehe!",
     Instantiate = (spawnedCreature) => {
@@ -70,7 +70,7 @@ public static class AllCreatures {
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Hamster.png"),
   };
 
-  public static readonly Creature MrMouse = new() {
+  public static readonly CreatureData MrMouse = new() {
     DisplayName = "mouse",
     Description = "Flavor text here :)",
     Instantiate = (spawnedCreature) => {
@@ -83,7 +83,7 @@ public static class AllCreatures {
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Mouse.png"),
   };
 
-  public static readonly Creature MrSquirrel = new() {
+  public static readonly CreatureData MrSquirrel = new() {
     DisplayName = "squirrel",
     Description = "tee hee:3",
     Instantiate = (spawnedCreature) => {
@@ -96,7 +96,7 @@ public static class AllCreatures {
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Squirrel.png"),
   };
 
-  public static readonly Creature MrBlegg = new() {
+  public static readonly CreatureData MrBlegg = new() {
     DisplayName = "blegg",
     Description = "blegg is the bleggest bleg that ever blegged a blegg.",
     Instantiate = (spawnedCreature) => {
