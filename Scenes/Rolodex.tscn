@@ -91,6 +91,7 @@ script = ExtResource("6_2afhd")
 metadata/_edit_use_anchors_ = true
 
 [node name="CreaturesTooltip" type="PanelContainer" parent="BookTexture"]
+layout_mode = 0
 offset_left = 280.0
 offset_top = -36.0
 offset_right = 488.0
@@ -112,6 +113,7 @@ text = "Creatures
 "
 
 [node name="RecipesTooltip" type="PanelContainer" parent="BookTexture"]
+layout_mode = 0
 offset_left = 458.0
 offset_top = -47.0
 offset_right = 666.0
@@ -132,6 +134,7 @@ theme_override_font_sizes/font_size = 32
 text = "Recipes"
 
 [node name="IngredientsTooltip" type="PanelContainer" parent="BookTexture"]
+layout_mode = 0
 offset_left = 650.0
 offset_top = -47.0
 offset_right = 858.0

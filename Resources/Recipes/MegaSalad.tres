@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=2 format=3 uid="uid://UNIQUE_UID_HERE"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://ddsinb576rnl2"]
 
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
-[ext_resource type="Texture2D" uid="uid://UNIQUE_UID_HERE" path="res://Assets/Dishes/Dish_Mega_Salad.png" id="2_icon"]
+[ext_resource type="Texture2D" uid="uid://tg40p5n6jx53" path="res://Assets/Dishes/Dish_Mega_Salad.png" id="2_icon"]
+[ext_resource type="Resource" uid="uid://cigpmjqyop55p" path="res://Resources/Ingredients/Leaf.tres" id="2_wr8ls"]
+[ext_resource type="Resource" uid="uid://cyfnflxb4sep5" path="res://Resources/Ingredients/Tomato.tres" id="3_48swp"]
+[ext_resource type="Resource" uid="uid://uwssspksrtjf" path="res://Resources/Ingredients/Turnip.tres" id="4_jnjo8"]
 
 [resource]
 script = ExtResource("1_recipe")
 DisplayName = "Mega Salad"
 Description = "A large, satisfying salad."
-Ingredients = []
+Ingredients = [ExtResource("2_wr8ls"), ExtResource("3_48swp"), ExtResource("4_jnjo8")]
 Icon = ExtResource("2_icon")

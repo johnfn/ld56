@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=2 format=3 uid="uid://UNIQUE_UID_HERE"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://bvb31oo4o2pfi"]
 
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
-[ext_resource type="Texture2D" uid="uid://UNIQUE_UID_HERE" path="res://Assets/Dishes/Dish_Fluff-Flapjack.png" id="2_icon"]
+[ext_resource type="Resource" uid="uid://cvw67ck2443er" path="res://Resources/Ingredients/Flour.tres" id="2_1wile"]
+[ext_resource type="Texture2D" uid="uid://0212v0gbw8jm" path="res://Assets/Dishes/Dish_Fluff-Flapjack.png" id="2_icon"]
+[ext_resource type="Resource" uid="uid://decakyxempe3k" path="res://Resources/Ingredients/Nectar.tres" id="3_drosc"]
+[ext_resource type="Resource" uid="uid://eywo0n3g50gj" path="res://Resources/Ingredients/Milk.tres" id="4_57mri"]
 
 [resource]
 script = ExtResource("1_recipe")
 DisplayName = "Fluff Flapjack"
 Description = "A light and fluffy flapjack."
-Ingredients = []
+Ingredients = [ExtResource("2_1wile"), ExtResource("3_drosc"), ExtResource("4_57mri")]
 Icon = ExtResource("2_icon")

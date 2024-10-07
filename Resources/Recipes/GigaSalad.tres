@@ -1,11 +1,15 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://c87smxxy3vn6m"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=7 format=3 uid="uid://c87smxxy3vn6m"]
 
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
+[ext_resource type="Resource" uid="uid://cigpmjqyop55p" path="res://Resources/Ingredients/Leaf.tres" id="2_7vgad"]
 [ext_resource type="Texture2D" uid="uid://d3prqc735dt32" path="res://Assets/Dishes/Dish_Giga_Salad.png" id="2_icon"]
+[ext_resource type="Resource" uid="uid://cyfnflxb4sep5" path="res://Resources/Ingredients/Tomato.tres" id="3_ut1hl"]
+[ext_resource type="Resource" uid="uid://csdh48lys8oc0" path="res://Resources/Ingredients/Onion.tres" id="4_fiael"]
+[ext_resource type="Resource" uid="uid://77hdm25u7rbc" path="res://Resources/Ingredients/Mushroom.tres" id="5_llrm3"]
 
 [resource]
 script = ExtResource("1_recipe")
 DisplayName = "Giga Salad"
 Description = "A larger, satisfyinger salad."
-Ingredients = []
+Ingredients = [ExtResource("2_7vgad"), ExtResource("3_ut1hl"), ExtResource("4_fiael"), ExtResource("5_llrm3")]
 Icon = ExtResource("2_icon")

@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=2 format=3 uid="uid://UNIQUE_UID_HERE"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://tvq5alonfq5m"]
 
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
-[ext_resource type="Texture2D" uid="uid://UNIQUE_UID_HERE" path="res://Assets/Dishes/Dish_Blueberry-Flapjack.png" id="2_icon"]
+[ext_resource type="Texture2D" uid="uid://mqfv0sryqtyh" path="res://Assets/Dishes/Dish_Blueberry-Flapjack.png" id="2_icon"]
+[ext_resource type="Resource" uid="uid://ci7t4n0y7yqad" path="res://Resources/Ingredients/Blueberry.tres" id="2_yxfqv"]
+[ext_resource type="Resource" uid="uid://cvw67ck2443er" path="res://Resources/Ingredients/Flour.tres" id="3_dba34"]
 
 [resource]
 script = ExtResource("1_recipe")
 DisplayName = "Blueberry Flapjack"
 Description = "A delicious blueberry flapjack."
-Ingredients = []
+Ingredients = [ExtResource("2_yxfqv"), ExtResource("3_dba34")]
 Icon = ExtResource("2_icon")

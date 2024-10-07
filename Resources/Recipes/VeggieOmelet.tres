@@ -1,11 +1,14 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://dy2nfquwyfgwu"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://dy2nfquwyfgwu"]
 
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
+[ext_resource type="Resource" uid="uid://b6hydttyeuq67" path="res://Resources/Ingredients/Egg.tres" id="2_60r2o"]
 [ext_resource type="Texture2D" uid="uid://deoct0evk1yj7" path="res://Assets/Dishes/Dish_Veggie-Omelet.png" id="2_icon"]
+[ext_resource type="Resource" uid="uid://csdh48lys8oc0" path="res://Resources/Ingredients/Onion.tres" id="3_nu7hf"]
+[ext_resource type="Resource" uid="uid://77hdm25u7rbc" path="res://Resources/Ingredients/Mushroom.tres" id="4_s1hhq"]
 
 [resource]
 script = ExtResource("1_recipe")
 DisplayName = "Veggie Omelet"
 Description = "An omelet with mushroom and onion."
-Ingredients = []
+Ingredients = [ExtResource("2_60r2o"), ExtResource("3_nu7hf"), ExtResource("4_s1hhq")]
 Icon = ExtResource("2_icon")

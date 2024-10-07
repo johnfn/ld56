@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=2 format=3 uid="uid://UNIQUE_UID_HERE"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=4 format=3 uid="uid://bxibf2cguqfiw"]
 
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
-[ext_resource type="Texture2D" uid="uid://UNIQUE_UID_HERE" path="res://Assets/Dishes/Dish_Omelet.png" id="2_icon"]
+[ext_resource type="Resource" uid="uid://b6hydttyeuq67" path="res://Resources/Ingredients/Egg.tres" id="2_3ti1e"]
+[ext_resource type="Texture2D" uid="uid://dmk7srnljtgcq" path="res://Assets/Dishes/Dish_Omelet.png" id="2_icon"]
 
 [resource]
 script = ExtResource("1_recipe")
 DisplayName = "Omelet"
 Description = "A classic egg omelet."
-Ingredients = []
+Ingredients = [ExtResource("2_3ti1e")]
 Icon = ExtResource("2_icon")
