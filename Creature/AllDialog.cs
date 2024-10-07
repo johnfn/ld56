@@ -53,6 +53,23 @@ public static class AllDialog {
   ];
 
 
+  // Jerry
+  public static List<IDialogItem> Jerry = [
+    new DialogItem {
+      Text = "Sweetheart! What a pleasure to see ya. All grown up, ain’tcha?", Speaker = CreatureId.Jerry},
+    new DialogItem {
+      Text = "Mr. Fontina! It’s been so long! What can I get you?", Speaker = CreatureId.None},
+    new DialogItem {
+      Text = "I could put away a big bowl of [color=af3e48]onion[/color] soup right about now.", Speaker = CreatureId.Jerry},
+    new DialogItem {
+      Text = "Can do!", Speaker = CreatureId.None,
+      OnComplete = async (CreatureId creatureId) => {
+        var recipe = await CookingScreen.Cook([IngredientId.Milk, IngredientId.Onion]);
+      }
+    }
+  ];  
+
+
   // Hazel
   public static List<IDialogItem> Hazel = [
     new DialogItem {
@@ -227,6 +244,45 @@ public static class AllDialog {
     }
   ];
 
+
+// StuartS
+    public static List<IDialogItem> StuartS = [
+    new DialogItem {
+      Text = "Mr. Squeakins, it’s nice to see you!", Speaker = CreatureId.None},   
+    new DialogItem {
+      Text = "Lena! How’ve you been holding up, kiddo?", Speaker = CreatureId.Stuart},
+    new DialogItem {
+      Text = "Hanging in there. What can I get for you?", Speaker = CreatureId.None},   
+    new DialogItem {
+      Text = "I’ll have a plate of [color=3e77af]fluffjacks,[/color] if you can. Your mom’s recipe was a real winner.", Speaker = CreatureId.Emily},
+    new DialogItem {
+      Text = "Of course!", Speaker = CreatureId.None,
+      OnComplete = async (CreatureId creatureId) => {
+        var recipe = await CookingScreen.Cook([IngredientId.Flour, IngredientId.Nectar, IngredientId.Egg, IngredientId.Milk]);
+      }
+    }
+  ];
+
+
+// MinnieS
+    public static List<IDialogItem> MinnieS = [
+    new DialogItem {
+      Text = "Good morning, Ms. Minnie! I mean, Ms. Squeakins.", Speaker = CreatureId.None},   
+    new DialogItem {
+      Text = "Ms. Minnie is fine, hahaha!", Speaker = CreatureId.MinnieS},
+    new DialogItem {
+      Text = "Most of my old students call me that, even the ones who aren’t in elementary school anymore.", Speaker = CreatureId.MinnieS},      
+    new DialogItem {
+      Text = "So embarrassing… anyway, can I get you anything?", Speaker = CreatureId.None},   
+    new DialogItem {
+      Text = "I’d love a [color=3e77af]Mega Salad![/color] Thanks, Lena.", Speaker = CreatureId.Emily},
+    new DialogItem {
+      Text = "Of course!", Speaker = CreatureId.None,
+      OnComplete = async (CreatureId creatureId) => {
+        var recipe = await CookingScreen.Cook([IngredientId.Leaf, IngredientId.Turnip, IngredientId.Tomato]);
+      }
+    }
+  ];
 
 
 
