@@ -4,18 +4,18 @@ namespace ld56;
 
 public static class AllDialog {
   public static List<IDialogItem> Hazel = [
-    new DialogItem {
-      Text = "Hello, I am [color=green]Hazel[/color].",
-      Speaker = AllCreatures.Hazel,
-    },
-    new DialogItem {
-      Text = "Ugh, I'm so hungry...",
-      Speaker = AllCreatures.Hazel,
-    },
-    new DialogItem {
-      Text = "Can you fix me something [color=green]healthy[/color]?",
-      Speaker = AllCreatures.Hazel,
-    },
+    // new DialogItem {
+    //   Text = "Hello, I am [color=green]Hazel[/color].",
+    //   Speaker = AllCreatures.Hazel,
+    // },
+    // new DialogItem {
+    //   Text = "Ugh, I'm so hungry...",
+    //   Speaker = AllCreatures.Hazel,
+    // },
+    // new DialogItem {
+    //   Text = "Can you fix me something [color=green]healthy[/color]?",
+    //   Speaker = AllCreatures.Hazel,
+    // },
     new DialogItem {
       Text = "Anything with a [color=green]leaf[/color] would be great.",
       Speaker = AllCreatures.Hazel,

@@ -95,6 +95,10 @@ public partial class CookingScreen : Sprite2D {
 
     await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
 
+    foreach (var child in Nodes.UI_IngredientSlotsTexture_Container.GetChildren()) {
+      child.QueueFree();
+    }
+
     Rolodex.Instance.OnClickIngredient += (ingredientId) => {
       cookingList.Add(ingredientId);
       var ingredient = AllIngredients.Get(ingredientId);

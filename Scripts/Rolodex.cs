@@ -248,9 +248,7 @@ public partial class Rolodex : ColorRect {
           EmitSignal(SignalName.OnClickIngredient, GameState.KnownIngredients[i].DisplayName);
         };
         Nodes.BookTexture_Page2Viewport_MarginContainer_Page2.AddChild(ingredientEntry);
-
       }
     }
   }
-
 }
