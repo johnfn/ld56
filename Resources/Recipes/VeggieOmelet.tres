@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=2 format=3 uid="uid://UNIQUE_UID_HERE"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://dy2nfquwyfgwu"]
 
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
-[ext_resource type="Texture2D" uid="uid://UNIQUE_UID_HERE" path="res://Assets/Dishes/Dish_Veggie-Omelet.png" id="2_icon"]
+[ext_resource type="Texture2D" uid="uid://deoct0evk1yj7" path="res://Assets/Dishes/Dish_Veggie-Omelet.png" id="2_icon"]
 
 [resource]
 script = ExtResource("1_recipe")
 DisplayName = "Veggie Omelet"
-Description = "A healthy omelet packed with vegetables."
+Description = "An omelet with mushroom and onion."
 Ingredients = []
 Icon = ExtResource("2_icon")

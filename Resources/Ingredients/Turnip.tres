@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_ingredient_script")
 DisplayName = "Turnip"
-Description = "A root vegetable with a slightly bitter taste"
+Description = "A slightly bitter root vegetable"
 Icon = ExtResource("1_turnip")
 Id = 15
 Rarity = 0

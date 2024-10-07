@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_recipe")
 DisplayName = "Syrupy Flapjack"
-Description = "A flapjack drenched in sweet syrup."
+Description = "Pancakes drenched in sweet syrup."
 Ingredients = []
 Icon = ExtResource("2_icon")
