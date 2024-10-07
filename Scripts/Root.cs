@@ -27,7 +27,6 @@ public partial class Root : Node2D {
 
     AllIngredients.LoadFromResources();
     AllRecipes.LoadFromResources();
-    AllCreatures.LoadFromResources();
 
     UpdateCurrentScreen(GameState.CurrentScreen);
 

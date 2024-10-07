@@ -292,116 +292,28 @@ public static class AllCreatures {
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Mouse.png"),
   };
 
-
-
-  // public static readonly CreatureData MrChicken = new() {
-  //   DisplayName = "chipmunk",
-  //   Description = "It's the neighborhood's richest chicke- uh, I mean chipmunk. It's always wearing a fancy hat and carrying a cane.",
-  //   Instantiate = (spawnedCreature) => {
-  //     var creature = CreatureScene.New();
-  //     creature.Initialize(spawnedCreature);
-  //     return creature;
-  //   },
-  //   Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Chipmunk_Neutral.png"),
-  //   FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Chipmunk.png"),
-  //   DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Chipmunk.png"),
-  // };
-
-  // public static readonly CreatureData MrsCow = new() {
-  //   DisplayName = "cat",
-  //   Description = "A big, friendly cat. She's always smiling and waving at people.",
-  //   Instantiate = (spawnedCreature) => {
-  //     var creature = CreatureScene.New();
-  //     creature.Initialize(spawnedCreature);
-  //     return creature;
-  //   },
-  //   Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Det-Cat_Neutral.png"),
-  //   FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Detective-Cat.png"),
-  //   DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Detective-Cat.png"),
-  // };
-
-  // public static readonly CreatureData MrPig = new() {
-  //   DisplayName = "pig",
-  //   Description = "A big pig. It hates frogs.",
-  //   Instantiate = (spawnedCreature) => {
-  //     var creature = CreatureScene.New();
-  //     creature.Initialize(spawnedCreature);
-  //     return creature;
-  //   },
-  //   Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Frog_Neutral.png"),
-  //   FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Frog.png"),
-  //   DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Frog.png"),
-  // };
-
-  // public static readonly CreatureData MrHamster = new() {
-  //   DisplayName = "hamster",
-  //   Description = "weee oooo yeee yaahhfh ehhehe!",
-  //   Instantiate = (spawnedCreature) => {
-  //     var creature = CreatureScene.New();
-  //     creature.Initialize(spawnedCreature);
-  //     return creature;
-  //   },
-  //   Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Hamster_Neutral.png"),
-  //   FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Hamster.png"),
-  //   DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Hamster.png"),
-  // };
-
-  // public static readonly CreatureData MrMouse = new() {
-  //   DisplayName = "mouse",
-  //   Description = "Flavor text here :)",
-  //   Instantiate = (spawnedCreature) => {
-  //     var creature = CreatureScene.New();
-  //     creature.Initialize(spawnedCreature);
-  //     return creature;
-  //   },
-  //   Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Mouse_Neutral.png"),
-  //   FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Mouse.png"),
-  //   DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Mouse.png"),
-  // };
-
-  // public static readonly CreatureData MrSquirrel = new() {
-  //   DisplayName = "squirrel",
-  //   Description = "tee hee:3",
-  //   Instantiate = (spawnedCreature) => {
-  //     var creature = CreatureScene.New();
-  //     creature.Initialize(spawnedCreature);
-  //     return creature;
-  //   },
-  //   Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Squirrel_Neutral.png"),
-  //   FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Squirrel.png"),
-  //   DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Squirrel.png"),
-  // };
-
-  // public static readonly CreatureData MrBlegg = new() {
-  //   DisplayName = "blegg",
-  //   Description = "blegg is the bleggest bleg that ever blegged a blegg.",
-  //   Instantiate = (spawnedCreature) => {
-  //     var creature = CreatureScene.New();
-  //     creature.Initialize(spawnedCreature);
-  //     return creature;
-  //   },
-  //   Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Squirrel_Neutral.png"),
-  //   FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Squirrel.png"),
-  //   DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Squirrel.png"),
-  // };
-  public static List<CreatureData> Creatures = new();
-
-  public static CreatureData GetCreature(CreatureId creatureId) {
-    return Creatures.Find(creature => creature.Id == creatureId);
-  }
-
-  internal static void LoadFromResources() {
-    Creatures.Clear();
-    var creaturesFolder = "res://Resources/Creatures";
-    var creaturesFiles = Utils.ListDirContents(creaturesFolder, "tres");
-    foreach (var file in creaturesFiles) {
-      var creature = ResourceLoader.Load<CreatureData>($"{creaturesFolder}/{file}");
-      Creatures.Add(creature);
-    }
-
-    GameState.KnownGuests.Clear();
-    foreach (var creature in Creatures) {
-      GameState.KnownGuests.Add(creature);
-    }
-  }
+  public static readonly Dictionary<CreatureId, CreatureData> CreatureIdToData = new() {
+    { Hazel.Id, Hazel },
+    { Chip.Id, Chip },
+    { Kero.Id, Kero },
+    { Rufus.Id, Rufus },
+    { Bonnie.Id, Bonnie },
+    { Poe.Id, Poe },
+    { Speedy.Id, Speedy },
+    { Lav.Id, Lav },
+    { Pip.Id, Pip },
+    { Emily.Id, Emily },
+    { Tom.Id, Tom },
+    { Jerry.Id, Jerry },
+    { StuartS.Id, StuartS },
+    { MinnieS.Id, MinnieS },
+    { CarrieS.Id, CarrieS },
+    { HarryS.Id, HarryS },
+    { GaryS.Id, GaryS },
+    { TerryS.Id, TerryS },
+    { SherryS.Id, SherryS },
+    { MerryS.Id, MerryS },
+    { PuffS.Id, PuffS },
+    { You.Id, You },
+  };
 }

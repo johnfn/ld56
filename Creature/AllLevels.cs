@@ -6,21 +6,28 @@ public static class AllLevels {
   public static List<List<SpawnedCreature>> Levels = [
     // Day 1
     [
-      CreateSpawnedCreature(CreatureId.MrPig, "8:00 AM")
+      new SpawnedCreature {
+        Data = AllCreatures.Hazel,
+        ReservationTime = Clock.GetTimeFromString("8:00 AM"),
+        State = CreatureState.NotSpawnedYet,
+        Instance = null,
+        CurrentScreen = CurrentScreen.Interior,
+        SelectedChair = null,
+        GetDialog = () => AllDialog.Hazel,
+      }
     ],
 
     // Day 2
     [
-      CreateSpawnedCreature(CreatureId.MrPig, "8:00 AM")
-      // new SpawnedCreature {
-      //   Data = AllCreatures.Hazel,
-      //   ReservationTime = Clock.GetTimeFromString("8:00 AM"),
-      //   State = CreatureState.WaitForTalk,
-      //   Instance = null,
-      //   CurrentScreen = CurrentScreen.Interior,
-      //   SelectedChair = null,
-      //   GetDialog = () => AllDialog.Hazel,
-      // },
+      new SpawnedCreature {
+        Data = AllCreatures.Hazel,
+        ReservationTime = Clock.GetTimeFromString("10:00 AM"),
+        State = CreatureState.NotSpawnedYet,
+        Instance = null,
+        CurrentScreen = CurrentScreen.Interior,
+        SelectedChair = null,
+        GetDialog = () => AllDialog.Hazel,
+      }
     ],
 
     // [
@@ -77,22 +84,5 @@ public static class AllLevels {
 
   ];
 
-  private static SpawnedCreature CreateSpawnedCreature(CreatureId creatureId, string reservationTime, CreatureState state = CreatureState.NotSpawnedYet) {
-    var creature = FindCreatureById(creatureId);
-    return new SpawnedCreature {
-      Data = creature,
-      ReservationTime = Clock.GetTimeFromString(reservationTime),
-      State = CreatureState.NotSpawnedYet,
-      Instance = null,
-      CurrentScreen = CurrentScreen.Interior,
-      SelectedChair = null,
-      GetDialog = () => NextDialog.GetDialogForCreature(creatureId),
-    };
-  }
-
-  private static CreatureData FindCreatureById(CreatureId id) {
-    return AllCreatures.Creatures.FirstOrDefault(c => c.Id == id)
-      ?? throw new System.Exception($"Creature with id {id} not found");
-  }
 }
 

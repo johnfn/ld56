@@ -32,7 +32,7 @@ public partial class Newspaper : ColorRect {
     foreach (var result in todaysResults) {
       var entry = NewspaperEntry.New();
 
-      entry.Nodes.TextContainer_Name.Text = AllCreatures.GetCreature(result.CreatureId).DisplayName;
+      entry.Nodes.TextContainer_Name.Text = AllCreatures.CreatureIdToData[result.CreatureId].DisplayName;
       entry.Nodes.TextContainer_Description.Text = result.Satisfaction switch {
         CustomerSatisfaction.Elated => "Left a $5 tip and a 5 star review!",
         CustomerSatisfaction.Impressed => "Left a $5 tip and a 5 star review!",

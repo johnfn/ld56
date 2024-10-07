@@ -1,11 +1,9 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=2 format=3 uid="uid://UNIQUE_UID_HERE"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=2 format=3 uid="uid://bjc4i1yf06bko"]
 
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
-[ext_resource type="Texture2D" uid="uid://UNIQUE_UID_HERE" path="res://Assets/Dishes/Dish_Bean_Soup.png" id="2_icon"]
 
 [resource]
 script = ExtResource("1_recipe")
 DisplayName = "Bean Soup"
 Description = "A hearty bean soup."
-Ingredients = []  # To be filled with actual ingredients
-Icon = ExtResource("2_icon")
+Ingredients = []

@@ -75,14 +75,14 @@ public partial class DialogBox : Control {
 
     switch (dialog[0]) {
       case DialogItem dialogItem:
-        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogItem.OverrideSpeakerName ?? AllCreatures.GetCreature(creatureId).DisplayName;
-        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite.Texture = AllCreatures.GetCreature(creatureId).DialogPortraitTexture;
+        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogItem.OverrideSpeakerName ?? AllCreatures.CreatureIdToData[creatureId].DisplayName;
+        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite.Texture = AllCreatures.CreatureIdToData[creatureId].DialogPortraitTexture;
         Nodes.DialogBox_HBoxContainer_DialogTextVBoxContainer.Visible = true;
         Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.Visible = false;
         break;
       case DialogOptions dialogOptions:
-        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogOptions.OverrideSpeakerName ?? AllCreatures.GetCreature(creatureId).DisplayName;
-        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite.Texture = AllCreatures.GetCreature(creatureId).DialogPortraitTexture;
+        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogOptions.OverrideSpeakerName ?? AllCreatures.CreatureIdToData[creatureId].DisplayName;
+        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite.Texture = AllCreatures.CreatureIdToData[creatureId].DialogPortraitTexture;
         Nodes.DialogBox_HBoxContainer_DialogTextVBoxContainer.Visible = false;
         Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.Visible = true;
         break;
@@ -95,7 +95,7 @@ public partial class DialogBox : Control {
     foreach (var item in dialog) {
       switch (item) {
         case DialogItem dialogItem:
-          Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogItem.OverrideSpeakerName ?? AllCreatures.GetCreature(creatureId).DisplayName;
+          Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogItem.OverrideSpeakerName ?? AllCreatures.CreatureIdToData[creatureId].DisplayName;
           Nodes.DialogBox_HBoxContainer_DialogTextVBoxContainer.Visible = true;
           Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.Visible = false;
           Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.Text = dialogItem.Text;
