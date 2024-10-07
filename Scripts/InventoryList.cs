@@ -14,7 +14,7 @@ public partial class InventoryList : GridContainer {
   private Dictionary<IngredientId, int> ingredientCounts = [];
   private Dictionary<IngredientId, CookingIngredient> idToIngredientListItem = [];
 
-  public void Initialize(List<Ingredient> displayedIngredients) {
+  public void Initialize(List<IngredientData> displayedIngredients) {
     ClearListeners();
 
     foreach (var child in GetChildren()) {
@@ -76,7 +76,7 @@ public partial class InventoryList : GridContainer {
     }
   }
 
-  public void ShowTooltip(IngredientId ingredientId, Ingredient ingredient) {
+  public void ShowTooltip(IngredientId ingredientId, IngredientData ingredient) {
     idToIngredientListItem[ingredientId].Nodes.Tooltip.Visible = true;
     idToIngredientListItem[ingredientId].Nodes.Tooltip_MarginContainer_VBoxContainer_Title.Text = ingredient.DisplayName;
     idToIngredientListItem[ingredientId].Nodes.Tooltip_MarginContainer_VBoxContainer_Description.Text = ingredient.Description;

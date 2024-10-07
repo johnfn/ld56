@@ -2,7 +2,7 @@ using Godot;
 
 namespace ld56;
 
-public partial class Ingredient : Resource {
+public partial class IngredientData : Resource {
   [Export]
   public required string DisplayName { get; set; }
 
@@ -21,7 +21,7 @@ public partial class Ingredient : Resource {
   [Export]
   public required int Cost { get; set; }
 
-  public Ingredient() {
+  public IngredientData() {
     DisplayName = "New Ingredient";
     Description = "A new ingredient.";
     Icon = null;

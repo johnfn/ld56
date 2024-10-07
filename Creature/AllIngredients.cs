@@ -26,7 +26,7 @@ public enum Rarity {
 }
 
 public static class AllIngredients {
-  public static readonly Ingredient CherryTomato = new() {
+  public static readonly IngredientData CherryTomato = new() {
     DisplayName = "Cherry Tomato",
     Id = IngredientId.CherryTomato,
     Description = "A small, round tomato.",
@@ -35,7 +35,7 @@ public static class AllIngredients {
     Cost = 1,
   };
 
-  public static readonly Ingredient Basil = new() {
+  public static readonly IngredientData Basil = new() {
     DisplayName = "Basil",
     Id = IngredientId.Basil,
     Description = "A green herb with a strong aroma.",
@@ -44,7 +44,7 @@ public static class AllIngredients {
     Cost = 5,
   };
 
-  public static readonly Ingredient Garlic = new() {
+  public static readonly IngredientData Garlic = new() {
     DisplayName = "Garlic",
     Id = IngredientId.Garlic,
     Description = "A bulb with strong-smelling cloves.",
@@ -53,7 +53,7 @@ public static class AllIngredients {
     Cost = 1,
   };
 
-  public static readonly Ingredient Onion = new() {
+  public static readonly IngredientData Onion = new() {
     DisplayName = "Onion",
     Description = "A bulb with a strong aroma.",
     Id = IngredientId.Onion,
@@ -62,7 +62,7 @@ public static class AllIngredients {
     Cost = 10,
   };
 
-  public static readonly Ingredient Carrot = new() {
+  public static readonly IngredientData Carrot = new() {
     DisplayName = "Carrot",
     Id = IngredientId.Carrot,
     Description = "A long, orange root.",
@@ -71,7 +71,7 @@ public static class AllIngredients {
     Cost = 1,
   };
 
-  public static readonly Ingredient Egg = new() {
+  public static readonly IngredientData Egg = new() {
     DisplayName = "Egg",
     Description = "A small, round egg.",
     Id = IngredientId.Egg,
@@ -80,7 +80,7 @@ public static class AllIngredients {
     Cost = 5,
   };
 
-  public static readonly Ingredient DiscountEgg = new() {
+  public static readonly IngredientData DiscountEgg = new() {
     DisplayName = "Egg",
     Description = "omg, these eggs are on sale!",
     Id = IngredientId.Egg,
@@ -89,7 +89,7 @@ public static class AllIngredients {
     Cost = 1,
   };
 
-  public static Ingredient Get(IngredientId name) {
+  public static IngredientData Get(IngredientId name) {
     return name switch {
       IngredientId.CherryTomato => CherryTomato,
       IngredientId.Basil => Basil,

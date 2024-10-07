@@ -3,6 +3,8 @@ using ld56;
 using System.Collections.Generic;
 using System.Linq;
 
+using static Utils;
+
 public partial class Rolodex : ColorRect {
 
   [Signal]
@@ -115,13 +117,9 @@ public partial class Rolodex : ColorRect {
     return recipeEntry;
   }
 
-  private RolodexIngredientEntry CreateIngredientEntry(Ingredient ingredient) {
+  private RolodexIngredientEntry CreateIngredientEntry(IngredientData ingredientData) {
     var ingredientEntry = GD.Load<PackedScene>("res://Scenes/RolodexIngredientEntry.tscn").Instantiate<RolodexIngredientEntry>();
-    if (ingredient.Icon != null) {
-      ingredientEntry.Nodes.HBoxContainer_TextureRect.Texture = ingredient.Icon;
-    }
-    ingredientEntry.Nodes.HBoxContainer_TextContainer_Name.Text = ingredient.DisplayName;
-    ingredientEntry.Nodes.HBoxContainer_TextContainer_Description.Text = ingredient.Description;
+    ingredientEntry.Initialize(ingredientData);
 
     return ingredientEntry;
   }
@@ -164,8 +162,6 @@ public partial class Rolodex : ColorRect {
     var page1StartIndex = Page * MaxEntriesPerPage;
     var page2StartIndex = (Page * MaxEntriesPerPage) + MaxEntriesPerPage;
     var page2EndIndex = (Page * MaxEntriesPerPage) + MaxEntriesPerPage + MaxEntriesPerPage;
-
-
 
     if (Tab == RolodexTab.Creatures) {
       // Populate the pages.

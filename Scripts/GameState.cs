@@ -54,22 +54,9 @@ public static class GameState {
   ];
 
   public static List<CreatureData> KnownGuests = [
-    AllCreatures.MrChicken,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
-    AllCreatures.MrPig,
   ];
 
-  public static List<Ingredient> KnownIngredients = [
+  public static List<IngredientData> KnownIngredients = [
     AllIngredients.CherryTomato,
     AllIngredients.Basil,
     AllIngredients.Garlic,
@@ -78,7 +65,7 @@ public static class GameState {
     AllIngredients.Egg,
   ];
 
-  public static List<Ingredient> OwnedIngredients = [
+  public static List<IngredientData> OwnedIngredients = [
     AllIngredients.CherryTomato,
     AllIngredients.CherryTomato,
     AllIngredients.CherryTomato,

@@ -45,7 +45,7 @@ public partial class Root : Node2D {
 
     Nodes.HUD.Nodes.Debug_DebugServeCustomer.Pressed += () => {
       GameState.CustomerResults.Add(new(
-        Creature: AllCreatures.MrChicken,
+        Creature: AllCreatures.Hazel,
         TipEarned: 10,
         Satisfaction: CustomerSatisfaction.Upset,
         DayIndex: GameState.DayIndex
@@ -130,7 +130,7 @@ public partial class Root : Node2D {
     ]);
   }
 
-  public static void DisplayShop(List<Ingredient> displayedIngredients) {
+  public static void DisplayShop(List<IngredientData> displayedIngredients) {
     Instance.Nodes.HUD.Nodes.Shop.Initialize(displayedIngredients);
     Instance.Nodes.HUD.Nodes.Shop.Visible = true;
   }

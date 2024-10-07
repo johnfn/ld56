@@ -140,10 +140,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -451.0
-offset_top = 15.0
-offset_right = 443.0
-offset_bottom = 237.0
+offset_left = -440.0
+offset_top = 19.0
+offset_right = 454.0
+offset_bottom = 241.0
 grow_horizontal = 2
 texture = ExtResource("9_puge8")
 

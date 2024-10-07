@@ -12,7 +12,7 @@ public partial class Shop : ColorRect {
   public override void _Process(double delta) {
   }
 
-  public void Initialize(List<Ingredient> displayedIngredients) {
+  public void Initialize(List<IngredientData> displayedIngredients) {
     var shopList = Nodes.PanelContainer_HBoxContainer_VBoxContainer2_ShopInventoryList;
     var ownedList = Nodes.PanelContainer_HBoxContainer_VBoxContainer2_InventoryList;
 
@@ -33,7 +33,7 @@ public partial class Shop : ColorRect {
         GameState.Gold -= ingredient.Cost;
         GameState.OwnedIngredients.Add(ingredient);
 
-        var newDisplayedIngredients = new List<Ingredient>(displayedIngredients);
+        var newDisplayedIngredients = new List<IngredientData>(displayedIngredients);
         newDisplayedIngredients.Remove(ingredient);
 
         Initialize(newDisplayedIngredients);
