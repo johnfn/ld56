@@ -215,3 +215,14 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="CloseRolodex" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1608.0
+offset_top = 989.0
+offset_right = 1906.0
+offset_bottom = 1067.0
+theme = ExtResource("3_5uipw")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
+text = "Close rolodex"

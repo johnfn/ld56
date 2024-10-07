@@ -40,6 +40,10 @@ public partial class Rolodex : ColorRect {
     Nodes.ClickOutside.Pressed += () => {
       Root.Instance.ToggleRolodex();
     };
+
+    Nodes.CloseRolodex.Pressed += () => {
+      Root.Instance.ToggleRolodex();
+    };
   }
 
   public void ClearSignals() {
