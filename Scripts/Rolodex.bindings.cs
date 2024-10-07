@@ -113,6 +113,11 @@ public partial class Rolodex : ColorRect {
       get => _AudioStreamPlayer2D ??= parent.GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
     }
 
+    private Button? _CloseRolodex;
+    public Button CloseRolodex {
+      get => _CloseRolodex ??= parent.GetNode<Button>("CloseRolodex");
+    }
+
     private RolodexRecipeEntry? _BookTexture_Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry;
     public RolodexRecipeEntry BookTexture_Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry {
       get => _BookTexture_Page1Viewport_MarginContainer_Page1_RolodexRecipeEntry ??= parent.GetNode<RolodexRecipeEntry>("BookTexture/Page1Viewport/MarginContainer/Page1/RolodexRecipeEntry");

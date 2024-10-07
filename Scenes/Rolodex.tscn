@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dlghlthc65fle" path="res://Assets/UI/Rolodex_BG_v2_NOBG.png" id="1_ceq2y"]
 [ext_resource type="Script" path="res://Scripts/Rolodex.cs" id="2_s2ex6"]
-[ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="3_5uipw"]
+[ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="3_5uipw"]
 [ext_resource type="PackedScene" uid="uid://cmx8m8efavlh0" path="res://Scenes/RolodexRecipeEntry.tscn" id="3_w152g"]
 [ext_resource type="Theme" uid="uid://b26enpoebvd3m" path="res://Theme.tres" id="4_d1xda"]
 [ext_resource type="Shader" path="res://Resources/Rolodex.gdshader" id="4_g2p00"]
@@ -215,3 +215,15 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="CloseRolodex" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1608.0
+offset_top = 989.0
+offset_right = 1906.0
+offset_bottom = 1067.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_5uipw")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 48
+text = "Close rolodex"

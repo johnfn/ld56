@@ -29,7 +29,7 @@ public enum CurrentScreen {
 }
 
 public class SpawnedCreature {
-  public required CreatureData Data;
+  public required Creature Data;
   public required double ReservationTime;
   public required CreatureState State;
   public required Node2D? Instance;
@@ -84,7 +84,7 @@ public partial class AnimalManager : Node2D {
     }
   }
 
-  public static bool AreSeatedNextToEachOther(CreatureData someCreature, CreatureData creature2) {
+  public static bool AreSeatedNextToEachOther(Creature someCreature, Creature creature2) {
     var creature1Chair = Root.Instance.Nodes.AnimalManager.Chairs.Find(c => c.SpawnedCreatureOnChair?.Data == someCreature);
     var creature1TableIndex = creature1Chair?.TableIndex ?? -1;
 
@@ -351,7 +351,7 @@ public partial class AnimalManager : Node2D {
     if (GameState.Mode == GameMode.Normal) {
       GameState.Mode = GameMode.Dialog;
 
-      await DialogBox.ShowDialog(spawnedCreature.GetDialog(), spawnedCreature.Data);
+      await DialogBox.ShowDialog(spawnedCreature.GetDialog(), spawnedCreature.Data.Id);
       GameState.Mode = GameMode.Normal;
 
       spawnedCreature.State = CreatureState.WaitForEveryoneToFinish;

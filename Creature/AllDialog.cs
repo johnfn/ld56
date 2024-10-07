@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ld56;
 
@@ -18,15 +19,183 @@ public static class AllDialog {
     // },
     new DialogItem {
       Text = "Anything with a [color=green]leaf[/color] would be great.",
-      Speaker = AllCreatures.Hazel,
-      OnComplete = async (CreatureData creature) => {
-        await CookingScreen.Cook();
+      Speaker = CreatureId.MrChicken,
+      OnComplete = async (CreatureId creatureId) => {
+        var recipe = await CookingScreen.Cook();
       }
     },
   ];
+  public static List<IDialogItem> MrChicken = new()
+  {
+    new DialogItem { Text = "Hello, I am [color=green]Mr. Chicken[/color].", Speaker = CreatureId.None },
+    new DialogItem { Text = "I'm aware.", Speaker = CreatureId.None },
+    new DialogOptions {
+      Text = "Please, [color=gray]I beg you[/color]. I want a drink that reminds me of the sea.",
+      Speaker = CreatureId.None,
+      Options = new()
+      {
+        new DialogOption {
+          OptionText = "[color=green]Start cooking[/color]",
+          OnSelect = async (CreatureId creatureId) => {
+            var result = await CookingScreen.Cook();
+
+            await DialogBox.ShowDialog([
+              new DialogItem { Text = $"I made you some {result.DisplayName}", Speaker = CreatureId.None} ,
+              new DialogItem {
+                Text = "Bad news, my friend.",
+                Speaker = CreatureId.None,
+                OverrideSpeakerName = "I HATE YOU",
+              },
+              new DialogItem {
+                Text = "You see, I HATE YOUR STUPID MEAL.",
+                Speaker = CreatureId.None,
+                OnComplete = async (CreatureId creatureId) => {
+                  GameState.Gold -= 10;
+
+                  GameState.CustomerResults.Add(new(
+                    CreatureId: creatureId,
+                    TipEarned: 0,
+                    Satisfaction: CustomerSatisfaction.Angry,
+                    DayIndex: GameState.DayIndex
+                  ));
+                }
+              }],
+              creatureId
+            );
+
+
+            return;
+          }
+        },
+
+        new DialogOption {
+          OptionText = "[color=yellow]Pay her 200g to get out of your hair.[/color]",
+          IsAvailable = () => {
+            return GameState.Gold > 200;
+          },
+          IsHidden = () => {
+            return false;
+          },
+          OnSelect = async (CreatureId creatureId) => {
+            GameState.Gold -= 200;
+
+            await DialogBox.ShowDialog([
+              new DialogItem { Text = "Thanks for the gold, ya loser.", Speaker = CreatureId.None},
+              new DialogItem { Text = "...", Speaker = CreatureId.None},
+              new DialogItem { Text = "Hehehehehe...............", Speaker = CreatureId.None},
+            ], creatureId);
+          },
+        },
+
+        new DialogOption {
+          OptionText = "[color=red]I'm sorry, I can't do that[/color]",
+          OnSelect = async (CreatureId creatureId) => {
+            await DialogBox.ShowDialog([
+              new DialogItem {
+                Text = "I'm going to tell your mom on you",
+                Speaker = CreatureId.None,
+                OnComplete = async (CreatureId creatureId) => {
+                  GameState.Gold += 10;
+                }
+              },
+            ], creatureId);
+
+            GameState.CustomerResults.Add(new(
+              CreatureId: creatureId,
+              TipEarned: 5,
+              Satisfaction: CustomerSatisfaction.Upset,
+              DayIndex: GameState.DayIndex
+            ));
+
+            return;
+          }
+        },
+      }
+    }
+  };
+
+  public static List<IDialogItem> MrsCow = new()
+  {
+    new DialogItem { Text = "Hello, I am Mrs. Cow", Speaker = CreatureId.None },
+    new DialogItem { Text = "I'm exceedingly aware.", Speaker = CreatureId.None },
+    new DialogOptions {
+      Text = "Please, I beg you. I WANT MILK.",
+      Speaker = CreatureId.None,
+      Options = new()
+      {
+        new DialogOption {
+          OptionText = "WTF. That seems... problematic.",
+          IsAvailable = () => GameState.Gold > 10
+        },
+        new DialogOption { OptionText = "OK... whatever." }
+      }
+    }
+  };
+
+  public static List<IDialogItem> MrBleggFirst = new()
+  {
+    new DialogItem { Text = "Hello, I am [color=green]Mr. Blegg[/color].", Speaker = CreatureId.None },
+    new DialogItem {
+      Text = "Oh no. No. NO. NOT THE BLEGG.",
+      Speaker = CreatureId.None,
+      OnComplete = async (CreatureId creatureId) => {
+        NextDialog.SetDialogForCreature(CreatureId.MrBlegg, MrBleggSecond);
+      }
+    }
+  };
+
+  public static List<IDialogItem> MrBleggSecond = new()
+  {
+    new DialogItem { Text = "Hello, I am [color=green]Mr. Blegg[/color].", Speaker = CreatureId.None},
+    new DialogItem { Text = "Not again. Please, no.", Speaker = CreatureId.None}
+  };
+
+  public static List<IDialogItem> NoDialogYet = new()
+  {
+    new DialogItem { Text = "I don't have dialog yet.", Speaker = CreatureId.None },
+  };
+
+  public static List<IDialogItem> MrPig = new()
+  {
+    new DialogItem { Text = "Hello.", Speaker = CreatureId.None },
+    new DialogItem { Text = "Hi.", Speaker = CreatureId.None },
+    new DialogItem {
+      Text = "Please make me some food.",
+      Speaker = CreatureId.None,
+      OnComplete = async (CreatureId creatureId) => {
+        await CookingScreen.Cook();
+      }
+    },
+  };
+
+
+  public static List<IDialogItem> MrPigWithMouse = [
+    new DialogItem {
+      Text = "Mr. Mouse, you're late.",
+      Speaker = CreatureId.None,
+    },
+    new DialogItem {
+      Text = "...",
+      Speaker = CreatureId.None,
+    },
+    new DialogItem {
+      Text = "I'm sorry, I was held up by a [color=yellow]cat[/color].",
+      Speaker = CreatureId.MrMouse,
+    },
+  ];
+
+  public static List<IDialogItem> MrMouse = [
+    new DialogItem { Text = "I don't have dialog yet.", Speaker = CreatureId.None}
+  ];
+
+  public static List<IDialogItem> MrHamster = [
+    new DialogItem { Text = "I don't have dialog yet.", Speaker = CreatureId.None}
+  ];
+
+  public static List<IDialogItem> MrSquirrel = [
+    new DialogItem { Text = "I don't have dialog yet.", Speaker = CreatureId.None}
+  ];
 }
-
-
 
 // public static class SampleDialog {
 //   public static List<IDialogItem> MrChicken = [
@@ -191,3 +360,19 @@ public static class AllDialog {
 //     new DialogItem { Text = "I don't have dialog yet.", Speaker = AllCreatures.MrSquirrel },
 //   ];
 // }
+public static class NextDialog {
+  private static Dictionary<CreatureId, List<IDialogItem>> _dialogMap = new() {
+    [CreatureId.None] = new()
+  };
+
+  public static List<IDialogItem> GetDialogForCreature(CreatureId creatureId) {
+    if (_dialogMap.TryGetValue(creatureId, out var dialog)) {
+      return dialog;
+    }
+    return AllDialog.NoDialogYet;
+  }
+
+  public static void SetDialogForCreature(CreatureId creatureId, List<IDialogItem> dialog) {
+    _dialogMap[creatureId] = dialog;
+  }
+}

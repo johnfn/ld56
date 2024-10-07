@@ -1,11 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://betnjocdht33q"]
+[gd_scene load_steps=13 format=3 uid="uid://byiavh3tr20un"]
 
 [ext_resource type="Texture2D" uid="uid://b8tldbrjgf2d8" path="res://Assets/Backgrounds/Interior_Cooking_BG.png" id="1_5akxm"]
 [ext_resource type="Script" path="res://Scripts/CookingScreen.cs" id="2_eb8ax"]
-[ext_resource type="PackedScene" uid="uid://iiqinsgr2l1n" path="res://Scenes/cooking_ingredient.tscn" id="3_hau8t"]
+[ext_resource type="PackedScene" uid="uid://dksv0nvtjkh60" path="res://Scenes/cooking_ingredient.tscn" id="3_hau8t"]
 [ext_resource type="Texture2D" uid="uid://ci4twv350rqpw" path="res://Assets/Backgrounds/Interior_Cooking_Pot.png" id="3_s54ak"]
-[ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="3_yk4se"]
-[ext_resource type="PackedScene" uid="uid://cgco38xny3gof" path="res://Scenes/cooking_result_modal.tscn" id="4_u87xr"]
+[ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="3_yk4se"]
+[ext_resource type="PackedScene" uid="uid://i00laluysubd" path="res://Scenes/cooking_result_modal.tscn" id="4_u87xr"]
 [ext_resource type="Texture2D" uid="uid://cofdscxxtfgj0" path="res://Assets/UI/UI_Cooking_Cook!.png" id="6_glhp2"]
 [ext_resource type="Script" path="res://Scripts/CoolButton.cs" id="8_pgeh1"]
 [ext_resource type="Texture2D" uid="uid://cbgfrnsa1uneo" path="res://Assets/UI/UI_Cooking_Slots.png" id="9_puge8"]
@@ -47,6 +47,7 @@ offset_right = 213.0
 offset_bottom = 500.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 48
 icon = ExtResource("6_glhp2")
 flat = true
@@ -59,12 +60,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -927.0
+offset_left = -926.0
 offset_top = 115.0
-offset_right = -710.0
+offset_right = -709.0
 offset_bottom = 294.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 48
 icon = ExtResource("9_stfb2")
 flat = true
@@ -104,6 +106,7 @@ offset_right = -473.0
 offset_bottom = 476.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 theme_override_font_sizes/font_size = 48
 icon = ExtResource("10_n1lxr")
 flat = true

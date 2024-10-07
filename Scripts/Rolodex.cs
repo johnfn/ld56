@@ -40,6 +40,10 @@ public partial class Rolodex : ColorRect {
     Nodes.ClickOutside.Pressed += () => {
       Root.Instance.ToggleRolodex();
     };
+
+    Nodes.CloseRolodex.Pressed += () => {
+      Root.Instance.ToggleRolodex();
+    };
   }
 
   public void ClearSignals() {
@@ -77,7 +81,7 @@ public partial class Rolodex : ColorRect {
   }
 
 
-  public void AddGuestEntry(CreatureData creature) {
+  public void AddGuestEntry(Creature creature) {
     GameState.KnownGuests.Add(creature);
     PopulatePages();
   }
@@ -88,7 +92,7 @@ public partial class Rolodex : ColorRect {
   }
 
 
-  private RolodexCreatureEntry CreateCreatureEntry(CreatureData creature) {
+  private RolodexCreatureEntry CreateCreatureEntry(Creature creature) {
     var creatureEntry = GD.Load<PackedScene>("res://Scenes/RolodexCreatureEntry.tscn").Instantiate<RolodexCreatureEntry>();
     if (creature.Icon != null) {
       creatureEntry.Nodes.HBoxContainer_TextureRect.Texture = creature.Icon;
@@ -109,16 +113,17 @@ public partial class Rolodex : ColorRect {
 
 
     recipeEntry.Nodes.HBoxContainer_TextContainer_Ingredients.GetChildren().ToList().ForEach(n => n.QueueFree());
-    recipe.Ingredients.ForEach(ingredient => {
+    // Loop through the Godot.Collections.Array
+    foreach (var ingredient in recipe.Ingredients) {
       var ingredientEntry = GD.Load<PackedScene>("res://Scenes/RolodexRecipeEntry_Ingredient.tscn").Instantiate<RolodexRecipeEntryIngredient>();
       ingredientEntry.Texture = ingredient.Icon;
       recipeEntry.Nodes.HBoxContainer_TextContainer_Ingredients.AddChild(ingredientEntry);
-    });
+    }
 
     return recipeEntry;
   }
 
-  private RolodexIngredientEntry CreateIngredientEntry(IngredientData ingredientData) {
+  private RolodexIngredientEntry CreateIngredientEntry(Ingredient ingredientData) {
     var ingredientEntry = GD.Load<PackedScene>("res://Scenes/RolodexIngredientEntry.tscn").Instantiate<RolodexIngredientEntry>();
     ingredientEntry.Initialize(ingredientData);
 

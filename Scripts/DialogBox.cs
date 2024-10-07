@@ -6,7 +6,7 @@ namespace ld56;
 using static Utils;
 
 public class DialogReturn {
-  public Func<CreatureData, Task>? Next { get; set; }
+  public Func<CreatureId, Task>? Next { get; set; }
 }
 
 public partial class DialogBox : Control {
@@ -29,9 +29,9 @@ public partial class DialogBox : Control {
 
   public static async Task<DialogReturn> ShowDialog(
     List<IDialogItem> dialog,
-    CreatureData creature,
+    CreatureId creatureId,
     bool isFirstCall = true) {
-    return await Instance.ShowDialogHelper(dialog, creature, isFirstCall);
+    return await Instance.ShowDialogHelper(dialog, creatureId, isFirstCall);
   }
 
   private async Task ShowDialogText(string text) {
@@ -66,7 +66,7 @@ public partial class DialogBox : Control {
     }
   }
 
-  private async Task<DialogReturn> ShowDialogHelper(List<IDialogItem> dialog, CreatureData creature, bool isFirstCall = true) {
+  private async Task<DialogReturn> ShowDialogHelper(List<IDialogItem> dialog, CreatureId creatureId, bool isFirstCall = true) {
     DialogReturn result = new();
 
     Visible = true;
@@ -75,15 +75,14 @@ public partial class DialogBox : Control {
 
     switch (dialog[0]) {
       case DialogItem dialogItem:
-        GD.Print(dialogItem.OverrideSpeakerName ?? dialogItem.Speaker.DisplayName);
-        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogItem.OverrideSpeakerName ?? dialogItem.Speaker.DisplayName;
-        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite.Texture = dialogItem.Speaker.DialogPortraitTexture;
+        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogItem.OverrideSpeakerName ?? AllCreatures.GetCreature(creatureId).DisplayName;
+        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite.Texture = AllCreatures.GetCreature(creatureId).DialogPortraitTexture;
         Nodes.DialogBox_HBoxContainer_DialogTextVBoxContainer.Visible = true;
         Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.Visible = false;
         break;
       case DialogOptions dialogOptions:
-        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogOptions.OverrideSpeakerName ?? dialogOptions.Speaker.DisplayName;
-        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite.Texture = dialogOptions.Speaker.DialogPortraitTexture;
+        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogOptions.OverrideSpeakerName ?? AllCreatures.GetCreature(creatureId).DisplayName;
+        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite.Texture = AllCreatures.GetCreature(creatureId).DialogPortraitTexture;
         Nodes.DialogBox_HBoxContainer_DialogTextVBoxContainer.Visible = false;
         Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.Visible = true;
         break;
@@ -96,7 +95,7 @@ public partial class DialogBox : Control {
     foreach (var item in dialog) {
       switch (item) {
         case DialogItem dialogItem:
-          Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogItem.OverrideSpeakerName ?? dialogItem.Speaker.DisplayName;
+          Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogItem.OverrideSpeakerName ?? AllCreatures.GetCreature(creatureId).DisplayName;
           Nodes.DialogBox_HBoxContainer_DialogTextVBoxContainer.Visible = true;
           Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.Visible = false;
           Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.Text = dialogItem.Text;
@@ -104,7 +103,7 @@ public partial class DialogBox : Control {
           await ShowDialogText(dialogItem.Text);
 
           if (dialogItem.OnComplete != null) {
-            result = new DialogReturn { Next = dialogItem.OnComplete };
+            result = new DialogReturn { Next = (CreatureId creatureId) => dialogItem.OnComplete(creatureId) };
 
             goto done;
           }
@@ -197,7 +196,7 @@ public partial class DialogBox : Control {
       Visible = false;
 
       if (result.Next != null) {
-        await result.Next(creature);
+        await result.Next(creatureId);
       }
     }
 

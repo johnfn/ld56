@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://unique_milk_uid"]
+
+[ext_resource type="Texture2D" uid="uid://unique_milk_texture_uid" path="res://Assets/Ingredients/Ingredients_milk.png" id="1_milk"]
+[ext_resource type="Script" path="res://Creature/Ingredient.cs" id="1_ingredient_script"]
+
+[resource]
+script = ExtResource("1_ingredient_script")
+DisplayName = "Milk"
+Description = "A nutritious dairy beverage"
+Icon = ExtResource("1_milk")
+Id = "milk"
+Rarity = 0
+Cost = 6

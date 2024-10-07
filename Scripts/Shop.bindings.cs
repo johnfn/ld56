@@ -17,6 +17,7 @@ public partial class Shop : ColorRect {
     public ShopNodes(Shop parent) {
       this.parent = parent;
     }
+    // Scene: ./Scenes/shop.tscn
     private PanelContainer? _PanelContainer;
     public PanelContainer PanelContainer {
       get => _PanelContainer ??= parent.GetNode<PanelContainer>("PanelContainer");
@@ -50,6 +51,11 @@ public partial class Shop : ColorRect {
     private Label? _PanelContainer_HBoxContainer_VBoxContainer2_ForSaleLabel;
     public Label PanelContainer_HBoxContainer_VBoxContainer2_ForSaleLabel {
       get => _PanelContainer_HBoxContainer_VBoxContainer2_ForSaleLabel ??= parent.GetNode<Label>("PanelContainer/HBoxContainer/VBoxContainer2/ForSaleLabel");
+    }
+
+    private Label? _PanelContainer_HBoxContainer_VBoxContainer2_NoneForSale;
+    public Label PanelContainer_HBoxContainer_VBoxContainer2_NoneForSale {
+      get => _PanelContainer_HBoxContainer_VBoxContainer2_NoneForSale ??= parent.GetNode<Label>("PanelContainer/HBoxContainer/VBoxContainer2/NoneForSale");
     }
 
     private Label? _PanelContainer_HBoxContainer_VBoxContainer2_YourInventoryLabel;

@@ -10,6 +10,7 @@ public partial class CookingScreen : Sprite2D {
   private Dictionary<IngredientId, CookingIngredient> idToIngredient = [];
   public static List<IngredientId> CookingList = [];
   public static CookingScreen Instance { get; private set; }
+  private static bool _hasPressedCook = false;
 
   public override void _Ready() {
     Instance = this;
@@ -51,6 +52,7 @@ public partial class CookingScreen : Sprite2D {
         return;
       }
 
+      _hasPressedCook = true;
       Cook();
     };
 
@@ -58,9 +60,9 @@ public partial class CookingScreen : Sprite2D {
   }
 
   public static async Task<Recipe> Cook() {
-    if (GameState.HYPERSPEED) {
-      return AllRecipes.ScrambledEggs;
-    }
+    // if (GameState.HYPERSPEED) {
+    //   return AllRecipes.ScrambledEggs;
+    // }
 
     var prevMode = GameState.Mode;
     GameState.Mode = GameMode.Cooking;
@@ -69,20 +71,21 @@ public partial class CookingScreen : Sprite2D {
 
     await Instance.Initialize();
 
-    var hasPressedCook = false;
-    Instance.Nodes.UI_CookButton.Pressed += () => hasPressedCook = true;
+    _hasPressedCook = false;
 
-    while (!hasPressedCook) {
+    while (!_hasPressedCook) {
       await Instance.ToSignal(Instance.GetTree(), SceneTree.SignalName.ProcessFrame);
     }
 
+    _hasPressedCook = false;
+
     // TODO: Some sort of logic to figure out what we made.
-    var result = AllRecipes.ScrambledEggs;
+    var result = AllRecipes.Recipes.First();
 
     // TODO: Remove them from the inventory.
-    CookingList.ForEach(id => GameState.OwnedIngredients.Remove(AllIngredients.Get(id)));
+    CookingList.ForEach(id => GameState.OwnedIngredients.Remove(AllIngredients.Ingredients.Find(i => i.Id == id)));
 
-    Instance.ShowCookingCompleteModal(result);
+    // Instance.ShowCookingCompleteModal(result);
 
     // wait for user to close the modal
     var hasClosed = false;
@@ -112,6 +115,11 @@ public partial class CookingScreen : Sprite2D {
     Rolodex.Instance.ClearSignals();
 
     Rolodex.Instance.OnClickIngredient += (ingredientId) => {
+      if (GameState.Mode != GameMode.Cooking) {
+        // apparently, this can always happen.
+        return;
+      }
+
       if (CookingList.Count >= 5) {
         GenericDialog.Instance.Show("You can only cook with 5 ingredients at a time!");
         return;
@@ -126,7 +134,7 @@ public partial class CookingScreen : Sprite2D {
       }
 
       CookingList.Add(ingredientId);
-      var ingredient = AllIngredients.Get(ingredientId);
+      var ingredient = AllIngredients.Ingredients.Find(i => i.Id == ingredientId);
       var ingredientListItem = CookingIngredient.New();
       ingredientListItem.Nodes.QuantityLabel.Visible = false;
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb03hc30ic4ma"
-path="res://.godot/imported/cherry_tomato.png-032b82863d8930198ecedf9df65ad4c1.ctex"
+uid="uid://b3r6hesiamj68"
+path="res://.godot/imported/Ingredients_Nectar.png-8d47e0cb3c56d58ac05b4e608b0becb8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Ingredients/cherry_tomato.png"
-dest_files=["res://.godot/imported/cherry_tomato.png-032b82863d8930198ecedf9df65ad4c1.ctex"]
+source_file="res://Assets/Ingredients/Ingredients_Nectar.png"
+dest_files=["res://.godot/imported/Ingredients_Nectar.png-8d47e0cb3c56d58ac05b4e608b0becb8.ctex"]
 
 [params]
 

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=3 format=3 uid="uid://unique_cheese_uid"]
+
+[ext_resource type="Texture2D" uid="uid://unique_cheese_texture_uid" path="res://Assets/Ingredients/Ingredients_Cheese.png" id="1_cheese"]
+[ext_resource type="Script" path="res://Creature/Ingredient.cs" id="1_ingredient_script"]
+
+[resource]
+script = ExtResource("1_ingredient_script")
+DisplayName = "Cheese"
+Description = "A dairy product with various flavors"
+Icon = ExtResource("1_cheese")
+Id = "cheese"
+Rarity = 1
+Cost = 12
