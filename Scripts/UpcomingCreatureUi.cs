@@ -79,5 +79,11 @@ public partial class UpcomingCreatureUi : TextureRect {
       CurrentScreen.Interior => "Inside",
       CurrentScreen.Nowhere => "Nowhere",
     };
+
+    if (creature.State == CreatureState.NotSpawnedYet) {
+      SelfModulate = new Color(0.5f, 0.5f, 0.5f, 1);
+    } else {
+      SelfModulate = new Color(1, 1, 1, 1);
+    }
   }
 }

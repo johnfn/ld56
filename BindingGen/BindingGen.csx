@@ -237,7 +237,7 @@ class MyCodegen {
         WriteLine("Multiple scenes found for {0}", tscnOrCsPath);
       }
 
-      scene = allMatchingScenes.First();
+      scene = allMatchingScenes.FirstOrDefault();
     } else {
       throw new Exception("Invalid file type");
     }

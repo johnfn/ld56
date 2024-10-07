@@ -39,6 +39,11 @@ public partial class ListOfCreatures : PanelContainer {
   public void Update(List<SpawnedCreature> creatures) {
     foreach (var creature in creatures) {
       var creatureAndUi = CreatureUiElements.Find(c => c.Creature == creature);
+
+      if (creatureAndUi == null) {
+        continue;
+      }
+
       creatureAndUi.UiElement.Update(creature);
     }
   }
