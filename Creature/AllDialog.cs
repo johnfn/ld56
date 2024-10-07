@@ -209,6 +209,34 @@ public static class AllDialog {
   ];
 
 
+// Emily
+    public static List<IDialogItem> Pip = [
+    new DialogItem {
+      Text = "Ahem", Speaker = CreatureId.Emily},   
+    new DialogItem {
+      Text = "It’s ok! Want me to come back later?", Speaker = CreatureId.None},
+    new DialogItem {
+      Text = "No, I think I'm ready, but—oh, wait... (this third thing looks so good)...!!", Speaker = CreatureId.Pip},   
+        new DialogItem {
+      Text = "I'll give you a few more minutes.", Speaker = CreatureId.None},
+    new DialogItem {
+      Text = "No, wait! I've changed my mind! I'll have...", Speaker = CreatureId.Pip},   
+    new DialogItem {
+      Text = "...", Speaker = CreatureId.Pip},   
+    new DialogItem {
+      Text = "...", Speaker = CreatureId.None},   
+    new DialogItem {
+      Text = "...could you maybe pick something for me, please...?", Speaker = CreatureId.Pip},   
+    new DialogItem {
+      Text = "S-sure.", Speaker = CreatureId.None,
+      OnComplete = async (CreatureId creatureId) => {
+        var recipe = await CookingScreen.Cook();
+      }
+    }
+  ];
+
+
+
 
 
   // Example dialogue
