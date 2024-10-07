@@ -35,6 +35,7 @@ public partial class Shop : ColorRect {
 
     shopList.OnClickIngredient += (ingredientId) => {
       var ingredient = AllIngredients.Ingredients.Find(i => i.Id == ingredientId);
+
       if (GameState.Gold >= ingredient.Cost) {
         GameState.Gold -= ingredient.Cost;
         GameState.OwnedIngredients.Add(ingredient);

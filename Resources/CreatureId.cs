@@ -7,6 +7,5 @@ public enum CreatureId {
   MrPig,
   MrsCow,
   MrSquirrel,
-  TestCreature,
   You
 }

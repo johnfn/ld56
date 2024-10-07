@@ -17,7 +17,6 @@ public partial class MorningModal : PanelContainer {
     public MorningModalNodes(MorningModal parent) {
       this.parent = parent;
     }
-    // Scene: ./Scenes/morning_modal.tscn
     private MarginContainer? _MarginContainer;
     public MarginContainer MarginContainer {
       get => _MarginContainer ??= parent.GetNode<MarginContainer>("MarginContainer");

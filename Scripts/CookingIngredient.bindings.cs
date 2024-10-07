@@ -1,7 +1,7 @@
 using Godot;
 
 
-public partial class CookingIngredient : Button {
+public partial class CookingIngredient : Container {
   public static CookingIngredient New() {
     return GD.Load<PackedScene>("res://Scenes/cooking_ingredient.tscn").Instantiate<CookingIngredient>();
   }
@@ -61,6 +61,16 @@ public partial class CookingIngredient : Button {
     private RichTextLabel? _Tooltip_MarginContainer_VBoxContainer_Price;
     public RichTextLabel Tooltip_MarginContainer_VBoxContainer_Price {
       get => _Tooltip_MarginContainer_VBoxContainer_Price ??= parent.GetNode<RichTextLabel>("Tooltip/MarginContainer/VBoxContainer/Price");
+    }
+
+    private TextureRect? _TextureRect;
+    public TextureRect TextureRect {
+      get => _TextureRect ??= parent.GetNode<TextureRect>("TextureRect");
+    }
+
+    private Button? _Button;
+    public Button Button {
+      get => _Button ??= parent.GetNode<Button>("Button");
     }
 
   }

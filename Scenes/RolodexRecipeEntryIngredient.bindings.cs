@@ -17,7 +17,6 @@ public partial class RolodexRecipeEntryIngredient : TextureRect {
     public RolodexRecipeEntryIngredientNodes(RolodexRecipeEntryIngredient parent) {
       this.parent = parent;
     }
-    // Scene: ./Scenes/RolodexRecipeEntry_Ingredient.tscn
     private Label? _QuestionMark;
     public Label QuestionMark {
       get => _QuestionMark ??= parent.GetNode<Label>("QuestionMark");

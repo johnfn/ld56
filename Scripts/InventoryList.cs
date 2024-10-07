@@ -37,6 +37,8 @@ public partial class InventoryList : GridContainer {
 
       AddChild(ingredientListItem);
 
+      ingredientListItem.Nodes.IngredientImage.Texture = ingredient.Icon;
+
       ingredientListItem.Nodes.NameLabel.Text = ingredient.DisplayName;
       ingredientListItem.Nodes.QuantityLabel.Text = "x" + count.ToString();
 

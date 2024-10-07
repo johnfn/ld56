@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://iiqinsgr2l1n"]
+[gd_scene load_steps=7 format=3 uid="uid://iiqinsgr2l1n"]
 
 [ext_resource type="Script" path="res://Scripts/CookingIngredient.cs" id="1_4htc4"]
 [ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="1_hs7iv"]
+[ext_resource type="Texture2D" uid="uid://dwl0k8yg2c0s1" path="res://Assets/Ingredients/Ingredients_Blueberry.png" id="2_popdc"]
 [ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="4_w2l4s"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cwxsk"]
@@ -13,25 +14,18 @@ corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
-[node name="CookingIngredient" type="Button"]
+[node name="CookingIngredient" type="Container"]
 custom_minimum_size = Vector2(100, 100)
 offset_left = 1.0
-offset_right = 101.0
-offset_bottom = 100.0
-size_flags_vertical = 3
+offset_right = 167.0
+offset_bottom = 159.0
 mouse_default_cursor_shape = 2
 theme = ExtResource("1_hs7iv")
-flat = true
 script = ExtResource("1_4htc4")
 
 [node name="IngredientImage" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(100, 100)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 mouse_filter = 2
 texture = SubResource("CompressedTexture2D_cwxsk")
 expand_mode = 2
@@ -40,12 +34,7 @@ stretch_mode = 4
 [node name="NameLabel" type="RichTextLabel" parent="."]
 visible = false
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
@@ -54,18 +43,7 @@ text = "Basil leaf"
 fit_content = true
 
 [node name="QuantityLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -31.0
-offset_top = -42.0
-offset_right = -6.0
-offset_bottom = -7.0
-grow_horizontal = 0
-grow_vertical = 0
+layout_mode = 2
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_w2l4s")
@@ -74,10 +52,7 @@ text = "x5"
 horizontal_alignment = 2
 
 [node name="Tooltip" type="PanelContainer" parent="."]
-layout_mode = 0
-offset_top = -181.0
-offset_right = 257.0
-offset_bottom = -42.0
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ud6b3")
 
 [node name="MarginContainer" type="MarginContainer" parent="Tooltip"]
@@ -110,3 +85,12 @@ theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "Price: 8"
 fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_popdc")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2

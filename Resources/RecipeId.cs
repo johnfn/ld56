@@ -14,7 +14,6 @@ public enum RecipeId {
   SaladOfTheGodsSalad,
   StrawberryFlapjack,
   SyrupyFlapjack,
-  TestRecipe,
   TomatoSoup,
   VeggieOmelet,
   WhatTrashSoup

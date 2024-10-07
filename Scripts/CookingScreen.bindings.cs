@@ -17,7 +17,6 @@ public partial class CookingScreen : Sprite2D {
     public CookingScreenNodes(CookingScreen parent) {
       this.parent = parent;
     }
-    // Scene: ./Scenes/cooking_screen.tscn
     private Sprite2D? _Pot;
     public Sprite2D Pot {
       get => _Pot ??= parent.GetNode<Sprite2D>("Pot");

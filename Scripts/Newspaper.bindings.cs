@@ -17,7 +17,6 @@ public partial class Newspaper : ColorRect {
     public NewspaperNodes(Newspaper parent) {
       this.parent = parent;
     }
-    // Scene: ./Scenes/Newspaper.tscn
     private TextureRect? _Newspaper_;
     public TextureRect Newspaper_ {
       get => _Newspaper_ ??= parent.GetNode<TextureRect>("Newspaper");

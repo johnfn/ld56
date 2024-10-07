@@ -83,7 +83,6 @@ public partial class Root : Node2D {
   }
 
   public async Task StartNewDay() {
-    GD.Print("Starting new day");
     await DisplayReservationModal(GameState.DayIndex);
     Nodes.AnimalManager.Initialize(GameState.DayIndex);
 

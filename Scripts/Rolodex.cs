@@ -206,7 +206,6 @@ public partial class Rolodex : ColorRect {
         }
         var ingredientEntry = CreateIngredientEntry(ingredient);
         ingredientEntry.Nodes.Button.Pressed += () => {
-          GD.Print($"Clicked {ingredient.DisplayName}");
           OnClickIngredient?.Invoke(ingredient.Id);
         };
         Nodes.BookTexture_PageContents_Page1_Page1.AddChild(ingredientEntry);
