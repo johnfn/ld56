@@ -122,7 +122,6 @@ public partial class CookingScreen : Sprite2D {
     };
   }
 
-
   private void ShowCookingCompleteModal(Recipe result) {
     Nodes.UI_CookingResultModal.Visible = true;
     if (result.Icon != null) {

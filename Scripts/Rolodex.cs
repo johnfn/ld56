@@ -219,6 +219,9 @@ public partial class Rolodex : ColorRect {
     } else if (Tab == RolodexTab.Ingredients) {
 
       for (int i = page1StartIndex; i < page2StartIndex; i++) {
+        // necessary because of closure stuff
+        var ingredient = GameState.KnownIngredients[i];
+
         if (i >= GameState.KnownIngredients.Count) {
           break;
         }
@@ -227,16 +230,19 @@ public partial class Rolodex : ColorRect {
           var separator = new HSeparator();
           Nodes.BookTexture_Page1Viewport_MarginContainer_Page1.AddChild(separator);
         }
-        var ingredientEntry = CreateIngredientEntry(GameState.KnownIngredients[i]);
+        var ingredientEntry = CreateIngredientEntry(ingredient);
         ingredientEntry.Nodes.Button.Pressed += () => {
-          GD.Print($"Clicked {GameState.KnownIngredients[i].DisplayName}");
-          OnClickIngredient?.Invoke(GameState.KnownIngredients[i].Id);
+          GD.Print($"Clicked {ingredient.DisplayName}");
+          OnClickIngredient?.Invoke(ingredient.Id);
         };
         Nodes.BookTexture_Page1Viewport_MarginContainer_Page1.AddChild(ingredientEntry);
 
       }
 
       for (int i = page2StartIndex; i < page2EndIndex; i++) {
+        // necessary because of closure stuff
+        var ingredient = GameState.KnownIngredients[i];
+
         if (i >= GameState.KnownIngredients.Count) {
           break;
         }
@@ -245,9 +251,9 @@ public partial class Rolodex : ColorRect {
           var separator = new HSeparator();
           Nodes.BookTexture_Page2Viewport_MarginContainer_Page2.AddChild(separator);
         }
-        var ingredientEntry = CreateIngredientEntry(GameState.KnownIngredients[i]);
+        var ingredientEntry = CreateIngredientEntry(ingredient);
         ingredientEntry.Nodes.Button.Pressed += () => {
-          OnClickIngredient?.Invoke(GameState.KnownIngredients[i].Id);
+          OnClickIngredient?.Invoke(ingredient.Id);
         };
         Nodes.BookTexture_Page2Viewport_MarginContainer_Page2.AddChild(ingredientEntry);
       }
