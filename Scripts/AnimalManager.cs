@@ -54,9 +54,7 @@ public partial class AnimalManager : Node2D {
 
   public void Initialize(int levelIndex) {
     foreach (var spawnedCreature in Creatures) {
-      if (spawnedCreature.Instance != null) {
-        spawnedCreature.Instance.QueueFree();
-      }
+      spawnedCreature.Instance?.QueueFree();
     }
 
     Creatures = AllLevels.Levels[levelIndex];
@@ -125,6 +123,7 @@ public partial class AnimalManager : Node2D {
 
           animal.Instance.GlobalPosition = availableChair.Circle.GlobalPosition;
           availableChair.SpawnedCreatureOnChair = animal;
+          animal.SelectedChair = availableChair.Circle;
         }
       }
 

@@ -48,6 +48,19 @@ public static class AllLevels {
     ],
 
     // Day 2
+
+    [
+      new SpawnedCreature {
+        Data = AllCreatures.Hazel,
+        ReservationTime = Clock.GetTimeFromString("8:00 AM"),
+        State = CreatureState.WaitForTalk,
+        Instance = null,
+        CurrentScreen = CurrentScreen.Interior,
+        SelectedChair = null,
+        GetDialog = () => AllDialog.Hazel,
+      },
+    ],
+
     // [
     //   new SpawnedCreature {
     //   Data = AllCreatures.MrPig,
