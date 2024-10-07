@@ -28,11 +28,6 @@ public partial class ListOfCreatures : PanelContainer {
       get => _MarginContainer_CreatureList ??= parent.GetNode<HBoxContainer>("MarginContainer/CreatureList");
     }
 
-    private UpcomingCreatureUi? _MarginContainer_CreatureList_UpcomingCreatureUi;
-    public UpcomingCreatureUi MarginContainer_CreatureList_UpcomingCreatureUi {
-      get => _MarginContainer_CreatureList_UpcomingCreatureUi ??= parent.GetNode<UpcomingCreatureUi>("MarginContainer/CreatureList/UpcomingCreatureUi");
-    }
-
   }
 
   public ListOfCreaturesNodes? _Nodes;

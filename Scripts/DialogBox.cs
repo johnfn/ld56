@@ -1,7 +1,6 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 namespace ld56;
 using static Utils;
@@ -17,7 +16,6 @@ public partial class DialogBox : Control {
 
   public override void _Ready() {
     Instance = this;
-
     Visible = false;
   }
 
@@ -56,7 +54,6 @@ public partial class DialogBox : Control {
     }
 
     Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.VisibleCharacters = text.Length;
-
 
     if (!_isMouseDown) {
       while (!_isMouseDown) {

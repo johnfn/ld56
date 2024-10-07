@@ -92,7 +92,7 @@ public partial class Root : Node2D {
     GameState.Mode = GameMode.ReservationModal;
     Nodes.HUD.Nodes.MorningModal.Visible = true;
 
-    foreach (var child in Nodes.HUD.Nodes.MorningModal.Nodes.ReservationList.GetChildren()) {
+    foreach (var child in Nodes.HUD.Nodes.MorningModal.Nodes.MarginContainer_VBoxContainer_ReservationList.GetChildren()) {
       child.QueueFree();
     }
 
@@ -102,7 +102,7 @@ public partial class Root : Node2D {
 
       newCard.Nodes.HBoxContainer_VBoxContainer_NameLabel.Text = reservation.Data.DisplayName;
       newCard.Nodes.HBoxContainer_VBoxContainer_TimeLabel.Text = $"{timeString} {period}";
-      Nodes.HUD.Nodes.MorningModal.Nodes.ReservationList.AddChild(newCard);
+      Nodes.HUD.Nodes.MorningModal.Nodes.MarginContainer_VBoxContainer_ReservationList.AddChild(newCard);
     }
 
     var didDismiss = false;

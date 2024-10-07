@@ -155,4 +155,3 @@ theme_override_font_sizes/font_size = 36
 text = "[debug] Add gold"
 
 [node name="MorningModal" parent="." instance=ExtResource("16_5ov87")]
-visible = false
