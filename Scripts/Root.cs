@@ -86,6 +86,9 @@ public partial class Root : Node2D {
       GameState.OwnedIngredients.Add(AllIngredients.Egg);
       GameState.OwnedIngredients.Add(AllIngredients.Cheese);
       GameState.OwnedIngredients.Add(AllIngredients.Cheese);
+      GameState.OwnedIngredients.Add(AllIngredients.Leaf);
+      GameState.OwnedIngredients.Add(AllIngredients.Bean);
+      GameState.OwnedIngredients.Add(AllIngredients.Turnip);
 
       GameState.KnownIngredients.Add(AllIngredients.Egg.Id);
       GameState.KnownIngredients.Add(AllIngredients.Cheese.Id);

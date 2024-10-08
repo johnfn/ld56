@@ -84,13 +84,17 @@ public partial class CookingScreen : Sprite2D {
 
     _hasPressedCook = false;
 
-    // TODO: Some sort of logic to figure out what we made.
-    var result = AllRecipes.Recipes.First();
+    var matchingRecipes = AllRecipes.Recipes.Where(r => r.Ingredients.All(ing => CookingList.Contains(ing.Id))).ToList();
+    // sort by length of recipe, most first
+    matchingRecipes.Sort((a, b) => b.Ingredients.Count.CompareTo(a.Ingredients.Count));
 
-    // TODO: Remove them from the inventory.
+    var result = matchingRecipes.FirstOrDefault(
+      AllRecipes.WhatTrashSoup
+    );
+
     CookingList.ForEach(id => GameState.OwnedIngredients.Remove(AllIngredients.Ingredients.Find(i => i.Id == id)));
 
-    // Instance.ShowCookingCompleteModal(result);
+    Instance.ShowCookingCompleteModal(result);
 
     // wait for user to close the modal
     var hasClosed = false;
@@ -156,9 +160,12 @@ public partial class CookingScreen : Sprite2D {
 
   private void ShowCookingCompleteModal(Recipe result) {
     Nodes.UI_CookingResultModal.Visible = true;
+
     if (result.Icon != null) {
       Nodes.UI_CookingResultModal.Nodes.TextureRect.Texture = result.Icon;
     }
+
+    Nodes.UI_CookingResultModal.Nodes.MealNameLabel.Text = result.DisplayName;
 
     foreach (var ingredient in CookingList) {
       var ownedIngredients = GameState.OwnedIngredients;

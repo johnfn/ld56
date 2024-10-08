@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2ews7ockqsv5"]
+[gd_scene load_steps=6 format=3 uid="uid://cpkhxlnapa4wa"]
 
 [ext_resource type="Texture2D" uid="uid://dwoqcdf8poemn" path="res://Assets/UI/UI_Timer_Body.png" id="1_tci28"]
-[ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="1_wmmkb"]
+[ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="1_wmmkb"]
 [ext_resource type="Script" path="res://Clock.cs" id="2_soxew"]
 [ext_resource type="Texture2D" uid="uid://crdt4xxxov4u1" path="res://Assets/UI/UI_Timer_Hand.png" id="3_g1mf1"]
 
@@ -43,10 +43,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 18.0
-offset_top = -126.0
-offset_right = 183.0
-offset_bottom = -71.0
+offset_left = 24.0
+offset_top = -124.0
+offset_right = 245.0
+offset_bottom = -55.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_tg3vd")
@@ -56,7 +56,7 @@ layout_mode = 2
 
 [node name="TimeLabel" type="Label" parent="TimeLabelContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 36
 text = "55:55"
 
 [node name="Spacer" type="Control" parent="TimeLabelContainer/HBoxContainer"]
@@ -65,5 +65,5 @@ size_flags_horizontal = 3
 
 [node name="AMPMLabel" type="Label" parent="TimeLabelContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 36
 text = "AM"

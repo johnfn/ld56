@@ -34,16 +34,18 @@ public partial class DialogBox : Control {
     return await Instance.ShowDialogHelper(dialog, creatureId, isFirstCall);
   }
 
-  private async Task ShowDialogText(string text) {
-    Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.Text = text;
+  private async Task ShowDialogText(string text, CreatureId creatureId) {
+    Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_PanelContainer_VBoxContainer_DialogText.Text = text;
 
     for (int i = 0; i < text.Length; i += 3) {
-      Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.VisibleCharacters = i;
+      Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_PanelContainer_VBoxContainer_DialogText.VisibleCharacters = i;
 
       for (int j = 0; j < 20; j++) {
         if (_isMouseDown) {
           j += 3;
         }
+
+        SoundManager.Instance.PlayVoiceSfx(AllCreatures.CreatureIdToData[creatureId].VoiceIndex);
 
         if (GameState.HYPERSPEED) {
           break;
@@ -53,7 +55,7 @@ public partial class DialogBox : Control {
       }
     }
 
-    Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.VisibleCharacters = text.Length;
+    Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_PanelContainer_VBoxContainer_DialogText.VisibleCharacters = text.Length;
 
     if (!_isMouseDown) {
       while (!_isMouseDown) {
@@ -70,22 +72,29 @@ public partial class DialogBox : Control {
     DialogReturn result = new();
 
     Visible = true;
-    Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.Text = "";
-    Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText_ClickToContinue.Visible = false;
+    Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_PanelContainer_VBoxContainer_DialogText.Text = "";
+    Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_PanelContainer_VBoxContainer_ClickToContinue.Visible = false;
 
     switch (dialog[0]) {
-      case DialogItem dialogItem:
-        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogItem.OverrideSpeakerName ?? AllCreatures.CreatureIdToData[creatureId].DisplayName;
-        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite.Texture = AllCreatures.CreatureIdToData[creatureId].DialogPortraitTexture;
-        Nodes.DialogBox_HBoxContainer_DialogTextVBoxContainer.Visible = true;
-        Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.Visible = false;
-        break;
-      case DialogOptions dialogOptions:
-        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogOptions.OverrideSpeakerName ?? AllCreatures.CreatureIdToData[creatureId].DisplayName;
-        Nodes.DialogBox_HBoxContainer_CharacterDialogSprite.Texture = AllCreatures.CreatureIdToData[creatureId].DialogPortraitTexture;
-        Nodes.DialogBox_HBoxContainer_DialogTextVBoxContainer.Visible = false;
-        Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.Visible = true;
-        break;
+      case DialogItem dialogItem: {
+          var speakerId = dialogItem.Speaker;
+
+          Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogItem.OverrideSpeakerName ?? AllCreatures.CreatureIdToData[speakerId].DisplayName;
+          Nodes.DialogBox_HBoxContainer_CharacterDialogSprite.Texture = AllCreatures.CreatureIdToData[speakerId].DialogPortraitTexture;
+          Nodes.DialogBox_HBoxContainer_DialogTextVBoxContainer.Visible = true;
+          Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.Visible = false;
+          break;
+        }
+
+      case DialogOptions dialogOptions: {
+          var speakerId = dialogOptions.Speaker;
+
+          Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogOptions.OverrideSpeakerName ?? AllCreatures.CreatureIdToData[speakerId].DisplayName;
+          Nodes.DialogBox_HBoxContainer_CharacterDialogSprite.Texture = AllCreatures.CreatureIdToData[speakerId].DialogPortraitTexture;
+          Nodes.DialogBox_HBoxContainer_DialogTextVBoxContainer.Visible = false;
+          Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.Visible = true;
+          break;
+        }
     }
 
     while (_isMouseDown) {
@@ -94,77 +103,85 @@ public partial class DialogBox : Control {
 
     foreach (var item in dialog) {
       switch (item) {
-        case DialogItem dialogItem:
-          Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogItem.OverrideSpeakerName ?? AllCreatures.CreatureIdToData[creatureId].DisplayName;
-          Nodes.DialogBox_HBoxContainer_DialogTextVBoxContainer.Visible = true;
-          Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.Visible = false;
-          Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.Text = dialogItem.Text;
+        case DialogItem dialogItem: {
+            var speakerId = dialogItem.Speaker;
+            Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogItem.OverrideSpeakerName ?? AllCreatures.CreatureIdToData[speakerId].DisplayName;
+            Nodes.DialogBox_HBoxContainer_DialogTextVBoxContainer.Visible = true;
+            Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.Visible = false;
+            Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_PanelContainer_VBoxContainer_DialogText.Text = dialogItem.Text;
+            Nodes.DialogBox_HBoxContainer_CharacterDialogSprite.Texture = AllCreatures.CreatureIdToData[speakerId].DialogPortraitTexture;
 
-          await ShowDialogText(dialogItem.Text);
+            await ShowDialogText(dialogItem.Text, speakerId);
 
-          if (dialogItem.OnComplete != null) {
-            result = new DialogReturn { Next = (CreatureId creatureId) => dialogItem.OnComplete(creatureId) };
+            if (dialogItem.OnComplete != null) {
+              result = new DialogReturn { Next = (CreatureId creatureId) => dialogItem.OnComplete(creatureId) };
 
-            goto done;
-          }
-
-          break;
-
-        case DialogOptions dialogOptions:
-          Nodes.DialogBox_HBoxContainer_DialogTextVBoxContainer.Visible = false;
-          Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.Visible = true;
-
-          // populate all options
-
-          foreach (var child in Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.GetChildren()) {
-            child.QueueFree();
-          }
-
-          // show text
-          await ShowDialogText(dialogOptions.Text);
-
-          int? selectedOption = null;
-
-          for (int i = 0; i < dialogOptions.Options.Count; i++) {
-            var option = dialogOptions.Options[i];
-
-            if (option.IsHidden != null && option.IsHidden()) {
-              continue;
+              goto done;
             }
 
-            var newOption = DialogOptionNode.New();
-            newOption.Nodes.RichTextLabel.Text = option.OptionText;
+            break;
+          }
 
-            Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.AddChild(newOption);
+        case DialogOptions dialogOptions: {
+            var speakerId = dialogOptions.Speaker;
 
+            Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogOptions.OverrideSpeakerName ?? AllCreatures.CreatureIdToData[speakerId].DisplayName;
+            Nodes.DialogBox_HBoxContainer_DialogTextVBoxContainer.Visible = false;
+            Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.Visible = true;
+            Nodes.DialogBox_HBoxContainer_CharacterDialogSprite.Texture = AllCreatures.CreatureIdToData[speakerId].DialogPortraitTexture;
 
-            if (option.IsAvailable != null && !option.IsAvailable()) {
-              newOption.SelfModulate = new Color(0.7f, 0.7f, 0.7f);
-              newOption.IsDisabled = true;
-            } else {
-              var index = i;
+            // populate all options
 
-              newOption.OptionClicked += () => {
-                selectedOption = index;
-              };
+            foreach (var child in Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.GetChildren()) {
+              child.QueueFree();
             }
+
+            // show text
+            await ShowDialogText(dialogOptions.Text, speakerId);
+
+            int? selectedOption = null;
+
+            for (int i = 0; i < dialogOptions.Options.Count; i++) {
+              var option = dialogOptions.Options[i];
+
+              if (option.IsHidden != null && option.IsHidden()) {
+                continue;
+              }
+
+              var newOption = DialogOptionNode.New();
+              newOption.Nodes.RichTextLabel.Text = option.OptionText;
+
+              Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.AddChild(newOption);
+
+
+              if (option.IsAvailable != null && !option.IsAvailable()) {
+                newOption.SelfModulate = new Color(0.7f, 0.7f, 0.7f);
+                newOption.IsDisabled = true;
+              } else {
+                var index = i;
+
+                newOption.OptionClicked += () => {
+                  selectedOption = index;
+                };
+              }
+            }
+
+            // wait for selection
+
+            while (selectedOption == null) {
+              await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+            }
+
+            var onSelect = dialogOptions.Options[selectedOption.Value].OnSelect;
+
+            if (onSelect != null) {
+              result = new DialogReturn { Next = onSelect };
+
+              goto done;
+            }
+
+            break;
           }
-
-          // wait for selection
-
-          while (selectedOption == null) {
-            await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
-          }
-
-          var onSelect = dialogOptions.Options[selectedOption.Value].OnSelect;
-
-          if (onSelect != null) {
-            result = new DialogReturn { Next = onSelect };
-
-            goto done;
-          }
-
-          break;
       }
 
       if (_isMouseDown) {
@@ -173,7 +190,7 @@ public partial class DialogBox : Control {
         }
       }
 
-      Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText_ClickToContinue.Visible = true;
+      Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_PanelContainer_VBoxContainer_ClickToContinue.Visible = true;
 
       if (!GameState.HYPERSPEED) {
         while (!_isMouseDown) {
@@ -187,8 +204,8 @@ public partial class DialogBox : Control {
         await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
       }
 
-      Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.Text = "";
-      Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText_ClickToContinue.Visible = false;
+      Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_PanelContainer_VBoxContainer_DialogText.Text = "";
+      Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_PanelContainer_VBoxContainer_ClickToContinue.Visible = false;
     }
   done:
 

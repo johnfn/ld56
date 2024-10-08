@@ -17,6 +17,7 @@ public partial class Clock : TextureRect {
     public ClockNodes(Clock parent) {
       this.parent = parent;
     }
+    // Scene: ./clock.tscn
     private TextureRect? _ClockHand;
     public TextureRect ClockHand {
       get => _ClockHand ??= parent.GetNode<TextureRect>("ClockHand");

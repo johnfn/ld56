@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://cxyyxixj0uw2m"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=5 format=3 uid="uid://2csxorkar07o"]
 
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
 [ext_resource type="Texture2D" uid="uid://34dhxul6eqb4" path="res://Assets/Dishes/Dish_Tomato_Soup.png" id="2_icon"]

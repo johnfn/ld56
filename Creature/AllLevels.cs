@@ -100,7 +100,7 @@ public static class AllLevels {
 
     // Day 3
     [
-      
+
 
       new SpawnedCreature {
         Data = AllCreatures.Emily,

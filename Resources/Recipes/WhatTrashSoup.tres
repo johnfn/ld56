@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://bus6kqctnd1ak"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=3 format=3 uid="uid://dedijxkr6au71"]
 
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
 [ext_resource type="Texture2D" uid="uid://d21rc4netk5ik" path="res://Assets/Dishes/Dish_What-Trash_Soup.png" id="2_icon"]
