@@ -134,7 +134,7 @@ public static class AllLevels {
         CurrentScreen = CurrentScreen.Interior,
         SelectedChair = null,
       },
-    ]
+    ],
 
     // Day 4
     [

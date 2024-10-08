@@ -52,7 +52,6 @@ public static class AllDialog {
     }
   ];
 
-
   // Jerry
   public static List<IDialogItem> Jerry = [
     new DialogItem {
@@ -67,7 +66,7 @@ public static class AllDialog {
         var recipe = await CookingScreen.Cook([IngredientId.Milk, IngredientId.Onion]);
       }
     }
-  ];  
+  ];
 
 
   // Hazel
@@ -338,14 +337,14 @@ public static class AllDialog {
 ];
 
 
-// Emily
-    public static List<IDialogItem> Emily = [
-    new DialogItem {
-      Text = "Ahem.", Speaker = CreatureId.Emily},   
+  // Emily
+  public static List<IDialogItem> Emily = [
+  new DialogItem {
+      Text = "Ahem.", Speaker = CreatureId.Emily},
     new DialogItem {
       Text = "Some golden victuals do desire I;\n‘pon morel duty cook, perchance to cry", Speaker = CreatureId.Emily},
     new DialogItem {
-      Text = "Uh... what did you mean by this?", Speaker = CreatureId.None},   
+      Text = "Uh... what did you mean by this?", Speaker = CreatureId.None},
         new DialogItem {
       Text = "Well, I never! Some philistines simply cannot appreciate poetry. An [color=af973e]omelet of vegetable[/color], if you do so please.", Speaker = CreatureId.Emily},
     new DialogItem {
@@ -354,7 +353,7 @@ public static class AllDialog {
         var recipe = await CookingScreen.Cook([IngredientId.Egg, IngredientId.Onion, IngredientId.Mushroom]);
       }
     }
-  ];
+];
 
   public static List<IDialogItem> Emily2 = [
     new DialogItem {
@@ -391,13 +390,13 @@ public static class AllDialog {
   ];
   
 // StuartS
-    public static List<IDialogItem> StuartS = [
-    new DialogItem {
-      Text = "Mr. Squeakins, it’s nice to see you!", Speaker = CreatureId.None},   
+  public static List<IDialogItem> StuartS = [
+  new DialogItem {
+      Text = "Mr. Squeakins, it’s nice to see you!", Speaker = CreatureId.None},
     new DialogItem {
       Text = "Lena! How’ve you been holding up, kiddo?", Speaker = CreatureId.Stuart},
     new DialogItem {
-      Text = "Hanging in there. What can I get for you?", Speaker = CreatureId.None},   
+      Text = "Hanging in there. What can I get for you?", Speaker = CreatureId.None},
     new DialogItem {
       Text = "I’ll have a plate of [color=3e77af]fluffjacks,[/color] if you can. Your mom’s recipe was a real winner.", Speaker = CreatureId.Emily},
     new DialogItem {
@@ -406,19 +405,19 @@ public static class AllDialog {
         var recipe = await CookingScreen.Cook([IngredientId.Flour, IngredientId.Nectar, IngredientId.Egg, IngredientId.Milk]);
       }
     }
-  ];
+];
 
 
-// MinnieS
-    public static List<IDialogItem> MinnieS = [
-    new DialogItem {
-      Text = "Good morning, Ms. Minnie! I mean, Ms. Squeakins.", Speaker = CreatureId.None},   
+  // MinnieS
+  public static List<IDialogItem> MinnieS = [
+  new DialogItem {
+      Text = "Good morning, Ms. Minnie! I mean, Ms. Squeakins.", Speaker = CreatureId.None},
     new DialogItem {
       Text = "Ms. Minnie is fine, hahaha!", Speaker = CreatureId.MinnieS},
     new DialogItem {
-      Text = "Most of my old students call me that, even the ones who aren’t in elementary school anymore.", Speaker = CreatureId.MinnieS},      
+      Text = "Most of my old students call me that, even the ones who aren’t in elementary school anymore.", Speaker = CreatureId.MinnieS},
     new DialogItem {
-      Text = "So embarrassing… anyway, can I get you anything?", Speaker = CreatureId.None},   
+      Text = "So embarrassing… anyway, can I get you anything?", Speaker = CreatureId.None},
     new DialogItem {
       Text = "I’d love a [color=3e77af]Mega Salad![/color] Thanks, Lena.", Speaker = CreatureId.Emily},
     new DialogItem {
@@ -427,7 +426,7 @@ public static class AllDialog {
         var recipe = await CookingScreen.Cook([IngredientId.Leaf, IngredientId.Turnip, IngredientId.Tomato]);
       }
     }
-  ];
+];
 
 
 
@@ -569,8 +568,6 @@ public static class AllDialog {
       OnComplete = async (CreatureId creatureId) => {
        MrBlegg = MrBleggSecond;
       }
-
-
     }
   };
 
@@ -591,7 +588,6 @@ public static class AllDialog {
       }
     },
   };
-
 
   public static List<IDialogItem> MrPigWithMouse = [
     new DialogItem {
@@ -619,6 +615,10 @@ public static class AllDialog {
   public static List<IDialogItem> MrSquirrel = [
     new DialogItem { Text = "I don't have dialog yet.", Speaker = CreatureId.None}
   ];
+
+  // TODO: Remove once they exist.
+  public static List<IDialogItem> Lav = null;
+  public static List<IDialogItem> Jerry = null;
 }
 
 // public static class SampleDialog {
