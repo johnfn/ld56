@@ -177,18 +177,6 @@ public partial class Root : Node2D {
   }
 
   public override void _Process(double delta) {
-    if (Input.IsKeyPressed(Key.Shift)) {
-      Engine.TimeScale = 20;
-    } else {
-      Engine.TimeScale = 1;
-    }
-
-    if (Input.IsKeyPressed(Key.Ctrl)) {
-      GameState.HYPERSPEED = true;
-    } else {
-      GameState.HYPERSPEED = false;
-    }
-
     // Update clock
     if (GameState.Mode == GameMode.Normal || GameState.Mode == GameMode.ChooseTable) {
       GameState.CurrentDayTime += (float)delta / 10.0f;

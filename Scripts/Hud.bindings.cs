@@ -123,6 +123,11 @@ public partial class Hud : CanvasLayer {
       get => _GenericDialog ??= parent.GetNode<GenericDialog>("GenericDialog");
     }
 
+    private FastForward? _FastForward;
+    public FastForward FastForward {
+      get => _FastForward ??= parent.GetNode<FastForward>("FastForward");
+    }
+
   }
 
   public HudNodes? _Nodes;

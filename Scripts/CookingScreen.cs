@@ -191,6 +191,8 @@ public partial class CookingScreen : Sprite2D {
       var ingredientListItem = CookingIngredient.New();
       ingredientListItem.Nodes.TextureRect_PanelContainer_MarginContainer_QuantityLabel.Visible = false;
       ingredientListItem.Nodes.TextureRect.Texture = ingredient.Icon;
+      ingredientListItem.SelfModulate = new Color(1, 1, 1, 0f);
+      ingredientListItem.Nodes.TextureRect_PanelContainer.Visible = false;
 
       Nodes.UI_IngredientSlotsTexture_Container.AddChild(ingredientListItem);
       ingredientListItem.Pressed += () => {

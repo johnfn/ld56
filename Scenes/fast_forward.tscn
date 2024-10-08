@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://duwap3ff5l3vu"]
+
+[ext_resource type="Texture2D" uid="uid://ds4sbxwqgadep" path="res://Assets/Backgrounds/ff.png" id="1_0xfmx"]
+[ext_resource type="Material" uid="uid://d2cawldofdxn1" path="res://GlowMaterial.tres" id="1_mlxre"]
+[ext_resource type="Script" path="res://Scripts/FastForward.cs" id="2_8osxa"]
+[ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="2_k735f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5m6sw"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="FastForward" type="TextureButton"]
+material = ExtResource("1_mlxre")
+offset_top = 946.0
+offset_right = 150.0
+offset_bottom = 1096.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("1_0xfmx")
+script = ExtResource("2_8osxa")
+
+[node name="RecipesTooltip" type="PanelContainer" parent="."]
+visible = false
+offset_left = 18.0
+offset_top = -71.0
+offset_right = 226.0
+offset_bottom = 6.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5m6sw")
+
+[node name="MarginContainer" type="MarginContainer" parent="RecipesTooltip"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="RecipesTooltip/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_k735f")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Fast-Forward"
