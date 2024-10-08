@@ -179,5 +179,7 @@ public partial class CookingScreen : Sprite2D {
         ownedIngredients.Remove(ingredientToRemove);
       }
     }
+
+    CookingList.Clear();
   }
 }
