@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dy852coaojujg"]
+[gd_scene load_steps=6 format=3 uid="uid://bvrs6e5qiytf8"]
 
-[ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="1_ldn4s"]
+[ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="1_ldn4s"]
 [ext_resource type="Script" path="res://Scripts/PauseMenu.cs" id="2_ap0md"]
 [ext_resource type="Texture2D" uid="uid://c2j6de1w8fd8w" path="res://Assets/UI/UI_Menu-Pause.png" id="2_dyyhm"]
 [ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="3_c5y6c"]
@@ -90,7 +90,6 @@ flat = true
 alignment = 0
 
 [node name="MainMenuContent" type="VBoxContainer" parent="Background"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -108,7 +107,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.27, 0.0216, 0.0216, 1)
 theme_override_fonts/font = ExtResource("3_c5y6c")
 theme_override_font_sizes/font_size = 80
-text = "Game Title"
+text = "HareBnB"
 horizontal_alignment = 1
 
 [node name="Spacer" type="Control" parent="Background/MainMenuContent"]

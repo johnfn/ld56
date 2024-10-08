@@ -17,6 +17,7 @@ public partial class PauseMenu : ColorRect {
 
 
     Nodes.Background_MainMenuContent_ButtonsContainer_Play.Pressed += () => {
+      SoundManager.Instance.PlayMusic(Music.Game);
       SetMenu(Menu.None);
     };
 
@@ -62,6 +63,5 @@ public partial class PauseMenu : ColorRect {
     Nodes.Background_MainMenuContent.Visible = menu == Menu.Main;
     Nodes.Background_CreditsContent.Visible = menu == Menu.Credits;
     Nodes.Background_PauseMenuContent.Visible = menu == Menu.Pause;
-
   }
 }

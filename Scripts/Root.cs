@@ -73,7 +73,14 @@ public partial class Root : Node2D {
 
     Nodes.HUD.Nodes.Newspaper.Visible = false;
     Nodes.HUD.Nodes.Shop.Visible = false;
-    Nodes.HUD.Nodes.Menus.Visible = false;
+
+    if (!GameState.IS_DEBUG) {
+      SoundManager.Instance.PlayMusic(Music.Intro);
+      Nodes.HUD.Nodes.Menus.Visible = true;
+    } else {
+      SoundManager.Instance.PlayMusic(Music.Game);
+      Nodes.HUD.Nodes.Menus.Visible = false;
+    }
 
     Nodes.HUD.Nodes.Newspaper.Nodes.Newspaper_ShopButton.Pressed += () => {
       DisplayShopHelper();

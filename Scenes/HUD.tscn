@@ -82,9 +82,6 @@ offset_bottom = 1080.0
 mouse_filter = 2
 color = Color(0.0745098, 0.0823529, 0.215686, 0.337255)
 
-[node name="Menus" parent="." instance=ExtResource("13_kljas")]
-visible = false
-
 [node name="CustomersServed" type="Label" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
@@ -158,6 +155,9 @@ text = "[debug] Add gold"
 [node name="MorningModal" parent="." instance=ExtResource("16_5ov87")]
 offset_right = 1346.0
 offset_bottom = 611.0
+
+[node name="Menus" parent="." instance=ExtResource("13_kljas")]
+visible = false
 
 [node name="GenericDialog" parent="." instance=ExtResource("17_oucxn")]
 offset_left = 215.0

@@ -23,6 +23,11 @@ public partial class SoundManager : Node {
       get => _AudioStreamPlayer2D ??= parent.GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
     }
 
+    private AudioStreamPlayer2D? _MusicStreamPlayer;
+    public AudioStreamPlayer2D MusicStreamPlayer {
+      get => _MusicStreamPlayer ??= parent.GetNode<AudioStreamPlayer2D>("MusicStreamPlayer");
+    }
+
   }
 
   public SoundManagerNodes? _Nodes;

@@ -1,6 +1,12 @@
 using Godot;
 using System;
 
+public enum Music {
+  Intro,
+  Game,
+  Spy,
+}
+
 public partial class SoundManager : Node {
   // Page turn SFX
   [Export] public AudioStream[] PageTurnSFX = [];
@@ -8,9 +14,23 @@ public partial class SoundManager : Node {
   [Export] public AudioStream HoverSFX;
   [Export] public AudioStream[] CookingSFX = [];
 
+  [Export] public AudioStream IntroMusic;
+  [Export] public AudioStream GameMusic;
+  [Export] public AudioStream SpyMusic;
+
   public AudioStream[][] Voices = [];
 
   public static SoundManager Instance { get; private set; }
+
+  public void PlayMusic(Music music) {
+    Nodes.MusicStreamPlayer.Stop();
+    Nodes.MusicStreamPlayer.Stream = music switch {
+      Music.Intro => IntroMusic,
+      Music.Game => GameMusic,
+      Music.Spy => SpyMusic,
+    };
+    Nodes.MusicStreamPlayer.Play();
+  }
 
   public void PlayPageTurnSFX() {
     GD.Randomize();

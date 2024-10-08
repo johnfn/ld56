@@ -108,14 +108,14 @@ public partial class Hud : CanvasLayer {
       get => _Clock ??= parent.GetNode<Clock>("Clock");
     }
 
-    private PauseMenu? _Menus;
-    public PauseMenu Menus {
-      get => _Menus ??= parent.GetNode<PauseMenu>("Menus");
-    }
-
     private MorningModal? _MorningModal;
     public MorningModal MorningModal {
       get => _MorningModal ??= parent.GetNode<MorningModal>("MorningModal");
+    }
+
+    private PauseMenu? _Menus;
+    public PauseMenu Menus {
+      get => _Menus ??= parent.GetNode<PauseMenu>("Menus");
     }
 
     private GenericDialog? _GenericDialog;
