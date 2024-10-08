@@ -44,6 +44,7 @@ offset_left = 19.0
 offset_top = 473.0
 offset_right = -1772.0
 offset_bottom = -510.0
+mouse_default_cursor_shape = 2
 icon = ExtResource("3_i8kw0")
 flat = true
 
@@ -53,6 +54,7 @@ offset_top = 463.0
 offset_right = 1868.0
 offset_bottom = 568.0
 scale = Vector2(-1, 1)
+mouse_default_cursor_shape = 2
 icon = ExtResource("3_i8kw0")
 flat = true
 script = ExtResource("5_w24eq")
@@ -160,7 +162,7 @@ offset_bottom = 611.0
 visible = false
 
 [node name="GenericDialog" parent="." instance=ExtResource("17_oucxn")]
-offset_left = 215.0
-offset_top = 373.0
-offset_right = 1644.0
-offset_bottom = 734.0
+offset_left = 219.0
+offset_top = 135.0
+offset_right = 1648.0
+offset_bottom = 496.0

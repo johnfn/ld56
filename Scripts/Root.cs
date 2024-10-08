@@ -192,6 +192,35 @@ public partial class Root : Node2D {
     if (GameState.CurrentDayTime >= GameConstants.EndOfDayTime) {
       EndDay();
     }
+
+    if (GameState.Mode == GameMode.Normal) {
+      if (GameState.CurrentScreen == GameScreen.Exterior && !GameState.HasShownExteriorTutorial) {
+        GameState.HasShownExteriorTutorial = true;
+
+        GenericDialog.Instance.Show(
+          "Welcome to the HareBnb! As purveyor of this fine establishment, it is your duty to serve your guests food - and, of course, chitchat a litle and see how things are going with them.\n\nTiny creatures will arrive on this screen. In fact, one just showed up right now! Invite them in by clicking on them, then click on the right arrow to go inside the restaurant."
+        );
+      }
+
+      if (GameState.CurrentScreen == GameScreen.Restaurant && !GameState.HasShownInteriorTutorial) {
+        GameState.HasShownInteriorTutorial = true;
+
+        GenericDialog.Instance.Show(
+          "You're in the restaurant! Here, you can seat guests at a table.\n\nFirst, click on a guest, and then click on a seat. Once the tiny creature sits down, you can click on them again to start talking to them."
+        );
+      }
+    }
+
+    if (GameState.Mode == GameMode.Cooking) {
+      if (GameState.CurrentScreen == GameScreen.Cooking && !GameState.HasShownCookingTutorial) {
+        GameState.HasShownCookingTutorial = true;
+        GD.Print("Show cooking tutorial");
+
+        GenericDialog.Instance.Show(
+          "Now, you're in the kitchen. Here, you can cook food for your guests. Most guests have particular food preferences, so be sure to cook something that you think they'd like!\n\nClick on the ingredients in the bottom left, and then select ingredients to add to your cutting board. When you're ready, press cook!\n\nWhat will you make? Who knows!"
+        );
+      }
+    }
   }
 
   public void EndDay() {
@@ -201,11 +230,11 @@ public partial class Root : Node2D {
     Nodes.HUD.Nodes.ClosingTimeOverlay.Visible = true;
 
     CreateTween().TweenProperty(
-        Nodes.HUD.Nodes.ClosingTimeOverlay,
-        "modulate",
-        new Color(1, 1, 1, 1),
-        1f
-      );
+      Nodes.HUD.Nodes.ClosingTimeOverlay,
+      "modulate",
+      new Color(1, 1, 1, 1),
+      1f
+    );
 
     Nodes.HUD.Nodes.ClosingTimeOverlay.Visible = false;
     Nodes.HUD.Nodes.Clock.Reset();

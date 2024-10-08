@@ -18,4 +18,10 @@ public partial class GenericDialog : PanelContainer {
     Nodes.MarginContainer_VBoxContainer_Label.Text = content;
     Visible = true;
   }
+
+  public override void _Process(double delta) {
+    if (Input.IsActionJustPressed("ui_accept")) {
+      Visible = false;
+    }
+  }
 }

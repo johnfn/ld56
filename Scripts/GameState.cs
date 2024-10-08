@@ -34,6 +34,10 @@ public static class GameState {
   public static bool HYPERSPEED = false;
   public static bool IS_DEBUG = true;
 
+  public static bool HasShownExteriorTutorial { get; set; } = false;
+  public static bool HasShownInteriorTutorial { get; set; } = false;
+  public static bool HasShownCookingTutorial { get; set; } = false;
+
   public static int DayIndexOfExtravaganza { get; set; } = 8;
   public static int DayIndex { get; set; } = 0;
   public static int Gold { get; set; } = IS_DEBUG ? 100 : 0;

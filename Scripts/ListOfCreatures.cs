@@ -16,6 +16,11 @@ public partial class ListOfCreatures : PanelContainer {
   }
 
   public override void _Process(double delta) {
+    if (GameState.Mode == GameMode.Cooking) {
+      Visible = false;
+    } else {
+      Visible = true;
+    }
   }
 
   public void Initialize(List<SpawnedCreature> creatures) {
