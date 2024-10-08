@@ -11,6 +11,7 @@ public partial class HoverPanelExterior : PanelContainer {
     Nodes.MarginContainer_HBoxContainer_Right_RightLabel.Visible = false;
 
     Nodes.MarginContainer_HBoxContainer_Left.MouseEntered += () => {
+      Root.Instance.Nodes.SoundManager.PlayHoverSFX();
       Nodes.MarginContainer_HBoxContainer_Left_LeftLabel.Visible = true;
     };
 
@@ -19,6 +20,7 @@ public partial class HoverPanelExterior : PanelContainer {
     };
 
     Nodes.MarginContainer_HBoxContainer_Right.MouseEntered += () => {
+      Root.Instance.Nodes.SoundManager.PlayHoverSFX();
       Nodes.MarginContainer_HBoxContainer_Right_RightLabel.Visible = true;
     };
 

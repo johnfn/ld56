@@ -219,8 +219,8 @@ public partial class Root : Node2D {
   ) {
     GameState.CurrentScreen = newScreen;
 
-    Nodes.HUD.Nodes.ExteriorButton.Visible = GameState.CurrentScreen != GameScreen.Exterior;
-    Nodes.HUD.Nodes.InteriorButton.Visible = GameState.CurrentScreen != GameScreen.Restaurant;
+    Nodes.HUD.Nodes.ExteriorButton.Visible = GameState.CurrentScreen == GameScreen.Restaurant;
+    Nodes.HUD.Nodes.InteriorButton.Visible = GameState.CurrentScreen == GameScreen.Exterior;
 
     Sprite2D node = GameState.CurrentScreen switch {
       GameScreen.Exterior => Nodes.Exterior,

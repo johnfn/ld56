@@ -21,6 +21,7 @@ public partial class CookingScreen : Sprite2D {
     Nodes.UI_RecipesButton_RecipesTooltip.Visible = false;
 
     Nodes.UI_IngredientsButton.MouseEntered += () => {
+      Root.Instance.Nodes.SoundManager.PlayHoverSFX();
       Nodes.UI_IngredientsButton_IngredientsTooltip.Visible = true;
     };
 
@@ -29,6 +30,7 @@ public partial class CookingScreen : Sprite2D {
     };
 
     Nodes.UI_RecipesButton.MouseEntered += () => {
+      Root.Instance.Nodes.SoundManager.PlayHoverSFX();
       Nodes.UI_RecipesButton_RecipesTooltip.Visible = true;
     };
 

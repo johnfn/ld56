@@ -18,6 +18,7 @@ public partial class CreatureScene : Node2D {
     Nodes.TextureRect.Pressed += OnClick;
 
     Nodes.TextureRect.MouseEntered += () => {
+      Root.Instance.Nodes.SoundManager.PlayHoverSFX();
       (Nodes.TextureRect.Material as ShaderMaterial).Set("shader_parameter/width", 10.0);
     };
 
@@ -28,6 +29,7 @@ public partial class CreatureScene : Node2D {
     Nodes.PanelContainer.Visible = false;
 
     Nodes.TextureRect.MouseEntered += () => {
+      Root.Instance.Nodes.SoundManager.PlayHoverSFX();
       Nodes.PanelContainer.Visible = true;
     };
 

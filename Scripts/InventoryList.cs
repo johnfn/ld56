@@ -47,6 +47,7 @@ public partial class InventoryList : GridContainer {
       };
 
       ingredientListItem.MouseEntered += () => {
+        Root.Instance.Nodes.SoundManager.PlayHoverSFX();
         OnMouseEnterIngredient?.Invoke(ingredientId);
       };
 

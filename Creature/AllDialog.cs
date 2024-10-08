@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 
 namespace ld56;
 
@@ -376,7 +376,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "S-sure.", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook(MealResponse);
+        var recipe = await CookingScreen.Cook([], MealResponse);
       }
     }
 ];
@@ -565,7 +565,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "No, I'm Sherry!", Speaker = CreatureId.SherryS},
     new DialogItem {
-      Text = "Merry's the one with the overbite and the bad fashion sense.", Speaker = CreatureId.Sherry},
+      Text = "Merry's the one with the overbite and the bad fashion sense.", Speaker = CreatureId.SherryS},
    new DialogItem {
       Text = "Hey!!!", Speaker = CreatureId.MerryS},
     new DialogItem {
@@ -654,7 +654,7 @@ public static class AllDialog {
               new DialogItem {
                 Text = "You see, I HATE YOUR STUPID MEAL.",
                 Speaker = CreatureId.You,
-                OnComplete = async (CreatureId creatureId) => {
+                OnComplete = (CreatureId creatureId) => {
                   GameState.Gold -= 10;
 
                   GameState.CustomerResults.Add(new(
@@ -663,6 +663,8 @@ public static class AllDialog {
                     Satisfaction: CustomerSatisfaction.Angry,
                     DayIndex: GameState.DayIndex
                   ));
+
+                  return Task.CompletedTask;
                 }
               }],
               creatureId
@@ -737,27 +739,27 @@ public static class AllDialog {
     }
   };
 
-  public static List<IDialogItem> MrBlegg = new()
-  {
-    new DialogItem { Text = "Hello, I am [color=green]Mr. Blegg[/color].", Speaker = CreatureId.You },
-    new DialogItem {
-      Text = "Oh no. No. NO. NOT THE BLEGG.",
-      Speaker = CreatureId.You,
-      OnComplete = async (CreatureId creatureId) => {
-       MrBlegg = MrBleggSecond;
-      }
-    }
-  };
+  // public static List<IDialogItem> MrBlegg = new()
+  // {
+  //   new DialogItem { Text = "Hello, I am [color=green]Mr. Blegg[/color].", Speaker = CreatureId.You },
+  //   new DialogItem {
+  //     Text = "Oh no. No. NO. NOT THE BLEGG.",
+  //     Speaker = CreatureId.You,
+  //     OnComplete = async (CreatureId creatureId) => {
+  //      MrBlegg = MrBleggSecond;
+  //     }
+  //   }
+  // };
 
-  public static List<IDialogItem> MrBleggSecond = new()
-  {
-    new DialogItem { Text = "Hello, I am [color=green]Mr. Blegg[/color].", Speaker = CreatureId.You},
-    new DialogItem { Text = "Not again. Please, no.", Speaker = CreatureId.You,
-      OnComplete = async (CreatureId creatureId) => {
-       MrBlegg = MrBleggSecond;
-      }
-    }
-  };
+  // public static List<IDialogItem> MrBleggSecond = new()
+  // {
+  //   new DialogItem { Text = "Hello, I am [color=green]Mr. Blegg[/color].", Speaker = CreatureId.You},
+  //   new DialogItem { Text = "Not again. Please, no.", Speaker = CreatureId.You,
+  //     OnComplete = async (CreatureId creatureId) => {
+  //      MrBlegg = MrBleggSecond;
+  //     }
+  //   }
+  // };
 
   public static List<IDialogItem> NoDialogYet = new()
   {

@@ -31,6 +31,7 @@ public partial class Rolodex : ColorRect {
     Nodes.BookTexture_IngredientsTooltip.Visible = false;
 
     Nodes.BookTexture_CreaturesTab.MouseEntered += () => {
+      Root.Instance.Nodes.SoundManager.PlayHoverSFX();
       Nodes.BookTexture_CreaturesTooltip.Visible = true;
     };
     Nodes.BookTexture_CreaturesTab.MouseExited += () => {
@@ -38,6 +39,7 @@ public partial class Rolodex : ColorRect {
     };
 
     Nodes.BookTexture_RecipesTab.MouseEntered += () => {
+      Root.Instance.Nodes.SoundManager.PlayHoverSFX();
       Nodes.BookTexture_RecipesTooltip.Visible = true;
     };
     Nodes.BookTexture_RecipesTab.MouseExited += () => {
@@ -45,6 +47,7 @@ public partial class Rolodex : ColorRect {
     };
 
     Nodes.BookTexture_IngredientsTab.MouseEntered += () => {
+      Root.Instance.Nodes.SoundManager.PlayHoverSFX();
       Nodes.BookTexture_IngredientsTooltip.Visible = true;
     };
     Nodes.BookTexture_IngredientsTab.MouseExited += () => {
