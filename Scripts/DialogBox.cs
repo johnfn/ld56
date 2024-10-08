@@ -73,8 +73,6 @@ public partial class DialogBox : Control {
     Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_PanelContainer_VBoxContainer_DialogText.Text = "";
     Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_PanelContainer_VBoxContainer_ClickToContinue.Visible = false;
 
-    GD.Print($"!! {creatureId} {dialog[0]}");
-
     switch (dialog[0]) {
       case DialogItem dialogItem: {
           var speakerId = dialogItem.Speaker;

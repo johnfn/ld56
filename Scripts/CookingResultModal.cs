@@ -12,8 +12,6 @@ public partial class CookingResultModal : Control {
   private async void PrepSfx() {
     await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
 
-    Nodes.ClickOutside.Pressed += () => OnClose?.Invoke();
-
     // Spawn 5 random cooking SFX
     for (int i = 0; i < 5; i++) {
       var randomIndex = GD.Randi() % Root.Instance.Nodes.SoundManager.CookingSFX.Length;
@@ -28,5 +26,11 @@ public partial class CookingResultModal : Control {
   public override void _Process(double delta) {
     // Spin the glow
     Nodes.Glow.Rotation += (float)delta;
+  }
+
+  public override void _Input(InputEvent @event) {
+    if (@event is InputEventMouseButton) {
+      OnClose?.Invoke();
+    }
   }
 }

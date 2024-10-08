@@ -5,7 +5,6 @@ namespace ld56;
 
 [GlobalClass]
 [Tool]
-
 public partial class Recipe : Resource {
   [Export]
   public string DisplayName { get; set; }

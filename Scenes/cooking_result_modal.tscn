@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://i00laluysubd"]
+[gd_scene load_steps=6 format=3 uid="uid://cgco38xny3gof"]
 
 [ext_resource type="Script" path="res://Scripts/CookingResultModal.cs" id="1_hmcw3"]
-[ext_resource type="Theme" uid="uid://78lu3emfpwvq" path="res://Resources/RolodexTheme.tres" id="1_s3y3t"]
+[ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="1_s3y3t"]
 [ext_resource type="Texture2D" uid="uid://bg440vcgwhxaw" path="res://Assets/Dishes/recipe_placeholder.png" id="3_8308h"]
 [ext_resource type="Texture2D" uid="uid://cqvirr11ytt8x" path="res://Assets/UI/Glow2.png" id="3_kg2ew"]
 [ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="4_3ojxt"]
@@ -59,7 +59,7 @@ texture = ExtResource("3_8308h")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="Label" type="Label" parent="."]
+[node name="MealNameLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

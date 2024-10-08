@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=7 format=3 uid="uid://c87smxxy3vn6m"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=7 format=3 uid="uid://dplqj2yyhk0rm"]
 
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
 [ext_resource type="Resource" uid="uid://cigpmjqyop55p" path="res://Resources/Ingredients/Leaf.tres" id="2_7vgad"]

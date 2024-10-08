@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://cs5l2emloomes"]
+[gd_resource type="Resource" script_class="Recipe" load_steps=6 format=3 uid="uid://d2yc1uwn55bgv"]
 
 [ext_resource type="Script" path="res://Creature/Recipe.cs" id="1_recipe"]
 [ext_resource type="Texture2D" uid="uid://dyq0sfusekdyd" path="res://Assets/Dishes/Dish_Lactose-Omelet.png" id="2_icon"]
