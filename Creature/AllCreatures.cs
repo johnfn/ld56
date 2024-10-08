@@ -64,6 +64,7 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Frog_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Frog.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Frog.png"),
+    VoiceIndex = 1,
   };
 
   public static readonly CreatureData Rufus = new() {
@@ -78,6 +79,7 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Squirrel_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Squirrel.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Squirrel.png"),
+    VoiceIndex = 0,
   };
 
   public static readonly CreatureData Bonnie = new() {
@@ -92,6 +94,7 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Hamster-2_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Hamster-2.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Hamster-2.png"),
+    VoiceIndex = 3,
   };
 
   public static readonly CreatureData Poe = new() {
@@ -106,6 +109,7 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Squirrel-2_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Squirrel-2.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Squirrel-2.png"),
+    VoiceIndex = 4,
   };
 
   public static readonly CreatureData Speedy = new() {
@@ -120,6 +124,7 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Mouse-2_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Mouse-2.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Mouse-2.png"),
+    VoiceIndex = 5,
   };
 
   public static readonly CreatureData Lav = new() {
@@ -134,6 +139,7 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Chipmunk-2_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Chipmunk-2.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Chipmunk-2.png"),
+    VoiceIndex = 6,
   };
 
   public static readonly CreatureData Pip = new() {
@@ -148,6 +154,7 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Frog-2_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Frog-2.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Frog-2.png"),
+    VoiceIndex = 7,
   };
 
   public static readonly CreatureData Emily = new() {
@@ -162,6 +169,7 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Hamster_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Hamster.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Hamster.png"),
+    VoiceIndex = 8,
   };
 
   public static readonly CreatureData Tom = new() {
@@ -176,6 +184,7 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Det-Cat_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Detective-Cat.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Detective-Cat.png"),
+    VoiceIndex = 9,
   };
 
   public static readonly CreatureData Jerry = new() {
@@ -190,6 +199,7 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Mob-Mouse_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Mob-Mouse.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Mob-Mouse.png"),
+    VoiceIndex = 10,
   };
 
   public static readonly CreatureData StuartS = new() {
@@ -204,6 +214,7 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Mouse_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Mouse.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Mouse.png"),
+    VoiceIndex = 11,
   };
 
   public static readonly CreatureData MinnieS = new() {
@@ -218,6 +229,7 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Mouse_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Mouse.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Mouse.png"),
+    VoiceIndex = 12,
   };
 
   public static readonly CreatureData CarrieS = new() {
@@ -232,6 +244,7 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Mouse_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Mouse.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Mouse.png"),
+    VoiceIndex = 13,
   };
 
   public static readonly CreatureData HarryS = new() {
@@ -246,6 +259,7 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Mouse_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Mouse.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Mouse.png"),
+    VoiceIndex = 14,
   };
 
   public static readonly CreatureData GaryS = new() {
@@ -260,6 +274,7 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Mouse_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Mouse.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Mouse.png"),
+    VoiceIndex = 15,
   };
 
   public static readonly CreatureData TerryS = new() {
@@ -274,6 +289,7 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Mouse_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Mouse.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Mouse.png"),
+    VoiceIndex = 0,
   };
 
   public static readonly CreatureData SherryS = new() {
@@ -288,7 +304,9 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Mouse_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Mouse.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Mouse.png"),
+    VoiceIndex = 1,
   };
+
 
   public static readonly CreatureData MerryS = new() {
     DisplayName = "Merry Squeakins",
@@ -302,6 +320,7 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Mouse_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Mouse.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Mouse.png"),
+    VoiceIndex = 2,
   };
 
   public static readonly CreatureData PuffS = new() {
@@ -316,6 +335,7 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Mouse_Happy.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Mouse.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Mouse.png"),
+    VoiceIndex = 3,
   };
 
   public static readonly Dictionary<CreatureId, CreatureData> CreatureIdToData = new() {
