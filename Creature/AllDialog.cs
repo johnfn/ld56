@@ -316,13 +316,8 @@ public static class AllDialog {
 
   // Speedy
   public static List<IDialogItem> Speedy = [
-<<<<<<< HEAD
-    new DialogItem {
-      Text = "Gimme any flapjack! I gotta carbo-load!", Speaker = CreatureId.Speedy},
-=======
   new DialogItem {
       Text = "Gimme a flapjack! I gotta carbo-load!", Speaker = CreatureId.Speedy},
->>>>>>> 768186db0645e1b039556ee51733e001206acc0f
     new DialogItem {
       Text = "Any toppings in particular?", Speaker = CreatureId.None},
     new DialogItem {
@@ -372,7 +367,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "Uh... what did you mean by this?", Speaker = CreatureId.None},
         new DialogItem {
-      Text = "Well, I never! Some philistines simply cannot appreciate poetry. An omelet of vegetable, if you do so please.", Speaker = CreatureId.Emily},
+      Text = "Well, I never! Some philistines simply cannot appreciate poetry. An [color=af973e]omelet of vegetable[/color], if you do so please.", Speaker = CreatureId.Emily},
     new DialogItem {
       Text = "Oh, sure. Coming right up!", Speaker = CreatureId.None,
       OnComplete = async (CreatureId creatureId) => {
@@ -381,8 +376,41 @@ public static class AllDialog {
     }
 ];
 
+  public static List<IDialogItem> Emily2 = [
+    new DialogItem {
+      Text = "Ah...", Speaker = CreatureId.Emily},   
+    new DialogItem {
+      Text = "A hearty quaff should tickle and delight\nWith sav’riness distilled from shade of night.", Speaker = CreatureId.Emily},
+    new DialogItem {
+      Text = "Uh... what did you mean by this?", Speaker = CreatureId.None},   
+        new DialogItem {
+      Text = "Unbelievable! Read a book—I beseech you. Please bring me [color=af3e48]soup of richest tomato[/color], posthaste.", Speaker = CreatureId.Emily},
+    new DialogItem {
+      Text = "Oh, sure. Coming right up!", Speaker = CreatureId.None,
+      OnComplete = async (CreatureId creatureId) => {
+        var recipe = await CookingScreen.Cook([IngredientId.Egg, IngredientId.Onion, IngredientId.Mushroom]);
+      }
+    }
+  ];
 
-  // StuartS
+  public static List<IDialogItem> Emily3 = [
+    new DialogItem {
+      Text = "えーっと…", Speaker = CreatureId.Emily},   
+    new DialogItem {
+      Text = "High-stacked prominence\nAn outer-seeded snowcap\nThe rain falls rosy", Speaker = CreatureId.Emily},
+    new DialogItem {
+      Text = "Uh... what did you mean by this?", Speaker = CreatureId.None},   
+        new DialogItem {
+      Text = "Why, I find myself in high dudgeon at your continued illiteracy! A [color=3e77af]strawberry flapjack[/color] is what I require at this time.", Speaker = CreatureId.Emily},
+    new DialogItem {
+      Text = "Oh, sure. Coming right up!", Speaker = CreatureId.None,
+      OnComplete = async (CreatureId creatureId) => {
+        var recipe = await CookingScreen.Cook([IngredientId.Egg, IngredientId.Onion, IngredientId.Mushroom]);
+      }
+    }
+  ];
+  
+// StuartS
   public static List<IDialogItem> StuartS = [
   new DialogItem {
       Text = "Mr. Squeakins, it’s nice to see you!", Speaker = CreatureId.None},

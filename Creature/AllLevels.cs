@@ -77,8 +77,19 @@ public static class AllLevels {
 
       new SpawnedCreature {
         Data = AllCreatures.Tom,
-        ReservationTime = Clock.GetTimeFromString("10:00 AM"),
+        ReservationTime = Clock.GetTimeFromString("12:01 AM"),
         GetDialog = () => AllDialog.Tom,
+
+        State = CreatureState.NotSpawnedYet,
+        Instance = null,
+        CurrentScreen = CurrentScreen.Interior,
+        SelectedChair = null,
+      },
+
+      new SpawnedCreature {
+        Data = AllCreatures.Speedy,
+        ReservationTime = Clock.GetTimeFromString("2:00 PM"),
+        GetDialog = () => AllDialog.Speedy,
 
         State = CreatureState.NotSpawnedYet,
         Instance = null,
@@ -89,21 +100,12 @@ public static class AllLevels {
 
     // Day 3
     [
+      
+
       new SpawnedCreature {
-        Data = AllCreatures.Speedy,
+        Data = AllCreatures.Emily,
         ReservationTime = Clock.GetTimeFromString("8:00 AM"),
-        GetDialog = () => AllDialog.Speedy,
-
-        State = CreatureState.NotSpawnedYet,
-        Instance = null,
-        CurrentScreen = CurrentScreen.Interior,
-        SelectedChair = null,
-      },
-
-      new SpawnedCreature {
-        Data = AllCreatures.Lav,
-        ReservationTime = Clock.GetTimeFromString("10:00 AM"),
-        GetDialog = () => AllDialog.Lav,
+        GetDialog = () => AllDialog.Emily,
 
         State = CreatureState.NotSpawnedYet,
         Instance = null,
@@ -113,8 +115,19 @@ public static class AllLevels {
 
       new SpawnedCreature {
         Data = AllCreatures.Jerry,
-        ReservationTime = Clock.GetTimeFromString("12:01 PM"),
+        ReservationTime = Clock.GetTimeFromString("10:00 PM"),
         GetDialog = () => AllDialog.Jerry,
+
+        State = CreatureState.NotSpawnedYet,
+        Instance = null,
+        CurrentScreen = CurrentScreen.Interior,
+        SelectedChair = null,
+      },
+
+      new SpawnedCreature {
+        Data = AllCreatures.Hazel,
+        ReservationTime = Clock.GetTimeFromString("12:01 AM"),
+        GetDialog = () => AllDialog.Hazel2,
 
         State = CreatureState.NotSpawnedYet,
         Instance = null,
@@ -139,7 +152,7 @@ public static class AllLevels {
       new SpawnedCreature {
         Data = AllCreatures.Emily,
         ReservationTime = Clock.GetTimeFromString("10:00 AM"),
-        GetDialog = () => AllDialog.Lav,
+        GetDialog = () => AllDialog.Emily2,
 
         State = CreatureState.NotSpawnedYet,
         Instance = null,
@@ -156,7 +169,18 @@ public static class AllLevels {
         Instance = null,
         CurrentScreen = CurrentScreen.Interior,
         SelectedChair = null,
-      }
+      },
+
+      new SpawnedCreature {
+        Data = AllCreatures.Lav,
+        ReservationTime = Clock.GetTimeFromString("12:00 PM"),
+        GetDialog = () => AllDialog.Lav,
+
+        State = CreatureState.NotSpawnedYet,
+        Instance = null,
+        CurrentScreen = CurrentScreen.Interior,
+        SelectedChair = null,
+      },
     ]
   ];
 
