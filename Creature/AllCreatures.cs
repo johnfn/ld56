@@ -19,24 +19,8 @@ public static class AllCreatures {
     Icon = GD.Load<Texture2D>("res://Assets/UI/UI_Character-Chipmunk_Neutral.png"),
     FullBodyTexture = GD.Load<Texture2D>("res://Assets/Characters/Character_Chipmunk.png"),
     DialogPortraitTexture = GD.Load<Texture2D>("res://Assets/UI/UI_Portrait_Chipmunk.png"),
-    MealResults = new() {
-      [MealQuality.Perfect] = new MealResult {
-        Text = ["That meal is PERFECT!", "Here, take 10 gold."],
-        Result = () => {
-          GameState.Gold += 10;
-        }
-      },
-      [MealQuality.Close] = new MealResult {
-        Text = ["Uhh...."],
-        Result = () => { }
-      },
-      [MealQuality.Miss] = new MealResult {
-        Text = ["DIE IN A FIRE."],
-        Result = () => {
-          GameState.Gold = Math.Max(GameState.Gold - 5, 0);
-        }
-      }
-    }
+
+
   };
 
   public static readonly CreatureData Hazel = new() {

@@ -60,7 +60,8 @@ public partial class CookingScreen : Sprite2D {
   }
 
   public static async Task<Recipe> Cook(
-    List<IngredientId>? desiredIngredients = null
+    List<IngredientId>? desiredIngredients = null,
+    Dictionary<MealQuality, MealResult>? mealResults = null
   ) {
     desiredIngredients ??= [];
 

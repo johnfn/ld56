@@ -37,8 +37,6 @@ public partial class CreatureData : Resource {
   [Export]
   public CreatureId Id { get; set; }
 
-  public Dictionary<MealQuality, MealResult> MealResults { get; set; } = new();
-
   // This will be set programmatically after loading
   [System.NonSerialized]
   public System.Func<SpawnedCreature, Node2D> Instantiate;

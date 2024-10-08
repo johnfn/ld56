@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -63,7 +64,27 @@ public static class AllDialog {
     new DialogItem {
       Text = "Can do!", Speaker = CreatureId.None,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Milk, IngredientId.Onion]);
+        var recipe = await CookingScreen.Cook(
+          [IngredientId.Milk, IngredientId.Onion],
+          new() {
+            [MealQuality.Perfect] = new MealResult {
+              Text = ["That meal is PERFECT!", "Here, take 10 gold."],
+              Result = () => {
+                GameState.Gold += 10;
+              }
+            },
+            [MealQuality.Close] = new MealResult {
+              Text = ["Uhh...."],
+              Result = () => { }
+            },
+            [MealQuality.Miss] = new MealResult {
+              Text = ["DIE IN A FIRE."],
+              Result = () => {
+                GameState.Gold = Math.Max(GameState.Gold - 5, 0);
+              }
+            }
+          }
+        );
       }
     }
   ];
