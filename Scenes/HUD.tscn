@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://6tml4ytuolux"]
+[gd_scene load_steps=19 format=3 uid="uid://6tml4ytuolux"]
 
 [ext_resource type="PackedScene" uid="uid://drdgs1oscnynx" path="res://Scenes/list_of_creatures.tscn" id="1_1te6p"]
 [ext_resource type="Script" path="res://Scripts/Hud.cs" id="1_eqs7q"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bvrs6e5qiytf8" path="res://Scenes/PauseMenu.tscn" id="13_kljas"]
 [ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="15_07pbw"]
 [ext_resource type="PackedScene" uid="uid://kf7466dsd6hh" path="res://Scenes/morning_modal.tscn" id="16_5ov87"]
+[ext_resource type="PackedScene" uid="uid://cugrbuj6bt0cm" path="res://click_on_a_chair_label.tscn" id="17_ekxv0"]
 [ext_resource type="PackedScene" uid="uid://cg5v0n2gr6cx3" path="res://Scenes/generic_dialog.tscn" id="17_oucxn"]
 
 [node name="HUD" type="CanvasLayer"]
@@ -160,6 +161,8 @@ offset_bottom = 611.0
 
 [node name="Menus" parent="." instance=ExtResource("13_kljas")]
 visible = false
+
+[node name="ClickOnAChairLabel" parent="." instance=ExtResource("17_ekxv0")]
 
 [node name="GenericDialog" parent="." instance=ExtResource("17_oucxn")]
 offset_left = 219.0

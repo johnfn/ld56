@@ -54,6 +54,12 @@ public partial class HighlightCircle : Sprite2D {
     if (GameState.Mode != GameMode.ChooseTable) {
       Modulate = new Color(1, 1, 1); // Normal (white)
     }
+
+    if (GameState.Mode == GameMode.ChooseTable) {
+      Nodes.Button.MouseDefaultCursorShape = Control.CursorShape.PointingHand;
+    } else {
+      Nodes.Button.MouseDefaultCursorShape = Control.CursorShape.Arrow;
+    }
   }
 
   private void OnMouseEntered() {

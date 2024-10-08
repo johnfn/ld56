@@ -118,6 +118,11 @@ public partial class Hud : CanvasLayer {
       get => _Menus ??= parent.GetNode<PauseMenu>("Menus");
     }
 
+    private ClickOnAChairLabel? _ClickOnAChairLabel;
+    public ClickOnAChairLabel ClickOnAChairLabel {
+      get => _ClickOnAChairLabel ??= parent.GetNode<ClickOnAChairLabel>("ClickOnAChairLabel");
+    }
+
     private GenericDialog? _GenericDialog;
     public GenericDialog GenericDialog {
       get => _GenericDialog ??= parent.GetNode<GenericDialog>("GenericDialog");

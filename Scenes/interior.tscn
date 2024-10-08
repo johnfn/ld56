@@ -28,22 +28,26 @@ position = Vector2(0, -1)
 [node name="Table1" type="Node2D" parent="Tables"]
 
 [node name="HighlightCircle" parent="Tables/Table1" instance=ExtResource("3_17ai5")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(487, 974)
 scale = Vector2(1, 1)
 texture = ExtResource("5_7hl3t")
 ChairFacing = 1
 
 [node name="HighlightCircle2" parent="Tables/Table1" instance=ExtResource("3_17ai5")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(734, 827)
 scale = Vector2(1, 1)
 texture = ExtResource("4_pbpnq")
 
 [node name="HighlightCircle3" parent="Tables/Table1" instance=ExtResource("3_17ai5")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(469, 710)
 scale = Vector2(1, 1)
 texture = ExtResource("4_pbpnq")
 
 [node name="HighlightCircle4" parent="Tables/Table1" instance=ExtResource("3_17ai5")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(203, 834)
 scale = Vector2(1, 1)
 texture = ExtResource("5_7hl3t")
@@ -52,23 +56,27 @@ ChairFacing = 1
 [node name="Table2" type="Node2D" parent="Tables"]
 
 [node name="HighlightCircle" parent="Tables/Table2" instance=ExtResource("3_17ai5")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(604, 494)
 scale = Vector2(1, 1)
 texture = ExtResource("5_7hl3t")
 ChairFacing = 1
 
 [node name="HighlightCircle1" parent="Tables/Table2" instance=ExtResource("3_17ai5")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(856, 613)
 scale = Vector2(1, 1)
 texture = ExtResource("5_7hl3t")
 ChairFacing = 1
 
 [node name="HighlightCircle2" parent="Tables/Table2" instance=ExtResource("3_17ai5")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(1115, 503)
 scale = Vector2(1, 1)
 texture = ExtResource("4_pbpnq")
 
 [node name="HighlightCircle3" parent="Tables/Table2" instance=ExtResource("3_17ai5")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(847, 354)
 scale = Vector2(1, 1)
 texture = ExtResource("4_pbpnq")
@@ -76,23 +84,27 @@ texture = ExtResource("4_pbpnq")
 [node name="Table3" type="Node2D" parent="Tables"]
 
 [node name="HighlightCircle5" parent="Tables/Table3" instance=ExtResource("3_17ai5")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(962, 839.5)
 scale = Vector2(1, 1)
 texture = ExtResource("5_7hl3t")
 ChairFacing = 1
 
 [node name="HighlightCircle6" parent="Tables/Table3" instance=ExtResource("3_17ai5")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(1215, 966)
 scale = Vector2(1, 1)
 texture = ExtResource("5_7hl3t")
 ChairFacing = 1
 
 [node name="HighlightCircle7" parent="Tables/Table3" instance=ExtResource("3_17ai5")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(1473, 848.5)
 scale = Vector2(1, 1)
 texture = ExtResource("4_pbpnq")
 
 [node name="HighlightCircle8" parent="Tables/Table3" instance=ExtResource("3_17ai5")]
+modulate = Color(1, 1, 1, 1)
 position = Vector2(1205, 699.5)
 scale = Vector2(1, 1)
 texture = ExtResource("4_pbpnq")
