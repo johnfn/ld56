@@ -1,6 +1,9 @@
 public enum CreatureId {
   None,
   Chip,
+  Stuart,
+  Minnie,
+  MinnieS,
   Tom,
   Hazel,
   Kero,
@@ -10,6 +13,7 @@ public enum CreatureId {
   Poe,
   Speedy,
   Lav,
+  Emily,
   Jerry,
   MrBlegg,
   MrChicken,
