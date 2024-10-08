@@ -37,6 +37,9 @@ public partial class CreatureData : Resource {
   [Export]
   public required CreatureId Id { get; set; }
 
+  [Export]
+  public int VoiceIndex { get; set; } = 0;
+
   // This will be set programmatically after loading
   [System.NonSerialized]
   public System.Func<SpawnedCreature, Node2D> Instantiate;

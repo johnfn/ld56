@@ -34,7 +34,7 @@ public partial class DialogBox : Control {
     return await Instance.ShowDialogHelper(dialog, creatureId, isFirstCall);
   }
 
-  private async Task ShowDialogText(string text) {
+  private async Task ShowDialogText(string text, CreatureId creatureId) {
     Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_PanelContainer_VBoxContainer_DialogText.Text = text;
 
     for (int i = 0; i < text.Length; i += 3) {
@@ -44,6 +44,8 @@ public partial class DialogBox : Control {
         if (_isMouseDown) {
           j += 3;
         }
+
+        SoundManager.Instance.PlayVoiceSfx(AllCreatures.CreatureIdToData[creatureId].VoiceIndex);
 
         if (GameState.HYPERSPEED) {
           break;
@@ -109,7 +111,7 @@ public partial class DialogBox : Control {
             Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_PanelContainer_VBoxContainer_DialogText.Text = dialogItem.Text;
             Nodes.DialogBox_HBoxContainer_CharacterDialogSprite.Texture = AllCreatures.CreatureIdToData[speakerId].DialogPortraitTexture;
 
-            await ShowDialogText(dialogItem.Text);
+            await ShowDialogText(dialogItem.Text, speakerId);
 
             if (dialogItem.OnComplete != null) {
               result = new DialogReturn { Next = (CreatureId creatureId) => dialogItem.OnComplete(creatureId) };
@@ -135,7 +137,7 @@ public partial class DialogBox : Control {
             }
 
             // show text
-            await ShowDialogText(dialogOptions.Text);
+            await ShowDialogText(dialogOptions.Text, speakerId);
 
             int? selectedOption = null;
 
