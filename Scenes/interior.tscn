@@ -21,10 +21,10 @@ texture = ExtResource("1_lirbk")
 centered = false
 
 [node name="InteriorAnimalSpawnArea" type="Area2D" parent="."]
-position = Vector2(60, 573)
+position = Vector2(198, 600)
 
 [node name="Shape" type="CollisionShape2D" parent="InteriorAnimalSpawnArea"]
-position = Vector2(190, 6)
+position = Vector2(52, 22)
 shape = SubResource("RectangleShape2D_gnt6k")
 
 [node name="Tables" type="Node2D" parent="."]
