@@ -106,6 +106,8 @@ public partial class CookingScreen : Sprite2D {
       await Instance.ToSignal(Instance.GetTree(), SceneTree.SignalName.ProcessFrame);
     }
 
+    Instance.Nodes.UI_CookingResultModal.Visible = false;
+
     Root.Instance.UpdateCurrentScreen(GameScreen.Restaurant);
 
     GameState.Mode = prevMode;
