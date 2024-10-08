@@ -17,6 +17,7 @@ public partial class ReservationCard : PanelContainer {
     public ReservationCardNodes(ReservationCard parent) {
       this.parent = parent;
     }
+    // Scene: ./Scenes/reservation_card.tscn
     private HBoxContainer? _HBoxContainer;
     public HBoxContainer HBoxContainer {
       get => _HBoxContainer ??= parent.GetNode<HBoxContainer>("HBoxContainer");

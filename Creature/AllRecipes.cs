@@ -15,9 +15,9 @@ public static class AllRecipes {
       Recipes.Add(recipe);
     }
 
-    GameState.UnlockedRecipes.Clear();
+    GameState.AllRecipes.Clear();
     foreach (var recipe in Recipes) {
-      GameState.UnlockedRecipes.Add(recipe);
+      GameState.AllRecipes.Add(recipe);
     }
   }
 

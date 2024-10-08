@@ -55,21 +55,18 @@ public partial class CookingScreen : Sprite2D {
       }
 
       _hasPressedCook = true;
-      Cook();
     };
 
     Initialize();
   }
 
   public static async Task<Recipe> Cook(
+    CreatureId diner,
     List<IngredientId>? desiredIngredients = null,
-    Dictionary<MealQuality, MealResult>? mealResults = null
+    Dictionary<MealQuality, List<IDialogItem>>? mealResponses = null
   ) {
     desiredIngredients ??= [];
-
-    // if (GameState.HYPERSPEED) {
-    //   return AllRecipes.ScrambledEggs;
-    // }
+    mealResponses ??= AllDialog.MealResponse;
 
     var prevMode = GameState.Mode;
     GameState.Mode = GameMode.Cooking;
@@ -96,7 +93,12 @@ public partial class CookingScreen : Sprite2D {
 
     CookingList.ForEach(id => GameState.OwnedIngredients.Remove(AllIngredients.Ingredients.Find(i => i.Id == id)));
 
-    Instance.ShowCookingCompleteModal(result);
+    var isNewRecipe = !GameState.KnownRecipes.Any(r => r.DisplayName == result.DisplayName);
+    if (isNewRecipe) {
+      GameState.KnownRecipes.Add(result);
+    }
+
+    Instance.ShowCookingCompleteModal(result, isNewRecipe);
 
     // wait for user to close the modal
     var hasClosed = false;
@@ -109,6 +111,44 @@ public partial class CookingScreen : Sprite2D {
     Instance.Nodes.UI_CookingResultModal.Visible = false;
 
     Root.Instance.UpdateCurrentScreen(GameScreen.Restaurant);
+
+    // Grade the results
+
+    var copiedList = result.Ingredients.ToList();
+    var copiedDesiredIngredients = desiredIngredients.ToList();
+
+    var numCorrect = 0;
+
+    foreach (var ingredient in copiedList) {
+      if (copiedDesiredIngredients.Any(id => id == ingredient.Id)) {
+        var match = copiedDesiredIngredients.FirstOrDefault(id => id == ingredient.Id);
+
+        numCorrect++;
+        copiedDesiredIngredients.Remove(match);
+      }
+    }
+
+    var grade = MealQuality.Miss;
+
+    if (numCorrect == desiredIngredients.Count) {
+      grade = MealQuality.Perfect;
+    } else if (numCorrect > 0) {
+      grade = MealQuality.Close;
+    } else {
+      grade = MealQuality.Miss;
+    }
+
+    if (desiredIngredients.Count == 0) {
+      grade = MealQuality.Perfect;
+    }
+
+    GameState.Mode = GameMode.Dialog;
+    await DialogBox.ShowDialog([
+      new DialogItem { Text = $"Here's your {result.DisplayName}!", Speaker = CreatureId.You },
+      new DialogItem { Text = "(...they begin eating...)", Speaker = diner },
+      ..mealResponses[grade]
+    ], CreatureId.You, true);
+    GameState.Mode = GameMode.Cooking;
 
     GameState.Mode = prevMode;
 
@@ -162,8 +202,9 @@ public partial class CookingScreen : Sprite2D {
     };
   }
 
-  private void ShowCookingCompleteModal(Recipe result) {
+  private void ShowCookingCompleteModal(Recipe result, bool isNewRecipe) {
     Nodes.UI_CookingResultModal.Visible = true;
+    Nodes.UI_CookingResultModal.Nodes.RecipeAddedLabel.Visible = isNewRecipe;
 
     if (result.Icon != null) {
       Nodes.UI_CookingResultModal.Nodes.TextureRect.Texture = result.Icon;

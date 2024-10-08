@@ -38,6 +38,11 @@ public partial class CookingResultModal : Control {
       get => _MealNameLabel ??= parent.GetNode<Label>("MealNameLabel");
     }
 
+    private Label? _RecipeAddedLabel;
+    public Label RecipeAddedLabel {
+      get => _RecipeAddedLabel ??= parent.GetNode<Label>("RecipeAddedLabel");
+    }
+
   }
 
   public CookingResultModalNodes? _Nodes;

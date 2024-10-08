@@ -47,7 +47,9 @@ public static class GameState {
   public static List<CustomerResult> CustomerResultsForDay { get; set; } = [];
   public static float CurrentDayTime { get; set; } = 0f;
 
-  public static List<Recipe> UnlockedRecipes = [
+  public static List<Recipe> AllRecipes = [
+  ];
+  public static List<Recipe> KnownRecipes = [
   ];
 
   public static List<CreatureData> KnownGuests = [

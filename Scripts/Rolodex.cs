@@ -84,7 +84,7 @@ public partial class Rolodex : ColorRect {
   }
 
   public void AddRecipeEntry(Recipe recipe) {
-    GameState.UnlockedRecipes.Add(recipe);
+    GameState.AllRecipes.Add(recipe);
     PopulatePages();
   }
 
@@ -100,21 +100,38 @@ public partial class Rolodex : ColorRect {
     return creatureEntry;
   }
 
-  private RolodexRecipeEntry CreateRecipeEntry(Recipe recipe) {
+  private RolodexRecipeEntry CreateRecipeEntry(Recipe recipe, bool isKnown) {
     var recipeEntry = GD.Load<PackedScene>("res://Scenes/RolodexRecipeEntry.tscn").Instantiate<RolodexRecipeEntry>();
     if (recipe.Icon != null) {
       recipeEntry.Nodes.HBoxContainer_TextureRect.Texture = recipe.Icon;
     }
-    recipeEntry.Nodes.HBoxContainer_TextContainer_Name.Text = recipe.DisplayName;
-    recipeEntry.Nodes.HBoxContainer_TextContainer_Description.Text = recipe.Description;
 
+    if (isKnown) {
+      recipeEntry.Nodes.HBoxContainer_TextureRect.Modulate = new Color(1, 1, 1, 1);
+    } else {
+      recipeEntry.Nodes.HBoxContainer_TextureRect.Modulate = new Color(0, 0, 0, 1);
+    }
+
+
+    recipeEntry.Nodes.HBoxContainer_TextContainer_Name.Text = isKnown ? recipe.DisplayName : "???";
+    recipeEntry.Nodes.HBoxContainer_TextContainer_Description.Text = isKnown ? recipe.Description : "This recipe is a mystery to you!";
 
     recipeEntry.Nodes.HBoxContainer_TextContainer_Ingredients.GetChildren().ToList().ForEach(n => n.QueueFree());
     // Loop through the Godot.Collections.Array
     foreach (var ingredient in recipe.Ingredients) {
       var ingredientEntry = GD.Load<PackedScene>("res://Scenes/RolodexRecipeEntry_Ingredient.tscn").Instantiate<RolodexRecipeEntryIngredient>();
-      ingredientEntry.Texture = ingredient.Icon;
+
+      if (isKnown) {
+        ingredientEntry.Texture = ingredient.Icon;
+      }
+
       recipeEntry.Nodes.HBoxContainer_TextContainer_Ingredients.AddChild(ingredientEntry);
+
+      if (isKnown) {
+        ingredientEntry.Modulate = new Color(1, 1, 1, 1);
+      } else {
+        ingredientEntry.Modulate = new Color(0, 0, 0, 1f);
+      }
     }
 
     return recipeEntry;
@@ -160,7 +177,7 @@ public partial class Rolodex : ColorRect {
         Nodes.BookTexture_NextPageButton.Visible = true;
       }
     } else if (Tab == RolodexTab.Recipes) {
-      if ((Page + 2) * 4 >= GameState.UnlockedRecipes.Count) {
+      if ((Page + 2) * 4 >= GameState.AllRecipes.Count) {
         Nodes.BookTexture_NextPageButton.Visible = false;
       } else {
         Nodes.BookTexture_NextPageButton.Visible = true;
@@ -212,7 +229,7 @@ public partial class Rolodex : ColorRect {
     } else if (Tab == RolodexTab.Recipes) {
       // TODO: Populate the recipes page.
       for (int i = page1StartIndex; i < page2StartIndex; i++) {
-        if (i >= GameState.UnlockedRecipes.Count) {
+        if (i >= GameState.AllRecipes.Count) {
           break;
         }
 
@@ -222,11 +239,14 @@ public partial class Rolodex : ColorRect {
           Nodes.BookTexture_PageContents_Page1_Page1.AddChild(separator);
         }
 
-        Nodes.BookTexture_PageContents_Page1_Page1.AddChild(CreateRecipeEntry(GameState.UnlockedRecipes[i]));
+        Nodes.BookTexture_PageContents_Page1_Page1.AddChild(CreateRecipeEntry(
+          GameState.AllRecipes[i],
+          GameState.KnownRecipes.Any(r => r.DisplayName == GameState.AllRecipes[i].DisplayName)
+        ));
       }
 
       for (int i = page2StartIndex; i < page2EndIndex; i++) {
-        if (i >= GameState.UnlockedRecipes.Count) {
+        if (i >= GameState.AllRecipes.Count) {
           break;
         }
 
@@ -236,7 +256,10 @@ public partial class Rolodex : ColorRect {
           Nodes.BookTexture_PageContents_Page2_Page2.AddChild(separator);
         }
 
-        Nodes.BookTexture_PageContents_Page2_Page2.AddChild(CreateRecipeEntry(GameState.UnlockedRecipes[i]));
+        Nodes.BookTexture_PageContents_Page2_Page2.AddChild(CreateRecipeEntry(
+          GameState.AllRecipes[i],
+          GameState.KnownRecipes.Any(r => r.DisplayName == GameState.AllRecipes[i].DisplayName)
+        ));
       }
     } else if (Tab == RolodexTab.Ingredients) {
 

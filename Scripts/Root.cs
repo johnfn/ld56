@@ -56,7 +56,7 @@ public partial class Root : Node2D {
     };
 
     Nodes.HUD.Nodes.Debug_DebugShowCook.Pressed += async () => {
-      await CookingScreen.Cook();
+      await CookingScreen.Cook(CreatureId.You);
     };
 
     Nodes.HUD.Nodes.Debug_DebugShowShop.Pressed += () => {
@@ -206,7 +206,7 @@ public partial class Root : Node2D {
         GameState.HasShownInteriorTutorial = true;
 
         GenericDialog.Instance.Show(
-          "You're in the restaurant! Here, you can seat guests at a table.\n\nFirst, click on a guest, and then click on a seat. Once the tiny creature sits down, you can click on them again to start talking to them."
+          "You're in the restaurant! Here, you can seat guests at a table.\n\nFirst, click on a guest, and then click on a seat. Once the tiny creature sits down, you can click on them again to take their order."
         );
       }
     }

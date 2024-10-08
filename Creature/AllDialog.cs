@@ -5,25 +5,35 @@ using System.Threading.Tasks;
 namespace ld56;
 
 public static class AllDialog {
-
   //This is the response given by all NPCs to their food
-  public static readonly Dictionary<MealQuality, MealResult> MealResponse = new() {
-    [MealQuality.Perfect] = new MealResult {
-      Text = ["That meal is PERFECT!", "Here, take 10 gold."],
-      Result = () => {
-        GameState.Gold += 10;
+
+  public static readonly Dictionary<MealQuality, List<IDialogItem>> MealResponse = new() {
+    [MealQuality.Perfect] = [
+      new DialogItem { Text = "That seemed like the [color=purple]perfect meal[/color]!", Speaker = CreatureId.You },
+      new DialogItem { Text = "They gave me 10 gold as a tip.", Speaker = CreatureId.You,
+        OnComplete = async (CreatureId creatureId) => {
+          GameState.Gold += 10;
+        }
+      },
+    ],
+
+    [MealQuality.Close] = [
+      new DialogItem { Text = "That meal seemed [color=orange]pretty close[/color].", Speaker = CreatureId.You },
+      new DialogItem { Text = "They gave me a 5 gold tip.", Speaker = CreatureId.You,
+        OnComplete = async (CreatureId creatureId) => {
+          GameState.Gold += 5;
+        }
       }
-    },
-    [MealQuality.Close] = new MealResult {
-      Text = ["Uhh...."],
-      Result = () => { }
-    },
-    [MealQuality.Miss] = new MealResult {
-      Text = ["DIE IN A FIRE."],
-      Result = () => {
-        GameState.Gold = Math.Max(GameState.Gold - 5, 0);
+    ],
+
+    [MealQuality.Miss] = [
+      new DialogItem { Text = "What was I thinking? That [color=gray]wasn't even close[/color] to what they wanted...", Speaker = CreatureId.You },
+      new DialogItem { Text = "They gave me a 3 gold tip.", Speaker = CreatureId.You,
+        OnComplete = async (CreatureId creatureId) => {
+          GameState.Gold += 3;
+        }
       }
-    }
+    ]
   };
 
   //DIALOGUE STARTS HERE
@@ -70,7 +80,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "...coming right up...", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Egg, IngredientId.Onion, IngredientId.Mushroom], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Egg, IngredientId.Onion, IngredientId.Mushroom], MealResponse);
       },
     }
   ];
@@ -87,6 +97,7 @@ public static class AllDialog {
       Text = "Can do!", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
         var recipe = await CookingScreen.Cook(
+          creatureId,
           [IngredientId.Milk, IngredientId.Onion],
           MealResponse
         );
@@ -108,7 +119,9 @@ public static class AllDialog {
     new DialogItem {
       Text = "Absolutely!", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Milk, IngredientId.Onion], MealResponse);
+        var recipe = await CookingScreen.Cook(
+          creatureId,
+          [IngredientId.Milk, IngredientId.Onion], MealResponse);
       }
     }
   ];
@@ -135,7 +148,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "I... okay, sorry!", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Flour], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Flour], MealResponse);
       }
     }
   ];
@@ -152,7 +165,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "Coming right up!", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Egg], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Egg], MealResponse);
       }
     }
   ];
@@ -169,7 +182,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "Oh boy...", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Egg, IngredientId.Milk, IngredientId.Cheese], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Egg, IngredientId.Milk, IngredientId.Cheese], MealResponse);
       }
     }
   ];
@@ -186,7 +199,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "Coming right up!", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Leaf], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Leaf], MealResponse);
       }
     }
   ];
@@ -201,7 +214,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "Can do.", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Egg], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Egg], MealResponse);
       }
     }
   ];
@@ -218,10 +231,10 @@ public static class AllDialog {
     new DialogItem {
       Text = "Oh. Coming right up, I guess?", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Leaf], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Leaf], MealResponse);
       }
     }
-];
+  ];
 
   public static List<IDialogItem> Rufus2 = [
   new DialogItem {
@@ -233,10 +246,10 @@ public static class AllDialog {
     new DialogItem {
       Text = "Uh, I’ll get right on that, then.", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Blueberry], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Blueberry], MealResponse);
       }
     }
-];
+  ];
 
 
   // Bonnie
@@ -250,10 +263,10 @@ public static class AllDialog {
     new DialogItem {
       Text = "Why, of course!", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Flour], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Flour], MealResponse);
       }
     }
-];
+  ];
 
   public static List<IDialogItem> Bonnie2 = [
   new DialogItem {
@@ -265,10 +278,10 @@ public static class AllDialog {
     new DialogItem {
       Text = "On my way!", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Milk], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Milk], MealResponse);
       }
     }
-];
+  ];
 
 
   // Poe
@@ -290,10 +303,10 @@ public static class AllDialog {
     new DialogItem {
       Text = "Uh, sure.", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Leaf], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Leaf], MealResponse);
       }
     }
-];
+  ];
 
   public static List<IDialogItem> Poe2 = [
   new DialogItem {
@@ -313,10 +326,10 @@ public static class AllDialog {
     new DialogItem {
       Text = "I guess I'll get that for you...", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Milk, IngredientId.Tomato], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Milk, IngredientId.Tomato], MealResponse);
       }
     }
-];
+  ];
 
 
   // Speedy
@@ -330,10 +343,10 @@ public static class AllDialog {
     new DialogItem {
       Text = "Right away!", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Flour], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Flour], MealResponse);
       }
     }
-];
+  ];
 
 
   // Lav
@@ -349,10 +362,10 @@ public static class AllDialog {
     new DialogItem {
       Text = "Whatever you say...", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Nectar], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Nectar], MealResponse);
       }
     }
-];
+  ];
 
 
   // Pip
@@ -376,10 +389,10 @@ public static class AllDialog {
     new DialogItem {
       Text = "S-sure.", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [], MealResponse);
       }
     }
-];
+  ];
 
 
   // Emily
@@ -395,10 +408,10 @@ public static class AllDialog {
     new DialogItem {
       Text = "Oh, sure. Coming right up!", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Egg, IngredientId.Onion, IngredientId.Mushroom], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Egg, IngredientId.Onion, IngredientId.Mushroom], MealResponse);
       }
     }
-];
+  ];
 
   public static List<IDialogItem> Emily2 = [
     new DialogItem {
@@ -412,7 +425,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "Oh, sure. Coming right up!", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Egg, IngredientId.Onion, IngredientId.Mushroom], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Egg, IngredientId.Onion, IngredientId.Mushroom], MealResponse);
       }
     }
   ];
@@ -429,7 +442,7 @@ public static class AllDialog {
     new DialogItem {
       Text = "Oh, sure. Coming right up!", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Egg, IngredientId.Onion, IngredientId.Mushroom], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Egg, IngredientId.Onion, IngredientId.Mushroom], MealResponse);
       }
     }
   ];
@@ -447,10 +460,10 @@ public static class AllDialog {
     new DialogItem {
       Text = "Of course!", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Flour, IngredientId.Nectar, IngredientId.Egg, IngredientId.Milk], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Flour, IngredientId.Nectar, IngredientId.Egg, IngredientId.Milk], MealResponse);
       }
     }
-];
+  ];
 
 
   // MinnieS
@@ -468,10 +481,10 @@ public static class AllDialog {
     new DialogItem {
       Text = "Of course!", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Leaf, IngredientId.Turnip, IngredientId.Tomato], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Leaf, IngredientId.Turnip, IngredientId.Tomato], MealResponse);
       }
     }
-];
+  ];
 
 
   // CarrieS
@@ -487,10 +500,10 @@ public static class AllDialog {
     new DialogItem {
       Text = "You got it!", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Milk], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Milk], MealResponse);
       }
     }
-];
+  ];
 
 
   // Harry Squeakins
@@ -508,10 +521,10 @@ public static class AllDialog {
     new DialogItem {
       Text = "Wait, WHAT??? The WHAT leg of your WHAT tour?????", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Milk], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Milk], MealResponse);
       }
     }
-];
+  ];
 
 
   // Gary Squeakins
@@ -531,10 +544,10 @@ public static class AllDialog {
     new DialogItem {
       Text = "OK.", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Leaf], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Leaf], MealResponse);
       }
     }
-];
+  ];
 
 
   // Terry Squeakins
@@ -552,10 +565,10 @@ public static class AllDialog {
     new DialogItem {
       Text = "Coming right up!", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Milk], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Milk], MealResponse);
       }
     }
-];
+  ];
 
 
   // Sherry Squeakins
@@ -573,10 +586,10 @@ public static class AllDialog {
     new DialogItem {
       Text = "You got it!", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Egg, IngredientId.Milk, IngredientId.Cheese], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Egg, IngredientId.Milk, IngredientId.Cheese], MealResponse);
       }
     }
-];
+  ];
 
 
   // Merry Squeakins
@@ -594,10 +607,10 @@ public static class AllDialog {
     new DialogItem {
       Text = "Sure!", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Milk, IngredientId.Bean], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Milk, IngredientId.Bean], MealResponse);
       }
     }
-];
+  ];
 
 
   // Puff Squeakins
@@ -611,10 +624,10 @@ public static class AllDialog {
     new DialogItem {
       Text = "Sure!", Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook([IngredientId.Egg], MealResponse);
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Egg], MealResponse);
       }
     }
-];
+  ];
 
 
 
@@ -625,7 +638,7 @@ public static class AllDialog {
       Text = "Anything with a [green]leaf[/color] would be great.",
       Speaker = CreatureId.MrChicken,
       OnComplete = async (CreatureId creatureId) => {
-        var recipe = await CookingScreen.Cook();
+        var recipe = await CookingScreen.Cook(creatureId, [IngredientId.Leaf], MealResponse);
       }
     },
   ];
@@ -642,7 +655,7 @@ public static class AllDialog {
         new DialogOption {
           OptionText = "[color=green]Start cooking[/color]",
           OnSelect = async (CreatureId creatureId) => {
-            var result = await CookingScreen.Cook();
+            var result = await CookingScreen.Cook(creatureId, [IngredientId.Milk], MealResponse);
 
             await DialogBox.ShowDialog([
               new DialogItem { Text = $"I made you some {result.DisplayName}", Speaker = CreatureId.You} ,
@@ -774,7 +787,7 @@ public static class AllDialog {
       Text = "Please make me some food.",
       Speaker = CreatureId.You,
       OnComplete = async (CreatureId creatureId) => {
-        await CookingScreen.Cook();
+        await CookingScreen.Cook(creatureId, [IngredientId.Flour, IngredientId.Nectar, IngredientId.Egg, IngredientId.Milk], MealResponse);
       }
     },
   };
