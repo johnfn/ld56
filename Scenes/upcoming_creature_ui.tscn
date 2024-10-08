@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://epptr1vhg57"]
+[gd_scene load_steps=8 format=3 uid="uid://epptr1vhg57"]
 
+[ext_resource type="Material" uid="uid://d2cawldofdxn1" path="res://GlowMaterial.tres" id="1_0rild"]
 [ext_resource type="Texture2D" uid="uid://biug4mknu660d" path="res://Assets/UI/UI_Character-Squirrel_Neutral.png" id="1_s7112"]
 [ext_resource type="Theme" uid="uid://4tw7tplf15cj" path="res://Resources/RolodexTheme.tres" id="1_tghvx"]
 [ext_resource type="Script" path="res://Scripts/UpcomingCreatureUi.cs" id="1_ufo37"]
@@ -13,6 +14,7 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 
 [node name="UpcomingCreatureUi" type="TextureRect"]
+material = ExtResource("1_0rild")
 custom_minimum_size = Vector2(64, 64)
 offset_right = 64.0
 offset_bottom = 64.0

@@ -19,7 +19,7 @@ public partial class ListOfCreatures : PanelContainer {
   }
 
   public void Initialize(List<SpawnedCreature> creatures) {
-    foreach (var child in Nodes.MarginContainer_CreatureList.GetChildren()) {
+    foreach (var child in Nodes.MarginContainer_VBoxContainer_CreatureList.GetChildren()) {
       child.QueueFree();
     }
 
@@ -32,7 +32,7 @@ public partial class ListOfCreatures : PanelContainer {
         UiElement = ui
       });
 
-      Nodes.MarginContainer_CreatureList.AddChild(ui);
+      Nodes.MarginContainer_VBoxContainer_CreatureList.AddChild(ui);
     }
   }
 

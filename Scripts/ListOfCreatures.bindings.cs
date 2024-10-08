@@ -17,14 +17,25 @@ public partial class ListOfCreatures : PanelContainer {
     public ListOfCreaturesNodes(ListOfCreatures parent) {
       this.parent = parent;
     }
+    // Scene: ./Scenes/list_of_creatures.tscn
     private MarginContainer? _MarginContainer;
     public MarginContainer MarginContainer {
       get => _MarginContainer ??= parent.GetNode<MarginContainer>("MarginContainer");
     }
 
-    private HBoxContainer? _MarginContainer_CreatureList;
-    public HBoxContainer MarginContainer_CreatureList {
-      get => _MarginContainer_CreatureList ??= parent.GetNode<HBoxContainer>("MarginContainer/CreatureList");
+    private VBoxContainer? _MarginContainer_VBoxContainer;
+    public VBoxContainer MarginContainer_VBoxContainer {
+      get => _MarginContainer_VBoxContainer ??= parent.GetNode<VBoxContainer>("MarginContainer/VBoxContainer");
+    }
+
+    private Label? _MarginContainer_VBoxContainer_Label;
+    public Label MarginContainer_VBoxContainer_Label {
+      get => _MarginContainer_VBoxContainer_Label ??= parent.GetNode<Label>("MarginContainer/VBoxContainer/Label");
+    }
+
+    private HBoxContainer? _MarginContainer_VBoxContainer_CreatureList;
+    public HBoxContainer MarginContainer_VBoxContainer_CreatureList {
+      get => _MarginContainer_VBoxContainer_CreatureList ??= parent.GetNode<HBoxContainer>("MarginContainer/VBoxContainer/CreatureList");
     }
 
   }

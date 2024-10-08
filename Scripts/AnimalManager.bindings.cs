@@ -17,6 +17,7 @@ public partial class AnimalManager : Node2D {
     public AnimalManagerNodes(AnimalManager parent) {
       this.parent = parent;
     }
+    // Scene: ./Scenes/animal_manager.tscn
   }
 
   public AnimalManagerNodes? _Nodes;

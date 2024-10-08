@@ -18,10 +18,12 @@ public partial class UpcomingCreatureUi : TextureRect {
 
     MouseEntered += () => {
       Nodes.Popover.Visible = true;
+      (Material as ShaderMaterial).Set("shader_parameter/width", 10.0);
     };
 
     MouseExited += () => {
       Nodes.Popover.Visible = false;
+      (Material as ShaderMaterial).Set("shader_parameter/width", 0.0);
     };
 
     // Connect the GuiInput event
@@ -82,13 +84,17 @@ public partial class UpcomingCreatureUi : TextureRect {
     };
 
     if (creature.State == CreatureState.NotSpawnedYet) {
-      SelfModulate = new Color(0.5f, 0.5f, 0.5f, 1);
+      (Material as ShaderMaterial).Set("shader_parameter/self_modulate", new Color(0.5f, 0.5f, 0.5f, 1));
     } else {
-      SelfModulate = new Color(1, 1, 1, 1);
+      (Material as ShaderMaterial).Set("shader_parameter/self_modulate", new Color(1, 1, 1, 1));
     }
 
     if (creature.State == CreatureState.WaitForEveryoneToFinish) {
       Nodes.Checkmark.Visible = true;
+    }
+
+    if (creature.State != CreatureState.NotSpawnedYet) {
+      MouseDefaultCursorShape = CursorShape.PointingHand;
     }
   }
 }
