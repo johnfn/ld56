@@ -18,6 +18,11 @@ public partial class Interior : Sprite2D {
       this.parent = parent;
     }
     // Scene: ./Scenes/interior.tscn
+    private Sprite2D? _bg;
+    public Sprite2D bg {
+      get => _bg ??= parent.GetNode<Sprite2D>("bg");
+    }
+
     private Area2D? _InteriorAnimalSpawnArea;
     public Area2D InteriorAnimalSpawnArea {
       get => _InteriorAnimalSpawnArea ??= parent.GetNode<Area2D>("InteriorAnimalSpawnArea");
@@ -121,6 +126,11 @@ public partial class Interior : Sprite2D {
     private HighlightCircle? _Tables_Table3_HighlightCircle8;
     public HighlightCircle Tables_Table3_HighlightCircle8 {
       get => _Tables_Table3_HighlightCircle8 ??= parent.GetNode<HighlightCircle>("Tables/Table3/HighlightCircle8");
+    }
+
+    private CreatureScene? _CreatureScene;
+    public CreatureScene CreatureScene {
+      get => _CreatureScene ??= parent.GetNode<CreatureScene>("CreatureScene");
     }
 
   }

@@ -3,17 +3,22 @@
 [ext_resource type="Texture2D" uid="uid://cdu2eeyybayuf" path="res://Assets/Backgrounds/Interior_BG_v2.png" id="1_lirbk"]
 [ext_resource type="Script" path="res://Scripts/Interior.cs" id="2_nxgdb"]
 [ext_resource type="PackedScene" uid="uid://0pvu3gdqahdj" path="res://Scenes/highlight_circle.tscn" id="3_17ai5"]
-[ext_resource type="Texture2D" uid="uid://5ift8685ndkk" path="res://Assets/Backgrounds/Interior_Chair_Left.png" id="4_pbpnq"]
 [ext_resource type="Texture2D" uid="uid://5xciwwuiyqk3" path="res://Assets/Backgrounds/Interior_Chair_Right.png" id="5_7hl3t"]
 [ext_resource type="Texture2D" uid="uid://bop1o53fxn042" path="res://Assets/Backgrounds/Interior_Table.png" id="6_5dsrw"]
+[ext_resource type="PackedScene" uid="uid://3phm7o0vm6l7" path="res://Scenes/CreatureScene.tscn" id="6_e0npx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gnt6k"]
 size = Vector2(148.732, 146.16)
 
 [node name="Interior" type="Sprite2D"]
-texture = ExtResource("1_lirbk")
+y_sort_enabled = true
 centered = false
 script = ExtResource("2_nxgdb")
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(6, 23)
+texture = ExtResource("1_lirbk")
+centered = false
 
 [node name="InteriorAnimalSpawnArea" type="Area2D" parent="."]
 position = Vector2(60, 573)
@@ -23,91 +28,89 @@ position = Vector2(190, 6)
 shape = SubResource("RectangleShape2D_gnt6k")
 
 [node name="Tables" type="Node2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -1)
 
 [node name="Table1" type="Node2D" parent="Tables"]
+y_sort_enabled = true
 
 [node name="HighlightCircle" parent="Tables/Table1" instance=ExtResource("3_17ai5")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(487, 974)
+position = Vector2(452, 993)
 scale = Vector2(1, 1)
 texture = ExtResource("5_7hl3t")
+offset = Vector2(0, -50)
 ChairFacing = 1
 
 [node name="HighlightCircle2" parent="Tables/Table1" instance=ExtResource("3_17ai5")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(734, 827)
+position = Vector2(698, 878.5)
 scale = Vector2(1, 1)
-texture = ExtResource("4_pbpnq")
+offset = Vector2(0, -50)
 
 [node name="HighlightCircle3" parent="Tables/Table1" instance=ExtResource("3_17ai5")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(469, 710)
+position = Vector2(483, 751)
 scale = Vector2(1, 1)
-texture = ExtResource("4_pbpnq")
+offset = Vector2(0, -50)
 
 [node name="HighlightCircle4" parent="Tables/Table1" instance=ExtResource("3_17ai5")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(203, 834)
+position = Vector2(234, 884)
 scale = Vector2(1, 1)
 texture = ExtResource("5_7hl3t")
+offset = Vector2(0, -50)
 ChairFacing = 1
 
 [node name="Table2" type="Node2D" parent="Tables"]
+y_sort_enabled = true
 
 [node name="HighlightCircle" parent="Tables/Table2" instance=ExtResource("3_17ai5")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(604, 494)
+position = Vector2(635, 540)
 scale = Vector2(1, 1)
 texture = ExtResource("5_7hl3t")
+offset = Vector2(0, -50)
 ChairFacing = 1
 
 [node name="HighlightCircle1" parent="Tables/Table2" instance=ExtResource("3_17ai5")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(856, 613)
+position = Vector2(878, 657.5)
 scale = Vector2(1, 1)
 texture = ExtResource("5_7hl3t")
+offset = Vector2(0, -50)
 ChairFacing = 1
 
 [node name="HighlightCircle2" parent="Tables/Table2" instance=ExtResource("3_17ai5")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(1115, 503)
+position = Vector2(1108, 535)
 scale = Vector2(1, 1)
-texture = ExtResource("4_pbpnq")
+offset = Vector2(0, -50)
 
 [node name="HighlightCircle3" parent="Tables/Table2" instance=ExtResource("3_17ai5")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(847, 354)
+position = Vector2(869, 398.5)
 scale = Vector2(1, 1)
-texture = ExtResource("4_pbpnq")
+offset = Vector2(0, -50)
 
 [node name="Table3" type="Node2D" parent="Tables"]
+y_sort_enabled = true
 
 [node name="HighlightCircle5" parent="Tables/Table3" instance=ExtResource("3_17ai5")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(962, 839.5)
+position = Vector2(986, 880)
 scale = Vector2(1, 1)
 texture = ExtResource("5_7hl3t")
+offset = Vector2(0, -50)
 ChairFacing = 1
 
 [node name="HighlightCircle6" parent="Tables/Table3" instance=ExtResource("3_17ai5")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(1215, 966)
+position = Vector2(1219, 993)
 scale = Vector2(1, 1)
 texture = ExtResource("5_7hl3t")
+offset = Vector2(0, -50)
 ChairFacing = 1
 
 [node name="HighlightCircle7" parent="Tables/Table3" instance=ExtResource("3_17ai5")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(1473, 848.5)
+position = Vector2(1469, 870)
 scale = Vector2(1, 1)
-texture = ExtResource("4_pbpnq")
+offset = Vector2(0, -50)
 
 [node name="HighlightCircle8" parent="Tables/Table3" instance=ExtResource("3_17ai5")]
-modulate = Color(1, 1, 1, 1)
-position = Vector2(1205, 699.5)
+position = Vector2(1215, 750.5)
 scale = Vector2(1, 1)
-texture = ExtResource("4_pbpnq")
+offset = Vector2(0, -50)
 
 [node name="TableGraphic" type="Sprite2D" parent="."]
 position = Vector2(464, 825)
@@ -120,3 +123,6 @@ texture = ExtResource("6_5dsrw")
 [node name="TableGraphic3" type="Sprite2D" parent="."]
 position = Vector2(1221, 820)
 texture = ExtResource("6_5dsrw")
+
+[node name="CreatureScene" parent="." instance=ExtResource("6_e0npx")]
+position = Vector2(-5, -102)

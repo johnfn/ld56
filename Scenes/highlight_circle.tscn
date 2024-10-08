@@ -4,14 +4,20 @@
 [ext_resource type="Script" path="res://Scripts/HighlightCircle.cs" id="2_lpjg6"]
 
 [node name="HighlightCircle" type="Sprite2D"]
-position = Vector2(473, 961)
 scale = Vector2(0.541068, 0.541068)
 texture = ExtResource("1_l2gp8")
 script = ExtResource("2_lpjg6")
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = -63.0
-offset_top = -54.0
-offset_right = 68.0
-offset_bottom = 53.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.5
+offset_top = -107.0
+offset_right = 4.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true

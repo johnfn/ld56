@@ -68,6 +68,8 @@ public partial class CreatureScene : Node2D {
       Root.Instance.Nodes.AnimalManager.Sit(Data);
     } else if (Data.State == CreatureState.WaitForTalk) {
       Root.Instance.Nodes.AnimalManager.StartDialog(Data);
+    } else if (Data.State == CreatureState.WaitForEveryoneToFinish) {
+      GenericDialog.Instance.Show($"{Data.Data.DisplayName} is satisfied, and is waiting for everyone to finish eating.");
     }
   }
 

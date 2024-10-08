@@ -47,10 +47,6 @@ public partial class DialogBox : Control {
 
         SoundManager.Instance.PlayVoiceSfx(AllCreatures.CreatureIdToData[creatureId].VoiceIndex);
 
-        if (GameState.HYPERSPEED) {
-          break;
-        }
-
         await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
       }
     }
@@ -192,17 +188,15 @@ public partial class DialogBox : Control {
 
       Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_PanelContainer_VBoxContainer_ClickToContinue.Visible = true;
 
-      if (!GameState.HYPERSPEED) {
-        while (!_isMouseDown) {
-          await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
-        }
-
-        while (_isMouseDown) {
-          await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
-        }
-
+      while (!_isMouseDown) {
         await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
       }
+
+      while (_isMouseDown) {
+        await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+      }
+
+      await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
 
       Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_PanelContainer_VBoxContainer_DialogText.Text = "";
       Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_PanelContainer_VBoxContainer_ClickToContinue.Visible = false;

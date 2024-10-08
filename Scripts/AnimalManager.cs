@@ -194,10 +194,12 @@ public partial class AnimalManager : Node2D {
               continue;
             }
 
-            var direction = (animal.SelectedChair.GlobalPosition - instance.GlobalPosition).Normalized();
+            var destination = animal.SelectedChair.GlobalPosition + new Vector2(0, 40);
+
+            var direction = (destination - instance.GlobalPosition).Normalized();
             instance.Position += direction * GameConstants.WALKING_SPEED * (float)delta;
 
-            if (instance.GlobalPosition.DistanceTo(animal.SelectedChair.GlobalPosition) < 10) {
+            if (instance.GlobalPosition.DistanceTo(destination) < 10) {
               animal.State = CreatureState.WaitForTalk;
             }
 
@@ -307,7 +309,7 @@ public partial class AnimalManager : Node2D {
   public Node2D Spawn(SpawnedCreature spawnedCreature) {
     var newAnimal = spawnedCreature.Data.Instantiate(spawnedCreature);
 
-    AddChild(newAnimal);
+    Root.Instance.Nodes.Interior.AddChild(newAnimal);
     newAnimal.GlobalPosition = Root.Instance.Nodes.Exterior.Nodes.AnimalSpawnArea.GlobalPosition;
 
     return newAnimal;

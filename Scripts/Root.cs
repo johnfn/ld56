@@ -214,7 +214,6 @@ public partial class Root : Node2D {
     if (GameState.Mode == GameMode.Cooking) {
       if (GameState.CurrentScreen == GameScreen.Cooking && !GameState.HasShownCookingTutorial) {
         GameState.HasShownCookingTutorial = true;
-        GD.Print("Show cooking tutorial");
 
         GenericDialog.Instance.Show(
           "Now, you're in the kitchen. Here, you can cook food for your guests. Most guests have particular food preferences, so be sure to cook something that you think they'd like!\n\nClick on the ingredients in the bottom left, and then select ingredients to add to your cutting board. When you're ready, press cook!\n\nWhat will you make? Who knows!"

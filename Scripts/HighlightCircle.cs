@@ -1,7 +1,6 @@
 using Godot;
 
 namespace ld56;
-using static Utils;
 
 public enum ChairFacing {
   Left,
