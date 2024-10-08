@@ -73,6 +73,8 @@ public partial class DialogBox : Control {
     Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText.Text = "";
     Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_VBoxContainer_PanelContainer_DialogText_ClickToContinue.Visible = false;
 
+    GD.Print($"!! {creatureId} {dialog[0]}");
+
     switch (dialog[0]) {
       case DialogItem dialogItem:
         Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogItem.OverrideSpeakerName ?? AllCreatures.CreatureIdToData[creatureId].DisplayName;
@@ -80,6 +82,7 @@ public partial class DialogBox : Control {
         Nodes.DialogBox_HBoxContainer_DialogTextVBoxContainer.Visible = true;
         Nodes.DialogBox_HBoxContainer_OptionsVBoxContainer.Visible = false;
         break;
+
       case DialogOptions dialogOptions:
         Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_CharacterName.Text = dialogOptions.OverrideSpeakerName ?? AllCreatures.CreatureIdToData[creatureId].DisplayName;
         Nodes.DialogBox_HBoxContainer_CharacterDialogSprite.Texture = AllCreatures.CreatureIdToData[creatureId].DialogPortraitTexture;

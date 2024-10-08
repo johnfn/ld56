@@ -35,7 +35,7 @@ public partial class CreatureData : Resource {
   public Texture2D DialogPortraitTexture { get; set; }
 
   [Export]
-  public CreatureId Id { get; set; }
+  public required CreatureId Id { get; set; }
 
   // This will be set programmatically after loading
   [System.NonSerialized]
