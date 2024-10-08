@@ -2,7 +2,7 @@ using Godot;
 using System;
 using ld56;
 
-public partial class CookingIngredient : Container {
+public partial class CookingIngredient : PanelContainer {
   public event Action Pressed;
   public event Action MouseEntered;
   public event Action MouseExited;
@@ -10,14 +10,14 @@ public partial class CookingIngredient : Container {
   // Called when the node enters the scene tree for the first time.
   public override void _Ready() {
     this.PivotOffset = new Vector2(this.Size.X / 2, this.Size.Y / 2);
-    Nodes.Button.Pressed += () => {
+    Nodes.TextureRect_Button.Pressed += () => {
       Root.Instance.Nodes.SoundManager.PlayButtonPressSFX();
       Pressed?.Invoke();
     };
-    Nodes.Button.MouseEntered += () => {
+    Nodes.TextureRect_Button.MouseEntered += () => {
       MouseEntered?.Invoke();
     };
-    Nodes.Button.MouseExited += () => {
+    Nodes.TextureRect_Button.MouseExited += () => {
       MouseExited?.Invoke();
     };
 
@@ -32,6 +32,6 @@ public partial class CookingIngredient : Container {
       this.Scale = this.Scale / 1.1f;
     };
 
-    Nodes.Control_Tooltip.Visible = false;
+    Nodes.TextureRect_Control_Tooltip.Visible = false;
   }
 }

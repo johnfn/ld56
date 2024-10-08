@@ -189,8 +189,8 @@ public partial class CookingScreen : Sprite2D {
       CookingList.Add(ingredientId);
       var ingredient = AllIngredients.Ingredients.Find(i => i.Id == ingredientId);
       var ingredientListItem = CookingIngredient.New();
-      ingredientListItem.Nodes.PanelContainer_MarginContainer_QuantityLabel.Visible = false;
-      ingredientListItem.Nodes.IngredientImage.Texture = ingredient.Icon;
+      ingredientListItem.Nodes.TextureRect_PanelContainer_MarginContainer_QuantityLabel.Visible = false;
+      ingredientListItem.Nodes.TextureRect.Texture = ingredient.Icon;
 
       Nodes.UI_IngredientSlotsTexture_Container.AddChild(ingredientListItem);
       ingredientListItem.Pressed += () => {
@@ -198,7 +198,7 @@ public partial class CookingScreen : Sprite2D {
         Nodes.UI_IngredientSlotsTexture_Container.RemoveChild(ingredientListItem);
       };
 
-      ingredientListItem.Nodes.NameLabel.Text = ingredient.DisplayName;
+      ingredientListItem.Nodes.TextureRect_NameLabel.Text = ingredient.DisplayName;
     };
   }
 

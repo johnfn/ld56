@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -10,27 +9,27 @@ public static class AllDialog {
   public static readonly Dictionary<MealQuality, List<IDialogItem>> MealResponse = new() {
     [MealQuality.Perfect] = [
       new DialogItem { Text = "That seemed like the [color=purple]perfect meal[/color]!", Speaker = CreatureId.You },
-      new DialogItem { Text = "They gave me 10 gold as a tip.", Speaker = CreatureId.You,
+      new DialogItem { Text = "They gave me a [color=gold]100 gold tip![/color]", Speaker = CreatureId.You,
         OnComplete = async (CreatureId creatureId) => {
-          GameState.Gold += 10;
+          GameState.Gold += 100;
         }
       },
     ],
 
     [MealQuality.Close] = [
       new DialogItem { Text = "That meal seemed [color=orange]pretty close[/color].", Speaker = CreatureId.You },
-      new DialogItem { Text = "They gave me a 5 gold tip.", Speaker = CreatureId.You,
+      new DialogItem { Text = "They gave me a [color=gold]50 gold tip![/color]", Speaker = CreatureId.You,
         OnComplete = async (CreatureId creatureId) => {
-          GameState.Gold += 5;
+          GameState.Gold += 50;
         }
       }
     ],
 
     [MealQuality.Miss] = [
       new DialogItem { Text = "What was I thinking? That [color=gray]wasn't even close[/color] to what they wanted...", Speaker = CreatureId.You },
-      new DialogItem { Text = "They gave me a 3 gold tip.", Speaker = CreatureId.You,
+      new DialogItem { Text = "They gave me a [color=gold]20 gold tip![/color]", Speaker = CreatureId.You,
         OnComplete = async (CreatureId creatureId) => {
-          GameState.Gold += 3;
+          GameState.Gold += 20;
         }
       }
     ]

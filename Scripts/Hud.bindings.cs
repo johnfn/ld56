@@ -33,11 +33,6 @@ public partial class Hud : CanvasLayer {
       get => _ClosingTimeOverlay ??= parent.GetNode<ColorRect>("ClosingTimeOverlay");
     }
 
-    private Label? _CustomersServed;
-    public Label CustomersServed {
-      get => _CustomersServed ??= parent.GetNode<Label>("CustomersServed");
-    }
-
     private Label? _Gold;
     public Label Gold {
       get => _Gold ??= parent.GetNode<Label>("Gold");

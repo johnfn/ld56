@@ -13,16 +13,16 @@ public partial class Shop : ColorRect {
   }
 
   public void Initialize(List<Ingredient> displayedIngredients) {
-    var shopList = Nodes.PanelContainer_HBoxContainer_VBoxContainer2_ShopInventoryList;
-    var ownedList = Nodes.PanelContainer_HBoxContainer_VBoxContainer2_InventoryList;
+    var shopList = Nodes.PanelContainer_MarginContainer_VBoxContainer_HBoxContainer_VBoxContainer2_ShopInventoryList;
+    var ownedList = Nodes.PanelContainer_MarginContainer_VBoxContainer_HBoxContainer_VBoxContainer2_InventoryList;
 
     shopList.Initialize(displayedIngredients);
     ownedList.Initialize(GameState.OwnedIngredients);
 
     if (displayedIngredients.Count == 0) {
-      Nodes.PanelContainer_HBoxContainer_VBoxContainer2_NoneForSale.Visible = true;
+      Nodes.PanelContainer_MarginContainer_VBoxContainer_HBoxContainer_VBoxContainer2_NoneForSale.Visible = true;
     } else {
-      Nodes.PanelContainer_HBoxContainer_VBoxContainer2_NoneForSale.Visible = false;
+      Nodes.PanelContainer_MarginContainer_VBoxContainer_HBoxContainer_VBoxContainer2_NoneForSale.Visible = false;
     }
 
     shopList.OnMouseEnterIngredient += (ingredientId) => {
@@ -40,7 +40,6 @@ public partial class Shop : ColorRect {
         GameState.Gold -= ingredient.Cost;
         GameState.OwnedIngredients.Add(ingredient);
         GameState.KnownIngredients.Add(ingredient.Id);
-
 
         var newDisplayedIngredients = new List<Ingredient>(displayedIngredients);
         newDisplayedIngredients.Remove(ingredient);

@@ -22,10 +22,17 @@ public static class AllIngredients {
 
   internal static void LoadFromResources() {
     Ingredients.Clear();
+
     var ingredientsFolder = "res://Resources/Ingredients";
     var ingredientsFiles = Utils.ListDirContents(ingredientsFolder, "tres");
+
     foreach (var file in ingredientsFiles) {
       var ingredient = ResourceLoader.Load<Ingredient>($"{ingredientsFolder}/{file}");
+
+      if (ingredient.DisplayName == "Bread") {
+        continue; // never used.
+      }
+
       Ingredients.Add(ingredient);
     }
 

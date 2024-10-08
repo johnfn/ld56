@@ -74,7 +74,10 @@ offset_bottom = 513.0
 visible = false
 
 [node name="Shop" parent="." instance=ExtResource("12_d7kfh")]
-visible = false
+offset_left = -40.0
+offset_top = -145.0
+offset_right = 1880.0
+offset_bottom = 935.0
 
 [node name="Clock" parent="." instance=ExtResource("11_cepoc")]
 
@@ -85,35 +88,19 @@ offset_bottom = 1080.0
 mouse_filter = 2
 color = Color(0.0745098, 0.0823529, 0.215686, 0.337255)
 
-[node name="CustomersServed" type="Label" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -438.0
-offset_top = 5.0
-offset_right = -15.0
-offset_bottom = 55.0
-grow_horizontal = 0
-theme = ExtResource("2_bldc1")
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("15_07pbw")
-theme_override_font_sizes/font_size = 28
-text = "Customers Served: 0"
-horizontal_alignment = 2
-
 [node name="Gold" type="Label" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -441.0
-offset_top = 48.0
-offset_right = -18.0
-offset_bottom = 98.0
+offset_left = -442.0
+offset_top = 10.0
+offset_right = -19.0
+offset_bottom = 60.0
 grow_horizontal = 0
 theme = ExtResource("2_bldc1")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("15_07pbw")
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 56
 text = "Gold: 1"
 horizontal_alignment = 2
 

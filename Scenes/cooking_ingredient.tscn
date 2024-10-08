@@ -5,7 +5,17 @@
 [ext_resource type="Texture2D" uid="uid://dwl0k8yg2c0s1" path="res://Assets/Ingredients/Ingredients_Blueberry.png" id="2_popdc"]
 [ext_resource type="FontFile" uid="uid://cg0c3inufecfm" path="res://Resources/DarumadropOne-Regular.ttf" id="4_w2l4s"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cwxsk"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dslfn"]
+bg_color = Color(0.404297, 0.404297, 0.404297, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.621094, 0.621094, 0.621094, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6enof"]
 bg_color = Color(0, 0, 0, 1)
@@ -17,27 +27,27 @@ corner_radius_top_right = 32
 corner_radius_bottom_right = 32
 corner_radius_bottom_left = 32
 
-[node name="CookingIngredient" type="Container"]
-custom_minimum_size = Vector2(100, 100)
-offset_left = 1.0
-offset_right = 167.0
-offset_bottom = 159.0
+[node name="PanelContainer" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
 mouse_default_cursor_shape = 2
-theme = ExtResource("1_hs7iv")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dslfn")
 script = ExtResource("1_4htc4")
 
-[node name="IngredientImage" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(100, 100)
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(125, 125)
 layout_mode = 2
-mouse_filter = 2
-texture = SubResource("CompressedTexture2D_cwxsk")
-expand_mode = 2
-stretch_mode = 4
+mouse_default_cursor_shape = 2
+texture = ExtResource("2_popdc")
+expand_mode = 1
 
-[node name="NameLabel" type="RichTextLabel" parent="."]
+[node name="NameLabel" type="RichTextLabel" parent="TextureRect"]
 visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+offset_left = 1.0
+offset_right = 101.0
+offset_bottom = 23.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 mouse_filter = 2
@@ -45,18 +55,27 @@ bbcode_enabled = true
 text = "Basil leaf"
 fit_content = true
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 2
+[node name="PanelContainer" type="PanelContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -53.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_6enof")
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 0
 
-[node name="QuantityLabel" type="Label" parent="PanelContainer/MarginContainer"]
+[node name="QuantityLabel" type="Label" parent="TextureRect/PanelContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -65,10 +84,16 @@ theme_override_font_sizes/font_size = 36
 text = "x5"
 horizontal_alignment = 2
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="TextureRect"]
 layout_mode = 2
+anchors_preset = 0
+offset_left = 155.0
+offset_top = 169.0
+offset_right = 155.0
+offset_bottom = 169.0
 
-[node name="Tooltip" type="PanelContainer" parent="Control"]
+[node name="Tooltip" type="PanelContainer" parent="TextureRect/Control"]
+z_index = 4096
 custom_minimum_size = Vector2(300, 200)
 layout_mode = 2
 offset_top = -181.0
@@ -76,43 +101,52 @@ offset_right = 300.0
 offset_bottom = 19.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ud6b3")
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/Tooltip"]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/Control/Tooltip"]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Tooltip/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/Control/Tooltip/MarginContainer"]
 layout_mode = 2
 
-[node name="Title" type="RichTextLabel" parent="Control/Tooltip/MarginContainer/VBoxContainer"]
+[node name="Title" type="RichTextLabel" parent="TextureRect/Control/Tooltip/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("1_hs7iv")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
 text = "Egg"
 fit_content = true
 
-[node name="Description" type="RichTextLabel" parent="Control/Tooltip/MarginContainer/VBoxContainer"]
+[node name="Description" type="RichTextLabel" parent="TextureRect/Control/Tooltip/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 18
+theme = ExtResource("1_hs7iv")
+theme_override_colors/default_color = Color(0.212891, 0.212891, 0.212891, 1)
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "This is an egg."
 fit_content = true
 
-[node name="Price" type="RichTextLabel" parent="Control/Tooltip/MarginContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="TextureRect/Control/Tooltip/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 18
+
+[node name="Price" type="RichTextLabel" parent="TextureRect/Control/Tooltip/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_hs7iv")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 36
 bbcode_enabled = true
 text = "Price: 8"
 fit_content = true
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 2
-texture = ExtResource("2_popdc")
-expand_mode = 1
-
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="TextureRect"]
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+offset_left = 1.0
+offset_right = 123.0
+offset_bottom = 126.0
+mouse_default_cursor_shape = 2

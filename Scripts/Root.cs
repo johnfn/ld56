@@ -145,21 +145,26 @@ public partial class Root : Node2D {
   public void DisplayShopHelper() {
     // TODO: Figure out what they actually sell, lol.
 
-    DisplayShop([
+    List<Ingredient> forSale = [
       AllIngredients.Egg,
       AllIngredients.Egg,
       AllIngredients.Egg,
 
-      AllIngredients.Flour,
-      AllIngredients.Flour,
-      AllIngredients.Flour,
+      AllIngredients.Milk,
+      AllIngredients.Milk,
+      AllIngredients.Milk,
 
-      AllIngredients.Milk,
-      AllIngredients.Milk,
-      AllIngredients.Milk,
-      AllIngredients.Milk,
-      AllIngredients.Milk,
-    ]);
+      AllIngredients.Leaf,
+      AllIngredients.Leaf,
+      AllIngredients.Leaf,
+    ];
+
+    for (var j = 0; j < 10; j++) {
+      var randomIndex = new Random().Next(AllIngredients.Ingredients.Count);
+      forSale.Add(AllIngredients.Ingredients[randomIndex]);
+    }
+
+    DisplayShop(forSale);
   }
 
   public static void DisplayShop(List<Ingredient> displayedIngredients) {

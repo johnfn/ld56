@@ -37,10 +37,10 @@ public partial class InventoryList : GridContainer {
 
       AddChild(ingredientListItem);
 
-      ingredientListItem.Nodes.IngredientImage.Texture = ingredient.Icon;
+      ingredientListItem.Nodes.TextureRect.Texture = ingredient.Icon;
 
-      ingredientListItem.Nodes.NameLabel.Text = ingredient.DisplayName;
-      ingredientListItem.Nodes.PanelContainer_MarginContainer_QuantityLabel.Text = "x" + count.ToString();
+      ingredientListItem.Nodes.TextureRect_NameLabel.Text = ingredient.DisplayName;
+      ingredientListItem.Nodes.TextureRect_PanelContainer_MarginContainer_QuantityLabel.Text = "x" + count.ToString();
 
       ingredientListItem.Pressed += () => {
         OnClickIngredient?.Invoke(ingredientId);
@@ -79,13 +79,13 @@ public partial class InventoryList : GridContainer {
   }
 
   public void ShowTooltip(IngredientId ingredientId, Ingredient ingredient) {
-    idToIngredientListItem[ingredientId].Nodes.Control_Tooltip.Visible = true;
-    idToIngredientListItem[ingredientId].Nodes.Control_Tooltip_MarginContainer_VBoxContainer_Title.Text = ingredient.DisplayName;
-    idToIngredientListItem[ingredientId].Nodes.Control_Tooltip_MarginContainer_VBoxContainer_Description.Text = ingredient.Description;
-    idToIngredientListItem[ingredientId].Nodes.Control_Tooltip_MarginContainer_VBoxContainer_Price.Text = "[color=gold]" + ingredient.Cost.ToString() + " gold[/color]";
+    idToIngredientListItem[ingredientId].Nodes.TextureRect_Control_Tooltip.Visible = true;
+    idToIngredientListItem[ingredientId].Nodes.TextureRect_Control_Tooltip_MarginContainer_VBoxContainer_Title.Text = ingredient.DisplayName;
+    idToIngredientListItem[ingredientId].Nodes.TextureRect_Control_Tooltip_MarginContainer_VBoxContainer_Description.Text = ingredient.Description;
+    idToIngredientListItem[ingredientId].Nodes.TextureRect_Control_Tooltip_MarginContainer_VBoxContainer_Price.Text = "[color=gold]" + ingredient.Cost.ToString() + " gold[/color]";
   }
 
   public void HideTooltip(IngredientId ingredientId) {
-    idToIngredientListItem[ingredientId].Nodes.Control_Tooltip.Visible = false;
+    idToIngredientListItem[ingredientId].Nodes.TextureRect_Control_Tooltip.Visible = false;
   }
 }
