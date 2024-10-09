@@ -77,7 +77,7 @@ public static class AllLevels {
 
       new SpawnedCreature {
         Data = AllCreatures.Tom,
-        ReservationTime = Clock.GetTimeFromString("12:01 AM"),
+        ReservationTime = Clock.GetTimeFromString("12:01 PM"),
         GetDialog = () => AllDialog.Tom,
 
         State = CreatureState.NotSpawnedYet,

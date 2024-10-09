@@ -65,6 +65,7 @@ public partial class CookingScreen : Sprite2D {
     List<IngredientId>? desiredIngredients = null,
     Dictionary<MealQuality, List<IDialogItem>>? mealResponses = null
   ) {
+    CookingList.Clear();
     desiredIngredients ??= [];
     mealResponses ??= AllDialog.MealResponse;
 
@@ -213,15 +214,6 @@ public partial class CookingScreen : Sprite2D {
     }
 
     Nodes.UI_CookingResultModal.Nodes.MealNameLabel.Text = result.DisplayName;
-
-    foreach (var ingredient in CookingList) {
-      var ownedIngredients = GameState.OwnedIngredients;
-      var ingredientToRemove = ownedIngredients.FirstOrDefault(x => x.Id == ingredient);
-
-      if (ingredientToRemove != null) {
-        ownedIngredients.Remove(ingredientToRemove);
-      }
-    }
 
     CookingList.Clear();
   }

@@ -35,6 +35,10 @@ public partial class RolodexIngredientEntry : PanelContainer {
     var quantity = GameState.OwnedIngredients.Count(i => i.Id == _ingredientData.Id);
     var numUsedInCooking = CookingScreen.CookingList.Count(id => id == _ingredientData.Id);
 
+    if (_ingredientData.Id == IngredientId.Egg) {
+      GD.Print($"Quantity: {quantity}, Num Used In Cooking: {numUsedInCooking}");
+    }
+
     if (GameState.Mode == GameMode.Cooking) {
       quantity -= numUsedInCooking;
     }

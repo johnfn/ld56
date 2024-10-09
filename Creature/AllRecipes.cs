@@ -25,6 +25,7 @@ public static class AllRecipes {
     Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/SyrupyFlapjack.tres"));
     Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/TomatoSoup.tres"));
     Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/VeggieOmelet.tres"));
+    Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/WhatTrashSoup.tres"));
 
     GameState.AllRecipes.Clear();
     foreach (var recipe in Recipes) {
