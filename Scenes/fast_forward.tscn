@@ -19,6 +19,7 @@ script = ExtResource("2_8osxa")
 
 [node name="RecipesTooltip" type="PanelContainer" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 18.0
 offset_top = -71.0
 offset_right = 226.0
