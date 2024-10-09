@@ -31,6 +31,7 @@ public partial class SoundManager : Node {
       Music.Spy => SpyMusic,
     };
     Nodes.MusicStreamPlayer.Play();
+    Nodes.MusicStreamPlayer.VolumeDb = -10;
   }
 
   public void PlayPageTurnSFX() {

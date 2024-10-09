@@ -8,12 +8,23 @@ public static class AllRecipes {
 
   internal static void LoadFromResources() {
     Recipes.Clear();
-    var recipesFolder = "res://Resources/Recipes";
-    var recipesFiles = Utils.ListDirContents(recipesFolder, "tres");
-    foreach (var file in recipesFiles) {
-      var recipe = ResourceLoader.Load<Recipe>($"{recipesFolder}/{file}");
-      Recipes.Add(recipe);
-    }
+
+    Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/BeanSoup.tres"));
+    Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/BlueberryFlapjack.tres"));
+    Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/Flapjack.tres"));
+    Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/FluffFlapjack.tres"));
+    Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/GigaSalad.tres"));
+    Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/LactoseOmelet.tres"));
+    Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/MegaSalad.tres"));
+    Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/Omelet.tres"));
+    Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/OnionSoup.tres"));
+    Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/RoyalSkillet.tres"));
+    Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/Salad.tres"));
+    Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/SaladOfTheGodsSalad.tres"));
+    Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/StrawberryFlapjack.tres"));
+    Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/SyrupyFlapjack.tres"));
+    Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/TomatoSoup.tres"));
+    Recipes.Add(ResourceLoader.Load<Recipe>("res://Resources/Recipes/VeggieOmelet.tres"));
 
     GameState.AllRecipes.Clear();
     foreach (var recipe in Recipes) {
