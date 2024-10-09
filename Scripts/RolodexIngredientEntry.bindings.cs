@@ -17,7 +17,6 @@ public partial class RolodexIngredientEntry : PanelContainer {
     public RolodexIngredientEntryNodes(RolodexIngredientEntry parent) {
       this.parent = parent;
     }
-    // Scene: ./Scenes/RolodexIngredientEntry.tscn
     private HBoxContainer? _HBoxContainer;
     public HBoxContainer HBoxContainer {
       get => _HBoxContainer ??= parent.GetNode<HBoxContainer>("HBoxContainer");

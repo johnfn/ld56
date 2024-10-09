@@ -34,6 +34,6 @@ IntroMusic = ExtResource("21_v08gc")
 GameMusic = ExtResource("22_2wj3x")
 SpyMusic = ExtResource("23_msqy5")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
 
-[node name="MusicStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]

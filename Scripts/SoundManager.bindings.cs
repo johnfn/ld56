@@ -18,14 +18,14 @@ public partial class SoundManager : Node {
       this.parent = parent;
     }
     // Scene: ./Scenes/SoundManager.tscn
-    private AudioStreamPlayer2D? _AudioStreamPlayer2D;
-    public AudioStreamPlayer2D AudioStreamPlayer2D {
-      get => _AudioStreamPlayer2D ??= parent.GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
+    private AudioStreamPlayer? _AudioStreamPlayer2D;
+    public AudioStreamPlayer AudioStreamPlayer2D {
+      get => _AudioStreamPlayer2D ??= parent.GetNode<AudioStreamPlayer>("AudioStreamPlayer2D");
     }
 
-    private AudioStreamPlayer2D? _MusicStreamPlayer;
-    public AudioStreamPlayer2D MusicStreamPlayer {
-      get => _MusicStreamPlayer ??= parent.GetNode<AudioStreamPlayer2D>("MusicStreamPlayer");
+    private AudioStreamPlayer? _MusicStreamPlayer;
+    public AudioStreamPlayer MusicStreamPlayer {
+      get => _MusicStreamPlayer ??= parent.GetNode<AudioStreamPlayer>("MusicStreamPlayer");
     }
 
   }

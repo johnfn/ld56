@@ -23,18 +23,20 @@ public static class AllIngredients {
   internal static void LoadFromResources() {
     Ingredients.Clear();
 
-    var ingredientsFolder = "res://Resources/Ingredients";
-    var ingredientsFiles = Utils.ListDirContents(ingredientsFolder, "tres");
-
-    foreach (var file in ingredientsFiles) {
-      var ingredient = ResourceLoader.Load<Ingredient>($"{ingredientsFolder}/{file}");
-
-      if (ingredient.DisplayName == "Bread") {
-        continue; // never used.
-      }
-
-      Ingredients.Add(ingredient);
-    }
+    Ingredients.Add(ResourceLoader.Load<Ingredient>("res://Resources/Ingredients/Avocado.tres"));
+    Ingredients.Add(ResourceLoader.Load<Ingredient>("res://Resources/Ingredients/Blueberry.tres"));
+    Ingredients.Add(ResourceLoader.Load<Ingredient>("res://Resources/Ingredients/Cheese.tres"));
+    Ingredients.Add(ResourceLoader.Load<Ingredient>("res://Resources/Ingredients/Flour.tres"));
+    Ingredients.Add(ResourceLoader.Load<Ingredient>("res://Resources/Ingredients/Milk.tres"));
+    Ingredients.Add(ResourceLoader.Load<Ingredient>("res://Resources/Ingredients/Nectar.tres"));
+    Ingredients.Add(ResourceLoader.Load<Ingredient>("res://Resources/Ingredients/Strawberry.tres"));
+    Ingredients.Add(ResourceLoader.Load<Ingredient>("res://Resources/Ingredients/Turnip.tres"));
+    Ingredients.Add(ResourceLoader.Load<Ingredient>("res://Resources/Ingredients/Bean.tres"));
+    Ingredients.Add(ResourceLoader.Load<Ingredient>("res://Resources/Ingredients/Egg.tres"));
+    Ingredients.Add(ResourceLoader.Load<Ingredient>("res://Resources/Ingredients/Leaf.tres"));
+    Ingredients.Add(ResourceLoader.Load<Ingredient>("res://Resources/Ingredients/Mushroom.tres"));
+    Ingredients.Add(ResourceLoader.Load<Ingredient>("res://Resources/Ingredients/Onion.tres"));
+    Ingredients.Add(ResourceLoader.Load<Ingredient>("res://Resources/Ingredients/Tomato.tres"));
 
     GameState.KnownIngredients.Add(Bean.Id);
     GameState.KnownIngredients.Add(Leaf.Id);

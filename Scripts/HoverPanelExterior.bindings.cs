@@ -17,7 +17,6 @@ public partial class HoverPanelExterior : PanelContainer {
     public HoverPanelExteriorNodes(HoverPanelExterior parent) {
       this.parent = parent;
     }
-    // Scene: ./Scenes/hover_panel_exterior.tscn
     private MarginContainer? _MarginContainer;
     public MarginContainer MarginContainer {
       get => _MarginContainer ??= parent.GetNode<MarginContainer>("MarginContainer");

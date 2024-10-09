@@ -17,7 +17,6 @@ public partial class ListOfCreatures : PanelContainer {
     public ListOfCreaturesNodes(ListOfCreatures parent) {
       this.parent = parent;
     }
-    // Scene: ./Scenes/list_of_creatures.tscn
     private MarginContainer? _MarginContainer;
     public MarginContainer MarginContainer {
       get => _MarginContainer ??= parent.GetNode<MarginContainer>("MarginContainer");

@@ -17,7 +17,6 @@ public partial class HighlightCircle : Sprite2D {
     public HighlightCircleNodes(HighlightCircle parent) {
       this.parent = parent;
     }
-    // Scene: ./Scenes/highlight_circle.tscn
     private Button? _Button;
     public Button Button {
       get => _Button ??= parent.GetNode<Button>("Button");

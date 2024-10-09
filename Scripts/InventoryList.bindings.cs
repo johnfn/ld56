@@ -17,7 +17,6 @@ public partial class InventoryList : GridContainer {
     public InventoryListNodes(InventoryList parent) {
       this.parent = parent;
     }
-    // Scene: ./Scenes/inventory_list.tscn
     private CookingIngredient? _CookingIngredient;
     public CookingIngredient CookingIngredient {
       get => _CookingIngredient ??= parent.GetNode<CookingIngredient>("CookingIngredient");

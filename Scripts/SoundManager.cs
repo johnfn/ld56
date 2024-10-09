@@ -24,10 +24,6 @@ public partial class SoundManager : Node {
   public static SoundManager Instance { get; private set; }
 
   public void PlayMusic(Music music) {
-    if (GameState.IS_DEBUG) {
-      return;
-    }
-
     Nodes.MusicStreamPlayer.Stop();
     Nodes.MusicStreamPlayer.Stream = music switch {
       Music.Intro => IntroMusic,

@@ -17,7 +17,6 @@ public partial class GenericDialog : PanelContainer {
     public GenericDialogNodes(GenericDialog parent) {
       this.parent = parent;
     }
-    // Scene: ./Scenes/generic_dialog.tscn
     private MarginContainer? _MarginContainer;
     public MarginContainer MarginContainer {
       get => _MarginContainer ??= parent.GetNode<MarginContainer>("MarginContainer");

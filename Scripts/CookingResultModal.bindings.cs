@@ -17,7 +17,6 @@ public partial class CookingResultModal : Control {
     public CookingResultModalNodes(CookingResultModal parent) {
       this.parent = parent;
     }
-    // Scene: ./Scenes/cooking_result_modal.tscn
     private Button? _ClickOutside;
     public Button ClickOutside {
       get => _ClickOutside ??= parent.GetNode<Button>("ClickOutside");

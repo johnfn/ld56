@@ -37,10 +37,10 @@ public partial class DialogBox : Control {
   private async Task ShowDialogText(string text, CreatureId creatureId) {
     Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_PanelContainer_VBoxContainer_DialogText.Text = text;
 
-    for (int i = 0; i < text.Length; i += 3) {
+    for (int i = 0; i < text.Length; i++) {
       Nodes.DialogBox_HBoxContainer_CharacterDialogSprite_PanelContainer_VBoxContainer_DialogText.VisibleCharacters = i;
 
-      for (int j = 0; j < 20; j++) {
+      for (int j = 0; j < 3; j++) {
         if (_isMouseDown) {
           j += 3;
         }

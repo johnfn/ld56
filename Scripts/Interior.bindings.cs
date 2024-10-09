@@ -17,7 +17,6 @@ public partial class Interior : Sprite2D {
     public InteriorNodes(Interior parent) {
       this.parent = parent;
     }
-    // Scene: ./Scenes/interior.tscn
     private Sprite2D? _bg;
     public Sprite2D bg {
       get => _bg ??= parent.GetNode<Sprite2D>("bg");

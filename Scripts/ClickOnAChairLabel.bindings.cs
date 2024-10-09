@@ -17,7 +17,6 @@ public partial class ClickOnAChairLabel : PanelContainer {
     public ClickOnAChairLabelNodes(ClickOnAChairLabel parent) {
       this.parent = parent;
     }
-    // Scene: ./click_on_a_chair_label.tscn
     private MarginContainer? _MarginContainer;
     public MarginContainer MarginContainer {
       get => _MarginContainer ??= parent.GetNode<MarginContainer>("MarginContainer");

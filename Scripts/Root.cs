@@ -19,7 +19,6 @@ public partial class Root : Node2D {
     get => Nodes.HUD.Nodes.ListOfCreatures;
   }
 
-
   public int DaysLeft = 8;
 
   public override void _Ready() {
@@ -27,6 +26,15 @@ public partial class Root : Node2D {
 
     AllIngredients.LoadFromResources();
     AllRecipes.LoadFromResources();
+
+    GameState.OwnedIngredients.Add(AllIngredients.Egg);
+    GameState.OwnedIngredients.Add(AllIngredients.Egg);
+    GameState.OwnedIngredients.Add(AllIngredients.Onion);
+    GameState.OwnedIngredients.Add(AllIngredients.Milk);
+
+    GameState.KnownIngredients.Add(AllIngredients.Egg.Id);
+    GameState.KnownIngredients.Add(AllIngredients.Onion.Id);
+    GameState.KnownIngredients.Add(AllIngredients.Milk.Id);
 
     UpdateCurrentScreen(GameState.CurrentScreen);
 
@@ -88,18 +96,6 @@ public partial class Root : Node2D {
 
     StartNewDay();
 
-    if (GameState.IS_DEBUG) {
-      GameState.OwnedIngredients.Add(AllIngredients.Egg);
-      GameState.OwnedIngredients.Add(AllIngredients.Egg);
-      GameState.OwnedIngredients.Add(AllIngredients.Cheese);
-      GameState.OwnedIngredients.Add(AllIngredients.Cheese);
-      GameState.OwnedIngredients.Add(AllIngredients.Leaf);
-      GameState.OwnedIngredients.Add(AllIngredients.Bean);
-      GameState.OwnedIngredients.Add(AllIngredients.Turnip);
-
-      GameState.KnownIngredients.Add(AllIngredients.Egg.Id);
-      GameState.KnownIngredients.Add(AllIngredients.Cheese.Id);
-    }
   }
 
   public async Task StartNewDay() {
@@ -143,8 +139,6 @@ public partial class Root : Node2D {
   }
 
   public void DisplayShopHelper() {
-    // TODO: Figure out what they actually sell, lol.
-
     List<Ingredient> forSale = [
       AllIngredients.Egg,
       AllIngredients.Egg,
@@ -213,9 +207,22 @@ public partial class Root : Node2D {
         );
       }
     }
+
+    if (GameState.OwnedIngredients.Count == 0 && GameState.Mode == GameMode.Normal) {
+      GenericDialog.Instance.Show("Whoa, I just found a leaf on the ground.");
+      GameState.OwnedIngredients.Add(AllIngredients.Leaf);
+    }
   }
 
   public void EndDay() {
+    if (GameState.CurrentScreen == GameScreen.Exterior && !GameState.HasShownShopTutorial) {
+      GameState.HasShownShopTutorial = true;
+
+      GenericDialog.Instance.Show(
+        "The day is over! You can check out the newspaper to see how you did.\n\nDon't forget to click 'Shop' to buy more ingredients for tomorrow!"
+      );
+    }
+
     GameState.Mode = GameMode.EndOfDay;
 
     Nodes.HUD.Nodes.ClosingTimeOverlay.Modulate = new Color(1, 1, 1, 0);

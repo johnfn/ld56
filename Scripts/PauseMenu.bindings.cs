@@ -17,7 +17,6 @@ public partial class PauseMenu : ColorRect {
     public PauseMenuNodes(PauseMenu parent) {
       this.parent = parent;
     }
-    // Scene: ./Scenes/PauseMenu.tscn
     private TextureRect? _Background;
     public TextureRect Background {
       get => _Background ??= parent.GetNode<TextureRect>("Background");
